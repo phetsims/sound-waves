@@ -11,12 +11,10 @@ import SoundConstants from '../../common/SoundConstants.js';
 import ReflectionControlPanel from '../../common/view/ReflectionControlPanel.js';
 import SoundModeControlPanel from '../../common/view/SoundModeControlPanel.js';
 import sound from '../../sound.js';
-import SingleSourceModel from '../model/SingleSourceModel.js';
 import SoundScreenView from './SoundScreenView.js';
 
 class ReflectionView extends SoundScreenView {
   constructor( model ) {
-    assert && assert( model instanceof SingleSourceModel, 'invalid model' );
     super( model );
 
     // @private - control panel for the angle and position of the reflection wall
