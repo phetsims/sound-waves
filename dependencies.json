@@ -76,9 +76,9 @@
     "sha": "22d2ea6a9a2ea4f575f87e6c1a4914f6200d9197",
     "branch": "master"
   },
-  "sound": {
-    "sha": "b271af956e7ba8c1f0b7f3dc6cf89e4e63a4f648",
-    "branch": "master"
+  "wave-interference": {
+   "sha": "166ce68a02f1a29efc113665da44d8ad43dfa761",
+   "branch": "master"
   },
   "sun": {
     "sha": "639af54466a1c654d61708c61b870f18d76c58ef",

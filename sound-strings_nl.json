@@ -1,18 +1,18 @@
 {
   "sound.title": {
-    "value": "Sound"
+    "value": "Geluidsgolven"
   },
   "singleSource.title": {
-  	"value": "Listen to a Single Source"
+  	"value": "Luister naar één speaker"
   },
   "singleSource.help.listener": {
   	"value": "Listener can be moved left and right"
   },
   "measure.title": {
-  	"value": "Measure"
+  	"value": "Meten"
   },
   "measure.clearWaves": {
-    "value": "Clear Waves"
+    "value": "Verwijder golf"
   },
   "measure.help.stick": {
   	"value": "Use meter stick to measure waves"
@@ -21,7 +21,7 @@
   	"value": "Blue lines can be moved left and right to help mark measurement points on waves"
   },
   "twoSource.title": {
-  	"value": "Two Source Interference"
+  	"value": "Luister naar twee speakers"
   },
   "twoSource.help.upperSpeaker": {
   	"value": "Upper speaker can be moved up and down"
@@ -30,7 +30,7 @@
   	"value": "Listener can be moved in all directions"
   },
   "reflection.title": {
-  	"value": "Interference by Reflection"
+  	"value": "Geluid met reflectie tegen muur"
   },
   "atm": {
 	 "value": "ATM"
@@ -39,40 +39,40 @@
     "value": "Hz"
   },
   "airPressure.title": {
-  	"value": "Listen with Varying Air Pressure"
+  	"value": "Luister terwijl de luchtdruk in de speaker verandert"
   },
   "audioControlPanel.title": {
-    "value": "Audio Control"
+    "value": "Geluid"
   },
   "audioControlPanel.audioEnabled": {
-    "value": "Audio Enabled"
+    "value": "Aan"
   },
   "audioControlPanel.speaker": {
-    "value": "Speaker"
+    "value": "Uit speaker"
   },
   "audioControlPanel.listener": {
-    "value": "Listener"
+    "value": "Hoort luisteraar"
   },
   "soundModeControlPanel.title": {
-    "value": "Sound Mode"
+    "value": "Geluid"
   },
   "soundModeControlPanel.continuous": {
-    "value": "Continuous"
+    "value": "Continu"
   },
   "soundModeControlPanel.pulse": {
-    "value":  "Pulse"
+    "value":  "Puls"
   },
   "soundModeControlPanel.firePulse": {
-    "value": "Fire Pulse"
+    "value": "Eén puls uit speaker"
   },
   "reflectionControlPanel.positionSlider": {
-    "value": "Wall Position"
+    "value": "Plaats wand"
   },
   "reflectionControlPanel.rotationSlider": {
-    "value": "Wall Angle"
+    "value": "Hoek wand"
   },
   "airDensityControlPanel.title": {
-    "value": "Air Density"
+    "value": "Dichtheid lucht"
   },
   "airDensityControlPanel.removeAir": {
     "value": "Remove Air from Box"
@@ -87,6 +87,6 @@
   	"value": "Amplitude"
   },
   "frequency": {
-  	"value": "Frequency"
+  	"value": "Frequentie"
   }
 }

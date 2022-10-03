@@ -7,29 +7,20 @@
     "url": "https://github.com/phetsims/sound.git"
   },
   "devDependencies": {
-    "grunt": "~1.5.3"
+    "grunt": "~1.1.0"
   },
   "phet": {
     "requirejsNamespace": "SOUND",
+    "supportsSound": true,
     "simulation": true,
     "runnable": true,
+    "readmeCreatedManually": true,
     "supportedBrands": [
       "phet",
       "adapted-from-phet"
-    ],
-    "supportsOutputJS": true
+    ]
   },
   "eslintConfig": {
-    "extends": "../chipper/eslint/sim_eslintrc.js",
-    "overrides": [
-      {
-        "files": [
-          "**/*.ts"
-        ],
-        "rules": {
-          "@typescript-eslint/ban-ts-comment": "error"
-        }
-      }
-    ]
+    "extends": "../chipper/eslint/sim_eslintrc.js"
   }
 }
