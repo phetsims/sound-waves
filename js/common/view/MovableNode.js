@@ -28,7 +28,7 @@ class MoveableNode extends Node {
     this.movableDragHandler = new DragListener( {
       positionProperty: positionProperty,
       dragBoundsProperty: new Property( dragBounds ), // TODO
-      modelViewTransform: modelViewTransform,
+      transform: modelViewTransform,
       useParentOffset: true
     } );
 
