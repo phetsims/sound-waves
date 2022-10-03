@@ -99,6 +99,6 @@ type StringsType = {
 
 const SoundStrings = getStringModule( 'SOUND' ) as StringsType;
 
-// sound.register( 'SoundStrings', SoundStrings );
+sound.register( 'SoundStrings', SoundStrings );
 
 export default SoundStrings;
