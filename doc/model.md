@@ -18,12 +18,15 @@ This screen has two extra components: a meter stick that is 5 meter long, and a 
 
 ## Two source screen
 
-This screen contains two speakers, one of which is moveable, and thus shows the interference pattern produced by the two soundwaves overlapping.
+This screen contains two speakers, one of which is movable, and thus shows the interference pattern produced by the two
+soundwaves overlapping.
 
 ## Reflection Screen
 
-This screen has a moveable wall that will reflect the wave back. The angle of reflection is equal to the angle of reflection. After the reflection wave will then interfere with itself.
+This screen has a movable wall that will reflect the wave back. The angle of reflection is equal to the angle of
+reflection. After the reflection wave will then interfere with itself.
 
 ## Pressure Screen
 
-This screen will have the speaker be contained in a box in which the air pressure is controlleable. The intensity of the waves will be linearly equivalent to the air pressure. The pressure can vary between 0 and 1 ATM.
+This screen will have the speaker be contained in a box in which the air pressure is controllable. The intensity of the
+waves will be linearly equivalent to the air pressure. The pressure can vary between 0 and 1 ATM.
