@@ -1,4 +1,4 @@
-// Copyright 2018-2020, University of Colorado Boulder
+// Copyright 2022, University of Colorado Boulder
 
 /**
  * Controls for the sound mode, whether the speaker emits waves contiously or pulse on button press.

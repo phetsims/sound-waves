@@ -1,4 +1,4 @@
-// Copyright 2018-2020, University of Colorado Boulder
+// Copyright 2022, University of Colorado Boulder
 /* eslint-disable default-import-match-filename */ // TODO Re-enable
 /**
  * Node for the speaker, oscillates with the values of the oscillatorProperty.

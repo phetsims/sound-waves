@@ -1,4 +1,4 @@
-// Copyright 2018-2020, University of Colorado Boulder
+// Copyright 2022, University of Colorado Boulder
 
 /**
  * Slider that controls a given property, can display the current value and a title.
