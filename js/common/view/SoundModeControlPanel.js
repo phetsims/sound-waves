@@ -29,7 +29,7 @@ class SoundModeControlPanel extends SoundPanel {
    */
   constructor( model, alignGroup, options ) {
     options = merge( {
-      maxWidth: WaveInterferenceConstants.PANEL_MAX_WIDTH,
+      maxWidth: SoundConstants.PANEL_MAX_WIDTH,
       yMargin: 4
     }, options );
 

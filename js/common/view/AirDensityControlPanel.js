@@ -7,7 +7,7 @@
 import merge from '../../../../phet-core/js/merge.js';
 import { Node, Text } from '../../../../scenery/js/imports.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
-import WaveInterferenceConstants from '../../../../wave-interference/js/common/WaveInterferenceConstants.js';
+import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
 import SoundStrings from '../../SoundStrings.js';
 import PropertyControlSlider from './PropertyControlSlider.js';
@@ -25,7 +25,7 @@ class AirDensityControlPanel extends SoundPanel {
    */
   constructor( model, alignGroup, options ) {
     options = merge( {
-      maxWidth: WaveInterferenceConstants.PANEL_MAX_WIDTH,
+      maxWidth: SoundConstants.PANEL_MAX_WIDTH,
       yMargin: 4
     }, options );
 
