@@ -12,7 +12,6 @@ import GaugeNode from '../../../../scenery-phet/js/GaugeNode.js';
 import TimeControlNode from '../../../../scenery-phet/js/TimeControlNode.js';
 import { AlignGroup, Rectangle, Text, Color } from '../../../../scenery/js/imports.js';
 import soundManager from '../../../../tambo/js/soundManager.js';
-import WaveAreaNode from '../../../../wave-interference/js/common/view/WaveAreaNode.js';
 import SineWaveGenerator from '../../../../wave-interference/js/waves/view/SineWaveGenerator.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import AudioControlPanel from '../../common/view/AudioControlPanel.js';
@@ -38,8 +37,8 @@ class SoundScreenView extends ScreenView {
 
     super();
 
-    // @private - shows the background of the wave area for sound view and used for layout
-    this.waveAreaNode = new WaveAreaNode( {
+    this.waveAreaNode = new Rectangle( 0, 0, 500, 500, {
+      fill: '#4c4c4c',
       top: SoundConstants.CONTROL_PANEL_MARGIN + WAVE_MARGIN + 15,
       centerX: this.layoutBounds.centerX - 142
     } );
