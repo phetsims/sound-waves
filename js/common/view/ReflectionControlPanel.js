@@ -6,16 +6,16 @@
 
 import merge from '../../../../phet-core/js/merge.js';
 import { Node } from '../../../../scenery/js/imports.js';
-import WaveInterferencePanel from '../../../../wave-interference/js/common/view/WaveInterferencePanel.js';
 import WaveInterferenceConstants from '../../../../wave-interference/js/common/WaveInterferenceConstants.js';
 import sound from '../../sound.js';
 import SoundStrings from '../../SoundStrings.js';
 import PropertyControlSlider from './PropertyControlSlider.js';
+import SoundPanel from './SoundPanel.js';
 
 const positionSliderString = SoundStrings.reflectionControlPanel.positionSlider;
 const rotationSliderString = SoundStrings.reflectionControlPanel.rotationSlider;
 
-class ReflectionControlPanel extends WaveInterferencePanel {
+class ReflectionControlPanel extends SoundPanel {
 
   /**
    * @param {SoundModel} model

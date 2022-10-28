@@ -7,16 +7,16 @@
 import merge from '../../../../phet-core/js/merge.js';
 import { Node, Text } from '../../../../scenery/js/imports.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
-import WaveInterferencePanel from '../../../../wave-interference/js/common/view/WaveInterferencePanel.js';
 import WaveInterferenceConstants from '../../../../wave-interference/js/common/WaveInterferenceConstants.js';
 import sound from '../../sound.js';
 import SoundStrings from '../../SoundStrings.js';
 import PropertyControlSlider from './PropertyControlSlider.js';
+import SoundPanel from './SoundPanel.js';
 
 const titleString = SoundStrings.airDensityControlPanel.title;
 const resetString = SoundStrings.airDensityControlPanel.reset;
 
-class AirDensityControlPanel extends WaveInterferencePanel {
+class AirDensityControlPanel extends SoundPanel {
 
   /**
    * @param {SoundModel} model

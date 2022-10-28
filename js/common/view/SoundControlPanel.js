@@ -9,19 +9,19 @@ import Utils from '../../../../dot/js/Utils.js';
 import merge from '../../../../phet-core/js/merge.js';
 import { Node, Text, HSeparator } from '../../../../scenery/js/imports.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
-import WaveInterferencePanel from '../../../../wave-interference/js/common/view/WaveInterferencePanel.js';
 import WaveInterferenceConstants from '../../../../wave-interference/js/common/WaveInterferenceConstants.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
 import SoundStrings from '../../SoundStrings.js';
 import PropertyControlSlider from './PropertyControlSlider.js';
+import SoundPanel from './SoundPanel.js';
 
 const amplitudeString = SoundStrings.amplitude;
 const frequencyString = SoundStrings.frequency;
 const clearString = SoundStrings.measure.clearWaves;
 const hzString = SoundStrings.hz;
 
-class SoundControlPanel extends WaveInterferencePanel {
+class SoundControlPanel extends SoundPanel {
 
   /**
    * @param {SoundModel} model

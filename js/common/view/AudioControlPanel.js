@@ -8,19 +8,19 @@ import merge from '../../../../phet-core/js/merge.js';
 import { Node, Text } from '../../../../scenery/js/imports.js';
 import Checkbox from '../../../../sun/js/Checkbox.js';
 import VerticalAquaRadioButtonGroup from '../../../../sun/js/VerticalAquaRadioButtonGroup.js';
-import WaveInterferencePanel from '../../../../wave-interference/js/common/view/WaveInterferencePanel.js';
 import WaveInterferenceConstants from '../../../../wave-interference/js/common/WaveInterferenceConstants.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
 import SoundModel from '../../sound/model/SoundModel.js';
 import SoundStrings from '../../SoundStrings.js';
+import SoundPanel from './SoundPanel.js';
 
 const titleString = SoundStrings.audioControlPanel.title;
 const audioEnabledString = SoundStrings.audioControlPanel.audioEnabled;
 const speakerAudioString = SoundStrings.audioControlPanel.speaker;
 const listenerAudioString = SoundStrings.audioControlPanel.listener;
 
-class AudioControlPanel extends WaveInterferencePanel {
+class AudioControlPanel extends SoundPanel {
 
   /**
    * @param {SoundModel} model
