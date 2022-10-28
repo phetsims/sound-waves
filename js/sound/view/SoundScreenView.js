@@ -12,7 +12,7 @@ import GaugeNode from '../../../../scenery-phet/js/GaugeNode.js';
 import TimeControlNode from '../../../../scenery-phet/js/TimeControlNode.js';
 import { AlignGroup, Rectangle, Text, Color } from '../../../../scenery/js/imports.js';
 import soundManager from '../../../../tambo/js/soundManager.js';
-import SineWaveGenerator from '../../../../wave-interference/js/waves/view/SineWaveGenerator.js';
+import WaveGenerator from '../../../../tambo/js/sound-generators/WaveGenerator.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import AudioControlPanel from '../../common/view/AudioControlPanel.js';
 import LatticeCanvasNode from '../../common/view/LatticeCanvasNode.js';
@@ -109,7 +109,7 @@ class SoundScreenView extends ScreenView {
         model.listenerPositionProperty.link( updateSoundAmplitude );
       }
 
-      const sineWavePlayer = new SineWaveGenerator(
+      const sineWavePlayer = new WaveGenerator(
         model.frequencyProperty,
         soundAmpitudeProperty, {
           enableControlProperties: [
