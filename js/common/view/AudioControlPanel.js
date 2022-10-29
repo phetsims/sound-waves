@@ -8,7 +8,6 @@ import merge from '../../../../phet-core/js/merge.js';
 import { Node, Text } from '../../../../scenery/js/imports.js';
 import Checkbox from '../../../../sun/js/Checkbox.js';
 import VerticalAquaRadioButtonGroup from '../../../../sun/js/VerticalAquaRadioButtonGroup.js';
-import WaveInterferenceConstants from '../../../../wave-interference/js/common/WaveInterferenceConstants.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
 import SoundModel from '../../sound/model/SoundModel.js';
@@ -36,7 +35,7 @@ class AudioControlPanel extends SoundPanel {
     const boxText = new Text( titleString );
     const graphCheckbox = new Checkbox(
       model.isAudioEnabledProperty,
-      new Text( audioEnabledString, WaveInterferenceConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
+      new Text( audioEnabledString, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
       {
         boxWidth: 15
       } );
@@ -46,10 +45,10 @@ class AudioControlPanel extends SoundPanel {
     let radioButtons;
     if ( model.audioControlSettingProperty ) {
       radioButtons = new VerticalAquaRadioButtonGroup( model.audioControlSettingProperty, [ {
-        createNode: tandem => new Text( speakerAudioString, WaveInterferenceConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
+        createNode: tandem => new Text( speakerAudioString, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
         value: SoundModel.AudioControlOptions.SPEAKER
       }, {
-        createNode: tandem => new Text( listenerAudioString, WaveInterferenceConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
+        createNode: tandem => new Text( listenerAudioString, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
         value: SoundModel.AudioControlOptions.LISTENER
       } ], {
         spacing: options.yMargin

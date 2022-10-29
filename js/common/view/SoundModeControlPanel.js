@@ -8,7 +8,6 @@ import merge from '../../../../phet-core/js/merge.js';
 import { Node, Text } from '../../../../scenery/js/imports.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
 import VerticalAquaRadioButtonGroup from '../../../../sun/js/VerticalAquaRadioButtonGroup.js';
-import WaveInterferenceConstants from '../../../../wave-interference/js/common/WaveInterferenceConstants.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
 import SoundModel from '../../sound/model/SoundModel.js';
@@ -36,10 +35,10 @@ class SoundModeControlPanel extends SoundPanel {
     const boxText = new Text( titleString );
 
     const radioButtons = new VerticalAquaRadioButtonGroup( model.soundModeProperty, [ {
-      createNode: tandem => new Text( continuousOptionString, WaveInterferenceConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
+      createNode: tandem => new Text( continuousOptionString, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
       value: SoundModel.SoundModeOptions.CONTINUOUS
     }, {
-      createNode: tandem => new Text( pulseOptionString, WaveInterferenceConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
+      createNode: tandem => new Text( pulseOptionString, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
       value: SoundModel.SoundModeOptions.PULSE
     } ], {
       spacing: options.yMargin

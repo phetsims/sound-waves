@@ -30,7 +30,10 @@ const SoundConstants = {
   MAX_SOUND_DISTANCE: 85,
   EVENT_RATE: EVENT_RATE,
   AMPLITUDE_CALIBRATION_SCALE: AMPLITUDE_CALIBRATION_SCALE,
-  CONE_ANGLE: Math.PI / 3
+  CONE_ANGLE: Math.PI / 3,
+
+  // Checkboxes and radio buttons in the control panel need extended maxWidth, see https://github.com/phetsims/wave-interference/issues/440
+  CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS: { maxWidth: 140 }
 };
 
 sound.register( 'SoundConstants', SoundConstants );
