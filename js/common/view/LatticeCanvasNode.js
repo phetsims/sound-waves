@@ -10,7 +10,6 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import { CanvasNode, Color } from '../../../../scenery/js/imports.js';
 import ImageDataRenderer from '../../../../wave-interference/js/common/view/ImageDataRenderer.js';
-import WaveInterferenceUtils from '../../../../wave-interference/js/common/WaveInterferenceUtils.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
 
@@ -28,7 +27,7 @@ class LatticeCanvasNode extends CanvasNode {
     options = merge( {
 
       // only use the visible part for the bounds (not the damping regions)
-      canvasBounds: WaveInterferenceUtils.getCanvasBounds( lattice ),
+      canvasBounds: SoundConstants.getCanvasBounds( lattice ),
       layerSplit: true, // ensure we're on our own layer
       baseColor: Color.blue,
       hasReflection: false,

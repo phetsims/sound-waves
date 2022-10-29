@@ -8,6 +8,8 @@
 
 import Range from '../../../dot/js/Range.js';
 import Dimension2 from '../../../dot/js/Dimension2.js';
+import Bounds2 from '../../../dot/js/Bounds2.js';
+import Utils from '../../../dot/js/Utils.js';
 import sound from '../sound.js';
 
 const LATTICE_DIMENSION = 151;
@@ -15,6 +17,7 @@ const LATTICE_PADDING = 20;
 const AMPLITUDE_CALIBRATION_SCALE = ( LATTICE_DIMENSION - LATTICE_PADDING * 2 ) / ( 101 - 20 * 2 );
 const EVENT_RATE = 20 * AMPLITUDE_CALIBRATION_SCALE;
 const WAVE_AREA_WIDTH = 1000;
+const CELL_WIDTH = 5;
 
 const SoundConstants = {
   SCREEN_VIEW_X_MARGIN: 15,
@@ -38,7 +41,33 @@ const SoundConstants = {
 
   MAJOR_TICK_LENGTH: 12,
   THUMB_SIZE: new Dimension2( 13, 22 ),
-  CELL_WIDTH: 5
+  CELL_WIDTH: CELL_WIDTH,
+
+  /**
+   * At the default size, the text should "nestle" into the slider.  But when the text is too small, it must be spaced
+   * further away.  See https://github.com/phetsims/wave-interference/issues/194
+   */
+  getSliderTitleSpacing( titleNode ) {
+
+    const tallTextHeight = 17;
+    const shortTextHeight = 4;
+
+    const tallTextSpacing = -2;
+    const shortTextSpacing = 5;
+
+    return Utils.linear( tallTextHeight, shortTextHeight, tallTextSpacing, shortTextSpacing, titleNode.height );
+  },
+
+  /**
+   * Gets the bounds to use for a canvas, in view coordinates
+   */
+  getCanvasBounds( lattice ) {
+    return new Bounds2(
+      0, 0,
+      ( lattice.width - lattice.dampX * 2 ) * CELL_WIDTH, ( lattice.height - lattice.dampY * 2 ) * CELL_WIDTH
+    );
+  }
+
 };
 
 sound.register( 'SoundConstants', SoundConstants );

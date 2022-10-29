@@ -6,9 +6,9 @@
 
 import merge from '../../../../phet-core/js/merge.js';
 import { Node, Text } from '../../../../scenery/js/imports.js';
-import WaveInterferenceUtils from '../../../../wave-interference/js/common/WaveInterferenceUtils.js';
 import SoundSlider from '../../common/view/SoundSlider.js';
 import sound from '../../sound.js';
+import SoundConstants from '../SoundConstants.js';
 
 class ProtertyControlSlider extends Node {
   constructor( titleText, property, options ) {
@@ -22,7 +22,7 @@ class ProtertyControlSlider extends Node {
 
     const sliderContainer = new SoundSlider( property );
     sliderContainer.centerX = title.centerX;
-    sliderContainer.top = ( options.valueToText ? valueDisplay.bottom : title.bottom ) + WaveInterferenceUtils.getSliderTitleSpacing( title );
+    sliderContainer.top = ( options.valueToText ? valueDisplay.bottom : title.bottom ) + SoundConstants.getSliderTitleSpacing( title );
     valueDisplay.right = sliderContainer.right;
 
     if ( options.valueToText ) {
