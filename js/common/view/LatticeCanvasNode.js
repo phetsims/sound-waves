@@ -9,7 +9,7 @@ import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import { CanvasNode, Color } from '../../../../scenery/js/imports.js';
-import ImageDataRenderer from '../../../../wave-interference/js/common/view/ImageDataRenderer.js';
+import ImageDataRenderer from '../../../../scenery-phet/js/ImageDataRenderer.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
 

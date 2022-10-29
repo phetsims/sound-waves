@@ -14,7 +14,7 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import EventTimer from '../../../../phet-core/js/EventTimer.js';
 import merge from '../../../../phet-core/js/merge.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import Lattice from '../../../../wave-interference/js/common/model/Lattice.js';
+import Lattice from '../../../../scenery-phet/js/Lattice.js';
 import TemporalMask from '../../common/model/TemporalMask.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';

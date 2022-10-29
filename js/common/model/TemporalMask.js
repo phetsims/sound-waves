@@ -7,7 +7,7 @@
  *
  */
 
-import Lattice from '../../../../wave-interference/js/common/model/Lattice.js';
+import Lattice from '../../../../scenery-phet/js/Lattice.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
 

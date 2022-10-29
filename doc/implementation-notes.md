@@ -33,7 +33,7 @@ The SoundModel class contains the data for a screen.
 The base model is responsible for owning the waves lattice, the properties shared among all models (e.g.
 frequencyProperty & amplitudeProperty), generating the waves and advancing the timestep.
 ### Lattice 
-For keeping track of the wave values on the screen the [Lattice](https://github.com/phetsims/wave-interference/blob/master/js/common/model/Lattice.js) component from wave-interference was used. Its dimensions and padding are kept at the same values as in wave-interference but could be changed for better resolution and to allow larger padding areas for reflection.
+For keeping track of the wave values on the screen the [Lattice](https://github.com/phetsims/scenery-phet/blob/master/js/Lattice.ts) component from scenery-phet was used. Its dimensions and padding are kept at the same values as in wave-interference but could be changed for better resolution and to allow larger padding areas for reflection.
 
 ### TemporalMask
 
