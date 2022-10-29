@@ -10,7 +10,6 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import merge from '../../../../phet-core/js/merge.js';
 import { CanvasNode, Color } from '../../../../scenery/js/imports.js';
 import ImageDataRenderer from '../../../../wave-interference/js/common/view/ImageDataRenderer.js';
-import WaveInterferenceConstants from '../../../../wave-interference/js/common/WaveInterferenceConstants.js';
 import WaveInterferenceUtils from '../../../../wave-interference/js/common/WaveInterferenceUtils.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
@@ -82,8 +81,8 @@ class LatticeCanvasNode extends CanvasNode {
    */
   static localPointToLatticePoint( point ) {
     return new Vector2(
-      Utils.roundSymmetric( point.x / WaveInterferenceConstants.CELL_WIDTH ),
-      Utils.roundSymmetric( point.y / WaveInterferenceConstants.CELL_WIDTH )
+      Utils.roundSymmetric( point.x / SoundConstants.CELL_WIDTH ),
+      Utils.roundSymmetric( point.y / SoundConstants.CELL_WIDTH )
     );
   }
 
@@ -210,7 +209,7 @@ class LatticeCanvasNode extends CanvasNode {
 
     // draw the sub-canvas to the rendering context at the appropriate scale
     context.save();
-    context.transform( WaveInterferenceConstants.CELL_WIDTH, 0, 0, WaveInterferenceConstants.CELL_WIDTH, 0, 0 );
+    context.transform( SoundConstants.CELL_WIDTH, 0, 0, SoundConstants.CELL_WIDTH, 0, 0 );
     context.drawImage( this.imageDataRenderer.canvas, 0, 0 );
     context.restore();
   }

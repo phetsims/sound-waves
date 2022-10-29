@@ -15,7 +15,6 @@ import EventTimer from '../../../../phet-core/js/EventTimer.js';
 import merge from '../../../../phet-core/js/merge.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Lattice from '../../../../wave-interference/js/common/model/Lattice.js';
-import WaveInterferenceConstants from '../../../../wave-interference/js/common/WaveInterferenceConstants.js';
 import TemporalMask from '../../common/model/TemporalMask.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
@@ -195,7 +194,7 @@ class SoundModel {
       // Compute the wave value as a function of time, or set to zero if no longer generating a wave.
       const waveValue = ( this.isPulseFiringProperty.get() && timeSincePulseStarted > period ) ? 0 :
                         -Math.sin( time * angularFrequency + this.phase ) * amplitude *
-                        WaveInterferenceConstants.AMPLITUDE_CALIBRATION_SCALE * dampingByPressure;
+                        1.2 * dampingByPressure;
 
       // Point source
       if ( isContinuous || this.isPulseFiringProperty.get() ) {

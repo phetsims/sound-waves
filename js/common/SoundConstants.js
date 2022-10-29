@@ -7,6 +7,7 @@
  */
 
 import Range from '../../../dot/js/Range.js';
+import Dimension2 from '../../../dot/js/Dimension2.js';
 import sound from '../sound.js';
 
 const LATTICE_DIMENSION = 151;
@@ -33,7 +34,11 @@ const SoundConstants = {
   CONE_ANGLE: Math.PI / 3,
 
   // Checkboxes and radio buttons in the control panel need extended maxWidth, see https://github.com/phetsims/wave-interference/issues/440
-  CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS: { maxWidth: 140 }
+  CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS: { maxWidth: 140 },
+
+  MAJOR_TICK_LENGTH: 12,
+  THUMB_SIZE: new Dimension2( 13, 22 ),
+  CELL_WIDTH: 5
 };
 
 sound.register( 'SoundConstants', SoundConstants );

@@ -13,8 +13,8 @@ import merge from '../../../../phet-core/js/merge.js';
 import HSlider from '../../../../sun/js/HSlider.js';
 import generalBoundaryBoopSoundPlayer from '../../../../tambo/js/shared-sound-players/generalBoundaryBoopSoundPlayer.js';
 import generalSoftClickSoundPlayer from '../../../../tambo/js/shared-sound-players/generalSoftClickSoundPlayer.js';
-import WaveInterferenceConstants from '../../../../wave-interference/js/common/WaveInterferenceConstants.js';
 import sound from '../../sound.js';
+import SoundConstants from '../../common/SoundConstants.js';
 
 // constants
 const MIN_INTER_CLICK_TIME = ( 1 / 60 * 1000 ) * 2; // min time between clicks, in milliseconds, empirically determined
@@ -106,14 +106,14 @@ class SoundSlider extends HSlider {
     if ( options.showTicks ) {
       options = merge( {
         tickLabelSpacing: 2,
-        majorTickLength: WaveInterferenceConstants.MAJOR_TICK_LENGTH,
+        majorTickLength: SoundConstants.MAJOR_TICK_LENGTH,
         minorTickLength: 8
 
       }, options );
     }
 
     if ( !options.thumbNode ) {
-      options.thumbSize = WaveInterferenceConstants.THUMB_SIZE;
+      options.thumbSize = SoundConstants.THUMB_SIZE;
     }
 
     if ( !options.trackNode ) {
