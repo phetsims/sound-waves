@@ -1,5 +1,6 @@
 // Copyright 2022, University of Colorado Boulder
-
+/* eslint-disable */
+// @ts-nocheck
 /**
  * Constants used throughout this simulation.
  *
@@ -11,6 +12,8 @@ import Dimension2 from '../../../dot/js/Dimension2.js';
 import Bounds2 from '../../../dot/js/Bounds2.js';
 import Utils from '../../../dot/js/Utils.js';
 import sound from '../sound.js';
+import { Node } from '../../../scenery/js/imports.js';
+import Lattice from '../../../scenery-phet/js/Lattice.js';
 
 const LATTICE_DIMENSION = 151;
 const LATTICE_PADDING = 20;
@@ -42,12 +45,13 @@ const SoundConstants = {
   MAJOR_TICK_LENGTH: 12,
   THUMB_SIZE: new Dimension2( 13, 22 ),
   CELL_WIDTH: CELL_WIDTH,
+  PANEL_MAX_WIDTH: 200,
 
   /**
    * At the default size, the text should "nestle" into the slider.  But when the text is too small, it must be spaced
    * further away.  See https://github.com/phetsims/wave-interference/issues/194
    */
-  getSliderTitleSpacing( titleNode ) {
+  getSliderTitleSpacing( titleNode: Node ): number {
 
     const tallTextHeight = 17;
     const shortTextHeight = 4;
@@ -61,7 +65,7 @@ const SoundConstants = {
   /**
    * Gets the bounds to use for a canvas, in view coordinates
    */
-  getCanvasBounds( lattice ) {
+  getCanvasBounds( lattice: Lattice ) {
     return new Bounds2(
       0, 0,
       ( lattice.width - lattice.dampX * 2 ) * CELL_WIDTH, ( lattice.height - lattice.dampY * 2 ) * CELL_WIDTH

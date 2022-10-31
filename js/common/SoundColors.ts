@@ -1,5 +1,6 @@
 // Copyright 2022, University of Colorado Boulder
-
+/* eslint-disable */
+// @ts-nocheck
 /**
  * Colors used throughout this simulation.
  *

@@ -1,5 +1,6 @@
 // Copyright 2022, University of Colorado Boulder
-
+/* eslint-disable */
+// @ts-nocheck
 /**
  * @author Piet Goris
  * Model for the measure screen.
@@ -13,12 +14,14 @@ import sound from '../../sound.js';
 import SoundModel from './SoundModel.js';
 
 class MeasureModel extends SoundModel {
+  public readonly stopwatch: Stopwatch;
+  public readonly rulerPositionProperty: Vector2Property;
+
   constructor() {
     super( {
       initialAmplitude: 10
     } );
 
-    // @public {Stopwatch}
     this.stopwatch = new Stopwatch( {
       position: new Vector2( 450, 50 ),
       timePropertyOptions: {
@@ -33,9 +36,8 @@ class MeasureModel extends SoundModel {
 
   /**
    * Resets the model.
-   * @public
    */
-  reset() {
+  public override reset(): void {
     super.reset();
     this.stopwatch.reset();
     this.rulerPositionProperty.reset();

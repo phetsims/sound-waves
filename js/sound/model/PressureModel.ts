@@ -1,5 +1,6 @@
 // Copyright 2022, University of Colorado Boulder
-
+/* eslint-disable */
+// @ts-nocheck
 /**
  * @author Piet Goris
  * Model for the pressure screen.
@@ -16,7 +17,7 @@ import sound from '../../sound.js';
 import SoundModel from './SoundModel.js';
 
 class PressureModel extends SoundModel {
-  constructor() {
+  public constructor() {
     super();
 
     // @public - whether audio is enabled
@@ -39,9 +40,8 @@ class PressureModel extends SoundModel {
 
   /**
    * Resets the model.
-   * @public
    */
-  reset() {
+  public override reset(): void {
     super.reset();
 
     this.isAudioEnabledProperty.reset();

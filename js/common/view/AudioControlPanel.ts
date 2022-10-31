@@ -1,11 +1,12 @@
 // Copyright 2022, University of Colorado Boulder
-
+/* eslint-disable */
+// @ts-nocheck
 /**
  * Shows the controls of the audio, wheter the audio is enabled and if the source is sampled at the source or at the listener.
  */
 
 import merge from '../../../../phet-core/js/merge.js';
-import { Node, Text } from '../../../../scenery/js/imports.js';
+import { AlignGroup, Node, Text } from '../../../../scenery/js/imports.js';
 import Checkbox from '../../../../sun/js/Checkbox.js';
 import VerticalAquaRadioButtonGroup from '../../../../sun/js/VerticalAquaRadioButtonGroup.js';
 import SoundConstants from '../../common/SoundConstants.js';
@@ -26,7 +27,7 @@ class AudioControlPanel extends SoundPanel {
    * @param {AlignGroup} alignGroup
    * @param {Object} [options]
    */
-  constructor( model, alignGroup, options ) {
+  constructor( model: SoundModel, alignGroup: AlignGroup, options: IntentionalAny ) {
     options = merge( {
       maxWidth: SoundConstants.PANEL_MAX_WIDTH,
       yMargin: 4

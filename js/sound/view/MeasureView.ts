@@ -1,5 +1,6 @@
 // Copyright 2022, University of Colorado Boulder
-/* eslint-disable default-import-match-filename */ // TODO Re-enable
+/* eslint-disable */
+// @ts-nocheck
 /**
  * @author Piet Goris
  * View for the measure screen.
@@ -19,7 +20,7 @@ import MeasureModel from '../model/MeasureModel.js';
 import SoundScreenView from './SoundScreenView.js';
 
 class MeasureView extends SoundScreenView {
-  constructor( model ) {
+  constructor( model: MeasureModel ) {
     assert && assert( model instanceof MeasureModel, 'invalid model' );
     super( model );
 

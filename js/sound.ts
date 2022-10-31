@@ -1,5 +1,6 @@
 // Copyright 2022, University of Colorado Boulder
-
+/* eslint-disable */
+// @ts-nocheck
 /**
  * Creates the namespace for this simulation.
  *

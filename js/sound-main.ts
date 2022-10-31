@@ -1,5 +1,6 @@
 // Copyright 2022, University of Colorado Boulder
-/* eslint-disable default-import-match-filename */ // TODO Re-enable
+/* eslint-disable */
+// @ts-nocheck
 /**
  * Main entry point for the sim.
  *

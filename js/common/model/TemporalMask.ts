@@ -1,4 +1,6 @@
 // Copyright 2022, University of Colorado Boulder
+/* eslint-disable */
+// @ts-nocheck
 
 /**
  * Records on and off times of a single source, so that we can determine whether it could have contributed to the value
@@ -7,36 +9,40 @@
  *
  */
 
+import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';
 import Lattice from '../../../../scenery-phet/js/Lattice.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
 
+type DeltaEntry = {
+  isSourceOn: boolean;
+  numberOfSteps: number;
+  verticalLatticeCoordinate: number;
+};
+
 class TemporalMask {
 
-  constructor( wallPositionXProperty, wallAngleProperty, transformModel ) {
-    // @private - x coordinate of the origin position of the wall if present.
-    this.wallPositionXProperty = wallPositionXProperty;
+  // record of changes in wave disturbance sources.
+  private readonly deltas: DeltaEntry[] = [];
 
-    // @private- angle of the wall if present.
-    this.wallAngleProperty = wallAngleProperty;
-
-    this.transformModel = transformModel;
-
-    // @private - record of {isSourceOn: boolean, numberOfSteps: number, verticalLatticeCoordinate: number} of changes in wave disturbance sources.
-    this.deltas = [];
+  public constructor(
+    // x coordinate of the origin position of the wall if present.
+    private readonly wallPositionXProperty: ReadOnlyProperty<number>,
+    // angle of the wall if present.
+    private readonly wallAngleProperty: ReadOnlyProperty<number>,
+    private readonly transformModel: IntentionalAny ) {
   }
 
   /**
    * Set the current state of the model.  If this differs from the prior state type (in position or whether it is on)
    * a delta is generated.
-   * @param {boolean} isSourceOn - true if the source is on, false if the source is off
-   * @param {number} numberOfSteps - integer number of times the wave has been stepped on the lattice
-   * @param {number} verticalLatticeCoordinate - vertical lattice coordinate
-   * @public
+   * @param isSourceOn - true if the source is on, false if the source is off
+   * @param numberOfSteps - integer number of times the wave has been stepped on the lattice
+   * @param verticalLatticeCoordinate - vertical lattice coordinate
    */
-  set( isSourceOn, numberOfSteps, verticalLatticeCoordinate ) {
+  public set( isSourceOn: boolean, numberOfSteps: number, verticalLatticeCoordinate: number ): void {
     const lastDelta = this.deltas.length > 0 ? this.deltas[ this.deltas.length - 1 ] : null;
-    if ( this.deltas.length === 0 || lastDelta.isSourceOn !== isSourceOn || lastDelta.verticalLatticeCoordinate !== verticalLatticeCoordinate ) {
+    if ( this.deltas.length === 0 || lastDelta!.isSourceOn !== isSourceOn || lastDelta!.verticalLatticeCoordinate !== verticalLatticeCoordinate ) {
 
       // record a delta
       this.deltas.push( {
@@ -49,14 +55,12 @@ class TemporalMask {
 
   /**
    * Determines if the wave source was turned on at a time that contributed to the cell value
-   * @param {number} horizontalSourceX - horizontal coordinate of the source
-   * @param {number} horizontalLatticeCoordinate - horizontal coordinate on the lattice (i)
-   * @param {number} verticalLatticeCoordinate - vertical coordinate on the lattice (j)
-   * @param {number} numberOfSteps - integer number of times the wave has been stepped on the lattice
-   * @returns {boolean}
-   * @public
+   * @param horizontalSourceX - horizontal coordinate of the source
+   * @param horizontalLatticeCoordinate - horizontal coordinate on the lattice (i)
+   * @param verticalLatticeCoordinate - vertical coordinate on the lattice (j)
+   * @param numberOfSteps - integer number of times the wave has been stepped on the lattice
    */
-  matches( horizontalSourceX, horizontalLatticeCoordinate, verticalLatticeCoordinate, numberOfSteps ) {
+  public matches( horizontalSourceX: number, horizontalLatticeCoordinate: number, verticalLatticeCoordinate: number, numberOfSteps: number ): number {
 
     // search to see if the source contributed to the value at the specified coordinate at the current numberOfSteps
     for ( let k = 0; k < this.deltas.length; k++ ) {
@@ -94,11 +98,10 @@ class TemporalMask {
 
   /**
    * Remove delta values that are so old they can no longer impact the model, to avoid memory leaks and too much CPU
-   * @param {number} maxDistance - the furthest a point can be from a source
-   * @param {number} numberOfSteps - integer number of times the wave has been stepped on the lattice
-   * @public
+   * @param maxDistance - the furthest a point can be from a source
+   * @param numberOfSteps - integer number of times the wave has been stepped on the lattice
    */
-  prune( maxDistance, numberOfSteps ) {
+  public prune( maxDistance: number, numberOfSteps: number ): void {
 
     // Save enough deltas so that even if the user toggles the source on and off rapidly, the effect will be further
     // from the source.  But don't save so many deltas that performance is degraded.
@@ -110,9 +113,8 @@ class TemporalMask {
 
   /**
    * Clear the state.
-   * @public
    */
-  clear() {
+  public clear(): void {
     this.deltas.length = 0;
   }
 }

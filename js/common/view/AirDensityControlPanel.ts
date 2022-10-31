@@ -1,29 +1,26 @@
 // Copyright 2022, University of Colorado Boulder
-
+/* eslint-disable */
+// @ts-nocheck
 /**
  * Shows the controls for the pressure box.
  */
 
 import merge from '../../../../phet-core/js/merge.js';
-import { Node, Text } from '../../../../scenery/js/imports.js';
+import { AlignGroup, Node, Text } from '../../../../scenery/js/imports.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
 import SoundStrings from '../../SoundStrings.js';
 import PropertyControlSlider from './PropertyControlSlider.js';
 import SoundPanel from './SoundPanel.js';
+import SoundModel from '../../sound/model/SoundModel.js';
 
 const titleString = SoundStrings.airDensityControlPanel.title;
 const resetString = SoundStrings.airDensityControlPanel.reset;
 
 class AirDensityControlPanel extends SoundPanel {
 
-  /**
-   * @param {SoundModel} model
-   * @param {AlignGroup} alignGroup
-   * @param {Object} [options]
-   */
-  constructor( model, alignGroup, options ) {
+  constructor( model: SoundModel, alignGroup: AlignGroup, options: IntentionalAny ) {
     options = merge( {
       maxWidth: SoundConstants.PANEL_MAX_WIDTH,
       yMargin: 4

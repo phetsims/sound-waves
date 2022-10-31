@@ -1,5 +1,5 @@
 // Copyright 2022, University of Colorado Boulder
-/* eslint-disable default-import-match-filename */ // TODO Re-enable
+/* eslint-disable */
 /**
  * Node for the speaker, oscillates with the values of the oscillatorProperty.
  */
@@ -29,6 +29,7 @@ import speakerR8Image from '../../../../scenery-phet/images/speaker/speaker_R8_p
 import speakerR9Image from '../../../../scenery-phet/images/speaker/speaker_R9_png.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 
 // variables
 const speakers = [
@@ -57,7 +58,7 @@ const speakers = [
 
 
 class SpeakerNode extends Node {
-  constructor( oscillatorProperty ) {
+  constructor( oscillatorProperty: TReadOnlyProperty<number> ) {
     super();
 
     const image = new Image( speakerImageMID, {

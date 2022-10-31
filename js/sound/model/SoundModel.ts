@@ -1,5 +1,6 @@
 // Copyright 2022, University of Colorado Boulder
-
+/* eslint-disable */
+// @ts-nocheck
 /**
  * @author Piet Goris
  * Base model for a sound scene.
@@ -27,7 +28,7 @@ const frequencyRange = new Range( 0, 1 );
 const INITIAL_FREQUENCY = 0.5;
 
 class SoundModel {
-  constructor( config ) {
+  public constructor( config?: IntentionalAny ) {
     config = merge(
       {
         initialAmplitude: 5,

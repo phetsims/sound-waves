@@ -1,5 +1,6 @@
 // Copyright 2022, University of Colorado Boulder
-
+/* eslint-disable */
+// @ts-nocheck
 /**
  * @author Piet Goris
  * Model for the reflection screen.
@@ -13,7 +14,7 @@ import sound from '../../sound.js';
 import SoundModel from './SoundModel.js';
 
 class ReflectionModel extends SoundModel {
-  constructor() {
+  public constructor() {
     super( {
       hasReflection: true
     } );

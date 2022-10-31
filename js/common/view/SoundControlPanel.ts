@@ -1,5 +1,6 @@
 // Copyright 2022, University of Colorado Boulder
-
+/* eslint-disable */
+// @ts-nocheck
 /**
  * Shows the main controls, including frequency/wavelength and amplitude.
  * Also displays a clear wave button when in the measure model.

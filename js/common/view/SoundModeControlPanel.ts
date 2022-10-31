@@ -1,11 +1,12 @@
 // Copyright 2022, University of Colorado Boulder
-
+/* eslint-disable */
+// @ts-nocheck
 /**
  * Controls for the sound mode, whether the speaker emits waves contiously or pulse on button press.
  */
 
 import merge from '../../../../phet-core/js/merge.js';
-import { Node, Text } from '../../../../scenery/js/imports.js';
+import { AlignGroup, Node, Text } from '../../../../scenery/js/imports.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
 import VerticalAquaRadioButtonGroup from '../../../../sun/js/VerticalAquaRadioButtonGroup.js';
 import SoundConstants from '../../common/SoundConstants.js';
@@ -13,6 +14,7 @@ import sound from '../../sound.js';
 import SoundModel from '../../sound/model/SoundModel.js';
 import SoundStrings from '../../SoundStrings.js';
 import SoundPanel from './SoundPanel.js';
+import ReflectionModel from '../../sound/model/ReflectionModel.js';
 
 const titleString = SoundStrings.soundModeControlPanel.title;
 const continuousOptionString = SoundStrings.soundModeControlPanel.continuous;
@@ -21,12 +23,7 @@ const firePulseString = SoundStrings.soundModeControlPanel.firePulse;
 
 class SoundModeControlPanel extends SoundPanel {
 
-  /**
-   * @param {SoundModel} model
-   * @param {AlignGroup} alignGroup
-   * @param {Object} [options]
-   */
-  constructor( model, alignGroup, options ) {
+  constructor( model: ReflectionModel, alignGroup: AlignGroup, options?: IntentionalAny ) {
     options = merge( {
       maxWidth: SoundConstants.PANEL_MAX_WIDTH,
       yMargin: 4

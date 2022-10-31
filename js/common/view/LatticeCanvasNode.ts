@@ -1,5 +1,6 @@
 // Copyright 2022, University of Colorado Boulder
-
+/* eslint-disable */
+// @ts-nocheck
 /**
  * Renders the main area of the lattice (doesn't include the damping regions) using 2d canvas.
  * Allows for wall reflection and an extra source. Also can dampen the waves to be within a certain area.
@@ -12,6 +13,7 @@ import { CanvasNode, Color } from '../../../../scenery/js/imports.js';
 import ImageDataRenderer from '../../../../scenery-phet/js/ImageDataRenderer.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
+import Lattice from '../../../../scenery-phet/js/Lattice.js';
 
 // constants
 const CUTOFF = 0.4;
@@ -22,7 +24,7 @@ class LatticeCanvasNode extends CanvasNode {
    * @param {Lattice} lattice
    * @param {Object} [options]
    */
-  constructor( lattice, options ) {
+  constructor( lattice:Lattice, options?:IntentionalAny ) {
 
     options = merge( {
 
@@ -197,9 +199,9 @@ class LatticeCanvasNode extends CanvasNode {
 
         // ImageData.data is Uint8ClampedArray.  Performance is critical and all numbers are non-negative.
         const offset = 4 * m;
-        data[ offset ] = Math.round( r ); // eslint-disable-line bad-sim-text
-        data[ offset + 1 ] = Math.round( g ); // eslint-disable-line bad-sim-text
-        data[ offset + 2 ] = Math.round( b ); // eslint-disable-line bad-sim-text
+        data[ offset ] = Math.round( r );
+        data[ offset + 1 ] = Math.round( g );
+        data[ offset + 2 ] = Math.round( b );
         data[ offset + 3 ] = 255; // Fully opaque
         m++;
       }

@@ -1,5 +1,5 @@
 // Copyright 2022, University of Colorado Boulder
-
+/* eslint-disable */
 /**
  * Slider abstraction for the frequency and amplitude sliders--but note that light frequency slider uses spectrum for
  * track and thumb.  All instances exist for the lifetime of the sim and do not require disposal.
@@ -15,6 +15,8 @@ import generalBoundaryBoopSoundPlayer from '../../../../tambo/js/shared-sound-pl
 import generalSoftClickSoundPlayer from '../../../../tambo/js/shared-sound-players/generalSoftClickSoundPlayer.js';
 import sound from '../../sound.js';
 import SoundConstants from '../../common/SoundConstants.js';
+import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import { SceneryEvent } from '../../../../scenery/js/imports.js';
 
 // constants
 const MIN_INTER_CLICK_TIME = ( 1 / 60 * 1000 ) * 2; // min time between clicks, in milliseconds, empirically determined
@@ -28,14 +30,14 @@ class SoundSlider extends HSlider {
    * @param {NumberProperty} property
    * @param {Object} [options]
    */
-  constructor( property, options ) {
+  constructor( property: NumberProperty, options?: IntentionalAny ) {
 
     const maxTickIndex = ( options && options.maxTickIndex ) ? options.maxTickIndex : 10;
 
     assert && assert( property.range, 'SoundSlider.property requires range' );
 
-    const min = property.range.min;
-    const max = property.range.max;
+    const min = property.range!.min;
+    const max = property.range!.max;
     const ticks = _.range( 0, maxTickIndex + 1 ).map( index => {
       return {
         value: Utils.linear( 0, maxTickIndex, min, max, index ),
@@ -53,26 +55,26 @@ class SoundSlider extends HSlider {
 
       // Ticks are created for all sliders for sonification, but not shown for the Light Frequency slider
       showTicks: true,
-      constrainValue: value => {
-        if ( Math.abs( value - property.range.min ) <= TOLERANCE ) {
-          return property.range.min;
+      constrainValue: ( value: number ) => {
+        if ( Math.abs( value - property.range!.min ) <= TOLERANCE ) {
+          return property.range!.min;
         }
-        else if ( Math.abs( value - property.range.max ) <= TOLERANCE ) {
-          return property.range.max;
+        else if ( Math.abs( value - property.range!.max ) <= TOLERANCE ) {
+          return property.range!.max;
         }
         else {
           return value;
         }
       },
 
-      drag: event => {
+      drag: ( event: SceneryEvent ) => {
 
         const value = property.value;
 
         if ( event.isFromPDOM() ) {
 
-          if ( Math.abs( value - property.range.max ) <= TOLERANCE ||
-               Math.abs( value - property.range.min ) <= TOLERANCE ) {
+          if ( Math.abs( value - property.range!.max ) <= TOLERANCE ||
+               Math.abs( value - property.range!.min ) <= TOLERANCE ) {
             generalBoundaryBoopSoundPlayer.play();
           }
           else {
@@ -84,7 +86,7 @@ class SoundSlider extends HSlider {
           // handle the sound as desired for mouse/touch style input
           for ( let i = 0; i < ticks.length; i++ ) {
             const tick = ticks[ i ];
-            if ( lastValue !== value && ( value === property.range.min || value === property.range.max ) ) {
+            if ( lastValue !== value && ( value === property.range!.min || value === property.range!.max ) ) {
               generalBoundaryBoopSoundPlayer.play();
               break;
             }
@@ -120,13 +122,17 @@ class SoundSlider extends HSlider {
       options.trackSize = new Dimension2( 150, 1 );
     }
 
-    super( property, property.range, options );
+    super( property, property.range!, options );
 
     options.showTicks && ticks.forEach( tick => {
       if ( tick.type === 'major' ) {
+
+        // @ts-ignore
         this.addMajorTick( tick.value, tick.label );
       }
       else {
+
+        // @ts-ignore
         this.addMinorTick( tick.value, tick.label );
       }
     } );

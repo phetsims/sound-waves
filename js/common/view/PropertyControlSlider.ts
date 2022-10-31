@@ -1,9 +1,11 @@
 // Copyright 2022, University of Colorado Boulder
-
+/* eslint-disable */
+// @ts-nocheck
 /**
  * Slider that controls a given property, can display the current value and a title.
  */
 
+import Property from '../../../../axon/js/Property.js';
 import merge from '../../../../phet-core/js/merge.js';
 import { Node, Text } from '../../../../scenery/js/imports.js';
 import SoundSlider from '../../common/view/SoundSlider.js';
@@ -11,12 +13,12 @@ import sound from '../../sound.js';
 import SoundConstants from '../SoundConstants.js';
 
 class ProtertyControlSlider extends Node {
-  constructor( titleText, property, options ) {
+  constructor( titleString: string, property: Property<number>, options?: IntentionalAny ) {
     options = merge( {
       valueToText: null
     }, options );
 
-    const title = new Text( titleText );
+    const title = new Text( titleString );
     const valueDisplay = new Text( '' );
     valueDisplay.top = title.bottom + 5;
 
