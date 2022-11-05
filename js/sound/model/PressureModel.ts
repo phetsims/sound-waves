@@ -17,6 +17,10 @@ import sound from '../../sound.js';
 import SoundModel from './SoundModel.js';
 
 class PressureModel extends SoundModel {
+  isAudioEnabledProperty: BooleanProperty;
+  pressureProperty: NumberProperty;
+  audioControlSettingProperty: Property<any>;
+  listenerPositionProperty: Vector2Property;
   public constructor() {
     super();
 

@@ -1,6 +1,6 @@
 // Copyright 2022, University of Colorado Boulder
 /* eslint-disable */
-// @ts-nocheck
+
 /**
  * Shows the controls for the pressure box.
  */
@@ -14,13 +14,14 @@ import SoundStrings from '../../SoundStrings.js';
 import PropertyControlSlider from './PropertyControlSlider.js';
 import SoundPanel from './SoundPanel.js';
 import SoundModel from '../../sound/model/SoundModel.js';
+import PressureModel from '../../sound/model/PressureModel.js';
 
 const titleString = SoundStrings.airDensityControlPanel.title;
 const resetString = SoundStrings.airDensityControlPanel.reset;
 
 class AirDensityControlPanel extends SoundPanel {
 
-  constructor( model: SoundModel, alignGroup: AlignGroup, options: IntentionalAny ) {
+  constructor( model: PressureModel, alignGroup: AlignGroup, options: IntentionalAny ) {
     options = merge( {
       maxWidth: SoundConstants.PANEL_MAX_WIDTH,
       yMargin: 4

@@ -1,6 +1,5 @@
 // Copyright 2022, University of Colorado Boulder
 /* eslint-disable */
-// @ts-nocheck
 
 /**
  * Records on and off times of a single source, so that we can determine whether it could have contributed to the value
