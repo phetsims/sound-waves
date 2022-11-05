@@ -17,15 +17,11 @@ import sound from '../../sound.js';
 import SoundModel from './SoundModel.js';
 
 class PressureModel extends SoundModel {
-  isAudioEnabledProperty: BooleanProperty;
   pressureProperty: NumberProperty;
   audioControlSettingProperty: Property<any>;
   listenerPositionProperty: Vector2Property;
   public constructor() {
     super();
-
-    // @public - whether audio is enabled
-    this.isAudioEnabledProperty = new BooleanProperty( false );
 
     // @public - controls the air pressure in the box.
     this.pressureProperty = new NumberProperty( 1, {
@@ -48,7 +44,6 @@ class PressureModel extends SoundModel {
   public override reset(): void {
     super.reset();
 
-    this.isAudioEnabledProperty.reset();
     this.pressureProperty.reset();
     this.audioControlSettingProperty.reset();
     this.listenerPositionProperty.reset();

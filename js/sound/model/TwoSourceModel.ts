@@ -20,10 +20,6 @@ class TwoSourceModel extends SoundModel {
       hasSecondSource: true
     } );
 
-
-    // @public - whether audio is enabled
-    this.isAudioEnabledProperty = new BooleanProperty( false );
-
     // @public - position of the listener
     this.listenerPositionProperty = new Vector2Property( new Vector2( 1 / 2 * SoundConstants.WAVE_AREA_WIDTH, 1 / 2 * SoundConstants.WAVE_AREA_WIDTH ) );
 

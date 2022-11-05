@@ -18,9 +18,6 @@ class SingleSourceModel extends SoundModel {
   constructor() {
     super();
 
-    // @public - whether audio is enabled
-    this.isAudioEnabledProperty = new BooleanProperty( false );
-
     // @public - indicates the user selection for the audio control setting
     this.audioControlSettingProperty = new Property( SoundModel.AudioControlOptions.SPEAKER, {
       validValues: SoundModel.AudioControlOptions.VALUES
@@ -28,13 +25,8 @@ class SingleSourceModel extends SoundModel {
 
     // @public - position of the listener
     this.listenerPositionProperty = new Vector2Property( new Vector2( 1 / 2 * SoundConstants.WAVE_AREA_WIDTH, SoundConstants.WAVE_AREA_WIDTH / 2 ) );
-
   }
 
-  /**
-   * Resets the model.
-   * @public
-   */
   reset() {
     super.reset();
 

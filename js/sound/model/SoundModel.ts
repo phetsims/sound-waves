@@ -28,6 +28,9 @@ const frequencyRange = new Range( 0, 1 );
 const INITIAL_FREQUENCY = 0.5;
 
 class SoundModel {
+
+  public readonly isAudioEnabledProperty: Property<boolean>;
+
   public constructor( config?: IntentionalAny ) {
     config = merge(
       {
@@ -128,6 +131,9 @@ class SoundModel {
 
     // @public (read-only) - position of the non-moving first speaker.
     this.speaker1Position = new Vector2( this.modelToLatticeTransform.viewToModelX( SoundConstants.SOURCE_POSITION_X ), config.speaker1PositionY );
+
+    // @public - whether audio is enabled
+    this.isAudioEnabledProperty = new BooleanProperty( false );
   }
 
   /**
@@ -241,6 +247,7 @@ class SoundModel {
    * @public
    */
   reset() {
+    this.isAudioEnabledProperty.reset();
     this.isRunningProperty.reset();
     this.timeProperty.reset();
     this.frequencyProperty.reset();
