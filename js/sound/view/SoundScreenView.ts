@@ -2,7 +2,7 @@
 /* eslint-disable */
 // @ts-nocheck
 /**
- * @author Piet Goris
+ * @author Piet Goris (University of Leuven)
  * Base view for the screens.
  */
 import NumberProperty from '../../../../axon/js/NumberProperty.js';

@@ -2,7 +2,7 @@
 /* eslint-disable */
 // @ts-nocheck
 /**
- * @author Piet Goris
+ * @author Piet Goris (University of Leuven)
  * View for the single source view.
  */
 

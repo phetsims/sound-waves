@@ -3,6 +3,8 @@
 // @ts-nocheck
 /**
  * Controls for the sound mode, whether the speaker emits waves contiously or pulse on button press.
+ *
+ * @author Piet Goris (University of Leuven)
  */
 
 import merge from '../../../../phet-core/js/merge.js';

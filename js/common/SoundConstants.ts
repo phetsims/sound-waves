@@ -4,7 +4,7 @@
 /**
  * Constants used throughout this simulation.
  *
- * @author Piet Goris
+ * @author Piet Goris (University of Leuven)
  */
 
 import Range from '../../../dot/js/Range.js';

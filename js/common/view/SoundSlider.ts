@@ -4,6 +4,7 @@
  * Slider abstraction for the frequency and amplitude sliders--but note that light frequency slider uses spectrum for
  * track and thumb.  All instances exist for the lifetime of the sim and do not require disposal.
  *
+ * @author Piet Goris (University of Leuven)
  * @author Sam Reid (PhET Interactive Simulations)
  */
 

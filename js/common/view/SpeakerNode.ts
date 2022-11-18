@@ -2,6 +2,8 @@
 /* eslint-disable */
 /**
  * Node for the speaker, oscillates with the values of the oscillatorProperty.
+ *
+ * @author Piet Goris (University of Leuven)
  */
 
 import Utils from '../../../../dot/js/Utils.js';

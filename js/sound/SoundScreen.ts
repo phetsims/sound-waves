@@ -1,6 +1,6 @@
 // Copyright 2022, University of Colorado Boulder
 /**
- * @author Piet Goris
+ * @author Piet Goris (University of Leuven)
  * Screen for the sound application
  */
 

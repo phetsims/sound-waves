@@ -4,7 +4,7 @@
 /**
  * Colors used throughout this simulation.
  *
- * @author Piet Goris
+ * @author Piet Goris (University of Leuven)
  */
 
 import Property from '../../../axon/js/Property.js';

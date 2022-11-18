@@ -6,6 +6,7 @@
  * on the lattice at a later time.  This is used to prevent artifacts when the wave is turned off, and to restore
  * the lattice to black (for light), see https://github.com/phetsims/wave-interference/issues/258
  *
+ * @author Piet Goris (University of Leuven)
  */
 
 import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';

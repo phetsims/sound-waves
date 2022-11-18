@@ -3,6 +3,8 @@
 // @ts-nocheck
 /**
  * Shows the controls of the audio, wheter the audio is enabled and if the source is sampled at the source or at the listener.
+ *
+ * @author Piet Goris (University of Leuven)
  */
 
 import merge from '../../../../phet-core/js/merge.js';

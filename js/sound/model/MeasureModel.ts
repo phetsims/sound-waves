@@ -2,7 +2,7 @@
 /* eslint-disable */
 // @ts-nocheck
 /**
- * @author Piet Goris
+ * @author Piet Goris (University of Leuven)
  * Model for the measure screen.
  */
 

@@ -3,6 +3,8 @@
 // @ts-nocheck
 /**
  * Slider that controls a given property, can display the current value and a title.
+ *
+ * @author Piet Goris (University of Leuven)
  */
 
 import Property from '../../../../axon/js/Property.js';

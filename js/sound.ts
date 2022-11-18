@@ -4,7 +4,7 @@
 /**
  * Creates the namespace for this simulation.
  *
- * @author Piet Goris
+ * @author Piet Goris (University of Leuven)
  */
 
 import Namespace from '../../phet-core/js/Namespace.js';

@@ -3,6 +3,7 @@
 /**
  * Panel subclass that applies styling specific to this simulation. Copied from Wave Interference
  *
+ * @author Piet Goris (University of Leuven)
  * @author Sam Reid (PhET Interactive Simulations)
  */
 

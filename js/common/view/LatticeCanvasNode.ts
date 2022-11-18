@@ -4,6 +4,8 @@
 /**
  * Renders the main area of the lattice (doesn't include the damping regions) using 2d canvas.
  * Allows for wall reflection and an extra source. Also can dampen the waves to be within a certain area.
+ *
+ * @author Piet Goris (University of Leuven)
  */
 
 import Utils from '../../../../dot/js/Utils.js';

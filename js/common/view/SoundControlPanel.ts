@@ -4,6 +4,8 @@
 /**
  * Shows the main controls, including frequency/wavelength and amplitude.
  * Also displays a clear wave button when in the measure model.
+ *
+ * @author Piet Goris (University of Leuven)
  */
 
 import Utils from '../../../../dot/js/Utils.js';
