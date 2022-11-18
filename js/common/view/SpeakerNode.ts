@@ -4,6 +4,7 @@
  * Node for the speaker, oscillates with the values of the oscillatorProperty.
  *
  * @author Piet Goris (University of Leuven)
+ * @author Sam Reid (PhET Interactive Simulations)
  */
 
 import Utils from '../../../../dot/js/Utils.js';

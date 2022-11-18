@@ -2,8 +2,10 @@
 /* eslint-disable */
 // @ts-nocheck
 /**
- * @author Piet Goris (University of Leuven)
  * View for the measure screen.
+ *
+ * @author Piet Goris (University of Leuven)
+ * @author Sam Reid (PhET Interactive Simulations)
  */
 
 import Vector2 from '../../../../dot/js/Vector2.js';

@@ -1,7 +1,9 @@
 // Copyright 2022, University of Colorado Boulder
 /**
- * @author Piet Goris (University of Leuven)
  * Screen for the sound application
+ *
+ * @author Piet Goris (University of Leuven)
+ * @author Sam Reid (PhET Interactive Simulations)
  */
 
 import Dimension2 from '../../../dot/js/Dimension2.js';

@@ -6,6 +6,7 @@
  * Also displays a clear wave button when in the measure model.
  *
  * @author Piet Goris (University of Leuven)
+ * @author Sam Reid (PhET Interactive Simulations)
  */
 
 import Utils from '../../../../dot/js/Utils.js';

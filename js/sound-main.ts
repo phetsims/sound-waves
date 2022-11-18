@@ -5,6 +5,7 @@
  * Main entry point for the sim.
  *
  * @author Piet Goris (University of Leuven)
+ * @author Sam Reid (PhET Interactive Simulations)
  */
 
 import Sim from '../../joist/js/Sim.js';

@@ -5,6 +5,7 @@
  * Shows the controls for the reflection wall, its position and rotation.
  *
  * @author Piet Goris (University of Leuven)
+ * @author Sam Reid (PhET Interactive Simulations)
  */
 
 import merge from '../../../../phet-core/js/merge.js';

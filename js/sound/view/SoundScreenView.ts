@@ -2,8 +2,10 @@
 /* eslint-disable */
 // @ts-nocheck
 /**
- * @author Piet Goris (University of Leuven)
  * Base view for the screens.
+ *
+ * @author Piet Goris (University of Leuven)
+ * @author Sam Reid (PhET Interactive Simulations)
  */
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Vector2 from '../../../../dot/js/Vector2.js';

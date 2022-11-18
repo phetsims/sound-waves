@@ -2,8 +2,10 @@
 /* eslint-disable */
 // @ts-nocheck
 /**
- * @author Piet Goris (University of Leuven)
  * View for the reflection screen.
+ *
+ * @author Piet Goris (University of Leuven)
+ * @author Sam Reid (PhET Interactive Simulations)
  */
 
 import { Shape } from '../../../../kite/js/imports.js';

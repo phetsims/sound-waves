@@ -2,8 +2,10 @@
 /* eslint-disable */
 // @ts-nocheck
 /**
- * @author Piet Goris (University of Leuven)
  * Model for the reflection screen.
+ *
+ * @author Piet Goris (University of Leuven)
+ * @author Sam Reid (PhET Interactive Simulations)
  */
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';

@@ -5,6 +5,7 @@
  * A node which can be dragged within the given bounds.
  *
  * @author Piet Goris (University of Leuven)
+ * @author Sam Reid (PhET Interactive Simulations)
  */
 
 import Property from '../../../../axon/js/Property.js';

@@ -7,6 +7,7 @@
  * the lattice to black (for light), see https://github.com/phetsims/wave-interference/issues/258
  *
  * @author Piet Goris (University of Leuven)
+ * @author Sam Reid (PhET Interactive Simulations)
  */
 
 import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';

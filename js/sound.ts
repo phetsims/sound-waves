@@ -5,6 +5,7 @@
  * Creates the namespace for this simulation.
  *
  * @author Piet Goris (University of Leuven)
+ * @author Sam Reid (PhET Interactive Simulations)
  */
 
 import Namespace from '../../phet-core/js/Namespace.js';

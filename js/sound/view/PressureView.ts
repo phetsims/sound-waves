@@ -2,8 +2,10 @@
 /* eslint-disable */
 // @ts-nocheck
 /**
- * @author Piet Goris (University of Leuven)
  * View for the pressure screen.
+ *
+ * @author Piet Goris (University of Leuven)
+ * @author Sam Reid (PhET Interactive Simulations)
  */
 
 import { Image } from '../../../../scenery/js/imports.js';

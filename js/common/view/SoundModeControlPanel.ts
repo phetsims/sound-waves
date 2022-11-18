@@ -5,6 +5,7 @@
  * Controls for the sound mode, whether the speaker emits waves contiously or pulse on button press.
  *
  * @author Piet Goris (University of Leuven)
+ * @author Sam Reid (PhET Interactive Simulations)
  */
 
 import merge from '../../../../phet-core/js/merge.js';

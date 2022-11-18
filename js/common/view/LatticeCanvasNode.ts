@@ -6,6 +6,7 @@
  * Allows for wall reflection and an extra source. Also can dampen the waves to be within a certain area.
  *
  * @author Piet Goris (University of Leuven)
+ * @author Sam Reid (PhET Interactive Simulations)
  */
 
 import Utils from '../../../../dot/js/Utils.js';
