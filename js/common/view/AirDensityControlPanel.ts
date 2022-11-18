@@ -1,5 +1,4 @@
 // Copyright 2022, University of Colorado Boulder
-/* eslint-disable */
 
 /**
  * Shows the controls for the pressure box.
@@ -8,27 +7,29 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
-import merge from '../../../../phet-core/js/merge.js';
 import { AlignGroup, Node, Text } from '../../../../scenery/js/imports.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
 import SoundStrings from '../../SoundStrings.js';
 import PropertyControlSlider from './PropertyControlSlider.js';
-import SoundPanel from './SoundPanel.js';
-import SoundModel from '../../sound/model/SoundModel.js';
+import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
 import PressureModel from '../../sound/model/PressureModel.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 
 const titleString = SoundStrings.airDensityControlPanel.title;
 const resetString = SoundStrings.airDensityControlPanel.reset;
 
+type SelfOptions = EmptySelfOptions;
+export type AirDensityControlPanelOptions = SoundPanelOptions & SelfOptions;
+
 class AirDensityControlPanel extends SoundPanel {
 
-  constructor( model: PressureModel, alignGroup: AlignGroup, options: IntentionalAny ) {
-    options = merge( {
+  public constructor( model: PressureModel, alignGroup: AlignGroup, providedOptions: AirDensityControlPanelOptions ) {
+    const options = optionize<AirDensityControlPanelOptions, SelfOptions, SoundPanelOptions>()( {
       maxWidth: SoundConstants.PANEL_MAX_WIDTH,
       yMargin: 4
-    }, options );
+    }, providedOptions );
 
     const container = new Node();
 

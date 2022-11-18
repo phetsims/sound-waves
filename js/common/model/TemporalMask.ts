@@ -1,5 +1,4 @@
 // Copyright 2022, University of Colorado Boulder
-/* eslint-disable */
 
 /**
  * Records on and off times of a single source, so that we can determine whether it could have contributed to the value
@@ -11,6 +10,7 @@
  */
 
 import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Lattice from '../../../../scenery-phet/js/Lattice.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
@@ -31,7 +31,7 @@ class TemporalMask {
     private readonly wallPositionXProperty: ReadOnlyProperty<number>,
     // angle of the wall if present.
     private readonly wallAngleProperty: ReadOnlyProperty<number>,
-    private readonly transformModel: IntentionalAny ) {
+    private readonly transformModel: ModelViewTransform2 ) {
   }
 
   /**
