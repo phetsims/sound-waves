@@ -1,6 +1,4 @@
 // Copyright 2022, University of Colorado Boulder
-/* eslint-disable */
-// @ts-nocheck
 /**
  * @author Piet Goris
  * Screen for the sound application
@@ -12,9 +10,13 @@ import Screen from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
 import SoundColors from '../common/SoundColors.js';
 import sound from '../sound.js';
+import { Node } from '../../../scenery/js/imports.js';
+import SoundModel from './model/SoundModel.js';
+import SoundScreenView from './view/SoundScreenView.js';
+import Tandem from '../../../tandem/js/Tandem.js';
 
 class SoundScreen extends Screen {
-  constructor( title, createModel, createView, iconImage ) {
+  public constructor( title: string, createModel: () => SoundModel, createView: () => SoundScreenView, iconImage: Node ) {
 
     const options = {
       backgroundColorProperty: SoundColors.SCREEN_VIEW_BACKGROUND,
@@ -25,7 +27,8 @@ class SoundScreen extends Screen {
         maxIconHeightProportion: 1
       } ),
       showPlaySoundControl: true,
-      audioEnabled: true
+      audioEnabled: true,
+      tandem: Tandem.OPT_OUT
     };
 
     super(
