@@ -13,11 +13,11 @@ import girl_png from '../../images/girl_png.js';
 import SoundConstants from '../common/SoundConstants.js';
 import MovableNode from '../common/view/MovableNode.js';
 import sound from '../sound.js';
-import SingleSourceModel from './SingleSourceModel.js';
+import IntroModel from './IntroModel.js';
 import SoundScreenView from '../common/view/SoundScreenView.js';
 
-export default class SingleSourceView extends SoundScreenView {
-  public constructor( model: SingleSourceModel ) {
+export default class IntroView extends SoundScreenView {
+  public constructor( model: IntroModel ) {
     super( model );
 
     // Listener
@@ -29,4 +29,4 @@ export default class SingleSourceView extends SoundScreenView {
   }
 }
 
-sound.register( 'SingleSourceView', SingleSourceView );
+sound.register( 'IntroView', IntroView );

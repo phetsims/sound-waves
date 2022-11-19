@@ -13,7 +13,7 @@ import SoundConstants from '../common/SoundConstants.js';
 import sound from '../sound.js';
 import SoundModel from '../common/model/SoundModel.js';
 
-export default class SingleSourceModel extends SoundModel {
+export default class IntroModel extends SoundModel {
 
   // indicates the user selection for the audio control setting
   public readonly audioControlSettingProperty: Property<'SPEAKER' | 'LISTENER'>;
@@ -38,4 +38,4 @@ export default class SingleSourceModel extends SoundModel {
   }
 }
 
-sound.register( 'SingleSourceModel', SingleSourceModel );
+sound.register( 'IntroModel', IntroModel );

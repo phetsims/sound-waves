@@ -17,13 +17,13 @@ import twoSourceIcon_png from '../images/twoSourceIcon_png.js';
 import MeasureModel from './measure/MeasureModel.js';
 import PressureModel from './air-pressure/PressureModel.js';
 import ReflectionModel from './reflection/ReflectionModel.js';
-import SingleSourceModel from './intro/SingleSourceModel.js';
+import IntroModel from './intro/IntroModel.js';
 import TwoSourceModel from './two-sources/TwoSourceModel.js';
 import SoundScreen from './common/SoundScreen.js';
 import MeasureView from './measure/MeasureView.js';
 import PressureView from './air-pressure/PressureView.js';
 import ReflectionView from './reflection/ReflectionView.js';
-import SingleSourceView from './intro/SingleSourceView.js';
+import IntroView from './intro/IntroView.js';
 import TwoSourceView from './two-sources/TwoSourceView.js';
 import SoundStrings from './SoundStrings.js';
 
@@ -37,7 +37,7 @@ const pressureTitle = SoundStrings.airPressure.title;
 // until the images are fully loaded, see https://github.com/phetsims/coulombs-law/issues/70
 simLauncher.launch( () => {
   const sim = new Sim( SoundStrings.sound.titleStringProperty, [
-    new SoundScreen( singleSourceTitle, () => new SingleSourceModel(), model => new SingleSourceView( model ), new Image( singleSourceIcon_png ) ),
+    new SoundScreen( singleSourceTitle, () => new IntroModel(), model => new IntroView( model ), new Image( singleSourceIcon_png ) ),
     new SoundScreen( measureTitle, () => new MeasureModel(), model => new MeasureView( model ), new Image( measureIcon_png ) ),
     new SoundScreen( twoSourceTitle, () => new TwoSourceModel(), model => new TwoSourceView( model ), new Image( twoSourceIcon_png ) ),
     new SoundScreen( reflectionTitle, () => new ReflectionModel(), model => new ReflectionView( model ), new Image( reflectionIcon_png ) ),
