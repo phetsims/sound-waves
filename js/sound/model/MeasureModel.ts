@@ -13,7 +13,7 @@ import Stopwatch from '../../../../scenery-phet/js/Stopwatch.js';
 import sound from '../../sound.js';
 import SoundModel from './SoundModel.js';
 
-class MeasureModel extends SoundModel {
+export default class MeasureModel extends SoundModel {
   public readonly stopwatch: Stopwatch;
   public readonly rulerPositionProperty: Vector2Property;
 
@@ -44,4 +44,3 @@ class MeasureModel extends SoundModel {
 }
 
 sound.register( 'MeasureModel', MeasureModel );
-export default MeasureModel;

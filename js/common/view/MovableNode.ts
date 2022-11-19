@@ -14,7 +14,7 @@ import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransfo
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import TProperty from '../../../../axon/js/TProperty.js';
 
-class MoveableNode extends Node {
+export default class MoveableNode extends Node {
   public readonly movableDragHandler: DragListener;
 
   public constructor( positionProperty: TProperty<Vector2>, dragBounds: Bounds2, modelViewTransform: ModelViewTransform2, child: Node ) {
@@ -45,4 +45,3 @@ class MoveableNode extends Node {
 }
 
 sound.register( 'MoveableNode', MoveableNode );
-export default MoveableNode;

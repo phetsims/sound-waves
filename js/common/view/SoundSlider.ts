@@ -32,7 +32,7 @@ type SelfOptions = {
 };
 type SoundSliderOptions = SelfOptions & HSliderOptions;
 
-class SoundSlider extends HSlider {
+export default class SoundSlider extends HSlider {
 
   /**
    * @param {NumberProperty} property
@@ -145,4 +145,3 @@ class SoundSlider extends HSlider {
 }
 
 sound.register( 'SoundSlider', SoundSlider );
-export default SoundSlider;

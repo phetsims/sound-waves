@@ -15,7 +15,7 @@ import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
 import SoundModel from './SoundModel.js';
 
-class PressureModel extends SoundModel {
+export default class PressureModel extends SoundModel {
 
   // controls the air pressure in the box.
   public readonly pressureProperty: NumberProperty;
@@ -52,4 +52,3 @@ class PressureModel extends SoundModel {
 }
 
 sound.register( 'PressureModel', PressureModel );
-export default PressureModel;

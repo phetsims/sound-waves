@@ -27,7 +27,7 @@ type SelfOptions = {
 };
 type SoundModeControlPanelOptions = SelfOptions & SoundPanelOptions;
 
-class SoundModeControlPanel extends SoundPanel {
+export default class SoundModeControlPanel extends SoundPanel {
 
   public constructor( model: ReflectionModel, alignGroup: AlignGroup, providedOptions?: SoundModeControlPanelOptions ) {
     const options = optionize<SoundModeControlPanelOptions, SelfOptions, SoundControlPanel>()( {
@@ -80,4 +80,3 @@ class SoundModeControlPanel extends SoundPanel {
 }
 
 sound.register( 'SoundModeControlPanel', SoundModeControlPanel );
-export default SoundModeControlPanel;

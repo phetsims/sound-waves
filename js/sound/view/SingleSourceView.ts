@@ -16,7 +16,7 @@ import sound from '../../sound.js';
 import SingleSourceModel from '../model/SingleSourceModel.js';
 import SoundScreenView from './SoundScreenView.js';
 
-class SingleSourceView extends SoundScreenView {
+export default class SingleSourceView extends SoundScreenView {
   public constructor( model: SingleSourceModel ) {
     super( model );
 
@@ -30,4 +30,3 @@ class SingleSourceView extends SoundScreenView {
 }
 
 sound.register( 'SingleSourceView', SingleSourceView );
-export default SingleSourceView;

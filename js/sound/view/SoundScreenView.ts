@@ -30,7 +30,7 @@ const WAVE_MARGIN = 8; // Additional margin shown around the wave lattice
 const GAUGE_SPACING_X = 8;
 const GAUGE_SPACING_Y = 16;
 
-class SoundScreenView extends ScreenView {
+export default class SoundScreenView extends ScreenView {
 
   // aligns the control panels
   public readonly contolPanelAlignGroup: AlignGroup;
@@ -220,4 +220,3 @@ class SoundScreenView extends ScreenView {
 }
 
 sound.register( 'SoundScreenView', SoundScreenView );
-export default SoundScreenView;

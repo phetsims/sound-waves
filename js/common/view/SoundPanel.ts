@@ -15,7 +15,7 @@ import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.
 type SelfOptions = EmptySelfOptions;
 export type SoundPanelOptions = PanelOptions & SelfOptions;
 
-class SoundPanel extends Panel {
+export default class SoundPanel extends Panel {
 
   public constructor( content: Node, providedOptions?: PanelOptions ) {
     const options = optionize<SoundPanelOptions, SelfOptions, PanelOptions>()( {
@@ -30,4 +30,3 @@ class SoundPanel extends Panel {
 }
 
 sound.register( 'SoundPanel', SoundPanel );
-export default SoundPanel;

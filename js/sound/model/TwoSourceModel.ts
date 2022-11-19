@@ -12,7 +12,7 @@ import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
 import SoundModel from './SoundModel.js';
 
-class TwoSourceModel extends SoundModel {
+export default class TwoSourceModel extends SoundModel {
 
   // TODO: This appears elsewhere
   public readonly listenerPositionProperty: Vector2Property;
@@ -42,4 +42,3 @@ class TwoSourceModel extends SoundModel {
 }
 
 sound.register( 'TwoSourceModel', TwoSourceModel );
-export default TwoSourceModel;

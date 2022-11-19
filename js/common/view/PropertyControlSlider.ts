@@ -16,7 +16,7 @@ import SoundConstants from '../SoundConstants.js';
 type SelfOptions = { valueToText?: ( null | ( ( value: number ) => string ) ) };
 type PropertyControlSliderOptions = SelfOptions & NodeOptions;
 
-class PropertyControlSlider extends Node {
+export default class PropertyControlSlider extends Node {
   public constructor( titleString: string, property: NumberProperty, providedOptions?: PropertyControlSliderOptions ) {
     const options = optionize<PropertyControlSliderOptions, SelfOptions, NodeOptions>()( {
       valueToText: null
@@ -47,4 +47,3 @@ class PropertyControlSlider extends Node {
 }
 
 sound.register( 'PropertyControlSlider', PropertyControlSlider );
-export default PropertyControlSlider;

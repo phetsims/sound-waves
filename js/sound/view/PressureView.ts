@@ -14,7 +14,7 @@ import sound from '../../sound.js';
 import PressureModel from '../model/PressureModel.js';
 import SoundScreenView from './SoundScreenView.js';
 
-class PressureView extends SoundScreenView {
+export default class PressureView extends SoundScreenView {
   private readonly listener: Image;
   private readonly pressureControlPanel: AirDensityControlPanel;
 
@@ -40,4 +40,3 @@ class PressureView extends SoundScreenView {
 }
 
 sound.register( 'PressureView', PressureView );
-export default PressureView;

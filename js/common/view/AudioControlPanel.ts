@@ -25,7 +25,7 @@ const listenerAudioString = SoundStrings.audioControlPanel.listener;
 type SelfOptions = EmptySelfOptions;
 type AudioControlPanelOptions = SelfOptions & SoundPanelOptions;
 
-class AudioControlPanel extends SoundPanel {
+export default class AudioControlPanel extends SoundPanel {
 
   public constructor( model: SoundModel & { audioControlSettingProperty?: Property<'SPEAKER' | 'LISTENER'> }, alignGroup: AlignGroup, providedOptions?: AudioControlPanelOptions ) {
     const options = optionize<AudioControlPanelOptions, SelfOptions, SoundPanelOptions>()( {
@@ -74,4 +74,3 @@ class AudioControlPanel extends SoundPanel {
 }
 
 sound.register( 'AudioControlPanel', AudioControlPanel );
-export default AudioControlPanel;

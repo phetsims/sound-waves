@@ -23,7 +23,7 @@ const resetString = SoundStrings.airDensityControlPanel.reset;
 type SelfOptions = EmptySelfOptions;
 export type AirDensityControlPanelOptions = SoundPanelOptions & SelfOptions;
 
-class AirDensityControlPanel extends SoundPanel {
+export default class AirDensityControlPanel extends SoundPanel {
 
   public constructor( model: PressureModel, alignGroup: AlignGroup, providedOptions?: AirDensityControlPanelOptions ) {
     const options = optionize<AirDensityControlPanelOptions, SelfOptions, SoundPanelOptions>()( {
@@ -56,4 +56,3 @@ class AirDensityControlPanel extends SoundPanel {
 }
 
 sound.register( 'AirDensityControlPanel', AirDensityControlPanel );
-export default AirDensityControlPanel;

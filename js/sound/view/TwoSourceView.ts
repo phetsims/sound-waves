@@ -17,7 +17,7 @@ import sound from '../../sound.js';
 import TwoSourceModel from '../model/TwoSourceModel.js';
 import SoundScreenView from './SoundScreenView.js';
 
-class TwoSourceView extends SoundScreenView {
+export default class TwoSourceView extends SoundScreenView {
   private readonly listener: MovableNode;
   private readonly speakerNode2: MovableNode;
 
@@ -46,4 +46,3 @@ class TwoSourceView extends SoundScreenView {
 }
 
 sound.register( 'TwoSourceView', TwoSourceView );
-export default TwoSourceView;

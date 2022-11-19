@@ -15,7 +15,7 @@ import sound from '../../sound.js';
 import SoundScreenView from './SoundScreenView.js';
 import ReflectionModel from '../model/ReflectionModel.js';
 
-class ReflectionView extends SoundScreenView {
+export default class ReflectionView extends SoundScreenView {
 
   // control panel for the angle and position of the reflection wall
   public readonly reflectionControlPanel: ReflectionControlPanel;
@@ -77,4 +77,3 @@ class ReflectionView extends SoundScreenView {
 }
 
 sound.register( 'ReflectionView', ReflectionView );
-export default ReflectionView;

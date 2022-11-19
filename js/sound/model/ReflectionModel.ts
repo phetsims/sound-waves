@@ -13,7 +13,7 @@ import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
 import SoundModel from './SoundModel.js';
 
-class ReflectionModel extends SoundModel {
+export default class ReflectionModel extends SoundModel {
 
   // x coordinate of the wall origin position
   public readonly wallPositionXProperty: NumberProperty;
@@ -52,4 +52,3 @@ class ReflectionModel extends SoundModel {
 }
 
 sound.register( 'ReflectionModel', ReflectionModel );
-export default ReflectionModel;

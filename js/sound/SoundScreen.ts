@@ -17,7 +17,7 @@ import SoundModel from './model/SoundModel.js';
 import SoundScreenView from './view/SoundScreenView.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 
-class SoundScreen<T extends SoundModel> extends Screen<T, SoundScreenView> {
+export default class SoundScreen<T extends SoundModel> extends Screen<T, SoundScreenView> {
   public constructor( title: string, createModel: () => T, createView: ( model: T ) => SoundScreenView, iconImage: Node ) {
 
     const options = {
@@ -42,4 +42,3 @@ class SoundScreen<T extends SoundModel> extends Screen<T, SoundScreenView> {
 }
 
 sound.register( 'SoundScreen', SoundScreen );
-export default SoundScreen;

@@ -21,7 +21,7 @@ const rotationSliderString = SoundStrings.reflectionControlPanel.rotationSlider;
 type SelfOptions = EmptySelfOptions;
 type ReflectionControlPanelOptions = SelfOptions & SoundPanelOptions;
 
-class ReflectionControlPanel extends SoundPanel {
+export default class ReflectionControlPanel extends SoundPanel {
 
   public constructor( model: ReflectionModel, alignGroup: AlignGroup, providedOptions?: ReflectionControlPanelOptions ) {
 
@@ -53,4 +53,3 @@ class ReflectionControlPanel extends SoundPanel {
 }
 
 sound.register( 'ReflectionControlPanel', ReflectionControlPanel );
-export default ReflectionControlPanel;

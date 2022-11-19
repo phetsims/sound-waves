@@ -21,7 +21,7 @@ type DeltaEntry = {
   verticalLatticeCoordinate: number;
 };
 
-class TemporalMask {
+export default class TemporalMask {
 
   // record of changes in wave disturbance sources.
   private readonly deltas: DeltaEntry[] = [];
@@ -121,4 +121,3 @@ class TemporalMask {
 }
 
 sound.register( 'TemporalMask', TemporalMask );
-export default TemporalMask;

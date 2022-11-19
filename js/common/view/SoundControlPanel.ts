@@ -27,7 +27,7 @@ const hzString = SoundStrings.hz;
 type SelfOptions = EmptySelfOptions;
 type SoundControlPanelOptions = SelfOptions & SoundPanelOptions;
 
-class SoundControlPanel extends SoundPanel {
+export default class SoundControlPanel extends SoundPanel {
 
   public constructor( model: SoundModel & { stopwatch?: Stopwatch }, alignGroup: AlignGroup, providedOptions?: SoundControlPanelOptions ) {
 
@@ -77,4 +77,3 @@ class SoundControlPanel extends SoundPanel {
 }
 
 sound.register( 'SoundControlPanel', SoundControlPanel );
-export default SoundControlPanel;

@@ -59,8 +59,7 @@ const speakers = [
   speakerR10Image
 ];
 
-
-class SpeakerNode extends Node {
+export default class SpeakerNode extends Node {
   constructor( oscillatorProperty: TReadOnlyProperty<number> ) {
     super();
 
@@ -83,4 +82,3 @@ class SpeakerNode extends Node {
 }
 
 sound.register( 'SpeakerNode', SpeakerNode );
-export default SpeakerNode;

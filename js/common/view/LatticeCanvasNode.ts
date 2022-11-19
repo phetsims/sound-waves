@@ -29,7 +29,7 @@ type SelfOptions = {
 };
 type LatticeCanvasNodeOptions = SelfOptions & CanvasNodeOptions;
 
-class LatticeCanvasNode extends CanvasNode {
+export default class LatticeCanvasNode extends CanvasNode {
 
   public source2PositionY: number;
   private readonly hasSecondSource: boolean;
@@ -213,4 +213,3 @@ class LatticeCanvasNode extends CanvasNode {
 }
 
 sound.register( 'LatticeCanvasNode', LatticeCanvasNode );
-export default LatticeCanvasNode;
