@@ -34,14 +34,14 @@ export default class LatticeCanvasNode extends CanvasNode {
   public source2PositionY: number;
   private readonly hasSecondSource: boolean;
   private readonly sourcePosition: Vector2;
-  public readonly hasReflection: boolean;
+  private readonly hasReflection: boolean;
   private readonly lattice: Lattice;
   private wallPositionX: number;
   private wallAngle: number;
   private baseColor: Color;
 
   // settable, if defined shows unvisited lattice cells as specified color, used for light
-  public vacuumColor: Color | null;
+  private vacuumColor: Color | null;
 
   // For performance, render into a sub-canvas which will be drawn into the rendering context at the right scale
   private readonly imageDataRenderer: ImageDataRenderer;
@@ -88,7 +88,7 @@ export default class LatticeCanvasNode extends CanvasNode {
    * Convert the given point in the local coordinate frame to the corresponding i,j (integral) lattice coordinates.
    * @param point - point in the local coordinate frame
    */
-  public static localPointToLatticePoint( point: Vector2 ): Vector2 {
+  private static localPointToLatticePoint( point: Vector2 ): Vector2 {
     return new Vector2(
       Utils.roundSymmetric( point.x / SoundConstants.CELL_WIDTH ),
       Utils.roundSymmetric( point.y / SoundConstants.CELL_WIDTH )
@@ -112,7 +112,7 @@ export default class LatticeCanvasNode extends CanvasNode {
   /**
    * Sets the color of the peaks of the wave.
    */
-  public setBaseColor( color: Color ): void {
+  private setBaseColor( color: Color ): void {
     this.baseColor = color;
     this.invalidatePaint();
   }
@@ -120,7 +120,7 @@ export default class LatticeCanvasNode extends CanvasNode {
   /**
    * Gets dampened lattice value
    */
-  public getDampenedValue( x: number, y: number ): number {
+  private getDampenedValue( x: number, y: number ): number {
     const distance = this.sourcePosition.distanceXY( x, y );
     const distanceDampen = distance >= 0 && distance <= SoundConstants.MAX_SOUND_DISTANCE ? ( SoundConstants.MAX_SOUND_DISTANCE - distance ) / SoundConstants.MAX_SOUND_DISTANCE : 0;
 

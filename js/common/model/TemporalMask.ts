@@ -104,7 +104,7 @@ export default class TemporalMask {
   /**
    * Clear the state.
    */
-  public clear(): void {
+  private clear(): void {
     this.deltas.length = 0;
   }
 }

@@ -18,7 +18,7 @@ import ReflectionModel from '../model/ReflectionModel.js';
 export default class ReflectionView extends SoundScreenView {
 
   // control panel for the angle and position of the reflection wall
-  public readonly reflectionControlPanel: ReflectionControlPanel;
+  private readonly reflectionControlPanel: ReflectionControlPanel;
 
   // control panel for controlling wether the speaker emits waves continuously or pulses
   private readonly soundModeControlPanel: SoundModeControlPanel;

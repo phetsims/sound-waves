@@ -66,10 +66,10 @@ export default class SoundModel {
   public readonly isRunningProperty: BooleanProperty;
 
   //  phase of the sound wave.
-  public phase = 0;
+  private phase = 0;
 
   // number of steps since launch of the simulation.
-  public stepIndex = 0;
+  private stepIndex = 0;
 
   private readonly temporalMask: TemporalMask;
 
@@ -79,11 +79,11 @@ export default class SoundModel {
   private readonly eventTimer: EventTimer;
 
   // elapsed time in seconds
-  public readonly timeProperty: NumberProperty;
+  private readonly timeProperty: NumberProperty;
 
   // the grid that contains the wave values of the first speaker
   public readonly lattice: Lattice;
-  public latticeToViewTransform: ModelViewTransform2 | null;
+  private latticeToViewTransform: ModelViewTransform2 | null;
   private pulseStartTime: number | null = null;
 
   public constructor( providedOptions?: SoundModelOptions ) {

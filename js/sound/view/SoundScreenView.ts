@@ -42,8 +42,8 @@ export default class SoundScreenView extends ScreenView {
   // control panel resposible for setting the frequency and amplitude
   public readonly controlPanel: SoundControlPanel;
 
-  public readonly waveAreaNode: Rectangle;
-  public readonly speakerNode1: SpeakerNode;
+  private readonly waveAreaNode: Rectangle;
+  private readonly speakerNode1: SpeakerNode;
 
   public constructor( model: SoundModel & {
     audioControlSettingProperty?: Property<'SPEAKER' | 'LISTENER'>;
