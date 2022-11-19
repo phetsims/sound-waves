@@ -17,8 +17,8 @@ import SoundModel from './model/SoundModel.js';
 import SoundScreenView from './view/SoundScreenView.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 
-class SoundScreen extends Screen {
-  public constructor( title: string, createModel: () => SoundModel, createView: () => SoundScreenView, iconImage: Node ) {
+class SoundScreen<T extends SoundModel> extends Screen<T, SoundScreenView> {
+  public constructor( title: string, createModel: () => T, createView: ( model: T ) => SoundScreenView, iconImage: Node ) {
 
     const options = {
       backgroundColorProperty: SoundColors.SCREEN_VIEW_BACKGROUND,

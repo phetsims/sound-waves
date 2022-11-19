@@ -1,6 +1,4 @@
 // Copyright 2022, University of Colorado Boulder
-/* eslint-disable */
-// @ts-nocheck
 /**
  * Constants used throughout this simulation.
  *
@@ -66,13 +64,12 @@ const SoundConstants = {
   /**
    * Gets the bounds to use for a canvas, in view coordinates
    */
-  getCanvasBounds( lattice: Lattice ) {
+  getCanvasBounds( lattice: Lattice ): Bounds2 {
     return new Bounds2(
       0, 0,
       ( lattice.width - lattice.dampX * 2 ) * CELL_WIDTH, ( lattice.height - lattice.dampY * 2 ) * CELL_WIDTH
     );
   }
-
 };
 
 sound.register( 'SoundConstants', SoundConstants );

@@ -1,6 +1,4 @@
 // Copyright 2022, University of Colorado Boulder
-/* eslint-disable */
-// @ts-nocheck
 /**
  * Model for the measure screen.
  *
@@ -19,7 +17,7 @@ class MeasureModel extends SoundModel {
   public readonly stopwatch: Stopwatch;
   public readonly rulerPositionProperty: Vector2Property;
 
-  constructor() {
+  public constructor() {
     super( {
       initialAmplitude: 10
     } );
@@ -32,7 +30,6 @@ class MeasureModel extends SoundModel {
       isVisible: true
     } );
 
-    // @public - position of the ruler
     this.rulerPositionProperty = new Vector2Property( new Vector2( 200, 460 ) );
   }
 

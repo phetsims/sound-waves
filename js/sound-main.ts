@@ -1,6 +1,4 @@
 // Copyright 2022, University of Colorado Boulder
-/* eslint-disable */
-// @ts-nocheck
 /**
  * Main entry point for the sim.
  *
@@ -11,11 +9,11 @@
 import Sim from '../../joist/js/Sim.js';
 import simLauncher from '../../joist/js/simLauncher.js';
 import { Image } from '../../scenery/js/imports.js';
-import measureIcon from '../images/measureIcon_png.js';
-import pressureIcon from '../images/pressureIcon_png.js';
-import reflectionIcon from '../images/reflectionIcon_png.js';
-import singleSourceIcon from '../images/singleSourceIcon_png.js';
-import twoSourceIcon from '../images/twoSourceIcon_png.js';
+import measureIcon_png from '../images/measureIcon_png.js';
+import pressureIcon_png from '../images/pressureIcon_png.js';
+import reflectionIcon_png from '../images/reflectionIcon_png.js';
+import singleSourceIcon_png from '../images/singleSourceIcon_png.js';
+import twoSourceIcon_png from '../images/twoSourceIcon_png.js';
 import MeasureModel from './sound/model/MeasureModel.js';
 import PressureModel from './sound/model/PressureModel.js';
 import ReflectionModel from './sound/model/ReflectionModel.js';
@@ -35,30 +33,28 @@ const twoSourceTitle = SoundStrings.twoSource.title;
 const reflectionTitle = SoundStrings.reflection.title;
 const pressureTitle = SoundStrings.airPressure.title;
 
-const simOptions = {
-
-  //TODO fill in credits, all of these fields are optional, see joist.CreditsNode
-  credits: {
-    leadDesign: '',
-    softwareDevelopment: '',
-    team: '',
-    qualityAssurance: '',
-    graphicArts: '',
-    soundDesign: '',
-    thanks: ''
-  }
-};
-
 // launch the sim - beware that scenery Image nodes created outside of simLauncher.launch() will have zero bounds
 // until the images are fully loaded, see https://github.com/phetsims/coulombs-law/issues/70
 simLauncher.launch( () => {
   const sim = new Sim( SoundStrings.sound.titleStringProperty, [
-    new SoundScreen( singleSourceTitle, () => new SingleSourceModel(), model => new SingleSourceView( model ), new Image( singleSourceIcon ) ),
-    new SoundScreen( measureTitle, () => new MeasureModel(), model => new MeasureView( model ), new Image( measureIcon ) ),
-    new SoundScreen( twoSourceTitle, () => new TwoSourceModel(), model => new TwoSourceView( model ), new Image( twoSourceIcon ) ),
-    new SoundScreen( reflectionTitle, () => new ReflectionModel(), model => new ReflectionView( model ), new Image( reflectionIcon ) ),
-    new SoundScreen( pressureTitle, () => new PressureModel(), model => new PressureView( model ), new Image( pressureIcon ) )
-  ], simOptions );
+    new SoundScreen( singleSourceTitle, () => new SingleSourceModel(), model => new SingleSourceView( model ), new Image( singleSourceIcon_png ) ),
+    new SoundScreen( measureTitle, () => new MeasureModel(), model => new MeasureView( model ), new Image( measureIcon_png ) ),
+    new SoundScreen( twoSourceTitle, () => new TwoSourceModel(), model => new TwoSourceView( model ), new Image( twoSourceIcon_png ) ),
+    new SoundScreen( reflectionTitle, () => new ReflectionModel(), model => new ReflectionView( model ), new Image( reflectionIcon_png ) ),
+    new SoundScreen( pressureTitle, () => new PressureModel(), model => new PressureView( model ), new Image( pressureIcon_png ) )
+  ], {
+
+    //TODO fill in credits, all of these fields are optional, see joist.CreditsNode
+    credits: {
+      leadDesign: '',
+      softwareDevelopment: 'Piet Goris, Sam Reid',
+      team: '',
+      qualityAssurance: '',
+      graphicArts: '',
+      soundDesign: '',
+      thanks: ''
+    }
+  } );
 
   sim.start();
 } );
