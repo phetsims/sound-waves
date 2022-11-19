@@ -108,9 +108,7 @@ export default class SoundModel {
       getPeriodBeforeNextEvent: () => eventTimerPeriod
     };
 
-    this.eventTimer = new EventTimer( eventTimerModel, ( timeElapsed: number ) =>
-      this.advanceTime( eventTimerPeriod, false )
-    );
+    this.eventTimer = new EventTimer( eventTimerModel, timeElapsed => this.advanceTime( eventTimerPeriod, false ) );
 
     // When frequency changes, choose a new phase such that the new sine curve has the same value and direction
     // for continuity
