@@ -1,6 +1,4 @@
 // Copyright 2022, University of Colorado Boulder
-/* eslint-disable */
-// @ts-nocheck
 /**
  * Slider that controls a given property, can display the current value and a title.
  *
@@ -8,18 +6,21 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
-import Property from '../../../../axon/js/Property.js';
-import merge from '../../../../phet-core/js/merge.js';
-import { Node, Text } from '../../../../scenery/js/imports.js';
+import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import optionize from '../../../../phet-core/js/optionize.js';
+import { Node, NodeOptions, Text } from '../../../../scenery/js/imports.js';
 import SoundSlider from '../../common/view/SoundSlider.js';
 import sound from '../../sound.js';
 import SoundConstants from '../SoundConstants.js';
 
-class ProtertyControlSlider extends Node {
-  constructor( titleString: string, property: Property<number>, options?: IntentionalAny ) {
-    options = merge( {
+type SelfOptions = { valueToText?: ( null | ( ( value: number ) => string ) ) };
+type PropertyControlSliderOptions = SelfOptions & NodeOptions;
+
+class PropertyControlSlider extends Node {
+  public constructor( titleString: string, property: NumberProperty, providedOptions?: PropertyControlSliderOptions ) {
+    const options = optionize<PropertyControlSliderOptions, SelfOptions, NodeOptions>()( {
       valueToText: null
-    }, options );
+    }, providedOptions );
 
     const title = new Text( titleString );
     const valueDisplay = new Text( '' );
@@ -32,7 +33,7 @@ class ProtertyControlSlider extends Node {
 
     if ( options.valueToText ) {
       property.link( value => {
-        valueDisplay.setText( options.valueToText( value ) );
+        valueDisplay.setText( options.valueToText!( value ) );
         valueDisplay.right = sliderContainer.right;
       } );
     }
@@ -42,10 +43,8 @@ class ProtertyControlSlider extends Node {
         ...( options.valueToText ? [ valueDisplay ] : [] ),
         sliderContainer ]
     } );
-
-
   }
 }
 
-sound.register( 'ProtertyControlSlider', ProtertyControlSlider );
-export default ProtertyControlSlider;
+sound.register( 'PropertyControlSlider', PropertyControlSlider );
+export default PropertyControlSlider;

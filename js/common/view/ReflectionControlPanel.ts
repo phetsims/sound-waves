@@ -1,6 +1,4 @@
 // Copyright 2022, University of Colorado Boulder
-/* eslint-disable */
-// @ts-nocheck
 /**
  * Shows the controls for the reflection wall, its position and rotation.
  *
@@ -8,30 +6,29 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
-import merge from '../../../../phet-core/js/merge.js';
-import { Node } from '../../../../scenery/js/imports.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import { AlignGroup, Node } from '../../../../scenery/js/imports.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
+import ReflectionModel from '../../sound/model/ReflectionModel.js';
 import SoundStrings from '../../SoundStrings.js';
 import PropertyControlSlider from './PropertyControlSlider.js';
-import SoundPanel from './SoundPanel.js';
+import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
 
 const positionSliderString = SoundStrings.reflectionControlPanel.positionSlider;
 const rotationSliderString = SoundStrings.reflectionControlPanel.rotationSlider;
 
+type SelfOptions = EmptySelfOptions;
+type ReflectionControlPanelOptions = SelfOptions & SoundPanelOptions;
+
 class ReflectionControlPanel extends SoundPanel {
 
-  /**
-   * @param {SoundModel} model
-   * @param {AlignGroup} alignGroup
-   * @param {Object} [options]
-   */
-  constructor( model, alignGroup, options ) {
+  public constructor( model: ReflectionModel, alignGroup: AlignGroup, providedOptions: ReflectionControlPanelOptions ) {
 
-    options = merge( {
+    const options = optionize<ReflectionControlPanelOptions, SelfOptions, SoundPanelOptions>()( {
       maxWidth: SoundConstants.PANEL_MAX_WIDTH,
       yMargin: 4
-    }, options );
+    }, providedOptions );
 
     const wallPositionXControl = new PropertyControlSlider( positionSliderString, model.wallPositionXProperty );
     const wallAngleControl = new PropertyControlSlider( rotationSliderString, model.wallAngleProperty );
