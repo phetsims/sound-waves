@@ -14,7 +14,7 @@ import sound from '../../sound.js';
 import SoundStrings from '../../SoundStrings.js';
 import PropertyControlSlider from './PropertyControlSlider.js';
 import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
-import PressureModel from '../../sound/model/PressureModel.js';
+import PressureModel from '../../air-pressure/PressureModel.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 
 const titleString = SoundStrings.airDensityControlPanel.title;

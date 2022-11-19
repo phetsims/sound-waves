@@ -6,16 +6,16 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
-import Bounds2 from '../../../../dot/js/Bounds2.js';
-import Vector2 from '../../../../dot/js/Vector2.js';
-import { Image } from '../../../../scenery/js/imports.js';
-import girl_png from '../../../images/girl_png.js';
-import SoundConstants from '../../common/SoundConstants.js';
-import MovableNode from '../../common/view/MovableNode.js';
-import SpeakerNode from '../../common/view/SpeakerNode.js';
-import sound from '../../sound.js';
-import TwoSourceModel from '../model/TwoSourceModel.js';
-import SoundScreenView from './SoundScreenView.js';
+import Bounds2 from '../../../dot/js/Bounds2.js';
+import Vector2 from '../../../dot/js/Vector2.js';
+import { Image } from '../../../scenery/js/imports.js';
+import girl_png from '../../images/girl_png.js';
+import SoundConstants from '../common/SoundConstants.js';
+import MovableNode from '../common/view/MovableNode.js';
+import SpeakerNode from '../common/view/SpeakerNode.js';
+import sound from '../sound.js';
+import TwoSourceModel from '../two-sources/TwoSourceModel.js';
+import SoundScreenView from '../common/view/SoundScreenView.js';
 
 export default class TwoSourceView extends SoundScreenView {
   private readonly listener: MovableNode;

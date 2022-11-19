@@ -10,7 +10,7 @@ import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.
 import { AlignGroup, Node } from '../../../../scenery/js/imports.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
-import ReflectionModel from '../../sound/model/ReflectionModel.js';
+import ReflectionModel from '../../reflection/ReflectionModel.js';
 import SoundStrings from '../../SoundStrings.js';
 import PropertyControlSlider from './PropertyControlSlider.js';
 import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';

@@ -6,11 +6,11 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
-import Vector2 from '../../../../dot/js/Vector2.js';
-import Vector2Property from '../../../../dot/js/Vector2Property.js';
-import SoundConstants from '../../common/SoundConstants.js';
-import sound from '../../sound.js';
-import SoundModel from './SoundModel.js';
+import Vector2 from '../../../dot/js/Vector2.js';
+import Vector2Property from '../../../dot/js/Vector2Property.js';
+import SoundConstants from '../common/SoundConstants.js';
+import sound from '../sound.js';
+import SoundModel from '../common/model/SoundModel.js';
 
 export default class TwoSourceModel extends SoundModel {
 

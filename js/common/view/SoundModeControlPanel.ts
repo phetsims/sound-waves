@@ -13,7 +13,7 @@ import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
 import SoundStrings from '../../SoundStrings.js';
 import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
-import ReflectionModel from '../../sound/model/ReflectionModel.js';
+import ReflectionModel from '../../reflection/ReflectionModel.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import SoundControlPanel from './SoundControlPanel.js';
 

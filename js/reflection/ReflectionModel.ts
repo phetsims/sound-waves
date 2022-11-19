@@ -6,12 +6,12 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
-import NumberProperty from '../../../../axon/js/NumberProperty.js';
-import Property from '../../../../axon/js/Property.js';
-import Range from '../../../../dot/js/Range.js';
-import SoundConstants from '../../common/SoundConstants.js';
-import sound from '../../sound.js';
-import SoundModel from './SoundModel.js';
+import NumberProperty from '../../../axon/js/NumberProperty.js';
+import Property from '../../../axon/js/Property.js';
+import Range from '../../../dot/js/Range.js';
+import SoundConstants from '../common/SoundConstants.js';
+import sound from '../sound.js';
+import SoundModel from '../common/model/SoundModel.js';
 
 export default class ReflectionModel extends SoundModel {
 

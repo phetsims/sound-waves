@@ -13,7 +13,7 @@ import Checkbox from '../../../../sun/js/Checkbox.js';
 import VerticalAquaRadioButtonGroup from '../../../../sun/js/VerticalAquaRadioButtonGroup.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
-import SoundModel from '../../sound/model/SoundModel.js';
+import SoundModel from '../../common/model/SoundModel.js';
 import SoundStrings from '../../SoundStrings.js';
 import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
 
