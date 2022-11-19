@@ -9,8 +9,6 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
-import ReadOnlyProperty from '../../../../axon/js/ReadOnlyProperty.js';
-import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Lattice from '../../../../scenery-phet/js/Lattice.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
@@ -25,14 +23,6 @@ export default class TemporalMask {
 
   // record of changes in wave disturbance sources.
   private readonly deltas: DeltaEntry[] = [];
-
-  public constructor(
-    // x coordinate of the origin position of the wall if present.
-    private readonly wallPositionXProperty: ReadOnlyProperty<number>,
-    // angle of the wall if present.
-    private readonly wallAngleProperty: ReadOnlyProperty<number>,
-    private readonly transformModel: ModelViewTransform2 ) {
-  }
 
   /**
    * Set the current state of the model.  If this differs from the prior state type (in position or whether it is on)
@@ -85,8 +75,7 @@ export default class TemporalMask {
         const headTolerance = 2;
         const tailTolerance = 4;
 
-
-        if ( horizontalDelta <= 0 && theoreticalTime >= startTime - headTolerance && theoreticalTime <= endTime + tailTolerance && Math.abs( Math.atan( verticalDelta / horizontalDelta ) ) <= SoundConstants.CONE_ANGLE && ( this.wallPositionXProperty ? horizontalLatticeCoordinate < this.transformModel.modelToViewX( this.wallPositionXProperty.value ) + ( verticalLatticeCoordinate - SoundConstants.LATTICE_DIMENSION + SoundConstants.LATTICE_PADDING ) / Math.tan( -this.wallAngleProperty.value ) : true ) ) {
+        if ( horizontalDelta <= 0 && theoreticalTime >= startTime - headTolerance && theoreticalTime <= endTime + tailTolerance && Math.abs( Math.atan( verticalDelta / horizontalDelta ) ) <= SoundConstants.CONE_ANGLE ) {
 
           // Return as early as possible to improve performance
           return distance;

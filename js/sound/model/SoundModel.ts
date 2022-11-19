@@ -101,8 +101,7 @@ export default class SoundModel {
     this.phase = 0;
     this.stepIndex = 0;
 
-    // @ts-ignore
-    this.temporalMask = new TemporalMask( this.wallPositionXProperty, this.wallAngleProperty );
+    this.temporalMask = new TemporalMask();
     this.oscillatorProperty = new NumberProperty( 0 );
 
     const eventTimerModel = {

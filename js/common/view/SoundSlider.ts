@@ -132,13 +132,11 @@ export default class SoundSlider extends HSlider {
     options.showTicks && ticks.forEach( tick => {
       if ( tick.type === 'major' ) {
 
-        // @ts-ignore
-        this.addMajorTick( tick.value, tick.label );
+        this.addMajorTick( tick.value );
       }
       else {
 
-        // @ts-ignore
-        this.addMinorTick( tick.value, tick.label );
+        this.addMinorTick( tick.value );
       }
     } );
   }
