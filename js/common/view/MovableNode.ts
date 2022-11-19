@@ -1,6 +1,4 @@
 // Copyright 2022, University of Colorado Boulder
-/* eslint-disable */
-// @ts-nocheck
 /**
  * A node which can be dragged within the given bounds.
  *
@@ -11,9 +9,15 @@
 import Property from '../../../../axon/js/Property.js';
 import sound from '../../sound.js';
 import { Node, DragListener } from '../../../../scenery/js/imports.js';
+import Vector2 from '../../../../dot/js/Vector2.js';
+import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
+import Bounds2 from '../../../../dot/js/Bounds2.js';
+import TProperty from '../../../../axon/js/TProperty.js';
 
 class MoveableNode extends Node {
-  constructor( positionProperty, dragBounds, modelViewTransform, child ) {
+  public readonly movableDragHandler: DragListener;
+
+  public constructor( positionProperty: TProperty<Vector2>, dragBounds: Bounds2, modelViewTransform: ModelViewTransform2, child: Node ) {
     super();
 
     // interactivity
@@ -25,8 +29,6 @@ class MoveableNode extends Node {
       this.x = viewPosition.x;
       this.y = viewPosition.y;
     } );
-
-    // @private (phet-io)
 
     // TODO: Upgraded from another listener type
     this.movableDragHandler = new DragListener( {
