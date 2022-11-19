@@ -23,7 +23,7 @@ type ReflectionControlPanelOptions = SelfOptions & SoundPanelOptions;
 
 class ReflectionControlPanel extends SoundPanel {
 
-  public constructor( model: ReflectionModel, alignGroup: AlignGroup, providedOptions: ReflectionControlPanelOptions ) {
+  public constructor( model: ReflectionModel, alignGroup: AlignGroup, providedOptions?: ReflectionControlPanelOptions ) {
 
     const options = optionize<ReflectionControlPanelOptions, SelfOptions, SoundPanelOptions>()( {
       maxWidth: SoundConstants.PANEL_MAX_WIDTH,

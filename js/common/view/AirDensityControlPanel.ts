@@ -25,7 +25,7 @@ export type AirDensityControlPanelOptions = SoundPanelOptions & SelfOptions;
 
 class AirDensityControlPanel extends SoundPanel {
 
-  public constructor( model: PressureModel, alignGroup: AlignGroup, providedOptions: AirDensityControlPanelOptions ) {
+  public constructor( model: PressureModel, alignGroup: AlignGroup, providedOptions?: AirDensityControlPanelOptions ) {
     const options = optionize<AirDensityControlPanelOptions, SelfOptions, SoundPanelOptions>()( {
       maxWidth: SoundConstants.PANEL_MAX_WIDTH,
       yMargin: 4

@@ -1,6 +1,4 @@
 // Copyright 2022, University of Colorado Boulder
-/* eslint-disable */
-// @ts-nocheck
 /**
  * View for the reflection screen.
  *
@@ -15,38 +13,48 @@ import ReflectionControlPanel from '../../common/view/ReflectionControlPanel.js'
 import SoundModeControlPanel from '../../common/view/SoundModeControlPanel.js';
 import sound from '../../sound.js';
 import SoundScreenView from './SoundScreenView.js';
+import ReflectionModel from '../model/ReflectionModel.js';
 
 class ReflectionView extends SoundScreenView {
-  constructor( model ) {
+
+  // control panel for the angle and position of the reflection wall
+  public readonly reflectionControlPanel: ReflectionControlPanel;
+
+  // control panel for controlling wether the speaker emits waves continuously or pulses
+  private readonly soundModeControlPanel: SoundModeControlPanel;
+
+  // rectangle representing the reflection wall
+  private readonly reflector: Rectangle;
+
+  // container for the reflector, needed for rotation
+  private readonly reflectorContainer: Node;
+
+  public constructor( model: ReflectionModel ) {
     super( model );
 
-    // @private - control panel for the angle and position of the reflection wall
     this.reflectionControlPanel = new ReflectionControlPanel( model, this.contolPanelAlignGroup );
 
-    // @private - control panel for controlling wether the speaker emits waves continuously or pulses
     this.soundModeControlPanel = new SoundModeControlPanel( model, this.contolPanelAlignGroup );
 
-    // @private - rectangle representing the reflection wall
     this.reflector = new Rectangle( 0, 0, SoundConstants.WAVE_AREA_WIDTH * 2, 4, {
       fill: '#f3d99b',
       stroke: 'black',
       lineWidth: 1
     } );
 
-    this.reflector.setY( model.modelViewTransform.modelToViewY( SoundConstants.WAVE_AREA_WIDTH ) );
+    this.reflector.setY( model.modelViewTransform!.modelToViewY( SoundConstants.WAVE_AREA_WIDTH ) );
 
     model.wallAngleProperty.link( prop => {
       this.reflector.setRotation( -prop );
       this.canvasNode.setWallAngle( prop );
     } );
 
-    // @private - container for the reflector, needed for rotation
     this.reflectorContainer = new Node();
     this.reflectorContainer.addChild( this.reflector );
-    this.reflectorContainer.setClipArea( Shape.rect( model.modelViewTransform.modelToViewX( 0 ), model.modelViewTransform.modelToViewY( 0 ), model.modelViewTransform.modelToViewDeltaX( SoundConstants.WAVE_AREA_WIDTH ), model.modelViewTransform.modelToViewDeltaY( SoundConstants.WAVE_AREA_WIDTH ) ) );
+    this.reflectorContainer.setClipArea( Shape.rect( model.modelViewTransform!.modelToViewX( 0 ), model.modelViewTransform!.modelToViewY( 0 ), model.modelViewTransform!.modelToViewDeltaX( SoundConstants.WAVE_AREA_WIDTH ), model.modelViewTransform!.modelToViewDeltaY( SoundConstants.WAVE_AREA_WIDTH ) ) );
 
     model.wallPositionXProperty.link( prop => {
-      this.reflector.setX( model.modelViewTransform.modelToViewX( prop ) );
+      this.reflector.setX( model.modelViewTransform!.modelToViewX( prop ) );
       this.canvasNode.setWallPositionX( model.modelToLatticeTransform.modelToViewX( prop ) );
     } );
 

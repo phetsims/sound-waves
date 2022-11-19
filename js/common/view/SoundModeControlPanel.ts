@@ -1,6 +1,4 @@
 // Copyright 2022, University of Colorado Boulder
-/* eslint-disable */
-// @ts-nocheck
 /**
  * Controls for the sound mode, whether the speaker emits waves contiously or pulse on button press.
  *
@@ -8,38 +6,43 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
-import merge from '../../../../phet-core/js/merge.js';
 import { AlignGroup, Node, Text } from '../../../../scenery/js/imports.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
 import VerticalAquaRadioButtonGroup from '../../../../sun/js/VerticalAquaRadioButtonGroup.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
-import SoundModel from '../../sound/model/SoundModel.js';
 import SoundStrings from '../../SoundStrings.js';
-import SoundPanel from './SoundPanel.js';
+import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
 import ReflectionModel from '../../sound/model/ReflectionModel.js';
+import optionize from '../../../../phet-core/js/optionize.js';
+import SoundControlPanel from './SoundControlPanel.js';
 
 const titleString = SoundStrings.soundModeControlPanel.title;
 const continuousOptionString = SoundStrings.soundModeControlPanel.continuous;
 const pulseOptionString = SoundStrings.soundModeControlPanel.pulse;
 const firePulseString = SoundStrings.soundModeControlPanel.firePulse;
 
+type SelfOptions = {
+  yMargin?: number;
+};
+type SoundModeControlPanelOptions = SelfOptions & SoundPanelOptions;
+
 class SoundModeControlPanel extends SoundPanel {
 
-  constructor( model: ReflectionModel, alignGroup: AlignGroup, options?: IntentionalAny ) {
-    options = merge( {
+  public constructor( model: ReflectionModel, alignGroup: AlignGroup, providedOptions?: SoundModeControlPanelOptions ) {
+    const options = optionize<SoundModeControlPanelOptions, SelfOptions, SoundControlPanel>()( {
       maxWidth: SoundConstants.PANEL_MAX_WIDTH,
       yMargin: 4
-    }, options );
+    }, providedOptions );
 
     const boxText = new Text( titleString );
 
-    const radioButtons = new VerticalAquaRadioButtonGroup( model.soundModeProperty, [ {
+    const radioButtons = new VerticalAquaRadioButtonGroup<'CONTINUOUS' | 'PULSE'>( model.soundModeProperty, [ {
       createNode: tandem => new Text( continuousOptionString, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
-      value: SoundModel.SoundModeOptions.CONTINUOUS
+      value: 'CONTINUOUS'
     }, {
       createNode: tandem => new Text( pulseOptionString, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
-      value: SoundModel.SoundModeOptions.PULSE
+      value: 'PULSE'
     } ], {
       spacing: options.yMargin
     } );
@@ -63,7 +66,7 @@ class SoundModeControlPanel extends SoundPanel {
     firePulseButton.centerX = container.centerX;
 
     const updateEnabled = () => {
-      firePulseButton.setEnabled( model.soundModeProperty.value !== SoundModel.SoundModeOptions.CONTINUOUS && !model.isPulseFiringProperty.value );
+      firePulseButton.setEnabled( model.soundModeProperty.value !== 'CONTINUOUS' && !model.isPulseFiringProperty.value );
     };
 
     model.soundModeProperty.link( updateEnabled );

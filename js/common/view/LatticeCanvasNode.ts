@@ -23,11 +23,13 @@ const CUTOFF = 0.4;
 
 class LatticeCanvasNode extends CanvasNode {
 
+  public source2PositionY: number;
+
   /**
    * @param {Lattice} lattice
    * @param {Object} [options]
    */
-  constructor( lattice:Lattice, options?:IntentionalAny ) {
+  constructor( lattice: Lattice, options?: IntentionalAny ) {
 
     options = merge( {
 

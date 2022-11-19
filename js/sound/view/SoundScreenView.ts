@@ -32,6 +32,11 @@ const GAUGE_SPACING_Y = 16;
 
 class SoundScreenView extends ScreenView {
 
+  public readonly contolPanelAlignGroup: AlignGroup;
+  public readonly audioControlPanel: AudioControlPanel | null;
+  protected readonly canvasNode: LatticeCanvasNode;
+  public readonly controlPanel: SoundControlPanel;
+
   /**
    * @param {SoundModel} model
    */

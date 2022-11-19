@@ -1,6 +1,4 @@
 // Copyright 2022, University of Colorado Boulder
-/* eslint-disable */
-// @ts-nocheck
 /**
  * View for the pressure screen.
  *
@@ -9,7 +7,7 @@
  */
 
 import { Image } from '../../../../scenery/js/imports.js';
-import listenerImage from '../../../images/girl_png.js';
+import girl_png from '../../../images/girl_png.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import AirDensityControlPanel from '../../common/view/AirDensityControlPanel.js';
 import sound from '../../sound.js';
@@ -17,22 +15,24 @@ import PressureModel from '../model/PressureModel.js';
 import SoundScreenView from './SoundScreenView.js';
 
 class PressureView extends SoundScreenView {
-  constructor( model ) {
-    assert && assert( model instanceof PressureModel, 'invalid model' );
+  private readonly listener: Image;
+  private readonly pressureControlPanel: AirDensityControlPanel;
+
+  public constructor( model: PressureModel ) {
     super( model );
 
-    const center = model.modelViewTransform.modelToViewPosition( model.listenerPositionProperty.value );
-    // @private - listener node
-    this.listener = new Image( listenerImage );
-    this.listener.setCenter( center );
+    const center = model.modelViewTransform!.modelToViewPosition( model.listenerPositionProperty.value );
+    this.listener = new Image( girl_png, {
+      center: center
+    } );
     this.addChild( this.listener );
 
-    // @private - control panel for the air density in the box
+    // control panel for the air density in the box
     this.pressureControlPanel = new AirDensityControlPanel( model, this.contolPanelAlignGroup );
 
     this.pressureControlPanel.mutate( {
       right: this.layoutBounds.right - SoundConstants.CONTROL_PANEL_MARGIN,
-      top: this.audioControlPanel.bottom + SoundConstants.CONTROL_PANEL_SPACING
+      top: this.audioControlPanel!.bottom + SoundConstants.CONTROL_PANEL_SPACING
     } );
 
     this.addChild( this.pressureControlPanel );

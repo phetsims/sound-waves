@@ -32,6 +32,11 @@ const INITIAL_FREQUENCY = 0.5;
 class SoundModel {
 
   public readonly isAudioEnabledProperty: Property<boolean>;
+  public readonly modelToLatticeTransform: ModelViewTransform2;
+  public readonly modelViewTransform: ModelViewTransform2 | null;
+  public readonly speaker1Position: Vector2;
+  public readonly oscillatorProperty: NumberProperty;
+  public readonly isPulseFiringProperty: BooleanProperty;
 
   public constructor( config?: IntentionalAny ) {
     config = merge(

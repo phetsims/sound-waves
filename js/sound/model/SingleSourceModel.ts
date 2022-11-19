@@ -1,6 +1,4 @@
 // Copyright 2022, University of Colorado Boulder
-/* eslint-disable */
-// @ts-nocheck
 /**
  * Model for the single source scene.
  *
@@ -8,7 +6,6 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
-import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import Vector2Property from '../../../../dot/js/Vector2Property.js';
@@ -17,21 +14,22 @@ import sound from '../../sound.js';
 import SoundModel from './SoundModel.js';
 
 class SingleSourceModel extends SoundModel {
-  public readonly audioControlSettingProperty: Property<'SPEAKER' | 'LISTENER'>;
 
-  constructor() {
+  // indicates the user selection for the audio control setting
+  public readonly audioControlSettingProperty: Property<'SPEAKER' | 'LISTENER'>;
+  public readonly listenerPositionProperty: Vector2Property;
+
+  public constructor() {
     super();
 
-    // @public - indicates the user selection for the audio control setting
-    this.audioControlSettingProperty = new Property( SoundModel.AudioControlOptions.SPEAKER, {
-      validValues: SoundModel.AudioControlOptions.VALUES
+    this.audioControlSettingProperty = new Property( 'SPEAKER', {
+      validValues: [ 'SPEAKER', 'LISTENER' ]
     } );
 
-    // @public - position of the listener
     this.listenerPositionProperty = new Vector2Property( new Vector2( 1 / 2 * SoundConstants.WAVE_AREA_WIDTH, SoundConstants.WAVE_AREA_WIDTH / 2 ) );
   }
 
-  reset() {
+  public override reset(): void {
     super.reset();
 
     this.isAudioEnabledProperty.reset();
