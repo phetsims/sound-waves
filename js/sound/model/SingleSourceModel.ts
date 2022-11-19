@@ -17,6 +17,8 @@ import sound from '../../sound.js';
 import SoundModel from './SoundModel.js';
 
 class SingleSourceModel extends SoundModel {
+  public readonly audioControlSettingProperty: Property<'SPEAKER' | 'LISTENER'>;
+
   constructor() {
     super();
 

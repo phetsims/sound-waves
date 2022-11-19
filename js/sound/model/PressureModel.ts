@@ -20,7 +20,7 @@ import SoundModel from './SoundModel.js';
 
 class PressureModel extends SoundModel {
   pressureProperty: NumberProperty;
-  audioControlSettingProperty: Property<any>;
+  public readonly audioControlSettingProperty: Property<'SPEAKER' | 'LISTENER'>;
   listenerPositionProperty: Vector2Property;
   public constructor() {
     super();
