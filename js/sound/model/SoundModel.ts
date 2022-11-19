@@ -1,6 +1,4 @@
 // Copyright 2022, University of Colorado Boulder
-/* eslint-disable */
-// @ts-nocheck
 /**
  * Base model for a sound scene.
  *
@@ -10,12 +8,13 @@
 
 import BooleanProperty from '../../../../axon/js/BooleanProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import Property from '../../../../axon/js/Property.js';
 import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Range from '../../../../dot/js/Range.js';
 import Rectangle from '../../../../dot/js/Rectangle.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import EventTimer from '../../../../phet-core/js/EventTimer.js';
-import merge from '../../../../phet-core/js/merge.js';
+import optionize from '../../../../phet-core/js/optionize.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Lattice from '../../../../scenery-phet/js/Lattice.js';
 import TemporalMask from '../../common/model/TemporalMask.js';
@@ -29,67 +28,94 @@ const eventTimerPeriod = 1 / SoundConstants.EVENT_RATE;
 const frequencyRange = new Range( 0, 1 );
 const INITIAL_FREQUENCY = 0.5;
 
-class SoundModel {
+type SoundModelOptions = {
+  hasReflection?: boolean;
+  hasSecondSource?: boolean;
+  initialAmplitude?: number;
+  speaker1PositionY?: number;
+};
 
+export default class SoundModel {
+
+  // whether audio is enabled
   public readonly isAudioEnabledProperty: Property<boolean>;
   public readonly modelToLatticeTransform: ModelViewTransform2;
-  public readonly modelViewTransform: ModelViewTransform2 | null;
+  public modelViewTransform: ModelViewTransform2 | null;
+
+  // position of the non-moving first speaker.
   public readonly speaker1Position: Vector2;
+
+  // the value of the wave at the oscillation point
   public readonly oscillatorProperty: NumberProperty;
+
+  // propery that shows that a pulse is firing
   public readonly isPulseFiringProperty: BooleanProperty;
+
+  // the frequency in the appropriate units for the scene
   public readonly frequencyProperty: NumberProperty;
+
+  // controls the amplitude of the wave.
   public readonly amplitudeProperty: NumberProperty;
 
-  public constructor( config?: IntentionalAny ) {
-    config = merge(
-      {
-        initialAmplitude: 5,
-        speaker1PositionY: SoundConstants.WAVE_AREA_WIDTH / 2,
-        hasReflection: false,
-        hasSecondSource: false
-      }, config );
+  public readonly hasSecondSource: boolean;
 
-    // @public - whether this model has a second source.
-    this.hasSecondSource = config.hasSecondSource;
+  // whether this model has a reflection wall.
+  public readonly hasReflection: boolean;
 
-    // @public - whether this model has a reflection wall.
-    this.hasReflection = config.hasReflection;
+  // propery that shows if the simulation in running.
+  public readonly isRunningProperty: BooleanProperty;
 
-    // @public - propery that shows if the simulation in running.
+  //  phase of the sound wave.
+  public phase = 0;
+
+  // number of steps since launch of the simulation.
+  public stepIndex = 0;
+
+  private readonly temporalMask: TemporalMask;
+
+  // In order to have exactly the same model behavior on very fast and very slow platforms, we use
+  // EventTimer, which updates the model at regular intervals, and we can interpolate between states for additional
+  // fidelity.
+  private readonly eventTimer: EventTimer;
+
+  // elapsed time in seconds
+  public readonly timeProperty: NumberProperty;
+
+  // the grid that contains the wave values of the first speaker
+  public readonly lattice: Lattice;
+  public latticeToViewTransform: ModelViewTransform2 | null;
+  private pulseStartTime: number | null = null;
+
+  public constructor( providedOptions?: SoundModelOptions ) {
+    const options = optionize<SoundModelOptions>()( {
+      initialAmplitude: 5,
+      speaker1PositionY: SoundConstants.WAVE_AREA_WIDTH / 2,
+      hasReflection: false,
+      hasSecondSource: false
+    }, providedOptions );
+
+    this.hasSecondSource = options.hasSecondSource;
+    this.hasReflection = options.hasReflection;
     this.isRunningProperty = new BooleanProperty( true );
-
-    // @public - propery that shows that a pulse is firing.
     this.isPulseFiringProperty = new BooleanProperty( false );
-
-    // @public - phase of the sound wave.
     this.phase = 0;
-
-    // @public - number of steps since launch of the simulation.
     this.stepIndex = 0;
 
-    // @private
+    // @ts-ignore
     this.temporalMask = new TemporalMask( this.wallPositionXProperty, this.wallAngleProperty );
-
-    // @public (read-only) - the value of the wave at the oscillation point
     this.oscillatorProperty = new NumberProperty( 0 );
 
     const eventTimerModel = {
-      // @public
-      getPeriodBeforeNextEvent: () => {
-        return eventTimerPeriod;
-      }
+      getPeriodBeforeNextEvent: () => eventTimerPeriod
     };
 
-    // @private - In order to have exactly the same model behavior on very fast and very slow platforms, we use
-    // EventTimer, which updates the model at regular intervals, and we can interpolate between states for additional
-    // fidelity.
-    this.eventTimer = new EventTimer( eventTimerModel, timeElapsed =>
+    this.eventTimer = new EventTimer( eventTimerModel, ( timeElapsed: number ) =>
       this.advanceTime( eventTimerPeriod, false )
     );
 
     // When frequency changes, choose a new phase such that the new sine curve has the same value and direction
     // for continuity
-    const phaseUpdate = ( newFrequency, oldFrequency ) => {
+    const phaseUpdate = ( newFrequency: number, oldFrequency: number ) => {
 
       // For the main model, Math.sin is performed on angular frequency, so to match the phase, that computation
       // should also be based on angular frequencies
@@ -110,19 +136,15 @@ class SoundModel {
       this.phase = proposedPhase;
     };
 
-    // @public the frequency in the appropriate units for the scene
     this.frequencyProperty = new NumberProperty( INITIAL_FREQUENCY, { range: frequencyRange } );
     this.frequencyProperty.lazyLink( phaseUpdate );
 
-    // @public - controls the amplitude of the wave.
-    this.amplitudeProperty = new NumberProperty( config.initialAmplitude, {
+    this.amplitudeProperty = new NumberProperty( options.initialAmplitude, {
       range: SoundConstants.AMPLITUDE_RANGE
     } );
 
-    // @public - elapsed time in seconds
     this.timeProperty = new NumberProperty( 0 );
 
-    // @public - the grid that contains the wave values of the first speaker
     this.lattice = new Lattice(
       SoundConstants.LATTICE_DIMENSION,
       SoundConstants.LATTICE_DIMENSION,
@@ -138,19 +160,15 @@ class SoundModel {
     this.modelViewTransform = null;
     this.latticeToViewTransform = null;
 
-    // @public (read-only) - position of the non-moving first speaker.
-    this.speaker1Position = new Vector2( this.modelToLatticeTransform.viewToModelX( SoundConstants.SOURCE_POSITION_X ), config.speaker1PositionY );
+    this.speaker1Position = new Vector2( this.modelToLatticeTransform.viewToModelX( SoundConstants.SOURCE_POSITION_X ), options.speaker1PositionY );
 
-    // @public - whether audio is enabled
     this.isAudioEnabledProperty = new BooleanProperty( false );
   }
 
   /**
    * After the view is initialized, determine the coordinate transformations that map to view coordinates.
-   * @param {Bounds2} viewBounds
-   * @public
    */
-  setViewBounds( viewBounds ) {
+  public setViewBounds( viewBounds: Bounds2 ): void {
     assert && assert( this.modelViewTransform === null, 'setViewBounds cannot be called twice' );
 
     this.modelViewTransform = ModelViewTransform2.createRectangleMapping(
@@ -167,31 +185,31 @@ class SoundModel {
 
   /**
    * Returns a Bounds2 for the visible part of the wave area, in the coordinates of the scene.
-   * @returns {Bounds2} the lattice model bounds, in the coordinates of this scene.
-   * @public
+   * @returns - the lattice model bounds, in the coordinates of this scene.
    */
-  getWaveAreaBounds() {
+  public getWaveAreaBounds(): Bounds2 {
     return new Bounds2( 0, 0, SoundConstants.WAVE_AREA_WIDTH, SoundConstants.WAVE_AREA_WIDTH );
   }
 
   /**
    * Generate a wave from the point sources
-   * @private
    */
-  generateWaves() {
+  private generateWaves(): void {
     const amplitude = this.amplitudeProperty.get();
     const time = this.timeProperty.get();
     const frequency = this.frequencyProperty.get();
     const period = 1 / frequency;
-    const timeSincePulseStarted = time - this.pulseStartTime;
-    const isContinuous = ( !this.soundModeProperty || this.soundModeProperty.get() === SoundModel.SoundModeOptions.CONTINUOUS );
+    const timeSincePulseStarted = time - this.pulseStartTime!;
+
+    // @ts-ignore
+    const isContinuous = ( !this.soundModeProperty || this.soundModeProperty.get() === 'CONTINUOUS' );
 
     // Used to compute whether a delta appears in either mask
     let temporalMaskEmpty = true;
 
     // If the pulse is running, end the pulse after one period
     if ( this.isPulseFiringProperty.get() ) {
-      const timeSincePulseStarted = this.timeProperty.value - this.pulseStartTime;
+      const timeSincePulseStarted = this.timeProperty.value - this.pulseStartTime!;
 
       if ( timeSincePulseStarted > period ) {
         this.isPulseFiringProperty.set( false );
@@ -205,6 +223,7 @@ class SoundModel {
       const angularFrequency = Math.PI * 2 * frequency;
 
       // Value to be multiplied with the final wave value.
+      // @ts-ignore
       const dampingByPressure = this.pressureProperty ? this.pressureProperty.value : 1;
 
       // Compute the wave value as a function of time, or set to zero if no longer generating a wave.
@@ -230,9 +249,8 @@ class SoundModel {
 
   /**
    * The user has initiated a single pulse.
-   * @public
    */
-  startPulse() {
+  public startPulse(): void {
     assert && assert( !this.isPulseFiringProperty.value, 'Cannot fire a pulse while a pulse is already being fired' );
     this.resetPhase();
     this.isPulseFiringProperty.value = true;
@@ -241,9 +259,8 @@ class SoundModel {
 
   /**
    * Start the sine argument at 0 so it will smoothly form the first wave.
-   * @private
    */
-  resetPhase() {
+  private resetPhase(): void {
     const frequency = this.frequencyProperty.get();
     const angularFrequency = Math.PI * 2 * frequency;
 
@@ -253,9 +270,8 @@ class SoundModel {
 
   /**
    * Resets the model.
-   * @public
    */
-  reset() {
+  public reset(): void {
     this.isAudioEnabledProperty.reset();
     this.isRunningProperty.reset();
     this.timeProperty.reset();
@@ -271,18 +287,16 @@ class SoundModel {
 
   /**
    * Clears the waves from the screen.
-   * @public
    */
-  clearWaves() {
+  public clearWaves(): void {
     this.lattice.clear();
   }
 
   /**
    * Steps the model.
-   * @param {number} dt - time step, in seconds
-   * @public
+   * @param dt - time step, in seconds
    */
-  step( dt ) {
+  public step( dt: number ): void {
 
     // Feed the real time to the eventTimer and it will trigger advanceTime at the appropriate rate
     this.eventTimer.step( dt );
@@ -292,10 +306,8 @@ class SoundModel {
    * By recording the times and positions of the wave disturbances, and knowing the wave propagation speed,
    * we can apply a masking function across the wave area, zeroing out any cell that could note have been generated
    * from the source disturbance.  This filters out spurious noise and restores "black" for the light scene.
-   *
-   * @private
    */
-  applyTemporalMask() {
+  private applyTemporalMask(): void {
 
     // zero out values that are outside of the mask
     for ( let i = 0; i < this.lattice.width; i++ ) {
@@ -314,16 +326,18 @@ class SoundModel {
 
   /**
    * Additionally called from the "step" button
-   * @param {number} dt - amount of time that passed
-   * @param {boolean} manualStep - true if the step button is being pressed
-   * @public
+   * @param dt - amount of time that passed
+   * @param manualStep - true if the step button is being pressed
    */
-  advanceTime( dt, manualStep ) {
+  public advanceTime( dt: number, manualStep: boolean ): void {
     if ( this.isRunningProperty.get() || manualStep ) {
       // Correction constant taken from wave-interference
       const correction = 2.4187847116091334 * SoundConstants.WAVE_AREA_WIDTH / 500;
 
+      // @ts-ignore
       if ( this.stopwatch ) {
+
+        // @ts-ignore
         this.stopwatch.step( dt * correction );
       }
 
@@ -347,22 +361,4 @@ class SoundModel {
   }
 }
 
-/**
- * Audio Control can either be set to SPEAKER or LISTENER
- * @public
- */
-SoundModel.AudioControlOptions = [ 'SPEAKER', 'LISTENER' ];
-SoundModel.AudioControlOptions.SPEAKER = 'SPEAKER';
-SoundModel.AudioControlOptions.LISTENER = 'LISTENER';
-
-/**
- * Sound Mode can either be set to CONTINUOUS or PULSE
- * @public
- */
-// TODO: Enumeration
-SoundModel.SoundModeOptions = [ 'CONTINUOUS', 'PULSE' ];
-SoundModel.SoundModeOptions.CONTINUOUS = 'CONTINUOUS';
-SoundModel.SoundModeOptions.PULSE = 'PULSE';
-
 sound.register( 'SoundModel', SoundModel );
-export default SoundModel;

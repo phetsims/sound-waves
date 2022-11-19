@@ -27,7 +27,7 @@ type AudioControlPanelOptions = SelfOptions & SoundPanelOptions;
 
 class AudioControlPanel extends SoundPanel {
 
-  public constructor( model: SoundModel & { audioControlSettingProperty?: Property<unknown> }, alignGroup: AlignGroup, providedOptions: AudioControlPanelOptions ) {
+  public constructor( model: SoundModel & { audioControlSettingProperty?: Property<'SPEAKER' | 'LISTENER'> }, alignGroup: AlignGroup, providedOptions?: AudioControlPanelOptions ) {
     const options = optionize<AudioControlPanelOptions, SelfOptions, SoundPanelOptions>()( {
       maxWidth: SoundConstants.PANEL_MAX_WIDTH,
       yMargin: 4
@@ -47,7 +47,7 @@ class AudioControlPanel extends SoundPanel {
     const children: Node[] = [ boxText, graphCheckbox ];
     let radioButtons;
     if ( model.audioControlSettingProperty ) {
-      radioButtons = new VerticalAquaRadioButtonGroup( model.audioControlSettingProperty, [ {
+      radioButtons = new VerticalAquaRadioButtonGroup<'SPEAKER' | 'LISTENER'>( model.audioControlSettingProperty, [ {
         createNode: tandem => new Text( speakerAudioString, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
         value: 'SPEAKER'
       }, {

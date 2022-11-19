@@ -1,6 +1,4 @@
 // Copyright 2022, University of Colorado Boulder
-/* eslint-disable */
-// @ts-nocheck
 /**
  * Base view for the screens.
  *
@@ -24,6 +22,8 @@ import SpeakerNode from '../../common/view/SpeakerNode.js';
 import sound from '../../sound.js';
 import SoundStrings from '../../SoundStrings.js';
 import SoundModel from '../model/SoundModel.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
+import Property from '../../../../axon/js/Property.js';
 
 // constants
 const WAVE_MARGIN = 8; // Additional margin shown around the wave lattice
@@ -32,18 +32,28 @@ const GAUGE_SPACING_Y = 16;
 
 class SoundScreenView extends ScreenView {
 
+  // aligns the control panels
   public readonly contolPanelAlignGroup: AlignGroup;
-  public readonly audioControlPanel: AudioControlPanel | null;
+
+  // control panel responsible for the audio controls
+  public readonly audioControlPanel: AudioControlPanel | null = null;
   protected readonly canvasNode: LatticeCanvasNode;
+
+  // control panel resposible for setting the frequency and amplitude
   public readonly controlPanel: SoundControlPanel;
 
-  /**
-   * @param {SoundModel} model
-   */
-  constructor( model ) {
-    assert && assert( model instanceof SoundModel, 'invalid model' );
+  public readonly waveAreaNode: Rectangle;
+  public readonly speakerNode1: SpeakerNode;
 
-    super();
+  public constructor( model: SoundModel & {
+    audioControlSettingProperty?: Property<'SPEAKER' | 'LISTENER'>;
+    listenerPositionProperty?: Property<Vector2>;
+    pressureProperty?: NumberProperty;
+  } ) {
+
+    super( {
+      tandem: Tandem.OPT_OUT
+    } );
 
     this.waveAreaNode = new Rectangle( 0, 0, 500, 500, {
       fill: '#4c4c4c',
@@ -53,7 +63,6 @@ class SoundScreenView extends ScreenView {
 
     this.addChild( this.waveAreaNode );
 
-    // @private - node responsible for drawing the lattice to the screen
     this.canvasNode = new LatticeCanvasNode( model.lattice, {
       baseColor: Color.white,
       hasReflection: model.hasReflection,
@@ -70,12 +79,10 @@ class SoundScreenView extends ScreenView {
 
     this.addChild( this.canvasNode );
 
-    // @private - alligns the control panels
     this.contolPanelAlignGroup = new AlignGroup( {
       matchVertical: false
     } );
 
-    // @public - control panel resposible for setting the frequency and amplitude
     this.controlPanel = new SoundControlPanel( model, this.contolPanelAlignGroup );
 
     this.controlPanel.mutate( {
@@ -86,7 +93,6 @@ class SoundScreenView extends ScreenView {
     this.addChild( this.controlPanel );
 
     if ( model.isAudioEnabledProperty ) {
-      // @public - control panel responsible for the audio controls
       this.audioControlPanel = new AudioControlPanel( model, this.contolPanelAlignGroup );
 
       this.audioControlPanel.mutate( {
@@ -101,7 +107,7 @@ class SoundScreenView extends ScreenView {
 
       // Update the final amplitude of the sine wave tone
       const updateSoundAmplitude = () => {
-        const amplitudeDampening = model.audioControlSettingProperty && model.audioControlSettingProperty.value === SoundModel.AudioControlOptions.LISTENER ? ( SoundConstants.LISTENER_BOUNDS_X.max - model.listenerPositionProperty.value.x ) / ( SoundConstants.LISTENER_BOUNDS_X.max - SoundConstants.LISTENER_BOUNDS_X.min ) : 1;
+        const amplitudeDampening = model.audioControlSettingProperty && model.audioControlSettingProperty.value === 'LISTENER' ? ( SoundConstants.LISTENER_BOUNDS_X.max - model.listenerPositionProperty!.value.x ) / ( SoundConstants.LISTENER_BOUNDS_X.max - SoundConstants.LISTENER_BOUNDS_X.min ) : 1;
         const pressureDampening = model.pressureProperty ? model.pressureProperty.value : 1;
         soundAmpitudeProperty.set( model.amplitudeProperty.value / 1.5 * amplitudeDampening * pressureDampening );
       };
@@ -114,7 +120,7 @@ class SoundScreenView extends ScreenView {
 
       if ( model.audioControlSettingProperty ) {
         model.audioControlSettingProperty.link( updateSoundAmplitude );
-        model.listenerPositionProperty.link( updateSoundAmplitude );
+        model.listenerPositionProperty!.link( updateSoundAmplitude );
       }
 
       const sineWavePlayer = new WaveGenerator(
@@ -136,7 +142,7 @@ class SoundScreenView extends ScreenView {
     model.setViewBounds( this.waveAreaNode.bounds );
 
     if ( model.pressureProperty ) {
-      const speakerCenter = model.modelViewTransform.modelToViewPosition( model.speaker1Position );
+      const speakerCenter = model.modelViewTransform!.modelToViewPosition( model.speaker1Position );
       const boxSizeX = 150;
       const boxSizeY = 200;
 
@@ -154,7 +160,7 @@ class SoundScreenView extends ScreenView {
       this.addChild( box );
 
       // Pressure gauge.
-      const gauge = new GaugeNode( model.pressureProperty, SoundStrings.atm, model.pressureProperty.range );
+      const gauge = new GaugeNode( model.pressureProperty, SoundStrings.atm, model.pressureProperty.range! );
       gauge.centerX = speakerCenter.x;
       gauge.scale( 0.4 );
       gauge.bottom = speakerCenter.y - boxSizeY / 2;
@@ -176,7 +182,7 @@ class SoundScreenView extends ScreenView {
 
     // First speaker
     this.speakerNode1 = new SpeakerNode( model.oscillatorProperty );
-    const viewPosition = model.modelViewTransform.modelToViewPosition( model.speaker1Position );
+    const viewPosition = model.modelViewTransform!.modelToViewPosition( model.speaker1Position );
     viewPosition.setX( viewPosition.x + SoundConstants.SPEAKER_OFFSET );
     this.speakerNode1.setRightCenter( viewPosition );
     this.addChild( this.speakerNode1 );
