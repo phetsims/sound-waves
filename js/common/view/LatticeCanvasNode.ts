@@ -1,6 +1,4 @@
 // Copyright 2022, University of Colorado Boulder
-/* eslint-disable */
-// @ts-nocheck
 /**
  * Renders the main area of the lattice (doesn't include the damping regions) using 2d canvas.
  * Allows for wall reflection and an extra source. Also can dampen the waves to be within a certain area.
@@ -11,27 +9,46 @@
 
 import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import merge from '../../../../phet-core/js/merge.js';
-import { CanvasNode, Color } from '../../../../scenery/js/imports.js';
+import { CanvasNode, CanvasNodeOptions, Color } from '../../../../scenery/js/imports.js';
 import ImageDataRenderer from '../../../../scenery-phet/js/ImageDataRenderer.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
 import Lattice from '../../../../scenery-phet/js/Lattice.js';
+import optionize from '../../../../phet-core/js/optionize.js';
 
 // constants
 const CUTOFF = 0.4;
 
+type SelfOptions = {
+  baseColor?: Color;
+  hasReflection?: boolean;
+  sourcePosition?: Vector2;
+  hasSecondSource?: boolean;
+  source2PositionY?: number;
+  wallAngle?: number;
+};
+type LatticeCanvasNodeOptions = SelfOptions & CanvasNodeOptions;
+
 class LatticeCanvasNode extends CanvasNode {
 
   public source2PositionY: number;
+  private readonly hasSecondSource: boolean;
+  private readonly sourcePosition: Vector2;
+  public readonly hasReflection: boolean;
+  private readonly lattice: Lattice;
+  private wallPositionX: number;
+  private wallAngle: number;
+  private baseColor: Color;
 
-  /**
-   * @param {Lattice} lattice
-   * @param {Object} [options]
-   */
-  constructor( lattice: Lattice, options?: IntentionalAny ) {
+  // settable, if defined shows unvisited lattice cells as specified color, used for light
+  public vacuumColor: Color | null;
 
-    options = merge( {
+  // For performance, render into a sub-canvas which will be drawn into the rendering context at the right scale
+  private readonly imageDataRenderer: ImageDataRenderer;
+
+  public constructor( lattice: Lattice, providedOptions?: LatticeCanvasNodeOptions ) {
+
+    const options = optionize<LatticeCanvasNodeOptions, SelfOptions, CanvasNodeOptions>()( {
 
       // only use the visible part for the bounds (not the damping regions)
       canvasBounds: SoundConstants.getCanvasBounds( lattice ),
@@ -43,36 +60,24 @@ class LatticeCanvasNode extends CanvasNode {
       source2PositionY: 0,
       wallAngle: Math.PI / 4
 
-    }, options );
+    }, providedOptions );
 
     super( options );
 
-    // @private
     this.hasSecondSource = options.hasSecondSource;
-    // @public
     this.source2PositionY = options.source2PositionY;
-    // @private
     this.sourcePosition = options.sourcePosition;
-    // @private
     this.hasReflection = options.hasReflection;
 
-    // @private
     this.lattice = lattice;
-
-    // @private
     this.wallPositionX = this.lattice.width / 2;
 
-    // @private
     this.wallAngle = options.wallAngle;
 
-    // @private
     this.baseColor = options.baseColor;
 
-    // @public {Color|null} - settable, if defined shows unvisited lattice cells as specified color, used for light
     this.vacuumColor = null;
 
-    // @private - For performance, render into a sub-canvas which will be drawn into the rendering context at the right
-    // scale.
     this.imageDataRenderer = new ImageDataRenderer( lattice.visibleBounds.width, lattice.visibleBounds.height );
 
     // Invalidate paint when model indicates changes
@@ -81,11 +86,9 @@ class LatticeCanvasNode extends CanvasNode {
 
   /**
    * Convert the given point in the local coordinate frame to the corresponding i,j (integral) lattice coordinates.
-   * @param {Vector2} point - point in the local coordinate frame
-   * @returns {Vector2}
-   * @public
+   * @param point - point in the local coordinate frame
    */
-  static localPointToLatticePoint( point ) {
+  public static localPointToLatticePoint( point: Vector2 ): Vector2 {
     return new Vector2(
       Utils.roundSymmetric( point.x / SoundConstants.CELL_WIDTH ),
       Utils.roundSymmetric( point.y / SoundConstants.CELL_WIDTH )
@@ -94,39 +97,30 @@ class LatticeCanvasNode extends CanvasNode {
 
   /**
    * Sets the x coordinate of the reflection wall
-   * @param {Number} x
-   * @public
    */
-
-  setWallPositionX( x ) {
+  public setWallPositionX( x: number ): void {
     this.wallPositionX = x;
   }
 
   /**
    * Sets the angle of the reflection wall
-   * @param {Number} angle
-   * @public
    */
-
-  setWallAngle( angle ) {
+  public setWallAngle( angle: number ): void {
     this.wallAngle = angle;
   }
 
   /**
    * Sets the color of the peaks of the wave.
-   * @param {Color} color
-   * @public
    */
-  setBaseColor( color ) {
+  public setBaseColor( color: Color ): void {
     this.baseColor = color;
     this.invalidatePaint();
   }
 
   /**
    * Gets dampened lattice value
-   * @public
    */
-  getDampenedValue( x, y ) {
+  public getDampenedValue( x: number, y: number ): number {
     const distance = this.sourcePosition.distanceXY( x, y );
     const distanceDampen = distance >= 0 && distance <= SoundConstants.MAX_SOUND_DISTANCE ? ( SoundConstants.MAX_SOUND_DISTANCE - distance ) / SoundConstants.MAX_SOUND_DISTANCE : 0;
 
@@ -135,11 +129,8 @@ class LatticeCanvasNode extends CanvasNode {
 
   /**
    * Draws into the canvas.
-   * @param {CanvasRenderingContext2D} context
-   * @public
-   * @override
    */
-  paintCanvas( context ) {
+  public override paintCanvas( context: CanvasRenderingContext2D ): void {
     let m = 0;
     const data = this.imageDataRenderer.data;
     const dampX = this.lattice.dampX;
@@ -204,9 +195,9 @@ class LatticeCanvasNode extends CanvasNode {
 
         // ImageData.data is Uint8ClampedArray.  Performance is critical and all numbers are non-negative.
         const offset = 4 * m;
-        data[ offset ] = Math.round( r );
-        data[ offset + 1 ] = Math.round( g );
-        data[ offset + 2 ] = Math.round( b );
+        data[ offset ] = Math.round( r ); // eslint-disable-line bad-sim-text
+        data[ offset + 1 ] = Math.round( g ); // eslint-disable-line bad-sim-text
+        data[ offset + 2 ] = Math.round( b ); // eslint-disable-line bad-sim-text
         data[ offset + 3 ] = 255; // Fully opaque
         m++;
       }
