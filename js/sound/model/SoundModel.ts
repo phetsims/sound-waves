@@ -37,6 +37,8 @@ class SoundModel {
   public readonly speaker1Position: Vector2;
   public readonly oscillatorProperty: NumberProperty;
   public readonly isPulseFiringProperty: BooleanProperty;
+  public readonly frequencyProperty: NumberProperty;
+  public readonly amplitudeProperty: NumberProperty;
 
   public constructor( config?: IntentionalAny ) {
     config = merge(

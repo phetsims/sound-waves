@@ -1,6 +1,4 @@
 // Copyright 2022, University of Colorado Boulder
-/* eslint-disable */
-// @ts-nocheck
 /**
  * Shows the main controls, including frequency/wavelength and amplitude.
  * Also displays a clear wave button when in the measure model.
@@ -10,33 +8,33 @@
  */
 
 import Utils from '../../../../dot/js/Utils.js';
-import merge from '../../../../phet-core/js/merge.js';
-import { Node, Text, HSeparator } from '../../../../scenery/js/imports.js';
+import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import Stopwatch from '../../../../scenery-phet/js/Stopwatch.js';
+import { Node, Text, HSeparator, AlignGroup } from '../../../../scenery/js/imports.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
+import SoundModel from '../../sound/model/SoundModel.js';
 import SoundStrings from '../../SoundStrings.js';
 import PropertyControlSlider from './PropertyControlSlider.js';
-import SoundPanel from './SoundPanel.js';
+import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
 
 const amplitudeString = SoundStrings.amplitude;
 const frequencyString = SoundStrings.frequency;
 const clearString = SoundStrings.measure.clearWaves;
 const hzString = SoundStrings.hz;
 
+type SelfOptions = EmptySelfOptions;
+type SoundControlPanelOptions = SelfOptions & SoundPanelOptions;
+
 class SoundControlPanel extends SoundPanel {
 
-  /**
-   * @param {SoundModel} model
-   * @param {AlignGroup} alignGroup
-   * @param {Object} [options]
-   */
-  constructor( model, alignGroup, options ) {
+  public constructor( model: SoundModel & { stopwatch?: Stopwatch }, alignGroup: AlignGroup, providedOptions?: SoundControlPanelOptions ) {
 
-    options = merge( {
+    const options = optionize<SoundControlPanelOptions, SelfOptions, SoundPanelOptions>()( {
       maxWidth: SoundConstants.PANEL_MAX_WIDTH,
       yMargin: 4
-    }, options );
+    }, providedOptions );
 
     const frequencyControl = new PropertyControlSlider( frequencyString, model.frequencyProperty, {
       valueToText: value => ( Utils.roundSymmetric( value * 1000 ) ).toString() + hzString
@@ -59,7 +57,7 @@ class SoundControlPanel extends SoundPanel {
     } );
 
     clearButton.top = amplitudeControl.bottom + SoundConstants.CONTROL_PANEL_SPACING;
-    const separator = new HSeparator( { minWidth: frequencyControl.width } );
+    const separator = new HSeparator();
     separator.top = amplitudeControl.bottom + SoundConstants.CONTROL_PANEL_SPACING;
     separator.centerX = centerX;
 
