@@ -1,6 +1,4 @@
 // Copyright 2022, University of Colorado Boulder
-/* eslint-disable */
-// @ts-nocheck
 /**
  * View for the measure screen.
  *
@@ -14,19 +12,18 @@ import RulerNode from '../../../../scenery-phet/js/RulerNode.js';
 import StopwatchNode from '../../../../scenery-phet/js/StopwatchNode.js';
 import SoundClip from '../../../../tambo/js/sound-generators/SoundClip.js';
 import soundManager from '../../../../tambo/js/soundManager.js';
-import commonGrabSound from '../../../../tambo/sounds/grab_mp3.js';
-import commonReleaseSound from '../../../../tambo/sounds/release_mp3.js';
+import grab_mp3 from '../../../../tambo/sounds/grab_mp3.js';
+import release_mp3 from '../../../../tambo/sounds/release_mp3.js';
 import MovableNode from '../../common/view/MovableNode.js';
 import sound from '../../sound.js';
 import MeasureModel from '../model/MeasureModel.js';
 import SoundScreenView from './SoundScreenView.js';
 
-class MeasureView extends SoundScreenView {
-  constructor( model: MeasureModel ) {
-    assert && assert( model instanceof MeasureModel, 'invalid model' );
+export default class MeasureView extends SoundScreenView {
+  public constructor( model: MeasureModel ) {
     super( model );
 
-    const rulerLength = model.modelViewTransform.modelToViewDeltaX( 500 );
+    const rulerLength = model.modelViewTransform!.modelToViewDeltaX( 500 );
     const majorTickMarkWidth = rulerLength / ( 10 );
     // Compute tick labels, 1 major tick for every 0.5 unit of length, labels on the ticks that correspond to integer values.
     const majorTickLabels = [];
@@ -36,10 +33,10 @@ class MeasureView extends SoundScreenView {
     }
 
     const soundClipOptions = { initialOutputLevel: 0.4 };
-    const grabSound = new SoundClip( commonGrabSound, soundClipOptions );
+    const grabSound = new SoundClip( grab_mp3, soundClipOptions );
     soundManager.addSoundGenerator( grabSound, { categoryName: 'user-interface' } );
 
-    const releaseSound = new SoundClip( commonReleaseSound, soundClipOptions );
+    const releaseSound = new SoundClip( release_mp3, soundClipOptions );
     soundManager.addSoundGenerator( releaseSound, { categoryName: 'user-interface' } );
 
     // Ruler
@@ -53,13 +50,13 @@ class MeasureView extends SoundScreenView {
     this.addChild( movableRuler );
 
     // Stopwatch
-    const createFormatter = units => StopwatchNode.createRichTextNumberFormatter( {
-      showAsDecimal: true,
+    const createFormatter = ( units: string ) => StopwatchNode.createRichTextNumberFormatter( {
+      showAsMinutesAndSeconds: false,
       units: units
     } );
 
     const stopwatchNode = new StopwatchNode( model.stopwatch, {
-      visibleBoundsProperty: this.visibleBoundsProperty,
+      dragBoundsProperty: this.visibleBoundsProperty,
       numberDisplayOptions: {
         numberFormatter: createFormatter( 'ms' )
       },
@@ -78,4 +75,3 @@ class MeasureView extends SoundScreenView {
 }
 
 sound.register( 'MeasureView', MeasureView );
-export default MeasureView;
