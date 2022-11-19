@@ -11,13 +11,14 @@
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Utils from '../../../../dot/js/Utils.js';
 import merge from '../../../../phet-core/js/merge.js';
-import HSlider from '../../../../sun/js/HSlider.js';
+import HSlider, { HSliderOptions } from '../../../../sun/js/HSlider.js';
 import generalBoundaryBoopSoundPlayer from '../../../../tambo/js/shared-sound-players/generalBoundaryBoopSoundPlayer.js';
 import generalSoftClickSoundPlayer from '../../../../tambo/js/shared-sound-players/generalSoftClickSoundPlayer.js';
 import sound from '../../sound.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import { SceneryEvent } from '../../../../scenery/js/imports.js';
+import optionize from '../../../../phet-core/js/optionize.js';
 
 // constants
 const MIN_INTER_CLICK_TIME = ( 1 / 60 * 1000 ) * 2; // min time between clicks, in milliseconds, empirically determined
@@ -25,15 +26,21 @@ const TOLERANCE = 1E-6;
 
 const MAJOR_TICK_MODULUS = 5;
 
+type SelfOptions = {
+  maxTickIndex: number;
+  showTicks?: boolean;
+};
+type SoundSliderOptions = SelfOptions & HSliderOptions;
+
 class SoundSlider extends HSlider {
 
   /**
    * @param {NumberProperty} property
    * @param {Object} [options]
    */
-  constructor( property: NumberProperty, options?: IntentionalAny ) {
+  constructor( property: NumberProperty, providedOptions?: SoundSliderOptions ) {
 
-    const maxTickIndex = ( options && options.maxTickIndex ) ? options.maxTickIndex : 10;
+    const maxTickIndex = ( providedOptions && providedOptions.maxTickIndex ) ? providedOptions.maxTickIndex : 10;
 
     assert && assert( property.range, 'SoundSlider.property requires range' );
 
@@ -52,7 +59,7 @@ class SoundSlider extends HSlider {
     // Keep track of the last time a sound was played so that we don't play too often
     let timeOfLastClick = 0;
 
-    options = merge( {
+    const options = optionize<SoundSliderOptions, SelfOptions, HSliderOptions>()( {
 
       // Ticks are created for all sliders for sonification, but not shown for the Light Frequency slider
       showTicks: true,
@@ -103,16 +110,13 @@ class SoundSlider extends HSlider {
 
         lastValue = value;
       }
-    }, options );
+    }, providedOptions );
 
     // ticks
     if ( options.showTicks ) {
-      options = merge( {
-        tickLabelSpacing: 2,
-        majorTickLength: SoundConstants.MAJOR_TICK_LENGTH,
-        minorTickLength: 8
-
-      }, options );
+      options.tickLabelSpacing = 2;
+      options.majorTickLength = SoundConstants.MAJOR_TICK_LENGTH;
+      options.minorTickLength = 8;
     }
 
     if ( !options.thumbNode ) {
