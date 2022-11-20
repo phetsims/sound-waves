@@ -7,7 +7,7 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
-import { AlignGroup, Node, Text } from '../../../../scenery/js/imports.js';
+import { AlignGroup, Text, VBox } from '../../../../scenery/js/imports.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
@@ -28,8 +28,6 @@ export default class AirDensityControlPanel extends SoundPanel {
       yMargin: 4
     }, providedOptions );
 
-    const container = new Node();
-
     const resetButton = new RectangularPushButton( {
       content: new Text( SoundStrings.airDensityControlPanel.resetStringProperty ),
       listener: () => {
@@ -38,12 +36,14 @@ export default class AirDensityControlPanel extends SoundPanel {
     } );
 
     const airPressureContol = new PropertyControlSlider( SoundStrings.airDensityControlPanel.titleStringProperty, model.pressureProperty );
-    container.children = [
-      airPressureContol,
-      resetButton
-    ];
 
-    resetButton.top = airPressureContol.bottom + options.yMargin;
+    const container = new VBox( {
+      spacing: 6,
+      children: [
+        airPressureContol,
+        resetButton
+      ]
+    } );
 
     const content = alignGroup.createBox( container );
     content.setXAlign( 'center' );
