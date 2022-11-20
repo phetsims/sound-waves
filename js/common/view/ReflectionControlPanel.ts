@@ -15,9 +15,6 @@ import SoundStrings from '../../SoundStrings.js';
 import PropertyControlSlider from './PropertyControlSlider.js';
 import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
 
-const positionSliderString = SoundStrings.reflectionControlPanel.positionSlider;
-const rotationSliderString = SoundStrings.reflectionControlPanel.rotationSlider;
-
 type SelfOptions = EmptySelfOptions;
 type ReflectionControlPanelOptions = SelfOptions & SoundPanelOptions;
 
@@ -30,8 +27,8 @@ export default class ReflectionControlPanel extends SoundPanel {
       yMargin: 4
     }, providedOptions );
 
-    const wallPositionXControl = new PropertyControlSlider( positionSliderString, model.wallPositionXProperty );
-    const wallAngleControl = new PropertyControlSlider( rotationSliderString, model.wallAngleProperty );
+    const wallPositionXControl = new PropertyControlSlider( SoundStrings.reflectionControlPanel.positionSliderStringProperty, model.wallPositionXProperty );
+    const wallAngleControl = new PropertyControlSlider( SoundStrings.reflectionControlPanel.rotationSliderStringProperty, model.wallAngleProperty );
 
     const centerX = wallPositionXControl.centerX;
     wallAngleControl.centerX = centerX;

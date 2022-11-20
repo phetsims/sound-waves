@@ -27,21 +27,15 @@ import IntroView from './intro/IntroView.js';
 import TwoSourceView from './two-sources/TwoSourceView.js';
 import SoundStrings from './SoundStrings.js';
 
-const singleSourceTitle = SoundStrings.singleSource.title;
-const measureTitle = SoundStrings.measure.title;
-const twoSourceTitle = SoundStrings.twoSource.title;
-const reflectionTitle = SoundStrings.reflection.title;
-const pressureTitle = SoundStrings.airPressure.title;
-
 // launch the sim - beware that scenery Image nodes created outside of simLauncher.launch() will have zero bounds
 // until the images are fully loaded, see https://github.com/phetsims/coulombs-law/issues/70
 simLauncher.launch( () => {
   const sim = new Sim( SoundStrings.sound.titleStringProperty, [
-    new SoundScreen( singleSourceTitle, () => new IntroModel(), model => new IntroView( model ), new Image( singleSourceIcon_png ) ),
-    new SoundScreen( measureTitle, () => new MeasureModel(), model => new MeasureView( model ), new Image( measureIcon_png ) ),
-    new SoundScreen( twoSourceTitle, () => new TwoSourceModel(), model => new TwoSourceView( model ), new Image( twoSourceIcon_png ) ),
-    new SoundScreen( reflectionTitle, () => new ReflectionModel(), model => new ReflectionView( model ), new Image( reflectionIcon_png ) ),
-    new SoundScreen( pressureTitle, () => new PressureModel(), model => new PressureView( model ), new Image( pressureIcon_png ) )
+    new SoundScreen( SoundStrings.singleSource.titleStringProperty, () => new IntroModel(), model => new IntroView( model ), new Image( singleSourceIcon_png ) ),
+    new SoundScreen( SoundStrings.measure.titleStringProperty, () => new MeasureModel(), model => new MeasureView( model ), new Image( measureIcon_png ) ),
+    new SoundScreen( SoundStrings.twoSource.titleStringProperty, () => new TwoSourceModel(), model => new TwoSourceView( model ), new Image( twoSourceIcon_png ) ),
+    new SoundScreen( SoundStrings.reflection.titleStringProperty, () => new ReflectionModel(), model => new ReflectionView( model ), new Image( reflectionIcon_png ) ),
+    new SoundScreen( SoundStrings.airPressure.titleStringProperty, () => new PressureModel(), model => new PressureView( model ), new Image( pressureIcon_png ) )
   ], {
 
     //TODO fill in credits, all of these fields are optional, see joist.CreditsNode

@@ -7,7 +7,6 @@
  */
 
 import Dimension2 from '../../../dot/js/Dimension2.js';
-import StringProperty from '../../../axon/js/StringProperty.js';
 import Screen from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
 import SoundColors from '../common/SoundColors.js';
@@ -16,13 +15,14 @@ import { Node } from '../../../scenery/js/imports.js';
 import SoundModel from './model/SoundModel.js';
 import SoundScreenView from './view/SoundScreenView.js';
 import Tandem from '../../../tandem/js/Tandem.js';
+import TReadOnlyProperty from '../../../axon/js/TReadOnlyProperty.js';
 
 export default class SoundScreen<T extends SoundModel> extends Screen<T, SoundScreenView> {
-  public constructor( title: string, createModel: () => T, createView: ( model: T ) => SoundScreenView, iconImage: Node ) {
+  public constructor( title: TReadOnlyProperty<string>, createModel: () => T, createView: ( model: T ) => SoundScreenView, iconImage: Node ) {
 
     const options = {
       backgroundColorProperty: SoundColors.SCREEN_VIEW_BACKGROUND,
-      name: new StringProperty( title ),
+      name: title,
       homeScreenIcon: new ScreenIcon( iconImage, {
         size: new Dimension2( Screen.MINIMUM_HOME_SCREEN_ICON_SIZE.width, Screen.MINIMUM_HOME_SCREEN_ICON_SIZE.height ),
         maxIconWidthProportion: 1,

@@ -17,9 +17,6 @@ import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
 import PressureModel from '../../air-pressure/PressureModel.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 
-const titleString = SoundStrings.airDensityControlPanel.title;
-const resetString = SoundStrings.airDensityControlPanel.reset;
-
 type SelfOptions = EmptySelfOptions;
 export type AirDensityControlPanelOptions = SoundPanelOptions & SelfOptions;
 
@@ -34,13 +31,13 @@ export default class AirDensityControlPanel extends SoundPanel {
     const container = new Node();
 
     const resetButton = new RectangularPushButton( {
-      content: new Text( resetString ),
+      content: new Text( SoundStrings.airDensityControlPanel.resetStringProperty ),
       listener: () => {
         model.pressureProperty.set( 1 );
       }
     } );
 
-    const airPressureContol = new PropertyControlSlider( titleString, model.pressureProperty );
+    const airPressureContol = new PropertyControlSlider( SoundStrings.airDensityControlPanel.titleStringProperty, model.pressureProperty );
     container.children = [
       airPressureContol,
       resetButton

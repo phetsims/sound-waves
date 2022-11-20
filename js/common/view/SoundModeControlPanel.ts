@@ -17,11 +17,6 @@ import ReflectionModel from '../../reflection/ReflectionModel.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import SoundControlPanel from './SoundControlPanel.js';
 
-const titleString = SoundStrings.soundModeControlPanel.title;
-const continuousOptionString = SoundStrings.soundModeControlPanel.continuous;
-const pulseOptionString = SoundStrings.soundModeControlPanel.pulse;
-const firePulseString = SoundStrings.soundModeControlPanel.firePulse;
-
 type SelfOptions = {
   yMargin?: number;
 };
@@ -35,13 +30,13 @@ export default class SoundModeControlPanel extends SoundPanel {
       yMargin: 4
     }, providedOptions );
 
-    const boxText = new Text( titleString );
+    const boxText = new Text( SoundStrings.soundModeControlPanel.titleStringProperty );
 
     const radioButtons = new VerticalAquaRadioButtonGroup<'CONTINUOUS' | 'PULSE'>( model.soundModeProperty, [ {
-      createNode: tandem => new Text( continuousOptionString, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
+      createNode: tandem => new Text( SoundStrings.soundModeControlPanel.continuousStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
       value: 'CONTINUOUS'
     }, {
-      createNode: tandem => new Text( pulseOptionString, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
+      createNode: tandem => new Text( SoundStrings.soundModeControlPanel.pulseStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
       value: 'PULSE'
     } ], {
       spacing: options.yMargin
@@ -51,7 +46,7 @@ export default class SoundModeControlPanel extends SoundPanel {
     radioButtons.top = boxText.bottom + SoundConstants.CONTROL_PANEL_SPACING;
 
     const firePulseButton = new RectangularPushButton( {
-      content: new Text( firePulseString ),
+      content: new Text( SoundStrings.soundModeControlPanel.firePulseStringProperty ),
       listener: () => model.startPulse()
     } );
 

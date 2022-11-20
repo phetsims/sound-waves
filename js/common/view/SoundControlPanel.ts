@@ -19,11 +19,6 @@ import SoundStrings from '../../SoundStrings.js';
 import PropertyControlSlider from './PropertyControlSlider.js';
 import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
 
-const amplitudeString = SoundStrings.amplitude;
-const frequencyString = SoundStrings.frequency;
-const clearString = SoundStrings.measure.clearWaves;
-const hzString = SoundStrings.hz;
-
 type SelfOptions = EmptySelfOptions;
 type SoundControlPanelOptions = SelfOptions & SoundPanelOptions;
 
@@ -36,10 +31,12 @@ export default class SoundControlPanel extends SoundPanel {
       yMargin: 4
     }, providedOptions );
 
-    const frequencyControl = new PropertyControlSlider( frequencyString, model.frequencyProperty, {
-      valueToText: value => ( Utils.roundSymmetric( value * 1000 ) ).toString() + hzString
+    const frequencyControl = new PropertyControlSlider( SoundStrings.frequencyStringProperty, model.frequencyProperty, {
+
+      // TODO: Trigger when SoundStrings.hzStringProperty changes
+      valueToText: value => ( Utils.roundSymmetric( value * 1000 ) ).toString() + SoundStrings.hzStringProperty.value
     } );
-    const amplitudeControl = new PropertyControlSlider( amplitudeString, model.amplitudeProperty );
+    const amplitudeControl = new PropertyControlSlider( SoundStrings.amplitudeStringProperty, model.amplitudeProperty );
 
     const centerX = frequencyControl.centerX;
     frequencyControl.centerX = centerX;
@@ -53,7 +50,7 @@ export default class SoundControlPanel extends SoundPanel {
       listener: () => {
         model.clearWaves();
       },
-      content: new Text( clearString )
+      content: new Text( SoundStrings.measure.clearWavesStringProperty )
     } );
 
     clearButton.top = amplitudeControl.bottom + SoundConstants.CONTROL_PANEL_SPACING;

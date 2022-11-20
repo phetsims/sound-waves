@@ -17,11 +17,6 @@ import SoundModel from '../../common/model/SoundModel.js';
 import SoundStrings from '../../SoundStrings.js';
 import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
 
-const titleString = SoundStrings.audioControlPanel.title;
-const audioEnabledString = SoundStrings.audioControlPanel.audioEnabled;
-const speakerAudioString = SoundStrings.audioControlPanel.speaker;
-const listenerAudioString = SoundStrings.audioControlPanel.listener;
-
 type SelfOptions = EmptySelfOptions;
 type AudioControlPanelOptions = SelfOptions & SoundPanelOptions;
 
@@ -33,10 +28,10 @@ export default class AudioControlPanel extends SoundPanel {
       yMargin: 4
     }, providedOptions );
 
-    const boxText = new Text( titleString );
+    const boxText = new Text( SoundStrings.audioControlPanel.titleStringProperty );
     const graphCheckbox = new Checkbox(
       model.isAudioEnabledProperty,
-      new Text( audioEnabledString, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
+      new Text( SoundStrings.audioControlPanel.audioEnabledStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
       {
         boxWidth: 15
       } );
@@ -48,10 +43,10 @@ export default class AudioControlPanel extends SoundPanel {
     let radioButtons;
     if ( model.audioControlSettingProperty ) {
       radioButtons = new VerticalAquaRadioButtonGroup<'SPEAKER' | 'LISTENER'>( model.audioControlSettingProperty, [ {
-        createNode: tandem => new Text( speakerAudioString, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
+        createNode: tandem => new Text( SoundStrings.audioControlPanel.speakerStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
         value: 'SPEAKER'
       }, {
-        createNode: tandem => new Text( listenerAudioString, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
+        createNode: tandem => new Text( SoundStrings.audioControlPanel.listenerStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
         value: 'LISTENER'
       } ], {
         spacing: options.yMargin

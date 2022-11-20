@@ -7,6 +7,7 @@
  */
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import { Node, NodeOptions, Text } from '../../../../scenery/js/imports.js';
 import SoundSlider from '../../common/view/SoundSlider.js';
@@ -17,7 +18,7 @@ type SelfOptions = { valueToText?: ( null | ( ( value: number ) => string ) ) };
 type PropertyControlSliderOptions = SelfOptions & NodeOptions;
 
 export default class PropertyControlSlider extends Node {
-  public constructor( titleString: string, property: NumberProperty, providedOptions?: PropertyControlSliderOptions ) {
+  public constructor( titleString: TReadOnlyProperty<string>, property: NumberProperty, providedOptions?: PropertyControlSliderOptions ) {
     const options = optionize<PropertyControlSliderOptions, SelfOptions, NodeOptions>()( {
       valueToText: null
     }, providedOptions );
