@@ -10,7 +10,7 @@
 import Utils from '../../../../dot/js/Utils.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import Stopwatch from '../../../../scenery-phet/js/Stopwatch.js';
-import { Node, Text, HSeparator, AlignGroup } from '../../../../scenery/js/imports.js';
+import { Text, AlignGroup, VBox } from '../../../../scenery/js/imports.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
@@ -45,7 +45,6 @@ export default class SoundControlPanel extends SoundPanel {
     // Vertical layout
     amplitudeControl.top = frequencyControl.bottom + SoundConstants.CONTROL_PANEL_SPACING;
 
-    const container = new Node();
     const clearButton = new RectangularPushButton( {
       listener: () => {
         model.clearWaves();
@@ -53,19 +52,14 @@ export default class SoundControlPanel extends SoundPanel {
       content: new Text( SoundStrings.measure.clearWavesStringProperty )
     } );
 
-    clearButton.top = amplitudeControl.bottom + SoundConstants.CONTROL_PANEL_SPACING;
-    const separator = new HSeparator();
-    separator.top = amplitudeControl.bottom + SoundConstants.CONTROL_PANEL_SPACING;
-    separator.centerX = centerX;
-
-    clearButton.top = separator.bottom + SoundConstants.CONTROL_PANEL_SPACING;
-    clearButton.centerX = centerX;
-
-    container.children = [
-      frequencyControl,
-      amplitudeControl,
-      ...( model.stopwatch ? [ separator, clearButton ] : [] )
-    ];
+    const container = new VBox( {
+      spacing: 6,
+      children: [
+        frequencyControl,
+        amplitudeControl,
+        ...( model.stopwatch ? [ clearButton ] : [] )
+      ]
+    } );
 
     const content = alignGroup.createBox( container );
 
