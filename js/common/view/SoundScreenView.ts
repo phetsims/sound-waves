@@ -160,7 +160,7 @@ export default class SoundScreenView extends ScreenView {
       this.addChild( box );
 
       // Pressure gauge.
-      const gauge = new GaugeNode( model.pressureProperty, SoundStrings.atmStringProperty, model.pressureProperty.range! );
+      const gauge = new GaugeNode( model.pressureProperty, SoundStrings.atmStringProperty, model.pressureProperty.range );
       gauge.centerX = speakerCenter.x;
       gauge.scale( 0.4 );
       gauge.bottom = speakerCenter.y - boxSizeY / 2;
