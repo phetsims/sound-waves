@@ -198,7 +198,7 @@ export default class SoundModel {
     const period = 1 / frequency;
     const timeSincePulseStarted = time - this.pulseStartTime!;
 
-    // @ts-ignore
+    // @ts-expect-error
     const isContinuous = ( !this.soundModeProperty || this.soundModeProperty.get() === 'CONTINUOUS' );
 
     // Used to compute whether a delta appears in either mask
@@ -220,7 +220,7 @@ export default class SoundModel {
       const angularFrequency = Math.PI * 2 * frequency;
 
       // Value to be multiplied with the final wave value.
-      // @ts-ignore
+      // @ts-expect-error
       const dampingByPressure = this.pressureProperty ? this.pressureProperty.value : 1;
 
       // Compute the wave value as a function of time, or set to zero if no longer generating a wave.
@@ -331,10 +331,10 @@ export default class SoundModel {
       // Correction constant taken from wave-interference
       const correction = 2.4187847116091334 * SoundConstants.WAVE_AREA_WIDTH / 500;
 
-      // @ts-ignore
+      // @ts-expect-error
       if ( this.stopwatch ) {
 
-        // @ts-ignore
+        // @ts-expect-error
         this.stopwatch.step( dt * correction );
       }
 
