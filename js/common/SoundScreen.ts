@@ -7,7 +7,7 @@
  */
 
 import Dimension2 from '../../../dot/js/Dimension2.js';
-import Screen from '../../../joist/js/Screen.js';
+import Screen, { ScreenOptions } from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
 import SoundColors from '../common/SoundColors.js';
 import sound from '../sound.js';
@@ -15,12 +15,12 @@ import { Node } from '../../../scenery/js/imports.js';
 import SoundModel from './model/SoundModel.js';
 import SoundScreenView from './view/SoundScreenView.js';
 import Tandem from '../../../tandem/js/Tandem.js';
-import TReadOnlyProperty from '../../../axon/js/TReadOnlyProperty.js';
+import LinkableProperty from '../../../axon/js/LinkableProperty.js';
 
 export default class SoundScreen<T extends SoundModel> extends Screen<T, SoundScreenView> {
-  public constructor( title: TReadOnlyProperty<string>, createModel: () => T, createView: ( model: T ) => SoundScreenView, iconImage: Node ) {
+  public constructor( title: LinkableProperty<string>, createModel: () => T, createView: ( model: T ) => SoundScreenView, iconImage: Node ) {
 
-    const options = {
+    const options: ScreenOptions = {
       backgroundColorProperty: SoundColors.SCREEN_VIEW_BACKGROUND,
       name: title,
       homeScreenIcon: new ScreenIcon( iconImage, {
@@ -28,8 +28,8 @@ export default class SoundScreen<T extends SoundModel> extends Screen<T, SoundSc
         maxIconWidthProportion: 1,
         maxIconHeightProportion: 1
       } ),
-      showPlaySoundControl: true,
-      audioEnabled: true,
+      // showPlaySoundControl: true,
+      // audioEnabled: true,
       tandem: Tandem.OPT_OUT
     };
 
