@@ -42,8 +42,6 @@ export default class SoundSlider extends HSlider {
 
     const maxTickIndex = ( providedOptions && providedOptions.maxTickIndex ) ? providedOptions.maxTickIndex : 10;
 
-    assert && assert( property.range, 'SoundSlider.property requires range' );
-
     const min = property.range.min;
     const max = property.range.max;
     const ticks = _.range( 0, maxTickIndex + 1 ).map( index => {
