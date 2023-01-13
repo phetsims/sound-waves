@@ -33,10 +33,10 @@ export default class SoundModeControlPanel extends SoundPanel {
     const boxText = new Text( SoundStrings.soundModeControlPanel.titleStringProperty );
 
     const radioButtons = new VerticalAquaRadioButtonGroup<'CONTINUOUS' | 'PULSE'>( model.soundModeProperty, [ {
-      createNode: tandem => new Text( SoundStrings.soundModeControlPanel.continuousStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
+      createNode: () => new Text( SoundStrings.soundModeControlPanel.continuousStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
       value: 'CONTINUOUS'
     }, {
-      createNode: tandem => new Text( SoundStrings.soundModeControlPanel.pulseStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
+      createNode: () => new Text( SoundStrings.soundModeControlPanel.pulseStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
       value: 'PULSE'
     } ], {
       spacing: options.yMargin

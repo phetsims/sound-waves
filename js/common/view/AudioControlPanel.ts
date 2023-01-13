@@ -43,10 +43,10 @@ export default class AudioControlPanel extends SoundPanel {
     let radioButtons;
     if ( model.audioControlSettingProperty ) {
       radioButtons = new VerticalAquaRadioButtonGroup<'SPEAKER' | 'LISTENER'>( model.audioControlSettingProperty, [ {
-        createNode: tandem => new Text( SoundStrings.audioControlPanel.speakerStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
+        createNode: () => new Text( SoundStrings.audioControlPanel.speakerStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
         value: 'SPEAKER'
       }, {
-        createNode: tandem => new Text( SoundStrings.audioControlPanel.listenerStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
+        createNode: () => new Text( SoundStrings.audioControlPanel.listenerStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
         value: 'LISTENER'
       } ], {
         spacing: options.yMargin
