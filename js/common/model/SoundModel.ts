@@ -13,6 +13,7 @@ import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Range from '../../../../dot/js/Range.js';
 import Rectangle from '../../../../dot/js/Rectangle.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
+import TModel from '../../../../joist/js/TModel.js';
 import EventTimer from '../../../../phet-core/js/EventTimer.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
@@ -35,7 +36,7 @@ type SoundModelOptions = {
   speaker1PositionY?: number;
 };
 
-export default class SoundModel {
+export default class SoundModel implements TModel {
 
   // whether audio is enabled
   public readonly isAudioEnabledProperty: Property<boolean>;
