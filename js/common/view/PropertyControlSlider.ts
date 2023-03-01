@@ -29,7 +29,7 @@ export default class PropertyControlSlider extends VBox {
 
     if ( options.valueToText ) {
       property.link( value => {
-        valueDisplay.setText( options.valueToText!( value ) );
+        valueDisplay.setString( options.valueToText!( value ) );
         valueDisplay.right = soundSlider.right;
       } );
     }
