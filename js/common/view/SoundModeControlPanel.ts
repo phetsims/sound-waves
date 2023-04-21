@@ -15,7 +15,6 @@ import SoundStrings from '../../SoundStrings.js';
 import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
 import ReflectionModel from '../../reflection/ReflectionModel.js';
 import optionize from '../../../../phet-core/js/optionize.js';
-import SoundControlPanel from './SoundControlPanel.js';
 
 type SelfOptions = {
   yMargin?: number;
@@ -26,8 +25,7 @@ export default class SoundModeControlPanel extends SoundPanel {
 
   public constructor( model: ReflectionModel, alignGroup: AlignGroup, providedOptions?: SoundModeControlPanelOptions ) {
 
-    // @ts-expect-error - chip away for https://github.com/phetsims/center-and-variability/issues/142
-    const options = optionize<SoundModeControlPanelOptions, SelfOptions, SoundControlPanel>()( {
+    const options = optionize<SoundModeControlPanelOptions, SelfOptions, SoundPanelOptions>()( {
       maxWidth: SoundConstants.PANEL_MAX_WIDTH,
       yMargin: 4
     }, providedOptions );
