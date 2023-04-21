@@ -25,6 +25,8 @@ type SoundModeControlPanelOptions = SelfOptions & SoundPanelOptions;
 export default class SoundModeControlPanel extends SoundPanel {
 
   public constructor( model: ReflectionModel, alignGroup: AlignGroup, providedOptions?: SoundModeControlPanelOptions ) {
+
+    // @ts-expect-error - chip away for https://github.com/phetsims/center-and-variability/issues/142
     const options = optionize<SoundModeControlPanelOptions, SelfOptions, SoundControlPanel>()( {
       maxWidth: SoundConstants.PANEL_MAX_WIDTH,
       yMargin: 4
