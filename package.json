@@ -22,7 +22,14 @@
     "simFeatures": {
       "supportsSound": true,
       "supportsDynamicLocale": true
-    }
+    },
+    "screenNameKeys": [
+      "SOUND/singleSource.title",
+      "SOUND/measure.title",
+      "SOUND/twoSource.title",
+      "SOUND/reflection.title",
+      "SOUND/airPressure.title"
+    ]
   },
   "eslintConfig": {
     "extends": "../chipper/eslint/sim_eslintrc.js",
