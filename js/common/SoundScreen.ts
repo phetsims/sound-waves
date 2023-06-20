@@ -15,10 +15,10 @@ import { Node } from '../../../scenery/js/imports.js';
 import SoundModel from './model/SoundModel.js';
 import SoundScreenView from './view/SoundScreenView.js';
 import Tandem from '../../../tandem/js/Tandem.js';
-import LinkableProperty from '../../../axon/js/LinkableProperty.js';
+import PhetioProperty from '../../../axon/js/PhetioProperty.js';
 
 export default class SoundScreen<T extends SoundModel> extends Screen<T, SoundScreenView> {
-  public constructor( title: LinkableProperty<string>, createModel: () => T, createView: ( model: T ) => SoundScreenView, iconImage: Node ) {
+  public constructor( title: PhetioProperty<string>, createModel: () => T, createView: ( model: T ) => SoundScreenView, iconImage: Node ) {
 
     const options: ScreenOptions = {
       backgroundColorProperty: SoundColors.SCREEN_VIEW_BACKGROUND,

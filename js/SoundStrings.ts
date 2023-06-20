@@ -5,66 +5,66 @@
  */
 /* eslint-disable */
 import getStringModule from '../../chipper/js/getStringModule.js';
-import LinkableProperty from '../../axon/js/LinkableProperty.js';
+import type LocalizedStringProperty from '../../chipper/js/LocalizedStringProperty.js';
 import sound from './sound.js';
 
 type StringsType = {
   'sound': {
-    'titleStringProperty': LinkableProperty<string>;
+    'titleStringProperty': LocalizedStringProperty;
   };
   'singleSource': {
-    'titleStringProperty': LinkableProperty<string>;
+    'titleStringProperty': LocalizedStringProperty;
     'help': {
-      'listenerStringProperty': LinkableProperty<string>;
+      'listenerStringProperty': LocalizedStringProperty;
     }
   };
   'measure': {
-    'titleStringProperty': LinkableProperty<string>;
-    'clearWavesStringProperty': LinkableProperty<string>;
+    'titleStringProperty': LocalizedStringProperty;
+    'clearWavesStringProperty': LocalizedStringProperty;
     'help': {
-      'stickStringProperty': LinkableProperty<string>;
-      'blueLinesStringProperty': LinkableProperty<string>;
+      'stickStringProperty': LocalizedStringProperty;
+      'blueLinesStringProperty': LocalizedStringProperty;
     }
   };
   'twoSource': {
-    'titleStringProperty': LinkableProperty<string>;
+    'titleStringProperty': LocalizedStringProperty;
     'help': {
-      'upperSpeakerStringProperty': LinkableProperty<string>;
-      'listenerStringProperty': LinkableProperty<string>;
+      'upperSpeakerStringProperty': LocalizedStringProperty;
+      'listenerStringProperty': LocalizedStringProperty;
     }
   };
   'reflection': {
-    'titleStringProperty': LinkableProperty<string>;
+    'titleStringProperty': LocalizedStringProperty;
   };
-  'atmStringProperty': LinkableProperty<string>;
-  'hzStringProperty': LinkableProperty<string>;
+  'atmStringProperty': LocalizedStringProperty;
+  'hzStringProperty': LocalizedStringProperty;
   'airPressure': {
-    'titleStringProperty': LinkableProperty<string>;
+    'titleStringProperty': LocalizedStringProperty;
   };
   'audioControlPanel': {
-    'titleStringProperty': LinkableProperty<string>;
-    'audioEnabledStringProperty': LinkableProperty<string>;
-    'speakerStringProperty': LinkableProperty<string>;
-    'listenerStringProperty': LinkableProperty<string>;
+    'titleStringProperty': LocalizedStringProperty;
+    'audioEnabledStringProperty': LocalizedStringProperty;
+    'speakerStringProperty': LocalizedStringProperty;
+    'listenerStringProperty': LocalizedStringProperty;
   };
   'soundModeControlPanel': {
-    'titleStringProperty': LinkableProperty<string>;
-    'continuousStringProperty': LinkableProperty<string>;
-    'pulseStringProperty': LinkableProperty<string>;
-    'firePulseStringProperty': LinkableProperty<string>;
+    'titleStringProperty': LocalizedStringProperty;
+    'continuousStringProperty': LocalizedStringProperty;
+    'pulseStringProperty': LocalizedStringProperty;
+    'firePulseStringProperty': LocalizedStringProperty;
   };
   'reflectionControlPanel': {
-    'positionSliderStringProperty': LinkableProperty<string>;
-    'rotationSliderStringProperty': LinkableProperty<string>;
+    'positionSliderStringProperty': LocalizedStringProperty;
+    'rotationSliderStringProperty': LocalizedStringProperty;
   };
   'airDensityControlPanel': {
-    'titleStringProperty': LinkableProperty<string>;
-    'removeAirStringProperty': LinkableProperty<string>;
-    'addAirStringProperty': LinkableProperty<string>;
-    'resetStringProperty': LinkableProperty<string>;
+    'titleStringProperty': LocalizedStringProperty;
+    'removeAirStringProperty': LocalizedStringProperty;
+    'addAirStringProperty': LocalizedStringProperty;
+    'resetStringProperty': LocalizedStringProperty;
   };
-  'amplitudeStringProperty': LinkableProperty<string>;
-  'frequencyStringProperty': LinkableProperty<string>;
+  'amplitudeStringProperty': LocalizedStringProperty;
+  'frequencyStringProperty': LocalizedStringProperty;
 };
 
 const SoundStrings = getStringModule( 'SOUND' ) as StringsType;
