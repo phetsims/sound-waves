@@ -38,7 +38,6 @@ simLauncher.launch( () => {
     new SoundScreen( SoundStrings.airPressure.titleStringProperty, () => new PressureModel(), model => new PressureView( model ), new Image( pressureIcon_png ) )
   ], {
 
-    //TODO fill in credits, all of these fields are optional, see joist.CreditsNode
     credits: {
       leadDesign: '',
       softwareDevelopment: 'Piet Goris, Sam Reid',
