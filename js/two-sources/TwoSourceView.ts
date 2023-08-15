@@ -43,7 +43,8 @@ export default class TwoSourceView extends SoundScreenView {
     const earMarkingNode = new Node( { center: earLocation, children: [ earMarking1, earMarking2 ] } );
     const personContainer = new Node( { children: [ person, earMarkingNode ], center: new Vector2( -earLocation.x, -earLocation.y ) } );
 
-    const listenerBounds = new Bounds2( SoundConstants.LISTENER_BOUNDS_X.min, person.height, SoundConstants.LISTENER_BOUNDS_X.max, model.getWaveAreaBounds().height - person.bottom );
+    const listenerX = personContainer.x + 0.5 * model.getWaveAreaBounds().width + earLocation.x;
+    const listenerBounds = new Bounds2( listenerX, 0.5 * person.height, listenerX, model.getWaveAreaBounds().height - 0.5 * person.height );
     this.listener = new MovableNode( model.listenerPositionProperty, listenerBounds, model.modelViewTransform!, personContainer );
     this.addChild( this.listener );
 
