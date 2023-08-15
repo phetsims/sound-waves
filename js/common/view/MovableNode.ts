@@ -30,10 +30,9 @@ export default class MovableNode extends Node {
       this.y = viewPosition.y;
     } );
 
-    // TODO: Upgraded from another listener type
     this.movableDragHandler = new DragListener( {
       positionProperty: positionProperty,
-      dragBoundsProperty: new Property( dragBounds ), // TODO
+      dragBoundsProperty: new Property( dragBounds ),
       transform: modelViewTransform,
       useParentOffset: true
     } );

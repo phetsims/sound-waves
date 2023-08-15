@@ -14,8 +14,6 @@ import SoundModel from '../common/model/SoundModel.js';
 import Multilink from '../../../axon/js/Multilink.js';
 
 export default class TwoSourceModel extends SoundModel {
-
-  // TODO: This appears elsewhere
   public readonly listenerPositionProperty: Vector2Property;
   public readonly speaker2PositionProperty: Vector2Property;
 
