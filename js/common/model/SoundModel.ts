@@ -207,7 +207,7 @@ export default class SoundModel implements TModel {
     const isContinuous = ( !this.soundModeProperty || this.soundModeProperty.get() === 'CONTINUOUS' );
 
     // Used to compute whether a delta appears in either mask
-    let temporalMaskEmpty = true;
+    // let temporalMaskEmpty = true;
 
     // If the pulse is running, end the pulse after one period
     if ( this.isPulseFiringProperty.get() ) {
@@ -240,13 +240,13 @@ export default class SoundModel implements TModel {
         this.lattice.setCurrentValue( SoundConstants.SOURCE_POSITION_X, j, waveValue );
         this.oscillatorProperty.value = waveValue;
         if ( amplitude > 0 && frequency > 0 ) {
-          this.temporalMask.set( true, this.stepIndex, j );
-          temporalMaskEmpty = false;
+          // this.temporalMask.set( true, this.stepIndex, j );
+          // temporalMaskEmpty = false;
         }
       }
     }
 
-    temporalMaskEmpty && this.temporalMask.set( false, this.stepIndex, 0 );
+    // temporalMaskEmpty && this.temporalMask.set( false, this.stepIndex, 0 );
   }
 
   /**
@@ -354,7 +354,7 @@ export default class SoundModel implements TModel {
       // Apply values on top of the computed lattice values so there is no noise at the point sources
       this.generateWaves();
 
-      this.applyTemporalMask();
+      // this.applyTemporalMask();
 
       // Notify listeners about changes
       this.lattice.changedEmitter.emit();
