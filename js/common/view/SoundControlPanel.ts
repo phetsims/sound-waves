@@ -33,7 +33,7 @@ export default class SoundControlPanel extends SoundPanel {
 
     const frequencyControl = new PropertyControlSlider( SoundStrings.frequencyStringProperty, model.frequencyProperty, {
 
-      // TODO: Trigger when SoundStrings.hzStringProperty changes
+      // TODO: Trigger when SoundStrings.hzStringProperty changes - see https://github.com/phetsims/sound/issues/23
       valueToText: value => ( Utils.roundSymmetric( value * 1000 ) ).toString() + SoundStrings.hzStringProperty.value
     } );
     const amplitudeControl = new PropertyControlSlider( SoundStrings.amplitudeStringProperty, model.amplitudeProperty );
