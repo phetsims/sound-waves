@@ -148,7 +148,7 @@ export default class LatticeCanvasNode extends CanvasNode {
         let zeroOut = 1;
 
         if ( this.hasReflection ) {
-          if ( k >= this.sourcePosition.x && k < Utils.roundSymmetric( this.wallPositionX ) - ( i - height + dampY ) / Math.tan( this.wallAngle ) ) {
+          if ( k < Utils.roundSymmetric( this.wallPositionX ) - ( i - height + dampY ) / Math.tan( this.wallAngle ) ) {
             const originalPos = new Vector2( k, i );
             const wallVector = Vector2.createPolar( 1, -this.wallAngle );
             const wallOrigin = new Vector2( this.wallPositionX, height - dampY );
