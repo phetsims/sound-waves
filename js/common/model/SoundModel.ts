@@ -229,16 +229,17 @@ export default class SoundModel implements TModel {
       const dampingByPressure = this.pressureProperty ? this.pressureProperty.value : 1;
 
       // Compute the wave value as a function of time, or set to zero if no longer generating a wave.
-      const waveValue = ( this.isPulseFiringProperty.get() && timeSincePulseStarted > period ) ? 0 :
+      const oscillatorValue = ( this.isPulseFiringProperty.get() && timeSincePulseStarted > period ) ? 0 :
                         -Math.sin( time * angularFrequency + this.phase ) * amplitude *
-                        1.2 * dampingByPressure;
+                        1.2;
+      const waveValue = oscillatorValue * dampingByPressure;
 
       // Point source
       if ( isContinuous || this.isPulseFiringProperty.get() ) {
 
         const j = Math.floor( this.modelToLatticeTransform.modelToViewY( this.speaker1Position.y ) );
         this.lattice.setCurrentValue( SoundConstants.SOURCE_POSITION_X, j, waveValue );
-        this.oscillatorProperty.value = waveValue;
+        this.oscillatorProperty.value = oscillatorValue;
         if ( amplitude > 0 && frequency > 0 ) {
           // this.temporalMask.set( true, this.stepIndex, j );
           // temporalMaskEmpty = false;
