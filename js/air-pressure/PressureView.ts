@@ -31,7 +31,7 @@ export default class PressureView extends SoundScreenView {
     this.pressureControlPanel = new AirDensityControlPanel( model, this.contolPanelAlignGroup );
 
     this.pressureControlPanel.mutate( {
-      right: this.layoutBounds.right - SoundConstants.CONTROL_PANEL_MARGIN,
+      right: this.layoutBounds.maxX - SoundConstants.SCREEN_VIEW_X_MARGIN,
       top: this.audioControlPanel!.bottom + SoundConstants.CONTROL_PANEL_SPACING
     } );
 
