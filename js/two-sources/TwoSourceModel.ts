@@ -11,6 +11,7 @@ import Vector2Property from '../../../dot/js/Vector2Property.js';
 import SoundConstants from '../common/SoundConstants.js';
 import sound from '../sound.js';
 import SoundModel from '../common/model/SoundModel.js';
+import Multilink from '../../../axon/js/Multilink.js';
 
 export default class TwoSourceModel extends SoundModel {
 
@@ -27,7 +28,28 @@ export default class TwoSourceModel extends SoundModel {
     this.listenerPositionProperty = new Vector2Property( new Vector2( 1 / 2 * SoundConstants.WAVE_AREA_WIDTH, 1 / 2 * SoundConstants.WAVE_AREA_WIDTH ) );
 
     this.speaker2PositionProperty = new Vector2Property( new Vector2( this.modelToLatticeTransform.viewToModelX( SoundConstants.SOURCE_POSITION_X ), 2 / 3 * SoundConstants.WAVE_AREA_WIDTH ) );
+
+    Multilink.multilink( [ this.listenerPositionProperty, this.speaker2PositionProperty, this.frequencyProperty, this.amplitudeProperty ],
+      ( listenerPosition, speaker2Position, frequency, amplitude ) => {
+        this.updateListenerSound();
+      } );
   }
+
+  private updateListenerSound(): void {
+
+    // Determine the difference in distance of the listener's ear to each audio source in units of phase angle of the current frequency
+    const distToTopSpeaker = this.listenerPositionProperty.value.distance( this.speaker1Position );
+    const distToBottomSpeaker = this.listenerPositionProperty.value.distance( this.speaker2PositionProperty.value );
+
+    const wavelength = 36 / this.frequencyProperty.value;
+    const theta = ( ( distToTopSpeaker - distToBottomSpeaker ) / wavelength ) * Math.PI;
+
+    // The amplitude factor for max amplitude is the sum of the two wavefront amplitudes times the cosine of the phase angle
+    const amplitudeFactor = this.amplitudeProperty.value * Math.abs( Math.cos( theta ) );
+
+    this.interferenceAmplitudeFactorProperty.set( amplitudeFactor );
+  }
+
 
   /**
    * Resets the model.

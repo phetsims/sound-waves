@@ -22,7 +22,7 @@ export default class PropertyControlSlider extends VBox {
       valueToText: null
     }, providedOptions );
 
-    const title = new Text( titleString );
+    const title = new Text( titleString, { layoutOptions: { topMargin: 5, bottomMargin: 10 } } );
     const valueDisplay = new Text( '' );
 
     const soundSlider = new SoundSlider( property );

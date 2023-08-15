@@ -58,6 +58,8 @@ export default class SoundModel implements TModel {
   // controls the amplitude of the wave.
   public readonly amplitudeProperty: NumberProperty;
 
+  public readonly interferenceAmplitudeFactorProperty: NumberProperty;
+
   public readonly hasSecondSource: boolean;
 
   // whether this model has a reflection wall.
@@ -141,13 +143,18 @@ export default class SoundModel implements TModel {
       range: SoundConstants.AMPLITUDE_RANGE
     } );
 
+    this.interferenceAmplitudeFactorProperty = new NumberProperty( 1 );
+
     this.timeProperty = new NumberProperty( 0 );
 
+    const latticeDimension = this.hasSecondSource ? 181 : SoundConstants.LATTICE_DIMENSION;
+    const latticePadding = this.hasSecondSource ? 35 : SoundConstants.LATTICE_PADDING;
+
     this.lattice = new Lattice(
-      SoundConstants.LATTICE_DIMENSION,
-      SoundConstants.LATTICE_DIMENSION,
-      SoundConstants.LATTICE_PADDING,
-      SoundConstants.LATTICE_PADDING
+      latticeDimension,
+      latticeDimension,
+      latticePadding,
+      latticePadding
     );
 
     this.modelToLatticeTransform = ModelViewTransform2.createRectangleMapping(
@@ -203,7 +210,7 @@ export default class SoundModel implements TModel {
     const isContinuous = ( !this.soundModeProperty || this.soundModeProperty.get() === 'CONTINUOUS' );
 
     // Used to compute whether a delta appears in either mask
-    let temporalMaskEmpty = true;
+    // let temporalMaskEmpty = true;
 
     // If the pulse is running, end the pulse after one period
     if ( this.isPulseFiringProperty.get() ) {
@@ -225,24 +232,25 @@ export default class SoundModel implements TModel {
       const dampingByPressure = this.pressureProperty ? this.pressureProperty.value : 1;
 
       // Compute the wave value as a function of time, or set to zero if no longer generating a wave.
-      const waveValue = ( this.isPulseFiringProperty.get() && timeSincePulseStarted > period ) ? 0 :
+      const oscillatorValue = ( this.isPulseFiringProperty.get() && timeSincePulseStarted > period ) ? 0 :
                         -Math.sin( time * angularFrequency + this.phase ) * amplitude *
-                        1.2 * dampingByPressure;
+                        1.2;
+      const waveValue = oscillatorValue * dampingByPressure;
 
       // Point source
       if ( isContinuous || this.isPulseFiringProperty.get() ) {
 
         const j = Math.floor( this.modelToLatticeTransform.modelToViewY( this.speaker1Position.y ) );
         this.lattice.setCurrentValue( SoundConstants.SOURCE_POSITION_X, j, waveValue );
-        this.oscillatorProperty.value = waveValue;
+        this.oscillatorProperty.value = oscillatorValue;
         if ( amplitude > 0 && frequency > 0 ) {
-          this.temporalMask.set( true, this.stepIndex, j );
-          temporalMaskEmpty = false;
+          // this.temporalMask.set( true, this.stepIndex, j );
+          // temporalMaskEmpty = false;
         }
       }
     }
 
-    temporalMaskEmpty && this.temporalMask.set( false, this.stepIndex, 0 );
+    // temporalMaskEmpty && this.temporalMask.set( false, this.stepIndex, 0 );
   }
 
   /**
@@ -275,6 +283,7 @@ export default class SoundModel implements TModel {
     this.timeProperty.reset();
     this.frequencyProperty.reset();
     this.amplitudeProperty.reset();
+    this.interferenceAmplitudeFactorProperty.reset();
     this.timeProperty.reset();
     this.oscillatorProperty.reset();
 
@@ -349,7 +358,7 @@ export default class SoundModel implements TModel {
       // Apply values on top of the computed lattice values so there is no noise at the point sources
       this.generateWaves();
 
-      this.applyTemporalMask();
+      // this.applyTemporalMask();
 
       // Notify listeners about changes
       this.lattice.changedEmitter.emit();

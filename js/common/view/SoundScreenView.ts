@@ -58,7 +58,7 @@ export default class SoundScreenView extends ScreenView {
     this.waveAreaNode = new Rectangle( 0, 0, 500, 500, {
       fill: '#4c4c4c',
       top: SoundConstants.CONTROL_PANEL_MARGIN + WAVE_MARGIN + 15,
-      centerX: this.layoutBounds.centerX - 142
+      centerX: this.layoutBounds.centerX
     } );
 
     this.addChild( this.waveAreaNode );
@@ -86,8 +86,8 @@ export default class SoundScreenView extends ScreenView {
     this.controlPanel = new SoundControlPanel( model, this.contolPanelAlignGroup );
 
     this.controlPanel.mutate( {
-      right: this.layoutBounds.right - SoundConstants.CONTROL_PANEL_MARGIN,
-      top: SoundConstants.CONTROL_PANEL_MARGIN + SoundConstants.CONTROL_PANEL_SPACING
+      right: this.layoutBounds.maxX - SoundConstants.SCREEN_VIEW_X_MARGIN,
+      top: SoundConstants.CONTROL_PANEL_MARGIN + SoundConstants.CONTROL_PANEL_SPACING + 17
     } );
 
     this.addChild( this.controlPanel );
@@ -96,23 +96,27 @@ export default class SoundScreenView extends ScreenView {
       this.audioControlPanel = new AudioControlPanel( model, this.contolPanelAlignGroup );
 
       this.audioControlPanel.mutate( {
-        right: this.layoutBounds.right - SoundConstants.CONTROL_PANEL_MARGIN,
+        right: this.layoutBounds.maxX - SoundConstants.SCREEN_VIEW_X_MARGIN,
         top: this.controlPanel.bottom + SoundConstants.CONTROL_PANEL_SPACING
       } );
 
       this.addChild( this.audioControlPanel );
 
       // Amplitude of the hearable tone
-      const soundAmpitudeProperty = new NumberProperty( 0 );
+      const soundAmplitudeProperty = new NumberProperty( 0 );
 
       // Update the final amplitude of the sine wave tone
       const updateSoundAmplitude = () => {
-        const amplitudeDampening = model.audioControlSettingProperty && model.audioControlSettingProperty.value === 'LISTENER' ? ( SoundConstants.LISTENER_BOUNDS_X.max - model.listenerPositionProperty!.value.x ) / ( SoundConstants.LISTENER_BOUNDS_X.max - SoundConstants.LISTENER_BOUNDS_X.min ) : 1;
+        const minListenerDistance = model.audioControlSettingProperty && model.audioControlSettingProperty.value === 'LISTENER' ? Math.abs( SoundConstants.LISTENER_BOUNDS_X.min - model.speaker1Position.x ) : 1;
+        const listenerDistance = model.audioControlSettingProperty && model.audioControlSettingProperty.value === 'LISTENER' ? Math.abs( model.listenerPositionProperty!.value.x - model.speaker1Position.x ) : 1;
+        const distanceDampening = model.audioControlSettingProperty && model.audioControlSettingProperty.value === 'LISTENER' ?
+                                   Math.pow( minListenerDistance / listenerDistance, 2 ) : 1;
         const pressureDampening = model.pressureProperty ? model.pressureProperty.value : 1;
-        soundAmpitudeProperty.set( model.amplitudeProperty.value / 1.5 * amplitudeDampening * pressureDampening );
+        soundAmplitudeProperty.set( distanceDampening * pressureDampening * model.interferenceAmplitudeFactorProperty.value * model.amplitudeProperty.value );
       };
 
       model.amplitudeProperty.link( updateSoundAmplitude );
+      model.interferenceAmplitudeFactorProperty.link( updateSoundAmplitude );
 
       if ( model.pressureProperty ) {
         model.pressureProperty.link( updateSoundAmplitude );
@@ -125,7 +129,7 @@ export default class SoundScreenView extends ScreenView {
 
       const sineWavePlayer = new WaveGenerator(
         model.frequencyProperty,
-        soundAmpitudeProperty, {
+        soundAmplitudeProperty, {
           enableControlProperties: [
             model.isAudioEnabledProperty,
             model.isRunningProperty
@@ -189,7 +193,7 @@ export default class SoundScreenView extends ScreenView {
 
     // Pause/play/step buttons.
     const timeControlNode = new TimeControlNode( model.isRunningProperty, {
-      bottom: this.layoutBounds.bottom - SoundConstants.CONTROL_PANEL_MARGIN,
+      bottom: this.layoutBounds.bottom - SoundConstants.CONTROL_PANEL_MARGIN - 10,
       centerX: this.waveAreaNode.centerX,
 
       playPauseStepButtonOptions: {
@@ -212,7 +216,7 @@ export default class SoundScreenView extends ScreenView {
         model.reset();
       },
       right: this.layoutBounds.maxX - SoundConstants.SCREEN_VIEW_X_MARGIN,
-      bottom: this.layoutBounds.maxY - SoundConstants.SCREEN_VIEW_Y_MARGIN
+      bottom: this.layoutBounds.bottom - SoundConstants.CONTROL_PANEL_MARGIN - 10
     } );
 
     this.addChild( resetAllButton );

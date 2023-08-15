@@ -30,7 +30,7 @@ export default class MeasureModel extends SoundModel {
       isVisible: true
     } );
 
-    this.rulerPositionProperty = new Vector2Property( new Vector2( 200, 460 ) );
+    this.rulerPositionProperty = new Vector2Property( new Vector2( 300, 460 ) );
   }
 
   /**
