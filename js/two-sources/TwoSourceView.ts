@@ -8,7 +8,7 @@
 
 import Bounds2 from '../../../dot/js/Bounds2.js';
 import Vector2 from '../../../dot/js/Vector2.js';
-import { Image } from '../../../scenery/js/imports.js';
+import { Image, Line, Node } from '../../../scenery/js/imports.js';
 import girl_png from '../../images/girl_png.js';
 import SoundConstants from '../common/SoundConstants.js';
 import MovableNode from '../common/view/MovableNode.js';
@@ -31,12 +31,20 @@ export default class TwoSourceView extends SoundScreenView {
     speaker.setRightCenter( new Vector2( SoundConstants.SPEAKER_OFFSET, 0 ) );
     this.addChild( this.speakerNode2 );
 
-    // Listener
-    const child = new Image( girl_png, {
-      center: new Vector2( 0, 0 )
+    const person = new Image( girl_png, { center: new Vector2( 0, 0 ) } );
+    const earLocation = new Vector2( -25, -15 );
+    const EAR_MARKING_LINE_LENGTH = 5;
+    const earMarking1 = new Line( -EAR_MARKING_LINE_LENGTH, -EAR_MARKING_LINE_LENGTH, EAR_MARKING_LINE_LENGTH, EAR_MARKING_LINE_LENGTH, {
+      stroke: 'red', lineWidth: 3
     } );
-    const listenerBounds = new Bounds2( SoundConstants.LISTENER_BOUNDS_X.min, child.height, SoundConstants.LISTENER_BOUNDS_X.max, model.getWaveAreaBounds().height - child.bottom );
-    this.listener = new MovableNode( model.listenerPositionProperty, listenerBounds, model.modelViewTransform!, child );
+    const earMarking2 = new Line( EAR_MARKING_LINE_LENGTH, -EAR_MARKING_LINE_LENGTH, -EAR_MARKING_LINE_LENGTH, EAR_MARKING_LINE_LENGTH, {
+      stroke: 'red', lineWidth: 3
+    } );
+    const earMarkingNode = new Node( { center: earLocation, children: [ earMarking1, earMarking2 ] } );
+    const personContainer = new Node( { children: [ person, earMarkingNode ], center: new Vector2( -earLocation.x, -earLocation.y ) } );
+
+    const listenerBounds = new Bounds2( SoundConstants.LISTENER_BOUNDS_X.min, person.height, SoundConstants.LISTENER_BOUNDS_X.max, model.getWaveAreaBounds().height - person.bottom );
+    this.listener = new MovableNode( model.listenerPositionProperty, listenerBounds, model.modelViewTransform!, personContainer );
     this.addChild( this.listener );
 
     model.speaker2PositionProperty.link( value => {
