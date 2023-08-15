@@ -58,7 +58,7 @@ export default class SoundScreenView extends ScreenView {
     this.waveAreaNode = new Rectangle( 0, 0, 500, 500, {
       fill: '#4c4c4c',
       top: SoundConstants.CONTROL_PANEL_MARGIN + WAVE_MARGIN + 15,
-      centerX: this.layoutBounds.centerX - 142
+      centerX: this.layoutBounds.centerX
     } );
 
     this.addChild( this.waveAreaNode );
@@ -86,8 +86,8 @@ export default class SoundScreenView extends ScreenView {
     this.controlPanel = new SoundControlPanel( model, this.contolPanelAlignGroup );
 
     this.controlPanel.mutate( {
-      right: this.layoutBounds.right - SoundConstants.CONTROL_PANEL_MARGIN,
-      top: SoundConstants.CONTROL_PANEL_MARGIN + SoundConstants.CONTROL_PANEL_SPACING
+      right: this.layoutBounds.maxX - SoundConstants.SCREEN_VIEW_X_MARGIN,
+      top: SoundConstants.CONTROL_PANEL_MARGIN + SoundConstants.CONTROL_PANEL_SPACING + 17
     } );
 
     this.addChild( this.controlPanel );
@@ -96,7 +96,7 @@ export default class SoundScreenView extends ScreenView {
       this.audioControlPanel = new AudioControlPanel( model, this.contolPanelAlignGroup );
 
       this.audioControlPanel.mutate( {
-        right: this.layoutBounds.right - SoundConstants.CONTROL_PANEL_MARGIN,
+        right: this.layoutBounds.maxX - SoundConstants.SCREEN_VIEW_X_MARGIN,
         top: this.controlPanel.bottom + SoundConstants.CONTROL_PANEL_SPACING
       } );
 
@@ -190,7 +190,7 @@ export default class SoundScreenView extends ScreenView {
 
     // Pause/play/step buttons.
     const timeControlNode = new TimeControlNode( model.isRunningProperty, {
-      bottom: this.layoutBounds.bottom - SoundConstants.CONTROL_PANEL_MARGIN,
+      bottom: this.layoutBounds.bottom - SoundConstants.CONTROL_PANEL_MARGIN - 10,
       centerX: this.waveAreaNode.centerX,
 
       playPauseStepButtonOptions: {
@@ -213,7 +213,7 @@ export default class SoundScreenView extends ScreenView {
         model.reset();
       },
       right: this.layoutBounds.maxX - SoundConstants.SCREEN_VIEW_X_MARGIN,
-      bottom: this.layoutBounds.maxY - SoundConstants.SCREEN_VIEW_Y_MARGIN
+      bottom: this.layoutBounds.bottom - SoundConstants.CONTROL_PANEL_MARGIN - 10
     } );
 
     this.addChild( resetAllButton );
