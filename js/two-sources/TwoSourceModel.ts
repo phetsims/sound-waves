@@ -41,7 +41,7 @@ export default class TwoSourceModel extends SoundModel {
     const distToTopSpeaker = this.listenerPositionProperty.value.distance( this.speaker1Position );
     const distToBottomSpeaker = this.listenerPositionProperty.value.distance( this.speaker2PositionProperty.value );
 
-    const wavelength = 36 / this.frequencyProperty.value;
+    const wavelength = 35 / this.frequencyProperty.value;
     const theta = ( ( distToTopSpeaker - distToBottomSpeaker ) / wavelength ) * Math.PI;
 
     // The amplitude factor for max amplitude is the sum of the two wavefront amplitudes times the cosine of the phase angle
