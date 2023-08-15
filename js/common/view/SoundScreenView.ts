@@ -103,16 +103,17 @@ export default class SoundScreenView extends ScreenView {
       this.addChild( this.audioControlPanel );
 
       // Amplitude of the hearable tone
-      const soundAmpitudeProperty = new NumberProperty( 0 );
+      const soundAmplitudeProperty = new NumberProperty( 0 );
 
       // Update the final amplitude of the sine wave tone
       const updateSoundAmplitude = () => {
         const amplitudeDampening = model.audioControlSettingProperty && model.audioControlSettingProperty.value === 'LISTENER' ? ( SoundConstants.LISTENER_BOUNDS_X.max - model.listenerPositionProperty!.value.x ) / ( SoundConstants.LISTENER_BOUNDS_X.max - SoundConstants.LISTENER_BOUNDS_X.min ) : 1;
         const pressureDampening = model.pressureProperty ? model.pressureProperty.value : 1;
-        soundAmpitudeProperty.set( model.amplitudeProperty.value / 1.5 * amplitudeDampening * pressureDampening );
+        soundAmplitudeProperty.set( model.interferenceAmplitudeFactorProperty.value * model.amplitudeProperty.value / 1.5 * amplitudeDampening * pressureDampening );
       };
 
       model.amplitudeProperty.link( updateSoundAmplitude );
+      model.interferenceAmplitudeFactorProperty.link( updateSoundAmplitude );
 
       if ( model.pressureProperty ) {
         model.pressureProperty.link( updateSoundAmplitude );
@@ -125,7 +126,7 @@ export default class SoundScreenView extends ScreenView {
 
       const sineWavePlayer = new WaveGenerator(
         model.frequencyProperty,
-        soundAmpitudeProperty, {
+        soundAmplitudeProperty, {
           enableControlProperties: [
             model.isAudioEnabledProperty,
             model.isRunningProperty

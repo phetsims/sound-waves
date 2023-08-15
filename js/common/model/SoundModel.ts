@@ -58,6 +58,8 @@ export default class SoundModel implements TModel {
   // controls the amplitude of the wave.
   public readonly amplitudeProperty: NumberProperty;
 
+  public readonly interferenceAmplitudeFactorProperty: NumberProperty;
+
   public readonly hasSecondSource: boolean;
 
   // whether this model has a reflection wall.
@@ -140,6 +142,8 @@ export default class SoundModel implements TModel {
     this.amplitudeProperty = new NumberProperty( options.initialAmplitude, {
       range: SoundConstants.AMPLITUDE_RANGE
     } );
+
+    this.interferenceAmplitudeFactorProperty = new NumberProperty( 1 );
 
     this.timeProperty = new NumberProperty( 0 );
 
@@ -275,6 +279,7 @@ export default class SoundModel implements TModel {
     this.timeProperty.reset();
     this.frequencyProperty.reset();
     this.amplitudeProperty.reset();
+    this.interferenceAmplitudeFactorProperty.reset();
     this.timeProperty.reset();
     this.oscillatorProperty.reset();
 
