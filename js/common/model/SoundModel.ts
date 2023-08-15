@@ -147,11 +147,14 @@ export default class SoundModel implements TModel {
 
     this.timeProperty = new NumberProperty( 0 );
 
+    const latticeDimension = this.hasSecondSource ? 181 : SoundConstants.LATTICE_DIMENSION;
+    const latticePadding = this.hasSecondSource ? 35 : SoundConstants.LATTICE_PADDING;
+
     this.lattice = new Lattice(
-      SoundConstants.LATTICE_DIMENSION,
-      SoundConstants.LATTICE_DIMENSION,
-      SoundConstants.LATTICE_PADDING,
-      SoundConstants.LATTICE_PADDING
+      latticeDimension,
+      latticeDimension,
+      latticePadding,
+      latticePadding
     );
 
     this.modelToLatticeTransform = ModelViewTransform2.createRectangleMapping(
