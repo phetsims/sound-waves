@@ -107,9 +107,12 @@ export default class SoundScreenView extends ScreenView {
 
       // Update the final amplitude of the sine wave tone
       const updateSoundAmplitude = () => {
-        const amplitudeDampening = model.audioControlSettingProperty && model.audioControlSettingProperty.value === 'LISTENER' ? ( SoundConstants.LISTENER_BOUNDS_X.max - model.listenerPositionProperty!.value.x ) / ( SoundConstants.LISTENER_BOUNDS_X.max - SoundConstants.LISTENER_BOUNDS_X.min ) : 1;
+        const minListenerDistance = model.audioControlSettingProperty && model.audioControlSettingProperty.value === 'LISTENER' ? Math.abs( SoundConstants.LISTENER_BOUNDS_X.min - model.speaker1Position.x ) : 1;
+        const listenerDistance = model.audioControlSettingProperty && model.audioControlSettingProperty.value === 'LISTENER' ? Math.abs( model.listenerPositionProperty!.value.x - model.speaker1Position.x ) : 1;
+        const distanceDampening = model.audioControlSettingProperty && model.audioControlSettingProperty.value === 'LISTENER' ?
+                                   Math.pow( minListenerDistance / listenerDistance, 2 ) : 1;
         const pressureDampening = model.pressureProperty ? model.pressureProperty.value : 1;
-        soundAmplitudeProperty.set( model.interferenceAmplitudeFactorProperty.value * model.amplitudeProperty.value / 1.5 * amplitudeDampening * pressureDampening );
+        soundAmplitudeProperty.set( distanceDampening * pressureDampening * model.interferenceAmplitudeFactorProperty.value * model.amplitudeProperty.value );
       };
 
       model.amplitudeProperty.link( updateSoundAmplitude );
