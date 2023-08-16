@@ -55,7 +55,7 @@ export default class MeasureView extends SoundScreenView {
     soundManager.addSoundGenerator( releaseSound, { categoryName: 'user-interface' } );
 
     // Ruler
-    const rulerNode = new RulerNode( rulerLength, 50, majorTickMarkWidth, majorTickLabels, 'meter', {
+    const rulerNode = new RulerNode( rulerLength, 50, majorTickMarkWidth, majorTickLabels, SoundStrings.metersStringProperty, {
       minorTicksPerMajorTick: 4,
       insetsWidth: 60,
       unitsMajorTickIndex: 10,

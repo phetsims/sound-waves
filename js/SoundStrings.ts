@@ -65,6 +65,7 @@ type StringsType = {
   };
   'amplitudeStringProperty': LocalizedStringProperty;
   'frequencyStringProperty': LocalizedStringProperty;
+  'metersStringProperty': LocalizedStringProperty;
 };
 
 const SoundStrings = getStringModule( 'SOUND' ) as StringsType;
