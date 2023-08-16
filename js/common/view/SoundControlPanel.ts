@@ -45,19 +45,11 @@ export default class SoundControlPanel extends SoundPanel {
     // Vertical layout
     amplitudeControl.top = frequencyControl.bottom + SoundConstants.CONTROL_PANEL_SPACING;
 
-    const clearButton = new RectangularPushButton( {
-      listener: () => {
-        model.clearWaves();
-      },
-      content: new Text( SoundStrings.measure.clearWavesStringProperty )
-    } );
-
     const container = new VBox( {
       spacing: 6,
       children: [
         frequencyControl,
-        amplitudeControl,
-        ...( model.stopwatch ? [ clearButton ] : [] )
+        amplitudeControl
       ]
     } );
 

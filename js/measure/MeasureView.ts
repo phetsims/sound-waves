@@ -18,10 +18,25 @@ import MovableNode from '../common/view/MovableNode.js';
 import sound from '../sound.js';
 import MeasureModel from '../measure/MeasureModel.js';
 import SoundScreenView from '../common/view/SoundScreenView.js';
+import SoundConstants from '../common/SoundConstants.js';
+import RectangularPushButton from '../../../sun/js/buttons/RectangularPushButton.js';
+import { Text } from '../../../scenery/js/imports.js';
+import SoundStrings from '../SoundStrings.js';
 
 export default class MeasureView extends SoundScreenView {
   public constructor( model: MeasureModel ) {
     super( model );
+
+    const clearButton = new RectangularPushButton( {
+      listener: () => {
+        model.clearWaves();
+      },
+      content: new Text( SoundStrings.measure.clearWavesStringProperty ),
+      centerX: this.controlPanel.centerX,
+      top: this.audioControlPanel!.bottom + SoundConstants.CONTROL_PANEL_SPACING
+    } );
+
+    this.addChild( clearButton );
 
     const rulerLength = model.modelViewTransform!.modelToViewDeltaX( 500 );
     const majorTickMarkWidth = rulerLength / ( 10 );
