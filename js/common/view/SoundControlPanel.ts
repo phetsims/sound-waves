@@ -10,8 +10,7 @@
 import Utils from '../../../../dot/js/Utils.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import Stopwatch from '../../../../scenery-phet/js/Stopwatch.js';
-import { Text, AlignGroup, VBox } from '../../../../scenery/js/imports.js';
-import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
+import { AlignGroup, VBox } from '../../../../scenery/js/imports.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import sound from '../../sound.js';
 import SoundModel from '../../common/model/SoundModel.js';
