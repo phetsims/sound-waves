@@ -29,14 +29,14 @@ const eventTimerPeriod = 1 / SoundConstants.EVENT_RATE;
 const frequencyRange = new Range( 0, 1 );
 const INITIAL_FREQUENCY = 0.5;
 
-type SoundModelOptions = {
+type SoundWavesModelOptions = {
   hasReflection?: boolean;
   hasSecondSource?: boolean;
   initialAmplitude?: number;
   speaker1PositionY?: number;
 };
 
-export default class SoundModel implements TModel {
+export default class SoundWavesModel implements TModel {
 
   // whether audio is enabled
   public readonly isAudioEnabledProperty: Property<boolean>;
@@ -89,8 +89,8 @@ export default class SoundModel implements TModel {
   private latticeToViewTransform: ModelViewTransform2 | null;
   private pulseStartTime: number | null = null;
 
-  public constructor( providedOptions?: SoundModelOptions ) {
-    const options = optionize<SoundModelOptions>()( {
+  public constructor( providedOptions?: SoundWavesModelOptions ) {
+    const options = optionize<SoundWavesModelOptions>()( {
       initialAmplitude: 5,
       speaker1PositionY: SoundConstants.WAVE_AREA_WIDTH / 2,
       hasReflection: false,
@@ -368,4 +368,4 @@ export default class SoundModel implements TModel {
   }
 }
 
-soundWaves.register( 'SoundModel', SoundModel );
+soundWaves.register( 'SoundWavesModel', SoundWavesModel );

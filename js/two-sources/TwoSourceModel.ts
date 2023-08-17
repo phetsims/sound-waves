@@ -9,7 +9,7 @@
 import Vector2 from '../../../dot/js/Vector2.js';
 import Vector2Property from '../../../dot/js/Vector2Property.js';
 import SoundConstants from '../common/SoundConstants.js';
-import sound from '../sound.js';
+import soundWaves from '../soundWaves.js';
 import SoundModel from '../common/model/SoundModel.js';
 import Multilink from '../../../axon/js/Multilink.js';
 
@@ -63,4 +63,4 @@ export default class TwoSourceModel extends SoundModel {
   }
 }
 
-sound.register( 'TwoSourceModel', TwoSourceModel );
+soundWaves.register( 'TwoSourceModel', TwoSourceModel );

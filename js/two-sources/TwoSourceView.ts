@@ -13,7 +13,7 @@ import girl_png from '../../images/girl_png.js';
 import SoundConstants from '../common/SoundConstants.js';
 import MovableNode from '../common/view/MovableNode.js';
 import SpeakerNode from '../common/view/SpeakerNode.js';
-import sound from '../sound.js';
+import soundWaves from '../soundWaves.js';
 import TwoSourceModel from '../two-sources/TwoSourceModel.js';
 import SoundScreenView from '../common/view/SoundScreenView.js';
 
@@ -54,4 +54,4 @@ export default class TwoSourceView extends SoundScreenView {
   }
 }
 
-sound.register( 'TwoSourceView', TwoSourceView );
+soundWaves.register( 'TwoSourceView', TwoSourceView );

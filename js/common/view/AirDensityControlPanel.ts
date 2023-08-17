@@ -10,7 +10,7 @@
 import { AlignGroup, Text, VBox } from '../../../../scenery/js/imports.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
 import SoundConstants from '../../common/SoundConstants.js';
-import sound from '../../sound.js';
+import soundWaves from '../../soundWaves.js';
 import SoundStrings from '../../SoundStrings.js';
 import PropertyControlSlider from './PropertyControlSlider.js';
 import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
@@ -52,4 +52,4 @@ export default class AirDensityControlPanel extends SoundPanel {
   }
 }
 
-sound.register( 'AirDensityControlPanel', AirDensityControlPanel );
+soundWaves.register( 'AirDensityControlPanel', AirDensityControlPanel );

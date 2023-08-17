@@ -12,7 +12,7 @@ import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.
 import Stopwatch from '../../../../scenery-phet/js/Stopwatch.js';
 import { AlignGroup, VBox } from '../../../../scenery/js/imports.js';
 import SoundConstants from '../../common/SoundConstants.js';
-import sound from '../../sound.js';
+import soundWaves from '../../soundWaves.js';
 import SoundModel from '../../common/model/SoundModel.js';
 import SoundStrings from '../../SoundStrings.js';
 import PropertyControlSlider from './PropertyControlSlider.js';
@@ -58,4 +58,4 @@ export default class SoundControlPanel extends SoundPanel {
   }
 }
 
-sound.register( 'SoundControlPanel', SoundControlPanel );
+soundWaves.register( 'SoundControlPanel', SoundControlPanel );

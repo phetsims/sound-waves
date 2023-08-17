@@ -15,7 +15,7 @@ import soundManager from '../../../tambo/js/soundManager.js';
 import grab_mp3 from '../../../tambo/sounds/grab_mp3.js';
 import release_mp3 from '../../../tambo/sounds/release_mp3.js';
 import MovableNode from '../common/view/MovableNode.js';
-import sound from '../sound.js';
+import soundWaves from '../soundWaves.js';
 import MeasureModel from '../measure/MeasureModel.js';
 import SoundScreenView from '../common/view/SoundScreenView.js';
 import SoundConstants from '../common/SoundConstants.js';
@@ -94,4 +94,4 @@ export default class MeasureView extends SoundScreenView {
   }
 }
 
-sound.register( 'MeasureView', MeasureView );
+soundWaves.register( 'MeasureView', MeasureView );

@@ -11,7 +11,7 @@
 
 import Lattice from '../../../../scenery-phet/js/Lattice.js';
 import SoundConstants from '../../common/SoundConstants.js';
-import sound from '../../sound.js';
+import soundWaves from '../../soundWaves.js';
 
 type DeltaEntry = {
   isSourceOn: boolean;
@@ -109,4 +109,4 @@ export default class TemporalMask {
   }
 }
 
-sound.register( 'TemporalMask', TemporalMask );
+soundWaves.register( 'TemporalMask', TemporalMask );

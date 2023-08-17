@@ -31,7 +31,7 @@ import speakerR7Image from '../../../../scenery-phet/images/speaker/speaker_R7_p
 import speakerR8Image from '../../../../scenery-phet/images/speaker/speaker_R8_png.js';
 import speakerR9Image from '../../../../scenery-phet/images/speaker/speaker_R9_png.js';
 import SoundConstants from '../../common/SoundConstants.js';
-import sound from '../../sound.js';
+import soundWaves from '../../soundWaves.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 
 // variables
@@ -81,4 +81,4 @@ export default class SpeakerNode extends Node {
   }
 }
 
-sound.register( 'SpeakerNode', SpeakerNode );
+soundWaves.register( 'SpeakerNode', SpeakerNode );

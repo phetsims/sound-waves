@@ -2,14 +2,14 @@
 
 ## Waves
 
-All screens in this simulation contain speakers that will emit sound waves that will propagate throughout the screen in
+All screens in this simulation contain speakers that will emit soundWaves waves that will propagate throughout the screen in
 a conical shape. When the waves propagate their intensity will decrease the further they get away from the source up
 until a certain distance, after which they fade out completely. The frequency and initial amplitude of the waves can be
 set using the sliders in the user interface.
 
 The wave areas in each screen represent an area with a width and height of 10 meter.
 
-The waves represent sound waves and thus have speed of 343 m/s.
+The waves represent soundWaves waves and thus have speed of 343 m/s.
 
 The frequency of the waves can be set to be between 0 and 1000 Hz.
 
@@ -22,7 +22,7 @@ This screen has two extra components: a meter stick that is 5 meter long, and a 
 ## Two source screen
 
 This screen contains two speakers, one of which is movable, and thus shows the interference pattern produced by the two
-sound waves overlapping.
+soundWaves waves overlapping.
 
 ## Reflection Screen
 

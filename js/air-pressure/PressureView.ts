@@ -10,7 +10,7 @@ import { Image } from '../../../scenery/js/imports.js';
 import girl_png from '../../images/girl_png.js';
 import SoundConstants from '../common/SoundConstants.js';
 import AirDensityControlPanel from '../common/view/AirDensityControlPanel.js';
-import sound from '../sound.js';
+import soundWaves from '../soundWaves.js';
 import PressureModel from './PressureModel.js';
 import SoundScreenView from '../common/view/SoundScreenView.js';
 
@@ -39,4 +39,4 @@ export default class PressureView extends SoundScreenView {
   }
 }
 
-sound.register( 'PressureView', PressureView );
+soundWaves.register( 'PressureView', PressureView );

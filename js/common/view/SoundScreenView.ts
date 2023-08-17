@@ -19,7 +19,7 @@ import AudioControlPanel from '../../common/view/AudioControlPanel.js';
 import LatticeCanvasNode from '../../common/view/LatticeCanvasNode.js';
 import SoundControlPanel from '../../common/view/SoundControlPanel.js';
 import SpeakerNode from '../../common/view/SpeakerNode.js';
-import sound from '../../sound.js';
+import soundWaves from '../../soundWaves.js';
 import SoundStrings from '../../SoundStrings.js';
 import SoundModel from '../model/SoundModel.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
@@ -223,4 +223,4 @@ export default class SoundScreenView extends ScreenView {
   }
 }
 
-sound.register( 'SoundScreenView', SoundScreenView );
+soundWaves.register( 'SoundScreenView', SoundScreenView );

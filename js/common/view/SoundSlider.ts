@@ -14,7 +14,7 @@ import merge from '../../../../phet-core/js/merge.js';
 import HSlider, { HSliderOptions } from '../../../../sun/js/HSlider.js';
 import generalBoundaryBoopSoundPlayer from '../../../../tambo/js/shared-sound-players/generalBoundaryBoopSoundPlayer.js';
 import generalSoftClickSoundPlayer from '../../../../tambo/js/shared-sound-players/generalSoftClickSoundPlayer.js';
-import sound from '../../sound.js';
+import soundWaves from '../../soundWaves.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import { SceneryEvent, Text } from '../../../../scenery/js/imports.js';
@@ -140,4 +140,4 @@ export default class SoundSlider extends HSlider {
   }
 }
 
-sound.register( 'SoundSlider', SoundSlider );
+soundWaves.register( 'SoundSlider', SoundSlider );

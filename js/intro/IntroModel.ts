@@ -10,7 +10,7 @@ import Property from '../../../axon/js/Property.js';
 import Vector2 from '../../../dot/js/Vector2.js';
 import Vector2Property from '../../../dot/js/Vector2Property.js';
 import SoundConstants from '../common/SoundConstants.js';
-import sound from '../sound.js';
+import soundWaves from '../soundWaves.js';
 import SoundModel from '../common/model/SoundModel.js';
 
 export default class IntroModel extends SoundModel {
@@ -38,4 +38,4 @@ export default class IntroModel extends SoundModel {
   }
 }
 
-sound.register( 'IntroModel', IntroModel );
+soundWaves.register( 'IntroModel', IntroModel );

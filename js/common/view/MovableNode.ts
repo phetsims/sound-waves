@@ -7,7 +7,7 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
-import sound from '../../sound.js';
+import soundWaves from '../../soundWaves.js';
 import { Node, DragListener } from '../../../../scenery/js/imports.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
@@ -44,4 +44,4 @@ export default class MovableNode extends Node {
 
 }
 
-sound.register( 'MovableNode', MovableNode );
+soundWaves.register( 'MovableNode', MovableNode );

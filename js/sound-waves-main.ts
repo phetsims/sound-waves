@@ -30,7 +30,7 @@ import SoundStrings from './SoundStrings.js';
 // launch the sim - beware that scenery Image nodes created outside of simLauncher.launch() will have zero bounds
 // until the images are fully loaded, see https://github.com/phetsims/coulombs-law/issues/70
 simLauncher.launch( () => {
-  const sim = new Sim( SoundStrings.sound.titleStringProperty, [
+  const sim = new Sim( SoundStrings.soundWaves.titleStringProperty, [
     new SoundScreen( SoundStrings.singleSource.titleStringProperty, () => new IntroModel(), model => new IntroView( model ), new Image( singleSourceIcon_png ) ),
     new SoundScreen( SoundStrings.measure.titleStringProperty, () => new MeasureModel(), model => new MeasureView( model ), new Image( measureIcon_png ) ),
     new SoundScreen( SoundStrings.twoSource.titleStringProperty, () => new TwoSourceModel(), model => new TwoSourceView( model ), new Image( twoSourceIcon_png ) ),

@@ -12,7 +12,7 @@ import { AlignGroup, Node, Text } from '../../../../scenery/js/imports.js';
 import Checkbox from '../../../../sun/js/Checkbox.js';
 import VerticalAquaRadioButtonGroup from '../../../../sun/js/VerticalAquaRadioButtonGroup.js';
 import SoundConstants from '../../common/SoundConstants.js';
-import sound from '../../sound.js';
+import soundWaves from '../../soundWaves.js';
 import SoundModel from '../../common/model/SoundModel.js';
 import SoundStrings from '../../SoundStrings.js';
 import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
@@ -68,4 +68,4 @@ export default class AudioControlPanel extends SoundPanel {
   }
 }
 
-sound.register( 'AudioControlPanel', AudioControlPanel );
+soundWaves.register( 'AudioControlPanel', AudioControlPanel );

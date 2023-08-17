@@ -46,7 +46,7 @@ The ```matches``` function was modified so that it returns the distance from the
 dampening.
 
 ## SoundScreenView
-This node extends the [ScreenView](https://github.com/phetsims/joist/blob/main/js/ScreenView.js) node. This screen is responsible for the creation many visual components: The LatticeCanvasNode, the reset button, the two most used control panels (sound and audio). It also generates the sinus tone when audio is enabled.
+This node extends the [ScreenView](https://github.com/phetsims/joist/blob/main/js/ScreenView.js) node. This screen is responsible for the creation many visual components: The LatticeCanvasNode, the reset button, the two most used control panels (soundWaves and audio). It also generates the sinus tone when audio is enabled.
 
 ### LatticeCanvasNode
 
@@ -87,7 +87,7 @@ this.latticeToViewTransform = ...;
 ## Correct wave speed
 
 We run the physics on a finite discrete lattice, but must match up with the correct values (frequency, wavelength and
-wave speed) for each screen. The calibration value of the sound scenes for the wave-interference simulation is used but
+wave speed) for each screen. The calibration value of the soundWaves scenes for the wave-interference simulation is used but
 adapted for the new screen size:
 
 ```const correction = 2.4187847116091334 * SoundConstants.WAVE_AREA_WIDTH / 500;```

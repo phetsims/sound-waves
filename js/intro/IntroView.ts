@@ -12,7 +12,7 @@ import { Image } from '../../../scenery/js/imports.js';
 import girl_png from '../../images/girl_png.js';
 import SoundConstants from '../common/SoundConstants.js';
 import MovableNode from '../common/view/MovableNode.js';
-import sound from '../sound.js';
+import soundWaves from '../soundWaves.js';
 import IntroModel from './IntroModel.js';
 import SoundScreenView from '../common/view/SoundScreenView.js';
 
@@ -29,4 +29,4 @@ export default class IntroView extends SoundScreenView {
   }
 }
 
-sound.register( 'IntroView', IntroView );
+soundWaves.register( 'IntroView', IntroView );

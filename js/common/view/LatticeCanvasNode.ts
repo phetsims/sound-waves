@@ -12,7 +12,7 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import { CanvasNode, CanvasNodeOptions, Color } from '../../../../scenery/js/imports.js';
 import ImageDataRenderer from '../../../../scenery-phet/js/ImageDataRenderer.js';
 import SoundConstants from '../../common/SoundConstants.js';
-import sound from '../../sound.js';
+import soundWaves from '../../soundWaves.js';
 import Lattice from '../../../../scenery-phet/js/Lattice.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 
@@ -212,4 +212,4 @@ export default class LatticeCanvasNode extends CanvasNode {
   }
 }
 
-sound.register( 'LatticeCanvasNode', LatticeCanvasNode );
+soundWaves.register( 'LatticeCanvasNode', LatticeCanvasNode );

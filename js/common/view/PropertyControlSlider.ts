@@ -11,7 +11,7 @@ import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import { NodeOptions, Text, VBox } from '../../../../scenery/js/imports.js';
 import SoundSlider from '../../common/view/SoundSlider.js';
-import sound from '../../sound.js';
+import soundWaves from '../../soundWaves.js';
 
 type SelfOptions = { valueToText?: ( null | ( ( value: number ) => string ) ) };
 type PropertyControlSliderOptions = SelfOptions & NodeOptions;
@@ -42,4 +42,4 @@ export default class PropertyControlSlider extends VBox {
   }
 }
 
-sound.register( 'PropertyControlSlider', PropertyControlSlider );
+soundWaves.register( 'PropertyControlSlider', PropertyControlSlider );

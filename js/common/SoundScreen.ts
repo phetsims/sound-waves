@@ -10,7 +10,7 @@ import Dimension2 from '../../../dot/js/Dimension2.js';
 import Screen, { ScreenOptions } from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
 import SoundColors from '../common/SoundColors.js';
-import sound from '../sound.js';
+import soundWaves from '../soundWaves.js';
 import { Node } from '../../../scenery/js/imports.js';
 import SoundModel from './model/SoundModel.js';
 import SoundScreenView from './view/SoundScreenView.js';
@@ -41,4 +41,4 @@ export default class SoundScreen<T extends SoundModel> extends Screen<T, SoundSc
   }
 }
 
-sound.register( 'SoundScreen', SoundScreen );
+soundWaves.register( 'SoundScreen', SoundScreen );

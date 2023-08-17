@@ -9,7 +9,7 @@
 
 import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
 import { Node } from '../../../../scenery/js/imports.js';
-import sound from '../../sound.js';
+import soundWaves from '../../soundWaves.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 
 type SelfOptions = EmptySelfOptions;
@@ -29,4 +29,4 @@ export default class SoundPanel extends Panel {
   }
 }
 
-sound.register( 'SoundPanel', SoundPanel );
+soundWaves.register( 'SoundPanel', SoundPanel );

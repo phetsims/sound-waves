@@ -1,16 +1,16 @@
 {
-  "name": "sound",
+  "name": "sound-waves",
   "version": "1.0.0-dev.2",
   "license": "GPL-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/phetsims/sound.git"
+    "url": "https://github.com/phetsims/sound-waves.git"
   },
   "devDependencies": {
     "grunt": "~1.1.0"
   },
   "phet": {
-    "requirejsNamespace": "SOUND",
+    "requirejsNamespace": "SOUND_WAVES",
     "supportsSound": true,
     "simulation": true,
     "runnable": true,
@@ -24,11 +24,11 @@
       "supportsDynamicLocale": true
     },
     "screenNameKeys": [
-      "SOUND/singleSource.title",
-      "SOUND/measure.title",
-      "SOUND/twoSource.title",
-      "SOUND/reflection.title",
-      "SOUND/airPressure.title"
+      "SOUND_WAVES/singleSource.title",
+      "SOUND_WAVES/measure.title",
+      "SOUND_WAVES/twoSource.title",
+      "SOUND_WAVES/reflection.title",
+      "SOUND_WAVES/airPressure.title"
     ]
   },
   "eslintConfig": {

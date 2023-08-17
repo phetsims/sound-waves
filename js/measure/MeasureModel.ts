@@ -10,7 +10,7 @@ import Range from '../../../dot/js/Range.js';
 import Vector2 from '../../../dot/js/Vector2.js';
 import Vector2Property from '../../../dot/js/Vector2Property.js';
 import Stopwatch from '../../../scenery-phet/js/Stopwatch.js';
-import sound from '../sound.js';
+import soundWaves from '../soundWaves.js';
 import SoundModel from '../common/model/SoundModel.js';
 
 export default class MeasureModel extends SoundModel {
@@ -43,4 +43,4 @@ export default class MeasureModel extends SoundModel {
   }
 }
 
-sound.register( 'MeasureModel', MeasureModel );
+soundWaves.register( 'MeasureModel', MeasureModel );

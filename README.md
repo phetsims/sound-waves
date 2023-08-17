@@ -1,6 +1,6 @@
 ﻿Sound
 =============
-"Sound" is a HTML5 conversion of the educational simulation [Sound](https://phet.colorado.edu/en/simulation/legacy/sound) written in JAVA, by <a href="https://phet.colorado.edu/" target="_blank">PhET Interactive Simulations</a>
+"Sound" is a HTML5 conversion of the educational simulation [Sound](https://phet.colorado.edu/en/simulation/legacy/soundWaves) written in JAVA, by <a href="https://phet.colorado.edu/" target="_blank">PhET Interactive Simulations</a>
 at the University of Colorado Boulder.
 
 ### Getting started
@@ -31,11 +31,11 @@ git clone https://github.com/phetsims/wave-interference.git
 ```
 (2) Make sure node and npm are installed.
 
-(3) Rename the sound project folder to ```sound```
+(3) Rename the soundWaves project folder to ```soundWaves```
 
 (4) Run the following commands:
 
-In the sound project folder:
+In the soundWaves project folder:
 
 ```
 npm install
@@ -56,11 +56,11 @@ To build the code, run
 
 ```grunt build```
 
-in the sound project folder.
+in the soundWaves project folder.
 
 ### Building the dutch version:
 
-Copy  the ```sound-strings-nl.json``` file to ```/babel/sound```
+Copy  the ```soundWaves-strings-nl.json``` file to ```/babel/soundWaves```
 
 Then run:
 
@@ -87,11 +87,11 @@ the sims, as well as other important information.
 
 ```http-server -c-1```
 
-(4) Navigate to  ```http://localhost:8080/sound/sound_en.html```
+(4) Navigate to  ```http://localhost:8080/soundWaves/sound_en.html```
 
 This shòuld run the simulation, and should update when the code gets updated.
 
 
 
 ### License
-See the <a href="https://github.com/phetsims/sound/blob/main/LICENSE" target="_blank">LICENSE</a>
+See the <a href="https://github.com/phetsims/soundWaves/blob/main/LICENSE" target="_blank">LICENSE</a>
