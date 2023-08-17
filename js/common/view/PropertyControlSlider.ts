@@ -12,31 +12,36 @@ import optionize from '../../../../phet-core/js/optionize.js';
 import { NodeOptions, Text, VBox } from '../../../../scenery/js/imports.js';
 import SoundSlider from '../../common/view/SoundSlider.js';
 import soundWaves from '../../soundWaves.js';
+import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
+import SoundWavesStrings from '../../SoundWavesStrings.js';
+import Utils from '../../../../dot/js/Utils.js';
 
-type SelfOptions = { valueToText?: ( null | ( ( value: number ) => string ) ) };
+type SelfOptions = {
+  hasValueLabel?: boolean;
+};
+
 type PropertyControlSliderOptions = SelfOptions & NodeOptions;
 
 export default class PropertyControlSlider extends VBox {
   public constructor( titleString: TReadOnlyProperty<string>, property: NumberProperty, providedOptions?: PropertyControlSliderOptions ) {
     const options = optionize<PropertyControlSliderOptions, SelfOptions, NodeOptions>()( {
-      valueToText: null
+      hasValueLabel: false
     }, providedOptions );
 
     const title = new Text( titleString, { layoutOptions: { topMargin: 5, bottomMargin: 10 } } );
-    const valueDisplay = new Text( '' );
+    const valueDisplay = new Text( new PatternStringProperty( SoundWavesStrings.hzPatternStringProperty, {
+      value: property
+    }, {
+      maps: {
+        value: value => Utils.roundSymmetric( value * 1000 )
+      }
+    } ) );
 
     const soundSlider = new SoundSlider( property );
 
-    if ( options.valueToText ) {
-      property.link( value => {
-        valueDisplay.setString( options.valueToText!( value ) );
-        valueDisplay.right = soundSlider.right;
-      } );
-    }
-
     super( {
       children: [ title,
-        ...( options.valueToText ? [ valueDisplay ] : [] ),
+        ...( options.hasValueLabel ? [ valueDisplay ] : [] ),
         soundSlider ]
     } );
   }

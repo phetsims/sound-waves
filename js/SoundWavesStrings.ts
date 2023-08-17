@@ -1,4 +1,4 @@
-// Copyright 2023, University of Colorado Boulder
+// Copyright 2022-2023, University of Colorado Boulder
 
 /**
  * Auto-generated from modulify, DO NOT manually modify.
@@ -37,7 +37,7 @@ type StringsType = {
     'titleStringProperty': LocalizedStringProperty;
   };
   'atmStringProperty': LocalizedStringProperty;
-  'hzStringProperty': LocalizedStringProperty;
+  'hzPatternStringProperty': LocalizedStringProperty;
   'airPressure': {
     'titleStringProperty': LocalizedStringProperty;
   };

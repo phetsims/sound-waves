@@ -7,7 +7,6 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
-import Utils from '../../../../dot/js/Utils.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import Stopwatch from '../../../../scenery-phet/js/Stopwatch.js';
 import { AlignGroup, VBox } from '../../../../scenery/js/imports.js';
@@ -30,11 +29,8 @@ export default class SoundControlPanel extends SoundPanel {
       yMargin: 4
     }, providedOptions );
 
-    const frequencyControl = new PropertyControlSlider( SoundStrings.frequencyStringProperty, model.frequencyProperty, {
-
-      // TODO: Convert units to PatternStringProperty to trigger when SoundStrings.hzStringProperty changes
-      valueToText: value => ( Utils.roundSymmetric( value * 1000 ) ).toString() + SoundStrings.hzStringProperty.value
-    } );
+    const frequencyControl = new PropertyControlSlider( SoundStrings.frequencyStringProperty,
+      model.frequencyProperty, { hasValueLabel: true } );
     const amplitudeControl = new PropertyControlSlider( SoundStrings.amplitudeStringProperty, model.amplitudeProperty );
 
     const centerX = frequencyControl.centerX;
