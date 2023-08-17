@@ -6,7 +6,7 @@
 /* eslint-disable */
 import getStringModule from '../../chipper/js/getStringModule.js';
 import type LocalizedStringProperty from '../../chipper/js/LocalizedStringProperty.js';
-import sound from './soundWaves.js';
+import soundWaves from './soundWaves.js';
 
 type StringsType = {
   'soundWaves': {
@@ -70,6 +70,6 @@ type StringsType = {
 
 const SoundStrings = getStringModule( 'SOUND_WAVES' ) as StringsType;
 
-sound.register( 'SoundStrings', SoundStrings );
+soundWaves.register( 'SoundStrings', SoundStrings );
 
 export default SoundStrings;
