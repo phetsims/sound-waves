@@ -32,7 +32,7 @@ export default class SoundControlPanel extends SoundPanel {
 
     const frequencyControl = new PropertyControlSlider( SoundStrings.frequencyStringProperty, model.frequencyProperty, {
 
-      // TODO: Trigger when SoundStrings.hzStringProperty changes
+      // TODO: Convert units to PatternStringProperty to trigger when SoundStrings.hzStringProperty changes
       valueToText: value => ( Utils.roundSymmetric( value * 1000 ) ).toString() + SoundStrings.hzStringProperty.value
     } );
     const amplitudeControl = new PropertyControlSlider( SoundStrings.amplitudeStringProperty, model.amplitudeProperty );
