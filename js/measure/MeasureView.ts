@@ -36,6 +36,11 @@ export default class MeasureView extends SoundScreenView {
       top: this.audioControlPanel!.bottom + SoundConstants.CONTROL_PANEL_SPACING
     } );
 
+    // recenter the clear button if its label string changes
+    SoundStrings.measure.clearWavesStringProperty.link( () => {
+      clearButton.centerX = this.controlPanel.centerX;
+    } );
+
     this.addChild( clearButton );
 
     const rulerLength = model.modelViewTransform!.modelToViewDeltaX( 500 );
