@@ -41,11 +41,11 @@ simLauncher.launch( () => {
     credits: {
       leadDesign: 'Amy Rouinfar, Matthew Blackman',
       softwareDevelopment: 'Piet Goris, Sam Reid, Matthew Blackman',
-      team: '',
+      team: 'Amy Rouinfar, Matthew Blackman',
       qualityAssurance: 'Katie Woessner',
-      graphicArts: '',
-      soundDesign: '',
-      thanks: ''
+      graphicArts: 'Mariah Hermsmeyer',
+      soundDesign: 'Piet Goris, Sam Reid, Matthew Blackman',
+      thanks: 'Piet Goris'
     }
   } );
 
