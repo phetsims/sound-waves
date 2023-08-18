@@ -47,12 +47,6 @@
   "audioControlPanel.audioEnabled": {
     "value": "Aan"
   },
-  "audioControlPanel.speaker": {
-    "value": "Uit speaker"
-  },
-  "audioControlPanel.listener": {
-    "value": "Hoort luisteraar"
-  },
   "soundModeControlPanel.title": {
     "value": "Geluid"
   },

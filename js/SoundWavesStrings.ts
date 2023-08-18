@@ -44,8 +44,6 @@ type StringsType = {
   'audioControlPanel': {
     'titleStringProperty': LocalizedStringProperty;
     'audioEnabledStringProperty': LocalizedStringProperty;
-    'speakerStringProperty': LocalizedStringProperty;
-    'listenerStringProperty': LocalizedStringProperty;
   };
   'soundModeControlPanel': {
     'titleStringProperty': LocalizedStringProperty;
