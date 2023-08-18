@@ -92,7 +92,7 @@ export default class SoundScreenView extends ScreenView {
 
     this.addChild( this.controlPanel );
 
-    if ( model.isAudioEnabledProperty ) {
+    if ( model.showAudioControls ) {
       this.audioControlPanel = new AudioControlPanel( model, this.contolPanelAlignGroup );
 
       this.audioControlPanel.mutate( {

@@ -10,7 +10,6 @@ import Property from '../../../../axon/js/Property.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import { AlignGroup, Node, Text } from '../../../../scenery/js/imports.js';
 import Checkbox from '../../../../sun/js/Checkbox.js';
-import VerticalAquaRadioButtonGroup from '../../../../sun/js/VerticalAquaRadioButtonGroup.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import soundWaves from '../../soundWaves.js';
 import SoundModel from '../../common/model/SoundModel.js';
@@ -40,22 +39,6 @@ export default class AudioControlPanel extends SoundPanel {
 
 
     const children: Node[] = [ boxText, graphCheckbox ];
-    let radioButtons;
-    if ( model.audioControlSettingProperty ) {
-      radioButtons = new VerticalAquaRadioButtonGroup<'SPEAKER' | 'LISTENER'>( model.audioControlSettingProperty, [ {
-        createNode: () => new Text( SoundWavesStrings.audioControlPanel.speakerStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
-        value: 'SPEAKER'
-      }, {
-        createNode: () => new Text( SoundWavesStrings.audioControlPanel.listenerStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
-        value: 'LISTENER'
-      } ], {
-        spacing: options.yMargin
-      } );
-
-      radioButtons.top = graphCheckbox.bottom + SoundConstants.CONTROL_PANEL_SPACING;
-
-      children.push( radioButtons );
-    }
 
     const container = new Node( {
       children: children

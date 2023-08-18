@@ -22,7 +22,7 @@ export default class IntroModel extends SoundModel {
   public constructor() {
     super();
 
-    this.audioControlSettingProperty = new Property( 'SPEAKER', {
+    this.audioControlSettingProperty = new Property( 'LISTENER', {
       validValues: [ 'SPEAKER', 'LISTENER' ]
     } );
 

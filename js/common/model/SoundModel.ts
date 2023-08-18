@@ -32,6 +32,7 @@ const INITIAL_FREQUENCY = 0.5;
 type SoundModelOptions = {
   hasReflection?: boolean;
   hasSecondSource?: boolean;
+  showAudioControls?: boolean;
   initialAmplitude?: number;
   speaker1PositionY?: number;
 };
@@ -61,6 +62,9 @@ export default class SoundModel implements TModel {
   public readonly interferenceAmplitudeFactorProperty: NumberProperty;
 
   public readonly hasSecondSource: boolean;
+
+  // whether to show the audio controls menu
+  public readonly showAudioControls: boolean;
 
   // whether this model has a reflection wall.
   public readonly hasReflection: boolean;
@@ -94,10 +98,12 @@ export default class SoundModel implements TModel {
       initialAmplitude: 5,
       speaker1PositionY: SoundConstants.WAVE_AREA_WIDTH / 2,
       hasReflection: false,
-      hasSecondSource: false
+      hasSecondSource: false,
+      showAudioControls: true
     }, providedOptions );
 
     this.hasSecondSource = options.hasSecondSource;
+    this.showAudioControls = options.showAudioControls;
     this.hasReflection = options.hasReflection;
     this.isRunningProperty = new BooleanProperty( true );
     this.isPulseFiringProperty = new BooleanProperty( false );

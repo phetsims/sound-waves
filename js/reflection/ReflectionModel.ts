@@ -26,7 +26,8 @@ export default class ReflectionModel extends SoundModel {
 
   public constructor() {
     super( {
-      hasReflection: true
+      hasReflection: true,
+      showAudioControls: false
     } );
 
     this.wallPositionXProperty = new NumberProperty( 1 / 3 * SoundConstants.WAVE_AREA_WIDTH, {

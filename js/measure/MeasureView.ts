@@ -33,7 +33,7 @@ export default class MeasureView extends SoundScreenView {
       },
       content: new Text( SoundWavesStrings.measure.clearWavesStringProperty, { maxWidth: 180 } ),
       centerX: this.controlPanel.centerX,
-      top: this.audioControlPanel!.bottom + SoundConstants.CONTROL_PANEL_SPACING
+      top: this.controlPanel.bottom + SoundConstants.CONTROL_PANEL_SPACING
     } );
 
     // recenter the clear button if its label string changes

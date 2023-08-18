@@ -19,7 +19,8 @@ export default class MeasureModel extends SoundModel {
 
   public constructor() {
     super( {
-      initialAmplitude: 10
+      initialAmplitude: 10,
+      showAudioControls: false
     } );
 
     this.stopwatch = new Stopwatch( {
