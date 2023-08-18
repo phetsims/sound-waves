@@ -11,7 +11,7 @@ import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushBut
 import VerticalAquaRadioButtonGroup from '../../../../sun/js/VerticalAquaRadioButtonGroup.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import soundWaves from '../../soundWaves.js';
-import SoundStrings from '../../SoundStrings.js';
+import SoundWavesStrings from '../../SoundWavesStrings.js';
 import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
 import ReflectionModel from '../../reflection/ReflectionModel.js';
 import optionize from '../../../../phet-core/js/optionize.js';
@@ -30,13 +30,13 @@ export default class SoundModeControlPanel extends SoundPanel {
       yMargin: 4
     }, providedOptions );
 
-    const boxText = new Text( SoundStrings.soundModeControlPanel.titleStringProperty );
+    const boxText = new Text( SoundWavesStrings.soundModeControlPanel.titleStringProperty );
 
     const radioButtons = new VerticalAquaRadioButtonGroup<'CONTINUOUS' | 'PULSE'>( model.soundModeProperty, [ {
-      createNode: () => new Text( SoundStrings.soundModeControlPanel.continuousStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
+      createNode: () => new Text( SoundWavesStrings.soundModeControlPanel.continuousStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
       value: 'CONTINUOUS'
     }, {
-      createNode: () => new Text( SoundStrings.soundModeControlPanel.pulseStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
+      createNode: () => new Text( SoundWavesStrings.soundModeControlPanel.pulseStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
       value: 'PULSE'
     } ], {
       spacing: options.yMargin
@@ -46,7 +46,7 @@ export default class SoundModeControlPanel extends SoundPanel {
     radioButtons.top = boxText.bottom + SoundConstants.CONTROL_PANEL_SPACING;
 
     const firePulseButton = new RectangularPushButton( {
-      content: new Text( SoundStrings.soundModeControlPanel.firePulseStringProperty ),
+      content: new Text( SoundWavesStrings.soundModeControlPanel.firePulseStringProperty ),
       listener: () => model.startPulse()
     } );
 

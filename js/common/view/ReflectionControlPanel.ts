@@ -11,7 +11,7 @@ import { AlignGroup, Node } from '../../../../scenery/js/imports.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import soundWaves from '../../soundWaves.js';
 import ReflectionModel from '../../reflection/ReflectionModel.js';
-import SoundStrings from '../../SoundStrings.js';
+import SoundWavesStrings from '../../SoundWavesStrings.js';
 import PropertyControlSlider from './PropertyControlSlider.js';
 import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
 
@@ -27,8 +27,8 @@ export default class ReflectionControlPanel extends SoundPanel {
       yMargin: 4
     }, providedOptions );
 
-    const wallPositionXControl = new PropertyControlSlider( SoundStrings.reflectionControlPanel.positionSliderStringProperty, model.wallPositionXProperty );
-    const wallAngleControl = new PropertyControlSlider( SoundStrings.reflectionControlPanel.rotationSliderStringProperty, model.wallAngleProperty );
+    const wallPositionXControl = new PropertyControlSlider( SoundWavesStrings.reflectionControlPanel.positionSliderStringProperty, model.wallPositionXProperty );
+    const wallAngleControl = new PropertyControlSlider( SoundWavesStrings.reflectionControlPanel.rotationSliderStringProperty, model.wallAngleProperty );
 
     const centerX = wallPositionXControl.centerX;
     wallAngleControl.centerX = centerX;

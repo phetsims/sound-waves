@@ -14,7 +14,7 @@ import VerticalAquaRadioButtonGroup from '../../../../sun/js/VerticalAquaRadioBu
 import SoundConstants from '../../common/SoundConstants.js';
 import soundWaves from '../../soundWaves.js';
 import SoundModel from '../../common/model/SoundModel.js';
-import SoundStrings from '../../SoundStrings.js';
+import SoundWavesStrings from '../../SoundWavesStrings.js';
 import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
 
 type SelfOptions = EmptySelfOptions;
@@ -28,10 +28,10 @@ export default class AudioControlPanel extends SoundPanel {
       yMargin: 4
     }, providedOptions );
 
-    const boxText = new Text( SoundStrings.audioControlPanel.titleStringProperty );
+    const boxText = new Text( SoundWavesStrings.audioControlPanel.titleStringProperty );
     const graphCheckbox = new Checkbox(
       model.isAudioEnabledProperty,
-      new Text( SoundStrings.audioControlPanel.audioEnabledStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
+      new Text( SoundWavesStrings.audioControlPanel.audioEnabledStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
       {
         boxWidth: 15
       } );
@@ -43,10 +43,10 @@ export default class AudioControlPanel extends SoundPanel {
     let radioButtons;
     if ( model.audioControlSettingProperty ) {
       radioButtons = new VerticalAquaRadioButtonGroup<'SPEAKER' | 'LISTENER'>( model.audioControlSettingProperty, [ {
-        createNode: () => new Text( SoundStrings.audioControlPanel.speakerStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
+        createNode: () => new Text( SoundWavesStrings.audioControlPanel.speakerStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
         value: 'SPEAKER'
       }, {
-        createNode: () => new Text( SoundStrings.audioControlPanel.listenerStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
+        createNode: () => new Text( SoundWavesStrings.audioControlPanel.listenerStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
         value: 'LISTENER'
       } ], {
         spacing: options.yMargin

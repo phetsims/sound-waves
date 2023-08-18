@@ -11,7 +11,7 @@ import { AlignGroup, Text, VBox } from '../../../../scenery/js/imports.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import soundWaves from '../../soundWaves.js';
-import SoundStrings from '../../SoundStrings.js';
+import SoundWavesStrings from '../../SoundWavesStrings.js';
 import PropertyControlSlider from './PropertyControlSlider.js';
 import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
 import PressureModel from '../../air-pressure/PressureModel.js';
@@ -29,13 +29,13 @@ export default class AirDensityControlPanel extends SoundPanel {
     }, providedOptions );
 
     const resetButton = new RectangularPushButton( {
-      content: new Text( SoundStrings.airDensityControlPanel.resetStringProperty ),
+      content: new Text( SoundWavesStrings.airDensityControlPanel.resetStringProperty ),
       listener: () => {
         model.pressureProperty.set( 1 );
       }
     } );
 
-    const airPressureContol = new PropertyControlSlider( SoundStrings.airDensityControlPanel.titleStringProperty, model.pressureProperty );
+    const airPressureContol = new PropertyControlSlider( SoundWavesStrings.airDensityControlPanel.titleStringProperty, model.pressureProperty );
 
     const container = new VBox( {
       spacing: 6,

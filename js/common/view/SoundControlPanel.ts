@@ -13,7 +13,7 @@ import { AlignGroup, VBox } from '../../../../scenery/js/imports.js';
 import SoundConstants from '../../common/SoundConstants.js';
 import soundWaves from '../../soundWaves.js';
 import SoundModel from '../../common/model/SoundModel.js';
-import SoundStrings from '../../SoundStrings.js';
+import SoundWavesStrings from '../../SoundWavesStrings.js';
 import PropertyControlSlider from './PropertyControlSlider.js';
 import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
 
@@ -29,9 +29,9 @@ export default class SoundControlPanel extends SoundPanel {
       yMargin: 4
     }, providedOptions );
 
-    const frequencyControl = new PropertyControlSlider( SoundStrings.frequencyStringProperty,
+    const frequencyControl = new PropertyControlSlider( SoundWavesStrings.frequencyStringProperty,
       model.frequencyProperty, { hasValueLabel: true } );
-    const amplitudeControl = new PropertyControlSlider( SoundStrings.amplitudeStringProperty, model.amplitudeProperty );
+    const amplitudeControl = new PropertyControlSlider( SoundWavesStrings.amplitudeStringProperty, model.amplitudeProperty );
 
     const centerX = frequencyControl.centerX;
     frequencyControl.centerX = centerX;

@@ -20,7 +20,7 @@ import LatticeCanvasNode from '../../common/view/LatticeCanvasNode.js';
 import SoundControlPanel from '../../common/view/SoundControlPanel.js';
 import SpeakerNode from '../../common/view/SpeakerNode.js';
 import soundWaves from '../../soundWaves.js';
-import SoundStrings from '../../SoundStrings.js';
+import SoundWavesStrings from '../../SoundWavesStrings.js';
 import SoundModel from '../model/SoundModel.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import Property from '../../../../axon/js/Property.js';
@@ -164,7 +164,7 @@ export default class SoundScreenView extends ScreenView {
       this.addChild( box );
 
       // Pressure gauge.
-      const gauge = new GaugeNode( model.pressureProperty, SoundStrings.atmStringProperty, model.pressureProperty.range );
+      const gauge = new GaugeNode( model.pressureProperty, SoundWavesStrings.atmStringProperty, model.pressureProperty.range );
       gauge.centerX = speakerCenter.x;
       gauge.scale( 0.4 );
       gauge.bottom = speakerCenter.y - boxSizeY / 2;

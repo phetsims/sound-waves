@@ -21,7 +21,7 @@ import SoundScreenView from '../common/view/SoundScreenView.js';
 import SoundConstants from '../common/SoundConstants.js';
 import RectangularPushButton from '../../../sun/js/buttons/RectangularPushButton.js';
 import { Text } from '../../../scenery/js/imports.js';
-import SoundStrings from '../SoundStrings.js';
+import SoundWavesStrings from '../SoundWavesStrings.js';
 
 export default class MeasureView extends SoundScreenView {
   public constructor( model: MeasureModel ) {
@@ -31,13 +31,13 @@ export default class MeasureView extends SoundScreenView {
       listener: () => {
         model.clearWaves();
       },
-      content: new Text( SoundStrings.measure.clearWavesStringProperty, { maxWidth: 180 } ),
+      content: new Text( SoundWavesStrings.measure.clearWavesStringProperty, { maxWidth: 180 } ),
       centerX: this.controlPanel.centerX,
       top: this.audioControlPanel!.bottom + SoundConstants.CONTROL_PANEL_SPACING
     } );
 
     // recenter the clear button if its label string changes
-    SoundStrings.measure.clearWavesStringProperty.link( () => {
+    SoundWavesStrings.measure.clearWavesStringProperty.link( () => {
       clearButton.centerX = this.controlPanel.centerX;
     } );
 
@@ -60,7 +60,7 @@ export default class MeasureView extends SoundScreenView {
     soundManager.addSoundGenerator( releaseSound, { categoryName: 'user-interface' } );
 
     // Ruler
-    const rulerNode = new RulerNode( rulerLength, 50, majorTickMarkWidth, majorTickLabels, SoundStrings.metersStringProperty, {
+    const rulerNode = new RulerNode( rulerLength, 50, majorTickMarkWidth, majorTickLabels, SoundWavesStrings.metersStringProperty, {
       minorTicksPerMajorTick: 4,
       insetsWidth: 60,
       unitsMajorTickIndex: 10,
