@@ -19,7 +19,7 @@ import optionize from '../../../../phet-core/js/optionize.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Lattice from '../../../../scenery-phet/js/Lattice.js';
 import TemporalMask from '../../common/model/TemporalMask.js';
-import SoundConstants from '../../common/SoundConstants.js';
+import SoundWavesConstants from '../SoundWavesConstants.js';
 import soundWaves from '../../soundWaves.js';
 
 // This simulation uses EventTimer, which provides exactly the same model behavior on very slow and very fast
@@ -30,6 +30,7 @@ const frequencyRange = new Range( 0, 1 );
 const INITIAL_FREQUENCY = 0.5;
 
 type SoundWavesModelOptions = {
+  showAudioControls?: boolean;
   hasReflection?: boolean;
   hasSecondSource?: boolean;
   initialAmplitude?: number;
@@ -62,6 +63,9 @@ export default class SoundWavesModel implements TModel {
 
   public readonly hasSecondSource: boolean;
 
+  // whether to show the audio controls menu
+  public readonly showAudioControls: boolean;
+
   // whether this model has a reflection wall.
   public readonly hasReflection: boolean;
 
@@ -92,12 +96,14 @@ export default class SoundWavesModel implements TModel {
   public constructor( providedOptions?: SoundWavesModelOptions ) {
     const options = optionize<SoundWavesModelOptions>()( {
       initialAmplitude: 5,
-      speaker1PositionY: SoundConstants.WAVE_AREA_WIDTH / 2,
+      speaker1PositionY: SoundWavesConstants.WAVE_AREA_WIDTH / 2,
       hasReflection: false,
-      hasSecondSource: false
+      hasSecondSource: false,
+      showAudioControls: true
     }, providedOptions );
 
     this.hasSecondSource = options.hasSecondSource;
+    this.showAudioControls = options.showAudioControls;
     this.hasReflection = options.hasReflection;
     this.isRunningProperty = new BooleanProperty( true );
     this.isPulseFiringProperty = new BooleanProperty( false );
@@ -140,15 +146,15 @@ export default class SoundWavesModel implements TModel {
     this.frequencyProperty.lazyLink( phaseUpdate );
 
     this.amplitudeProperty = new NumberProperty( options.initialAmplitude, {
-      range: SoundConstants.AMPLITUDE_RANGE
+      range: SoundWavesConstants.AMPLITUDE_RANGE
     } );
 
     this.interferenceAmplitudeFactorProperty = new NumberProperty( 1 );
 
     this.timeProperty = new NumberProperty( 0 );
 
-    const latticeDimension = this.hasSecondSource ? 181 : SoundConstants.LATTICE_DIMENSION;
-    const latticePadding = this.hasSecondSource ? 35 : SoundConstants.LATTICE_PADDING;
+    const latticeDimension = this.hasSecondSource ? 181 : SoundWavesConstants.LATTICE_DIMENSION;
+    const latticePadding = this.hasSecondSource ? 35 : SoundWavesConstants.LATTICE_PADDING;
 
     this.lattice = new Lattice(
       latticeDimension,
@@ -158,14 +164,14 @@ export default class SoundWavesModel implements TModel {
     );
 
     this.modelToLatticeTransform = ModelViewTransform2.createRectangleMapping(
-      new Rectangle( 0, 0, SoundConstants.WAVE_AREA_WIDTH, SoundConstants.WAVE_AREA_WIDTH ),
+      new Rectangle( 0, 0, SoundWavesConstants.WAVE_AREA_WIDTH, SoundWavesConstants.WAVE_AREA_WIDTH ),
       this.lattice.visibleBounds
     );
 
     this.modelViewTransform = null;
     this.latticeToViewTransform = null;
 
-    this.speaker1Position = new Vector2( this.modelToLatticeTransform.viewToModelX( SoundConstants.SOURCE_POSITION_X ), options.speaker1PositionY );
+    this.speaker1Position = new Vector2( this.modelToLatticeTransform.viewToModelX( SoundWavesConstants.SOURCE_POSITION_X ), options.speaker1PositionY );
 
     this.isAudioEnabledProperty = new BooleanProperty( false );
   }
@@ -193,7 +199,7 @@ export default class SoundWavesModel implements TModel {
    * @returns - the lattice model bounds, in the coordinates of this scene.
    */
   public getWaveAreaBounds(): Bounds2 {
-    return new Bounds2( 0, 0, SoundConstants.WAVE_AREA_WIDTH, SoundConstants.WAVE_AREA_WIDTH );
+    return new Bounds2( 0, 0, SoundWavesConstants.WAVE_AREA_WIDTH, SoundWavesConstants.WAVE_AREA_WIDTH );
   }
 
   /**
@@ -241,7 +247,7 @@ export default class SoundWavesModel implements TModel {
       if ( isContinuous || this.isPulseFiringProperty.get() ) {
 
         const j = Math.floor( this.modelToLatticeTransform.modelToViewY( this.speaker1Position.y ) );
-        this.lattice.setCurrentValue( SoundConstants.SOURCE_POSITION_X, j, waveValue );
+        this.lattice.setCurrentValue( SoundWavesConstants.SOURCE_POSITION_X, j, waveValue );
         this.oscillatorProperty.value = oscillatorValue;
         if ( amplitude > 0 && frequency > 0 ) {
           // this.temporalMask.set( true, this.stepIndex, j );
@@ -320,7 +326,7 @@ export default class SoundWavesModel implements TModel {
     for ( let i = 0; i < this.lattice.width; i++ ) {
       for ( let j = 0; j < this.lattice.height; j++ ) {
 
-        const distanceWithinBounds = this.temporalMask.matches( SoundConstants.SOURCE_POSITION_X, i, j, this.stepIndex ) >= 0;
+        const distanceWithinBounds = this.temporalMask.matches( SoundWavesConstants.SOURCE_POSITION_X, i, j, this.stepIndex ) >= 0;
 
         this.lattice.setAllowed( i, j, distanceWithinBounds );
       }
@@ -339,7 +345,7 @@ export default class SoundWavesModel implements TModel {
   public advanceTime( dt: number, manualStep: boolean ): void {
     if ( this.isRunningProperty.get() || manualStep ) {
       // Correction constant taken from wave-interference
-      const correction = 2.4187847116091334 * SoundConstants.WAVE_AREA_WIDTH / 500;
+      const correction = 2.4187847116091334 * SoundWavesConstants.WAVE_AREA_WIDTH / 500;
 
       // @ts-expect-error
       if ( this.stopwatch ) {

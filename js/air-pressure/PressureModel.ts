@@ -11,11 +11,11 @@ import Property from '../../../axon/js/Property.js';
 import Range from '../../../dot/js/Range.js';
 import Vector2 from '../../../dot/js/Vector2.js';
 import Vector2Property from '../../../dot/js/Vector2Property.js';
-import SoundConstants from '../common/SoundConstants.js';
+import SoundWavesConstants from '../common/SoundWavesConstants.js';
 import soundWaves from '../soundWaves.js';
-import SoundModel from '../common/model/SoundModel.js';
+import SoundWavesModel from '../common/model/SoundWavesModel.js';
 
-export default class PressureModel extends SoundModel {
+export default class PressureModel extends SoundWavesModel {
 
   // controls the air pressure in the box.
   public readonly pressureProperty: NumberProperty;
@@ -36,7 +36,7 @@ export default class PressureModel extends SoundModel {
       validValues: [ 'SPEAKER', 'LISTENER' ]
     } );
 
-    this.listenerPositionProperty = new Vector2Property( new Vector2( SoundConstants.WAVE_AREA_WIDTH / 2, SoundConstants.WAVE_AREA_WIDTH / 2 ) );
+    this.listenerPositionProperty = new Vector2Property( new Vector2( SoundWavesConstants.WAVE_AREA_WIDTH / 2, SoundWavesConstants.WAVE_AREA_WIDTH / 2 ) );
   }
 
   /**

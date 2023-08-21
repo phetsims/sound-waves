@@ -9,11 +9,11 @@
 import Property from '../../../axon/js/Property.js';
 import Vector2 from '../../../dot/js/Vector2.js';
 import Vector2Property from '../../../dot/js/Vector2Property.js';
-import SoundConstants from '../common/SoundConstants.js';
+import SoundWavesConstants from '../common/SoundWavesConstants.js';
 import soundWaves from '../soundWaves.js';
-import SoundModel from '../common/model/SoundModel.js';
+import SoundWavesModel from '../common/model/SoundWavesModel.js';
 
-export default class IntroModel extends SoundModel {
+export default class IntroModel extends SoundWavesModel {
 
   // indicates the user selection for the audio control setting
   public readonly audioControlSettingProperty: Property<'SPEAKER' | 'LISTENER'>;
@@ -26,7 +26,7 @@ export default class IntroModel extends SoundModel {
       validValues: [ 'SPEAKER', 'LISTENER' ]
     } );
 
-    this.listenerPositionProperty = new Vector2Property( new Vector2( 1 / 2 * SoundConstants.WAVE_AREA_WIDTH, SoundConstants.WAVE_AREA_WIDTH / 2 ) );
+    this.listenerPositionProperty = new Vector2Property( new Vector2( 1 / 2 * SoundWavesConstants.WAVE_AREA_WIDTH, SoundWavesConstants.WAVE_AREA_WIDTH / 2 ) );
   }
 
   public override reset(): void {

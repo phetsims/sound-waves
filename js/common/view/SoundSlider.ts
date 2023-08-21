@@ -15,7 +15,7 @@ import HSlider, { HSliderOptions } from '../../../../sun/js/HSlider.js';
 import generalBoundaryBoopSoundPlayer from '../../../../tambo/js/shared-sound-players/generalBoundaryBoopSoundPlayer.js';
 import generalSoftClickSoundPlayer from '../../../../tambo/js/shared-sound-players/generalSoftClickSoundPlayer.js';
 import soundWaves from '../../soundWaves.js';
-import SoundConstants from '../../common/SoundConstants.js';
+import SoundWavesConstants from '../SoundWavesConstants.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import { SceneryEvent, Text } from '../../../../scenery/js/imports.js';
 import optionize from '../../../../phet-core/js/optionize.js';
@@ -113,12 +113,12 @@ export default class SoundSlider extends HSlider {
     // ticks
     if ( options.showTicks ) {
       options.tickLabelSpacing = 2;
-      options.majorTickLength = SoundConstants.MAJOR_TICK_LENGTH;
+      options.majorTickLength = SoundWavesConstants.MAJOR_TICK_LENGTH;
       options.minorTickLength = 8;
     }
 
     if ( !options.thumbNode ) {
-      options.thumbSize = SoundConstants.THUMB_SIZE;
+      options.thumbSize = SoundWavesConstants.THUMB_SIZE;
     }
 
     if ( !options.trackNode ) {

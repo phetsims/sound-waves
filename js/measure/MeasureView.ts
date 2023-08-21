@@ -18,7 +18,7 @@ import MovableNode from '../common/view/MovableNode.js';
 import soundWaves from '../soundWaves.js';
 import MeasureModel from '../measure/MeasureModel.js';
 import SoundScreenView from '../common/view/SoundScreenView.js';
-import SoundConstants from '../common/SoundConstants.js';
+import SoundWavesConstants from '../common/SoundWavesConstants.js';
 import RectangularPushButton from '../../../sun/js/buttons/RectangularPushButton.js';
 import { Text } from '../../../scenery/js/imports.js';
 import SoundWavesStrings from '../SoundWavesStrings.js';
@@ -34,7 +34,7 @@ export default class MeasureView extends SoundScreenView {
       },
       content: new Text( SoundWavesStrings.measure.clearWavesStringProperty, { maxWidth: 180 } ),
       centerX: this.controlPanel.centerX,
-      top: this.controlPanel.bottom + SoundConstants.CONTROL_PANEL_SPACING
+      top: this.controlPanel.bottom + SoundWavesConstants.CONTROL_PANEL_SPACING
     } );
 
     // recenter the clear button if its label string changes

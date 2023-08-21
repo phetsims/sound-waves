@@ -21,7 +21,7 @@ const EVENT_RATE = 20 * AMPLITUDE_CALIBRATION_SCALE;
 const WAVE_AREA_WIDTH = 1000;
 const CELL_WIDTH = 5;
 
-const SoundConstants = {
+const SoundWavesConstants = {
   SCREEN_VIEW_X_MARGIN: 15,
   SCREEN_VIEW_Y_MARGIN: 15,
   CONTROL_PANEL_MARGIN: 8,
@@ -72,5 +72,5 @@ const SoundConstants = {
   }
 };
 
-soundWaves.register( 'SoundConstants', SoundConstants );
-export default SoundConstants;
+soundWaves.register( 'SoundWavesConstants', SoundWavesConstants );
+export default SoundWavesConstants;

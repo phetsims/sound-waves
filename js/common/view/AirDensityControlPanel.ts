@@ -9,7 +9,7 @@
 
 import { AlignGroup, Text, VBox } from '../../../../scenery/js/imports.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
-import SoundConstants from '../../common/SoundConstants.js';
+import SoundWavesConstants from '../SoundWavesConstants.js';
 import soundWaves from '../../soundWaves.js';
 import SoundWavesStrings from '../../SoundWavesStrings.js';
 import PropertyControlSlider from './PropertyControlSlider.js';
@@ -24,7 +24,7 @@ export default class AirDensityControlPanel extends SoundPanel {
 
   public constructor( model: PressureModel, alignGroup: AlignGroup, providedOptions?: AirDensityControlPanelOptions ) {
     const options = optionize<AirDensityControlPanelOptions, SelfOptions, SoundPanelOptions>()( {
-      maxWidth: SoundConstants.PANEL_MAX_WIDTH,
+      maxWidth: SoundWavesConstants.PANEL_MAX_WIDTH,
       yMargin: 4
     }, providedOptions );
 

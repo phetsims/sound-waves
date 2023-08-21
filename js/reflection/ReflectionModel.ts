@@ -9,11 +9,11 @@
 import NumberProperty from '../../../axon/js/NumberProperty.js';
 import Property from '../../../axon/js/Property.js';
 import Range from '../../../dot/js/Range.js';
-import SoundConstants from '../common/SoundConstants.js';
+import SoundWavesConstants from '../common/SoundWavesConstants.js';
 import soundWaves from '../soundWaves.js';
-import SoundModel from '../common/model/SoundModel.js';
+import SoundWavesModel from '../common/model/SoundWavesModel.js';
 
-export default class ReflectionModel extends SoundModel {
+export default class ReflectionModel extends SoundWavesModel {
 
   // x coordinate of the wall origin position
   public readonly wallPositionXProperty: NumberProperty;
@@ -30,8 +30,8 @@ export default class ReflectionModel extends SoundModel {
       showAudioControls: false
     } );
 
-    this.wallPositionXProperty = new NumberProperty( 1 / 3 * SoundConstants.WAVE_AREA_WIDTH, {
-      range: new Range( 1 / 3 * SoundConstants.WAVE_AREA_WIDTH, 2 / 3 * SoundConstants.WAVE_AREA_WIDTH )
+    this.wallPositionXProperty = new NumberProperty( 1 / 3 * SoundWavesConstants.WAVE_AREA_WIDTH, {
+      range: new Range( 1 / 3 * SoundWavesConstants.WAVE_AREA_WIDTH, 2 / 3 * SoundWavesConstants.WAVE_AREA_WIDTH )
     } );
 
     this.wallAngleProperty = new NumberProperty( Math.PI / 4, {

@@ -109,4 +109,4 @@ wave speed) for each screen. The calibration value of the soundWaves scenes for 
 but
 adapted for the new screen size:
 
-```const correction = 2.4187847116091334 * SoundConstants.WAVE_AREA_WIDTH / 500;```
+```const correction = 2.4187847116091334 * SoundWavesConstants.WAVE_AREA_WIDTH / 500;```

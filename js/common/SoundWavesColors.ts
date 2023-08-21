@@ -9,9 +9,9 @@
 import Property from '../../../axon/js/Property.js';
 import soundWaves from '../soundWaves.js';
 
-const SoundColors = {
+const SoundWavesColors = {
   SCREEN_VIEW_BACKGROUND: new Property( 'white' )
 };
 
-soundWaves.register( 'SoundColors', SoundColors );
-export default SoundColors;
+soundWaves.register( 'SoundWavesColors', SoundWavesColors );
+export default SoundWavesColors;

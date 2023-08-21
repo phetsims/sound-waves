@@ -11,7 +11,7 @@ import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import { CanvasNode, CanvasNodeOptions, Color } from '../../../../scenery/js/imports.js';
 import ImageDataRenderer from '../../../../scenery-phet/js/ImageDataRenderer.js';
-import SoundConstants from '../../common/SoundConstants.js';
+import SoundWavesConstants from '../SoundWavesConstants.js';
 import soundWaves from '../../soundWaves.js';
 import Lattice from '../../../../scenery-phet/js/Lattice.js';
 import optionize from '../../../../phet-core/js/optionize.js';
@@ -51,7 +51,7 @@ export default class LatticeCanvasNode extends CanvasNode {
     const options = optionize<LatticeCanvasNodeOptions, SelfOptions, CanvasNodeOptions>()( {
 
       // only use the visible part for the bounds (not the damping regions)
-      canvasBounds: SoundConstants.getCanvasBounds( lattice ),
+      canvasBounds: SoundWavesConstants.getCanvasBounds( lattice ),
       layerSplit: true, // ensure we're on our own layer
       baseColor: Color.blue,
       hasReflection: false,
@@ -90,8 +90,8 @@ export default class LatticeCanvasNode extends CanvasNode {
    */
   private static localPointToLatticePoint( point: Vector2 ): Vector2 {
     return new Vector2(
-      Utils.roundSymmetric( point.x / SoundConstants.CELL_WIDTH ),
-      Utils.roundSymmetric( point.y / SoundConstants.CELL_WIDTH )
+      Utils.roundSymmetric( point.x / SoundWavesConstants.CELL_WIDTH ),
+      Utils.roundSymmetric( point.y / SoundWavesConstants.CELL_WIDTH )
     );
   }
 
@@ -122,7 +122,7 @@ export default class LatticeCanvasNode extends CanvasNode {
    */
   private getDampenedValue( x: number, y: number ): number {
     const distance = this.sourcePosition.distanceXY( x, y );
-    const distanceDampen = distance >= 0 && distance <= SoundConstants.MAX_SOUND_DISTANCE ? ( SoundConstants.MAX_SOUND_DISTANCE - distance ) / SoundConstants.MAX_SOUND_DISTANCE : 0;
+    const distanceDampen = distance >= 0 && distance <= SoundWavesConstants.MAX_SOUND_DISTANCE ? ( SoundWavesConstants.MAX_SOUND_DISTANCE - distance ) / SoundWavesConstants.MAX_SOUND_DISTANCE : 0;
 
     return this.lattice.getInterpolatedValue( x, y ) * distanceDampen;
   }
@@ -206,7 +206,7 @@ export default class LatticeCanvasNode extends CanvasNode {
 
     // draw the sub-canvas to the rendering context at the appropriate scale
     context.save();
-    context.transform( SoundConstants.CELL_WIDTH, 0, 0, SoundConstants.CELL_WIDTH, 0, 0 );
+    context.transform( SoundWavesConstants.CELL_WIDTH, 0, 0, SoundWavesConstants.CELL_WIDTH, 0, 0 );
     context.drawImage( this.imageDataRenderer.canvas, 0, 0 );
     context.restore();
   }

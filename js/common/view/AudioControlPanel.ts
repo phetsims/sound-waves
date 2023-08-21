@@ -10,9 +10,9 @@ import Property from '../../../../axon/js/Property.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import { AlignGroup, Node, Text } from '../../../../scenery/js/imports.js';
 import Checkbox from '../../../../sun/js/Checkbox.js';
-import SoundConstants from '../../common/SoundConstants.js';
+import SoundWavesConstants from '../SoundWavesConstants.js';
 import soundWaves from '../../soundWaves.js';
-import SoundModel from '../../common/model/SoundModel.js';
+import SoundWavesModel from '../../common/model/SoundWavesModel.js';
 import SoundWavesStrings from '../../SoundWavesStrings.js';
 import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
 
@@ -21,21 +21,21 @@ type AudioControlPanelOptions = SelfOptions & SoundPanelOptions;
 
 export default class AudioControlPanel extends SoundPanel {
 
-  public constructor( model: SoundModel & { audioControlSettingProperty?: Property<'SPEAKER' | 'LISTENER'> }, alignGroup: AlignGroup, providedOptions?: AudioControlPanelOptions ) {
+  public constructor( model: SoundWavesModel & { audioControlSettingProperty?: Property<'SPEAKER' | 'LISTENER'> }, alignGroup: AlignGroup, providedOptions?: AudioControlPanelOptions ) {
     const options = optionize<AudioControlPanelOptions, SelfOptions, SoundPanelOptions>()( {
-      maxWidth: SoundConstants.PANEL_MAX_WIDTH,
+      maxWidth: SoundWavesConstants.PANEL_MAX_WIDTH,
       yMargin: 4
     }, providedOptions );
 
     const boxText = new Text( SoundWavesStrings.audioControlPanel.titleStringProperty );
     const graphCheckbox = new Checkbox(
       model.isAudioEnabledProperty,
-      new Text( SoundWavesStrings.audioControlPanel.audioEnabledStringProperty, SoundConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
+      new Text( SoundWavesStrings.audioControlPanel.audioEnabledStringProperty, SoundWavesConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
       {
         boxWidth: 15
       } );
 
-    graphCheckbox.top = boxText.bottom + SoundConstants.CONTROL_PANEL_SPACING;
+    graphCheckbox.top = boxText.bottom + SoundWavesConstants.CONTROL_PANEL_SPACING;
 
 
     const children: Node[] = [ boxText, graphCheckbox ];

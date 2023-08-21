@@ -10,7 +10,7 @@
  */
 
 import Lattice from '../../../../scenery-phet/js/Lattice.js';
-import SoundConstants from '../../common/SoundConstants.js';
+import SoundWavesConstants from '../SoundWavesConstants.js';
 import soundWaves from '../../soundWaves.js';
 
 type DeltaEntry = {
@@ -75,7 +75,7 @@ export default class TemporalMask {
         const headTolerance = 2;
         const tailTolerance = 4;
 
-        if ( horizontalDelta <= 0 && theoreticalTime >= startTime - headTolerance && theoreticalTime <= endTime + tailTolerance && Math.abs( Math.atan( verticalDelta / horizontalDelta ) ) <= SoundConstants.CONE_ANGLE ) {
+        if ( horizontalDelta <= 0 && theoreticalTime >= startTime - headTolerance && theoreticalTime <= endTime + tailTolerance && Math.abs( Math.atan( verticalDelta / horizontalDelta ) ) <= SoundWavesConstants.CONE_ANGLE ) {
 
           // Return as early as possible to improve performance
           return distance;

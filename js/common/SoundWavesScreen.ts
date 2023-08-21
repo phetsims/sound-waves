@@ -9,19 +9,19 @@
 import Dimension2 from '../../../dot/js/Dimension2.js';
 import Screen, { ScreenOptions } from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
-import SoundColors from '../common/SoundColors.js';
+import SoundWavesColors from './SoundWavesColors.js';
 import soundWaves from '../soundWaves.js';
 import { Node } from '../../../scenery/js/imports.js';
-import SoundModel from './model/SoundModel.js';
+import SoundWavesModel from './model/SoundWavesModel.js';
 import SoundScreenView from './view/SoundScreenView.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import PhetioProperty from '../../../axon/js/PhetioProperty.js';
 
-export default class SoundScreen<T extends SoundModel> extends Screen<T, SoundScreenView> {
+export default class SoundWavesScreen<T extends SoundWavesModel> extends Screen<T, SoundScreenView> {
   public constructor( title: PhetioProperty<string>, createModel: () => T, createView: ( model: T ) => SoundScreenView, iconImage: Node ) {
 
     const options: ScreenOptions = {
-      backgroundColorProperty: SoundColors.SCREEN_VIEW_BACKGROUND,
+      backgroundColorProperty: SoundWavesColors.SCREEN_VIEW_BACKGROUND,
       name: title,
       homeScreenIcon: new ScreenIcon( iconImage, {
         size: new Dimension2( Screen.MINIMUM_HOME_SCREEN_ICON_SIZE.width, Screen.MINIMUM_HOME_SCREEN_ICON_SIZE.height ),
@@ -41,4 +41,4 @@ export default class SoundScreen<T extends SoundModel> extends Screen<T, SoundSc
   }
 }
 
-soundWaves.register( 'SoundScreen', SoundScreen );
+soundWaves.register( 'SoundWavesScreen', SoundWavesScreen );

@@ -10,7 +10,7 @@ import Bounds2 from '../../../dot/js/Bounds2.js';
 import Vector2 from '../../../dot/js/Vector2.js';
 import { Image, Line, Node } from '../../../scenery/js/imports.js';
 import girl_png from '../../images/girl_png.js';
-import SoundConstants from '../common/SoundConstants.js';
+import SoundWavesConstants from '../common/SoundWavesConstants.js';
 import MovableNode from '../common/view/MovableNode.js';
 import SpeakerNode from '../common/view/SpeakerNode.js';
 import soundWaves from '../soundWaves.js';
@@ -28,7 +28,7 @@ export default class TwoSourceView extends SoundScreenView {
     const bounds = new Bounds2( model.speaker1Position.x, 0, 1, model.getWaveAreaBounds().height );
     const speaker = new SpeakerNode( model.oscillatorProperty );
     this.speakerNode2 = new MovableNode( model.speaker2PositionProperty, bounds, model.modelViewTransform!, speaker );
-    speaker.setRightCenter( new Vector2( SoundConstants.SPEAKER_OFFSET, 0 ) );
+    speaker.setRightCenter( new Vector2( SoundWavesConstants.SPEAKER_OFFSET, 0 ) );
     this.addChild( this.speakerNode2 );
 
     const person = new Image( girl_png, { center: new Vector2( 0, 0 ) } );

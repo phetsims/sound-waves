@@ -30,7 +30,7 @@ import speakerR6Image from '../../../../scenery-phet/images/speaker/speaker_R6_p
 import speakerR7Image from '../../../../scenery-phet/images/speaker/speaker_R7_png.js';
 import speakerR8Image from '../../../../scenery-phet/images/speaker/speaker_R8_png.js';
 import speakerR9Image from '../../../../scenery-phet/images/speaker/speaker_R9_png.js';
-import SoundConstants from '../../common/SoundConstants.js';
+import SoundWavesConstants from '../SoundWavesConstants.js';
 import soundWaves from '../../soundWaves.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 
@@ -70,7 +70,7 @@ export default class SpeakerNode extends Node {
     this.children = [ image ];
 
     oscillatorProperty.link( value => {
-      const max = SoundConstants.AMPLITUDE_RANGE.max * SoundConstants.AMPLITUDE_CALIBRATION_SCALE;
+      const max = SoundWavesConstants.AMPLITUDE_RANGE.max * SoundWavesConstants.AMPLITUDE_CALIBRATION_SCALE;
 
       // Sign is chosen so that the membrane forward corresponds to a high pressure outside the speaker,
       // see https://github.com/phetsims/wave-interference/issues/178

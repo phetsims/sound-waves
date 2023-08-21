@@ -8,7 +8,7 @@
 
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import { AlignGroup, Node } from '../../../../scenery/js/imports.js';
-import SoundConstants from '../../common/SoundConstants.js';
+import SoundWavesConstants from '../SoundWavesConstants.js';
 import soundWaves from '../../soundWaves.js';
 import ReflectionModel from '../../reflection/ReflectionModel.js';
 import SoundWavesStrings from '../../SoundWavesStrings.js';
@@ -23,7 +23,7 @@ export default class ReflectionControlPanel extends SoundPanel {
   public constructor( model: ReflectionModel, alignGroup: AlignGroup, providedOptions?: ReflectionControlPanelOptions ) {
 
     const options = optionize<ReflectionControlPanelOptions, SelfOptions, SoundPanelOptions>()( {
-      maxWidth: SoundConstants.PANEL_MAX_WIDTH,
+      maxWidth: SoundWavesConstants.PANEL_MAX_WIDTH,
       yMargin: 4
     }, providedOptions );
 

@@ -8,12 +8,12 @@
 
 import Vector2 from '../../../dot/js/Vector2.js';
 import Vector2Property from '../../../dot/js/Vector2Property.js';
-import SoundConstants from '../common/SoundConstants.js';
+import SoundWavesConstants from '../common/SoundWavesConstants.js';
 import soundWaves from '../soundWaves.js';
-import SoundModel from '../common/model/SoundModel.js';
+import SoundWavesModel from '../common/model/SoundWavesModel.js';
 import Multilink from '../../../axon/js/Multilink.js';
 
-export default class TwoSourceModel extends SoundModel {
+export default class TwoSourceModel extends SoundWavesModel {
 
   // TODO: This appears elsewhere
   public readonly listenerPositionProperty: Vector2Property;
@@ -21,13 +21,13 @@ export default class TwoSourceModel extends SoundModel {
 
   public constructor() {
     super( {
-      speaker1PositionY: 1 / 3 * SoundConstants.WAVE_AREA_WIDTH,
+      speaker1PositionY: 1 / 3 * SoundWavesConstants.WAVE_AREA_WIDTH,
       hasSecondSource: true
     } );
 
-    this.listenerPositionProperty = new Vector2Property( new Vector2( 1 / 2 * SoundConstants.WAVE_AREA_WIDTH, 1 / 2 * SoundConstants.WAVE_AREA_WIDTH ) );
+    this.listenerPositionProperty = new Vector2Property( new Vector2( 1 / 2 * SoundWavesConstants.WAVE_AREA_WIDTH, 1 / 2 * SoundWavesConstants.WAVE_AREA_WIDTH ) );
 
-    this.speaker2PositionProperty = new Vector2Property( new Vector2( this.modelToLatticeTransform.viewToModelX( SoundConstants.SOURCE_POSITION_X ), 2 / 3 * SoundConstants.WAVE_AREA_WIDTH ) );
+    this.speaker2PositionProperty = new Vector2Property( new Vector2( this.modelToLatticeTransform.viewToModelX( SoundWavesConstants.SOURCE_POSITION_X ), 2 / 3 * SoundWavesConstants.WAVE_AREA_WIDTH ) );
 
     Multilink.multilink( [ this.listenerPositionProperty, this.speaker2PositionProperty, this.frequencyProperty, this.amplitudeProperty ],
       ( listenerPosition, speaker2Position, frequency, amplitude ) => {

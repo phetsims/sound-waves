@@ -12,7 +12,7 @@ The wave areas in each screen represent an area with a width and height of 10 me
 
 The waves represent soundWaves waves and thus have speed of 343 m/s.
 
-The frequency of the waves can be set to be between 0 and 1000 Hz.
+The frequency of the waves can be set to be between 100 and 1000 Hz.
 
 The amplitude of the waves can be set to be between 0 and 10 Hz.
 

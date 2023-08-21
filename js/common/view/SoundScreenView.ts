@@ -14,14 +14,14 @@ import TimeControlNode from '../../../../scenery-phet/js/TimeControlNode.js';
 import { AlignGroup, Rectangle, Text, Color } from '../../../../scenery/js/imports.js';
 import soundManager from '../../../../tambo/js/soundManager.js';
 import WaveGenerator from '../../../../tambo/js/sound-generators/WaveGenerator.js';
-import SoundConstants from '../../common/SoundConstants.js';
+import SoundWavesConstants from '../SoundWavesConstants.js';
 import AudioControlPanel from '../../common/view/AudioControlPanel.js';
 import LatticeCanvasNode from '../../common/view/LatticeCanvasNode.js';
 import SoundControlPanel from '../../common/view/SoundControlPanel.js';
 import SpeakerNode from '../../common/view/SpeakerNode.js';
 import soundWaves from '../../soundWaves.js';
 import SoundWavesStrings from '../../SoundWavesStrings.js';
-import SoundModel from '../model/SoundModel.js';
+import SoundWavesModel from '../model/SoundWavesModel.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import Property from '../../../../axon/js/Property.js';
 
@@ -45,7 +45,7 @@ export default class SoundScreenView extends ScreenView {
   private readonly waveAreaNode: Rectangle;
   private readonly speakerNode1: SpeakerNode;
 
-  public constructor( model: SoundModel & {
+  public constructor( model: SoundWavesModel & {
     audioControlSettingProperty?: Property<'SPEAKER' | 'LISTENER'>;
     listenerPositionProperty?: Property<Vector2>;
     pressureProperty?: NumberProperty;
@@ -57,7 +57,7 @@ export default class SoundScreenView extends ScreenView {
 
     this.waveAreaNode = new Rectangle( 0, 0, 500, 500, {
       fill: '#4c4c4c',
-      top: SoundConstants.CONTROL_PANEL_MARGIN + WAVE_MARGIN + 15,
+      top: SoundWavesConstants.CONTROL_PANEL_MARGIN + WAVE_MARGIN + 15,
       centerX: this.layoutBounds.centerX
     } );
 
@@ -66,7 +66,7 @@ export default class SoundScreenView extends ScreenView {
     this.canvasNode = new LatticeCanvasNode( model.lattice, {
       baseColor: Color.white,
       hasReflection: model.hasReflection,
-      sourcePosition: new Vector2( SoundConstants.SOURCE_POSITION_X, Math.floor( model.modelToLatticeTransform.modelToViewY( model.speaker1Position.y ) ) ),
+      sourcePosition: new Vector2( SoundWavesConstants.SOURCE_POSITION_X, Math.floor( model.modelToLatticeTransform.modelToViewY( model.speaker1Position.y ) ) ),
       hasSecondSource: model.hasSecondSource
     } );
 
@@ -86,8 +86,8 @@ export default class SoundScreenView extends ScreenView {
     this.controlPanel = new SoundControlPanel( model, this.contolPanelAlignGroup );
 
     this.controlPanel.mutate( {
-      right: this.layoutBounds.maxX - SoundConstants.SCREEN_VIEW_X_MARGIN,
-      top: SoundConstants.CONTROL_PANEL_MARGIN + SoundConstants.CONTROL_PANEL_SPACING + 17
+      right: this.layoutBounds.maxX - SoundWavesConstants.SCREEN_VIEW_X_MARGIN,
+      top: SoundWavesConstants.CONTROL_PANEL_MARGIN + SoundWavesConstants.CONTROL_PANEL_SPACING + 17
     } );
 
     this.addChild( this.controlPanel );
@@ -96,8 +96,8 @@ export default class SoundScreenView extends ScreenView {
       this.audioControlPanel = new AudioControlPanel( model, this.contolPanelAlignGroup );
 
       this.audioControlPanel.mutate( {
-        right: this.layoutBounds.maxX - SoundConstants.SCREEN_VIEW_X_MARGIN,
-        top: this.controlPanel.bottom + SoundConstants.CONTROL_PANEL_SPACING
+        right: this.layoutBounds.maxX - SoundWavesConstants.SCREEN_VIEW_X_MARGIN,
+        top: this.controlPanel.bottom + SoundWavesConstants.CONTROL_PANEL_SPACING
       } );
 
       this.addChild( this.audioControlPanel );
@@ -107,7 +107,7 @@ export default class SoundScreenView extends ScreenView {
 
       // Update the final amplitude of the sine wave tone
       const updateSoundAmplitude = () => {
-        const minListenerDistance = model.audioControlSettingProperty && model.audioControlSettingProperty.value === 'LISTENER' ? Math.abs( SoundConstants.LISTENER_BOUNDS_X.min - model.speaker1Position.x ) : 1;
+        const minListenerDistance = model.audioControlSettingProperty && model.audioControlSettingProperty.value === 'LISTENER' ? Math.abs( SoundWavesConstants.LISTENER_BOUNDS_X.min - model.speaker1Position.x ) : 1;
         const listenerDistance = model.audioControlSettingProperty && model.audioControlSettingProperty.value === 'LISTENER' ? Math.abs( model.listenerPositionProperty!.value.x - model.speaker1Position.x ) : 1;
         const distanceDampening = model.audioControlSettingProperty && model.audioControlSettingProperty.value === 'LISTENER' ?
                                    Math.pow( minListenerDistance / listenerDistance, 2 ) : 1;
@@ -187,13 +187,13 @@ export default class SoundScreenView extends ScreenView {
     // First speaker
     this.speakerNode1 = new SpeakerNode( model.oscillatorProperty );
     const viewPosition = model.modelViewTransform!.modelToViewPosition( model.speaker1Position );
-    viewPosition.setX( viewPosition.x + SoundConstants.SPEAKER_OFFSET );
+    viewPosition.setX( viewPosition.x + SoundWavesConstants.SPEAKER_OFFSET );
     this.speakerNode1.setRightCenter( viewPosition );
     this.addChild( this.speakerNode1 );
 
     // Pause/play/step buttons.
     const timeControlNode = new TimeControlNode( model.isRunningProperty, {
-      bottom: this.layoutBounds.bottom - SoundConstants.CONTROL_PANEL_MARGIN - 10,
+      bottom: this.layoutBounds.bottom - SoundWavesConstants.CONTROL_PANEL_MARGIN - 10,
       centerX: this.waveAreaNode.centerX,
 
       playPauseStepButtonOptions: {
@@ -203,7 +203,7 @@ export default class SoundScreenView extends ScreenView {
           // dt, so the model will behave the same,
           // see https://github.com/phetsims/wave-interference/issues/254
           // and https://github.com/phetsims/wave-interference/issues/226
-          listener: () => model.advanceTime( 1 / SoundConstants.EVENT_RATE, true )
+          listener: () => model.advanceTime( 1 / SoundWavesConstants.EVENT_RATE, true )
         }
       }
     } );
@@ -215,8 +215,8 @@ export default class SoundScreenView extends ScreenView {
         this.interruptSubtreeInput(); // cancel interactions that may be in progress
         model.reset();
       },
-      right: this.layoutBounds.maxX - SoundConstants.SCREEN_VIEW_X_MARGIN,
-      bottom: this.layoutBounds.bottom - SoundConstants.CONTROL_PANEL_MARGIN - 10
+      right: this.layoutBounds.maxX - SoundWavesConstants.SCREEN_VIEW_X_MARGIN,
+      bottom: this.layoutBounds.bottom - SoundWavesConstants.CONTROL_PANEL_MARGIN - 10
     } );
 
     this.addChild( resetAllButton );
