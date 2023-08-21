@@ -24,11 +24,11 @@
       "supportsDynamicLocale": true
     },
     "screenNameKeys": [
-      "SOUND_WAVES/singleSource.title",
-      "SOUND_WAVES/measure.title",
-      "SOUND_WAVES/twoSource.title",
-      "SOUND_WAVES/reflection.title",
-      "SOUND_WAVES/airPressure.title"
+      "SOUND_WAVES/screen.singleSource",
+      "SOUND_WAVES/screen.measure",
+      "SOUND_WAVES/screen.twoSource",
+      "SOUND_WAVES/screen.reflection",
+      "SOUND_WAVES/screen.airPressure"
     ]
   },
   "eslintConfig": {
