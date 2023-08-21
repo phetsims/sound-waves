@@ -1,20 +1,23 @@
 # Sound - implementation notes
 
-This document contains notes related to the implementation of Sound. The audience for this document is 
+This document contains notes related to the implementation of Sound. The audience for this document is
 software developers who are familiar with JavaScript and PhET simulation development, as described in
 [PhET Development Overview](https://github.com/phetsims/phet-info/blob/main/doc/phet-development-overview.md).
 
-Before reading this document, see [model.md](https://github.com/phetsims/wave-interference/blob/main/doc/model.md), 
+Before reading this document, see [model.md](https://github.com/phetsims/wave-interference/blob/main/doc/model.md),
 which provides a high-level description of the simulation model.
 
 ## Overview
 
-The Sound simulation depicts waves on a 2 dimensional surface and the interference patterns they create. It consists of five different simulations each with its own screen.  This simulation is heavily based on the implementation of the [wave-interference](https://github.com/phetsims/wave-interference/edit/main/doc/model.md) simulation.
+The Sound simulation depicts waves on a 2 dimensional surface and the interference patterns they create. It consists of
+five different simulations each with its own screen. This simulation is heavily based on the implementation of
+the [wave-interference](https://github.com/phetsims/wave-interference/edit/main/doc/model.md) simulation.
 
 There are no dynamically created/destroyed user interface components or model elements in the simulation, so the
 simulation doesn't require dispose calls.
 
 ## Different wave behaviour from simulation wave-interference
+
 While the code is based on that of the wave-interference simulation there are a couple of big differences:
 
 - Instead of spreading in circles the waves will only spread in a horizontal conical shape.
@@ -25,15 +28,21 @@ While the code is based on that of the wave-interference simulation there are a 
 
 ## The first three Screens: Waves, Interference, Slits
 
-Each screen is split in two parts: a model and a view, this split is done according to the model-view-controller design pattern. The base classes for these are the SoundModel and SoundScreenView classes respectively. 
+Each screen is split in two parts: a model and a view, this split is done according to the model-view-controller design
+pattern. The base classes for these are the SoundModel and SoundScreenView classes respectively.
 
 ## SoundModel
 
 The SoundModel class contains the data for a screen.
 The base model is responsible for owning the waves lattice, the properties shared among all models (e.g.
 frequencyProperty & amplitudeProperty), generating the waves and advancing the timestep.
-### Lattice 
-For keeping track of the wave values on the screen the [Lattice](https://github.com/phetsims/scenery-phet/blob/main/js/Lattice.ts) component from scenery-phet was used. Its dimensions and padding are kept at the same values as in wave-interference but could be changed for better resolution and to allow larger padding areas for reflection.
+
+### Lattice
+
+For keeping track of the wave values on the screen
+the [Lattice](https://github.com/phetsims/scenery-phet/blob/main/js/Lattice.ts) component from scenery-phet was used.
+Its dimensions and padding are kept at the same values as in wave-interference but could be changed for better
+resolution and to allow larger padding areas for reflection.
 
 ### TemporalMask
 
@@ -46,11 +55,16 @@ The ```matches``` function was modified so that it returns the distance from the
 dampening.
 
 ## SoundScreenView
-This node extends the [ScreenView](https://github.com/phetsims/joist/blob/main/js/ScreenView.js) node. This screen is responsible for the creation many visual components: The LatticeCanvasNode, the reset button, the two most used control panels (soundWaves and audio). It also generates the sinus tone when audio is enabled.
+
+This node extends the [ScreenView](https://github.com/phetsims/joist/blob/main/js/ScreenView.js) node. This screen is
+responsible for the creation many visual components: The LatticeCanvasNode, the reset button, the two most used control
+panels (soundWaves and audio). It also generates the sinus tone when audio is enabled.
 
 ### LatticeCanvasNode
 
-This node is based on the [LatticeCanvasNode](https://github.com/phetsims/wave-interference/blob/main/js/common/view/LatticeCanvasNode.js) from wave-interference but with a couple of adjustments for this usecase:
+This node is based on
+the [LatticeCanvasNode](https://github.com/phetsims/wave-interference/blob/main/js/common/view/LatticeCanvasNode.js)
+from wave-interference but with a couple of adjustments for this usecase:
 
 - The wave values are linearly dampened according to the distance value from the ```matches``` function of the
   TemporalMask component.
@@ -66,11 +80,14 @@ This node is based on the [LatticeCanvasNode](https://github.com/phetsims/wave-i
 ## Coordinate frames
 
 There are 3 coordinate frames:
+
 * lattice coordinates (integer)
 * Scene-specific physical coordinates (such as cm or nm)
 * view coordinates
 
-Coordinate transformations between these frames are defined in [Scene](https://github.com/phetsims/wave-interference/blob/main/js/common/model/Scene.js):
+Coordinate transformations between these frames are defined
+in [Scene](https://github.com/phetsims/wave-interference/blob/main/js/common/model/Scene.js):
+
 ```js
 // @public {ModelViewTransform2} - converts the model coordinates (in the units for this scene) to lattice
 // coordinates, does not include damping regions
@@ -84,10 +101,12 @@ this.modelViewTransform = ...;
 // the view area is initialized, see setViewBounds
 this.latticeToViewTransform = ...;
 ```
+
 ## Correct wave speed
 
 We run the physics on a finite discrete lattice, but must match up with the correct values (frequency, wavelength and
-wave speed) for each screen. The calibration value of the soundWaves scenes for the wave-interference simulation is used but
+wave speed) for each screen. The calibration value of the soundWaves scenes for the wave-interference simulation is used
+but
 adapted for the new screen size:
 
 ```const correction = 2.4187847116091334 * SoundConstants.WAVE_AREA_WIDTH / 500;```

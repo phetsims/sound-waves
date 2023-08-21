@@ -1,11 +1,14 @@
 ﻿Sound
 =============
-"Sound" is a HTML5 conversion of the educational simulation [Sound](https://phet.colorado.edu/en/simulation/legacy/soundWaves) written in JAVA, by <a href="https://phet.colorado.edu/" target="_blank">PhET Interactive Simulations</a>
+"Sound" is a HTML5 conversion of the educational
+simulation [Sound](https://phet.colorado.edu/en/simulation/legacy/soundWaves) written in JAVA,
+by <a href="https://phet.colorado.edu/" target="_blank">PhET Interactive Simulations</a>
 at the University of Colorado Boulder.
 
 ### Getting started
 
 (1) Clone the simulation and its dependencies:
+
 ```
 git clone https://github.com/phetsims/assert.git
 git clone https://github.com/phetsims/axon.git
@@ -29,6 +32,7 @@ git clone https://github.com/phetsims/tandem.git
 git clone https://github.com/phetsims/utterance-queue.git
 git clone https://github.com/phetsims/wave-interference.git
 ```
+
 (2) Make sure node and npm are installed.
 
 (3) Rename the soundWaves project folder to ```soundWaves```
@@ -52,7 +56,7 @@ npm update
 
 ### Building
 
-To build the code, run 
+To build the code, run
 
 ```grunt build```
 
@@ -60,7 +64,7 @@ in the soundWaves project folder.
 
 ### Building the dutch version:
 
-Copy  the ```soundWaves-strings-nl.json``` file to ```/babel/soundWaves```
+Copy the ```soundWaves-strings-nl.json``` file to ```/babel/soundWaves```
 
 Then run:
 
@@ -69,13 +73,16 @@ Then run:
 The built html file will be stored in the ```/build/adapted-from-phet folder```.
 
 ### Development
-The <a href="https://github.com/phetsims/phet-info/blob/main/doc/phet-development-overview.md" target="_blank">PhET Development Overview</a> is the most complete guide to PhET Simulation
-Development. This guide includes how to obtain simulation code and its dependencies, notes about architecture & design, how to test and build
+
+The <a href="https://github.com/phetsims/phet-info/blob/main/doc/phet-development-overview.md" target="_blank">PhET
+Development Overview</a> is the most complete guide to PhET Simulation
+Development. This guide includes how to obtain simulation code and its dependencies, notes about architecture & design,
+how to test and build
 the sims, as well as other important information.
 
 ### Setting up for development
 
-(1) In the root folder for the project install http-server: 
+(1) In the root folder for the project install http-server:
 
 ```npm install http-server -g```
 
@@ -91,7 +98,6 @@ the sims, as well as other important information.
 
 This shòuld run the simulation, and should update when the code gets updated.
 
-
-
 ### License
+
 See the <a href="https://github.com/phetsims/soundWaves/blob/main/LICENSE" target="_blank">LICENSE</a>
