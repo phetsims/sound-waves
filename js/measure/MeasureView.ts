@@ -22,6 +22,7 @@ import SoundConstants from '../common/SoundConstants.js';
 import RectangularPushButton from '../../../sun/js/buttons/RectangularPushButton.js';
 import { Text } from '../../../scenery/js/imports.js';
 import SoundWavesStrings from '../SoundWavesStrings.js';
+import Bounds2 from '../../../dot/js/Bounds2.js';
 
 export default class MeasureView extends SoundScreenView {
   public constructor( model: MeasureModel ) {
@@ -44,6 +45,7 @@ export default class MeasureView extends SoundScreenView {
     this.addChild( clearButton );
 
     const rulerLength = model.modelViewTransform!.modelToViewDeltaX( 500 );
+    const rulerHeight = 50;
     const majorTickMarkWidth = rulerLength / ( 10 );
     // Compute tick labels, 1 major tick for every 0.5 unit of length, labels on the ticks that correspond to integer values.
     const majorTickLabels = [];
@@ -60,13 +62,15 @@ export default class MeasureView extends SoundScreenView {
     soundManager.addSoundGenerator( releaseSound, { categoryName: 'user-interface' } );
 
     // Ruler
+    const rulerInsetsWidth = 60;
     const rulerNode = new RulerNode( rulerLength, 50, majorTickMarkWidth, majorTickLabels, SoundWavesStrings.metersStringProperty, {
       minorTicksPerMajorTick: 4,
-      insetsWidth: 60,
+      insetsWidth: rulerInsetsWidth,
       unitsMajorTickIndex: 10,
       unitsSpacing: 8
     } );
-    const movableRuler = new MovableNode( model.rulerPositionProperty, this.visibleBoundsProperty.value, ModelViewTransform2.createOffsetScaleMapping( new Vector2( 0, 0 ), 1 ), rulerNode );
+    const rulerDragBounds = new Bounds2( 0, 0, this.visibleBoundsProperty.value.maxX - rulerLength - 2 * rulerInsetsWidth, this.visibleBoundsProperty.value.maxY - rulerHeight );
+    const movableRuler = new MovableNode( model.rulerPositionProperty, rulerDragBounds, ModelViewTransform2.createOffsetScaleMapping( new Vector2( 0, 0 ), 1 ), rulerNode );
     this.addChild( movableRuler );
 
     // Stopwatch
