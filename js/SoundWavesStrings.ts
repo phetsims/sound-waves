@@ -9,7 +9,7 @@ import type LocalizedStringProperty from '../../chipper/js/LocalizedStringProper
 import soundWaves from './soundWaves.js';
 
 type StringsType = {
-  'soundWaves': {
+  'sound-waves': {
     'titleStringProperty': LocalizedStringProperty;
   };
   'singleSource': {

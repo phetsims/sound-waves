@@ -30,7 +30,7 @@ import SoundWavesStrings from './SoundWavesStrings.js';
 // launch the sim - beware that scenery Image nodes created outside of simLauncher.launch() will have zero bounds
 // until the images are fully loaded, see https://github.com/phetsims/coulombs-law/issues/70
 simLauncher.launch( () => {
-  const sim = new Sim( SoundWavesStrings.soundWaves.titleStringProperty, [
+  const sim = new Sim( SoundWavesStrings[ 'sound-waves' ].titleStringProperty, [
     new SoundScreen( SoundWavesStrings.singleSource.titleStringProperty, () => new IntroModel(), model => new IntroView( model ), new Image( singleSourceIcon_png ) ),
     new SoundScreen( SoundWavesStrings.measure.titleStringProperty, () => new MeasureModel(), model => new MeasureView( model ), new Image( measureIcon_png ) ),
     new SoundScreen( SoundWavesStrings.twoSource.titleStringProperty, () => new TwoSourceModel(), model => new TwoSourceView( model ), new Image( twoSourceIcon_png ) ),
