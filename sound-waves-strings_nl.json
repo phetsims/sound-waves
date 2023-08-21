@@ -5,29 +5,14 @@
   "screen.singleSource": {
   	"value": "Luister naar één speaker"
   },
-  "singleSource.help.listener": {
-  	"value": "Listener can be moved left and right"
-  },
   "screen.measure": {
   	"value": "Meten"
   },
   "measure.clearWaves": {
     "value": "Verwijder golf"
   },
-  "measure.help.stick": {
-  	"value": "Use meter stick to measure waves"
-  },
-  "measure.help.blueLines": {
-  	"value": "Blue lines can be moved left and right to help mark measurement points on waves"
-  },
   "screen.twoSource": {
   	"value": "Luister naar twee speakers"
-  },
-  "twoSource.help.upperSpeaker": {
-  	"value": "Upper speaker can be moved up and down"
-  },
-  "twoSource.help.listener": {
-  	"value": "Listener can be moved in all directions"
   },
   "screen.reflection": {
   	"value": "Geluid met reflectie tegen muur"
@@ -67,12 +52,6 @@
   },
   "airDensityControlPanel.title": {
     "value": "Dichtheid lucht"
-  },
-  "airDensityControlPanel.removeAir": {
-    "value": "Remove Air from Box"
-  },
-  "airDensityControlPanel.addAir": {
-    "value": "Add Air to Box"
   },
   "airDensityControlPanel.reset": {
     "value": "Reset"

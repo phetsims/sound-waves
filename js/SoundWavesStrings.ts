@@ -19,23 +19,8 @@ type StringsType = {
     'reflectionStringProperty': LocalizedStringProperty;
     'airPressureStringProperty': LocalizedStringProperty;
   };
-  'singleSource': {
-    'help': {
-      'listenerStringProperty': LocalizedStringProperty;
-    }
-  };
   'measure': {
     'clearWavesStringProperty': LocalizedStringProperty;
-    'help': {
-      'stickStringProperty': LocalizedStringProperty;
-      'blueLinesStringProperty': LocalizedStringProperty;
-    }
-  };
-  'twoSource': {
-    'help': {
-      'upperSpeakerStringProperty': LocalizedStringProperty;
-      'listenerStringProperty': LocalizedStringProperty;
-    }
   };
   'atmStringProperty': LocalizedStringProperty;
   'hzPatternStringProperty': LocalizedStringProperty;
@@ -55,8 +40,6 @@ type StringsType = {
   };
   'airDensityControlPanel': {
     'titleStringProperty': LocalizedStringProperty;
-    'removeAirStringProperty': LocalizedStringProperty;
-    'addAirStringProperty': LocalizedStringProperty;
     'resetStringProperty': LocalizedStringProperty;
   };
   'amplitudeStringProperty': LocalizedStringProperty;
