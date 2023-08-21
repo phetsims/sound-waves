@@ -25,9 +25,9 @@ import soundWaves from '../../soundWaves.js';
 // This simulation uses EventTimer, which provides exactly the same model behavior on very slow and very fast
 // platforms.  Here we define the frequency of events in Hz, which has been tuned so that our slowest platform has
 // an acceptable frame rate
-const eventTimerPeriod = 1 / SoundConstants.EVENT_RATE;
-const frequencyRange = new Range( 0, 1 );
-const INITIAL_FREQUENCY = 0.5;
+const eventTimerPeriod = 1 / SoundWavesConstants.EVENT_RATE;
+const frequencyRange = new Range( 0.1, 1 );
+const INITIAL_FREQUENCY = 0.55;
 
 type SoundWavesModelOptions = {
   showAudioControls?: boolean;
