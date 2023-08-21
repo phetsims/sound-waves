@@ -31,11 +31,11 @@ import SoundWavesStrings from './SoundWavesStrings.js';
 // until the images are fully loaded, see https://github.com/phetsims/coulombs-law/issues/70
 simLauncher.launch( () => {
   const sim = new Sim( SoundWavesStrings[ 'sound-waves' ].titleStringProperty, [
-    new SoundScreen( SoundWavesStrings.singleSource.titleStringProperty, () => new IntroModel(), model => new IntroView( model ), new Image( singleSourceIcon_png ) ),
-    new SoundScreen( SoundWavesStrings.measure.titleStringProperty, () => new MeasureModel(), model => new MeasureView( model ), new Image( measureIcon_png ) ),
-    new SoundScreen( SoundWavesStrings.twoSource.titleStringProperty, () => new TwoSourceModel(), model => new TwoSourceView( model ), new Image( twoSourceIcon_png ) ),
-    new SoundScreen( SoundWavesStrings.reflection.titleStringProperty, () => new ReflectionModel(), model => new ReflectionView( model ), new Image( reflectionIcon_png ) ),
-    new SoundScreen( SoundWavesStrings.airPressure.titleStringProperty, () => new PressureModel(), model => new PressureView( model ), new Image( pressureIcon_png ) )
+    new SoundScreen( SoundWavesStrings.screen.singleSourceStringProperty, () => new IntroModel(), model => new IntroView( model ), new Image( singleSourceIcon_png ) ),
+    new SoundScreen( SoundWavesStrings.screen.measureStringProperty, () => new MeasureModel(), model => new MeasureView( model ), new Image( measureIcon_png ) ),
+    new SoundScreen( SoundWavesStrings.screen.twoSourceStringProperty, () => new TwoSourceModel(), model => new TwoSourceView( model ), new Image( twoSourceIcon_png ) ),
+    new SoundScreen( SoundWavesStrings.screen.reflectionStringProperty, () => new ReflectionModel(), model => new ReflectionView( model ), new Image( reflectionIcon_png ) ),
+    new SoundScreen( SoundWavesStrings.screen.airPressureStringProperty, () => new PressureModel(), model => new PressureView( model ), new Image( pressureIcon_png ) )
   ], {
 
     credits: {

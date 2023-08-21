@@ -12,14 +12,19 @@ type StringsType = {
   'sound-waves': {
     'titleStringProperty': LocalizedStringProperty;
   };
+  'screen': {
+    'singleSourceStringProperty': LocalizedStringProperty;
+    'measureStringProperty': LocalizedStringProperty;
+    'twoSourceStringProperty': LocalizedStringProperty;
+    'reflectionStringProperty': LocalizedStringProperty;
+    'airPressureStringProperty': LocalizedStringProperty;
+  };
   'singleSource': {
-    'titleStringProperty': LocalizedStringProperty;
     'help': {
       'listenerStringProperty': LocalizedStringProperty;
     }
   };
   'measure': {
-    'titleStringProperty': LocalizedStringProperty;
     'clearWavesStringProperty': LocalizedStringProperty;
     'help': {
       'stickStringProperty': LocalizedStringProperty;
@@ -27,20 +32,13 @@ type StringsType = {
     }
   };
   'twoSource': {
-    'titleStringProperty': LocalizedStringProperty;
     'help': {
       'upperSpeakerStringProperty': LocalizedStringProperty;
       'listenerStringProperty': LocalizedStringProperty;
     }
   };
-  'reflection': {
-    'titleStringProperty': LocalizedStringProperty;
-  };
   'atmStringProperty': LocalizedStringProperty;
   'hzPatternStringProperty': LocalizedStringProperty;
-  'airPressure': {
-    'titleStringProperty': LocalizedStringProperty;
-  };
   'audioControlPanel': {
     'titleStringProperty': LocalizedStringProperty;
     'audioEnabledStringProperty': LocalizedStringProperty;
