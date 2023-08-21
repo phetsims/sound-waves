@@ -1,5 +1,5 @@
 {
-  "comment": "# sound 1.0.0-dev.2 Mon Oct 03 2022 17:46:12 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# sound-waves 1.0.0-dev.2 Mon Oct 03 2022 17:46:12 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "c13a8c7741d95fbd8e37619c66ebcca8686dffe7",
     "branch": "main"
@@ -72,7 +72,7 @@
     "sha": "1d35097740155607943e5990b6c1df65927842bd",
     "branch": "main"
   },
-  "sound": {
+  "sound-waves": {
     "sha": "02ac3fe53f8194667d5d71dfe909884d05fb9184",
     "branch": "main"
   },
