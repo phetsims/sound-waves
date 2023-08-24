@@ -20,7 +20,7 @@ export default class SoundPanel extends Panel {
   public constructor( content: Node, providedOptions?: PanelOptions ) {
     const options = optionize<SoundPanelOptions, SelfOptions, PanelOptions>()( {
       yMargin: 7,
-      xMargin: 10,
+      xMargin: 20,
       stroke: 'gray',
       fill: 'rgb(230,231,232)',
       cornerRadius: 6
