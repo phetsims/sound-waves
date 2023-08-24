@@ -38,8 +38,10 @@ const SoundWavesConstants = {
   AMPLITUDE_CALIBRATION_SCALE: AMPLITUDE_CALIBRATION_SCALE,
   CONE_ANGLE: Math.PI / 3,
 
+  SOUND_WAVES_FONT_SIZE: 14,
+
   // Checkboxes and radio buttons in the control panel need extended maxWidth, see https://github.com/phetsims/wave-interference/issues/440
-  CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS: { maxWidth: 140 },
+  CONTROL_PANEL_TEXT_MAX_WIDTH: 140,
 
   MAJOR_TICK_LENGTH: 12,
   THUMB_SIZE: new Dimension2( 13, 22 ),

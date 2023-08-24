@@ -32,7 +32,7 @@ export default class MeasureView extends SoundScreenView {
       listener: () => {
         model.clearWaves();
       },
-      content: new Text( SoundWavesStrings.measure.clearWavesStringProperty, { maxWidth: 180 } ),
+      content: new Text( SoundWavesStrings.measure.clearWavesStringProperty, { fontSize: SoundWavesConstants.SOUND_WAVES_FONT_SIZE, maxWidth: 180 } ),
       centerX: this.controlPanel.centerX,
       top: this.controlPanel.bottom + SoundWavesConstants.CONTROL_PANEL_SPACING
     } );

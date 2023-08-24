@@ -30,13 +30,13 @@ export default class SoundModeControlPanel extends SoundPanel {
       yMargin: 4
     }, providedOptions );
 
-    const boxText = new Text( SoundWavesStrings.soundModeControlPanel.titleStringProperty );
+    const boxText = new Text( SoundWavesStrings.soundModeControlPanel.titleStringProperty, { fontSize: SoundWavesConstants.SOUND_WAVES_FONT_SIZE } );
 
     const radioButtons = new VerticalAquaRadioButtonGroup<'CONTINUOUS' | 'PULSE'>( model.soundModeProperty, [ {
-      createNode: () => new Text( SoundWavesStrings.soundModeControlPanel.continuousStringProperty, SoundWavesConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
+      createNode: () => new Text( SoundWavesStrings.soundModeControlPanel.continuousStringProperty, { maxWidth: SoundWavesConstants.CONTROL_PANEL_TEXT_MAX_WIDTH, fontSize: SoundWavesConstants.SOUND_WAVES_FONT_SIZE } ),
       value: 'CONTINUOUS'
     }, {
-      createNode: () => new Text( SoundWavesStrings.soundModeControlPanel.pulseStringProperty, SoundWavesConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
+      createNode: () => new Text( SoundWavesStrings.soundModeControlPanel.pulseStringProperty, { maxWidth: SoundWavesConstants.CONTROL_PANEL_TEXT_MAX_WIDTH, fontSize: SoundWavesConstants.SOUND_WAVES_FONT_SIZE } ),
       value: 'PULSE'
     } ], {
       spacing: options.yMargin
@@ -46,7 +46,7 @@ export default class SoundModeControlPanel extends SoundPanel {
     radioButtons.top = boxText.bottom + SoundWavesConstants.CONTROL_PANEL_SPACING;
 
     const firePulseButton = new RectangularPushButton( {
-      content: new Text( SoundWavesStrings.soundModeControlPanel.firePulseStringProperty ),
+      content: new Text( SoundWavesStrings.soundModeControlPanel.firePulseStringProperty, { fontSize: SoundWavesConstants.SOUND_WAVES_FONT_SIZE } ),
       listener: () => model.startPulse()
     } );
 

@@ -17,7 +17,7 @@ import generalSoftClickSoundPlayer from '../../../../tambo/js/shared-sound-playe
 import soundWaves from '../../soundWaves.js';
 import SoundWavesConstants from '../SoundWavesConstants.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
-import { SceneryEvent, Text } from '../../../../scenery/js/imports.js';
+import { SceneryEvent } from '../../../../scenery/js/imports.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 
 // constants

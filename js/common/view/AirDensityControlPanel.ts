@@ -24,31 +24,29 @@ export default class AirDensityControlPanel extends SoundPanel {
 
   public constructor( model: PressureModel, alignGroup: AlignGroup, providedOptions?: AirDensityControlPanelOptions ) {
     const options = optionize<AirDensityControlPanelOptions, SelfOptions, SoundPanelOptions>()( {
-      maxWidth: SoundWavesConstants.PANEL_MAX_WIDTH,
+      maxWidth: SoundWavesConstants.PANEL_MAX_WIDTH - 15,
       yMargin: 4
     }, providedOptions );
 
     const resetButton = new RectangularPushButton( {
-      content: new Text( SoundWavesStrings.airDensityControlPanel.resetStringProperty ),
+      content: new Text( SoundWavesStrings.airDensityControlPanel.resetStringProperty, { fontSize: SoundWavesConstants.SOUND_WAVES_FONT_SIZE } ),
       listener: () => {
         model.pressureProperty.set( 1 );
       }
     } );
 
-    const airPressureContol = new PropertyControlSlider( SoundWavesStrings.airDensityControlPanel.titleStringProperty, model.pressureProperty );
+    const airPressureControl = new PropertyControlSlider( SoundWavesStrings.airDensityControlPanel.titleStringProperty, model.pressureProperty, { maxWidth: SoundWavesConstants.PANEL_MAX_WIDTH } );
 
     const container = new VBox( {
       spacing: 6,
       children: [
-        airPressureContol,
+        airPressureControl,
         resetButton
-      ]
+      ],
+      maxWidth: SoundWavesConstants.PANEL_MAX_WIDTH
     } );
 
-    const content = alignGroup.createBox( container );
-    content.setXAlign( 'center' );
-
-    super( content, options );
+    super( container, options );
   }
 }
 

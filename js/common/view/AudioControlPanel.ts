@@ -27,10 +27,10 @@ export default class AudioControlPanel extends SoundPanel {
       yMargin: 4
     }, providedOptions );
 
-    const boxText = new Text( SoundWavesStrings.audioControlPanel.titleStringProperty );
+    const boxText = new Text( SoundWavesStrings.audioControlPanel.titleStringProperty, { fontSize: SoundWavesConstants.SOUND_WAVES_FONT_SIZE } );
     const graphCheckbox = new Checkbox(
       model.isAudioEnabledProperty,
-      new Text( SoundWavesStrings.audioControlPanel.audioEnabledStringProperty, SoundWavesConstants.CONTROL_PANEL_TEXT_MAX_WIDTH_OPTIONS ),
+      new Text( SoundWavesStrings.audioControlPanel.audioEnabledStringProperty, { maxWidth: SoundWavesConstants.CONTROL_PANEL_TEXT_MAX_WIDTH, fontSize: SoundWavesConstants.SOUND_WAVES_FONT_SIZE } ),
       {
         boxWidth: 15
       } );
