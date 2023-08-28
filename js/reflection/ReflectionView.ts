@@ -65,14 +65,14 @@ export default class ReflectionView extends SoundScreenView {
       top: this.controlPanel.bottom + SoundWavesConstants.CONTROL_PANEL_SPACING
     } );
 
-    this.addChild( this.reflectionControlPanel );
+    this.controlPanelContainer.addChild( this.reflectionControlPanel );
 
     this.soundModeControlPanel.mutate( {
       right: this.layoutBounds.maxX - SoundWavesConstants.SCREEN_VIEW_X_MARGIN,
       top: this.reflectionControlPanel.bottom + SoundWavesConstants.CONTROL_PANEL_SPACING
     } );
 
-    this.addChild( this.soundModeControlPanel );
+    this.controlPanelContainer.addChild( this.soundModeControlPanel );
   }
 }
 

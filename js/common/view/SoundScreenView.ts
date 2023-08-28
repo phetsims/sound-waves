@@ -11,7 +11,7 @@ import ScreenView from '../../../../joist/js/ScreenView.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import GaugeNode from '../../../../scenery-phet/js/GaugeNode.js';
 import TimeControlNode from '../../../../scenery-phet/js/TimeControlNode.js';
-import { AlignGroup, Rectangle, Text, Color } from '../../../../scenery/js/imports.js';
+import { AlignGroup, Rectangle, Text, Color, VBox } from '../../../../scenery/js/imports.js';
 import soundManager from '../../../../tambo/js/soundManager.js';
 import WaveGenerator from '../../../../tambo/js/sound-generators/WaveGenerator.js';
 import SoundWavesConstants from '../SoundWavesConstants.js';
@@ -31,6 +31,9 @@ const GAUGE_SPACING_X = 8;
 const GAUGE_SPACING_Y = 16;
 
 export default class SoundScreenView extends ScreenView {
+
+  // container VBox for the control panels
+  protected readonly controlPanelContainer: VBox;
 
   // aligns the control panels
   public readonly contolPanelAlignGroup: AlignGroup;
@@ -79,28 +82,26 @@ export default class SoundScreenView extends ScreenView {
 
     this.addChild( this.canvasNode );
 
+    this.controlPanelContainer = new VBox( { spacing: SoundWavesConstants.CONTROL_PANEL_SPACING } );
+    this.addChild( this.controlPanelContainer );
+
     this.contolPanelAlignGroup = new AlignGroup( {
       matchVertical: false
     } );
 
     this.controlPanel = new SoundControlPanel( model, this.contolPanelAlignGroup );
 
-    this.controlPanel.mutate( {
+    this.controlPanelContainer.addChild( this.controlPanel );
+
+    this.controlPanelContainer.mutate( {
       right: this.layoutBounds.maxX - SoundWavesConstants.SCREEN_VIEW_X_MARGIN,
       top: SoundWavesConstants.CONTROL_PANEL_MARGIN + SoundWavesConstants.CONTROL_PANEL_SPACING + 17
     } );
 
-    this.addChild( this.controlPanel );
-
     if ( model.showAudioControls ) {
       this.audioControlPanel = new AudioControlPanel( model, this.contolPanelAlignGroup );
 
-      this.audioControlPanel.mutate( {
-        right: this.layoutBounds.maxX - SoundWavesConstants.SCREEN_VIEW_X_MARGIN,
-        top: this.controlPanel.bottom + SoundWavesConstants.CONTROL_PANEL_SPACING
-      } );
-
-      this.addChild( this.audioControlPanel );
+      this.controlPanelContainer.addChild( this.audioControlPanel );
 
       // Amplitude of the hearable tone
       const soundAmplitudeProperty = new NumberProperty( 0 );
@@ -110,7 +111,7 @@ export default class SoundScreenView extends ScreenView {
         const minListenerDistance = model.audioControlSettingProperty && model.audioControlSettingProperty.value === 'LISTENER' ? Math.abs( SoundWavesConstants.LISTENER_BOUNDS_X.min - model.speaker1Position.x ) : 1;
         const listenerDistance = model.audioControlSettingProperty && model.audioControlSettingProperty.value === 'LISTENER' ? Math.abs( model.listenerPositionProperty!.value.x - model.speaker1Position.x ) : 1;
         const distanceDampening = model.audioControlSettingProperty && model.audioControlSettingProperty.value === 'LISTENER' ?
-                                   Math.pow( minListenerDistance / listenerDistance, 2 ) : 1;
+                                  Math.pow( minListenerDistance / listenerDistance, 2 ) : 1;
         const pressureDampening = model.pressureProperty ? model.pressureProperty.value : 1;
         soundAmplitudeProperty.set( distanceDampening * pressureDampening * model.interferenceAmplitudeFactorProperty.value * model.amplitudeProperty.value );
       };

@@ -35,7 +35,7 @@ export default class PressureView extends SoundScreenView {
       top: this.audioControlPanel!.bottom + SoundWavesConstants.CONTROL_PANEL_SPACING
     } );
 
-    this.addChild( this.pressureControlPanel );
+    this.controlPanelContainer.addChild( this.pressureControlPanel );
   }
 }
 

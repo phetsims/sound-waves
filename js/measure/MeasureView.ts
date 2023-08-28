@@ -42,7 +42,7 @@ export default class MeasureView extends SoundScreenView {
       clearButton.centerX = this.controlPanel.centerX;
     } );
 
-    this.addChild( clearButton );
+    this.controlPanelContainer.addChild( clearButton );
 
     const rulerLength = model.modelViewTransform!.modelToViewDeltaX( 500 );
     const rulerHeight = 50;
