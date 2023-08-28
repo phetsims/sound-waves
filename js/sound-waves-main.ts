@@ -39,13 +39,12 @@ simLauncher.launch( () => {
   ], {
 
     credits: {
-      leadDesign: 'Amy Rouinfar, Matthew Blackman',
-      softwareDevelopment: 'Piet Goris, Sam Reid, Matthew Blackman',
-      team: 'Amy Rouinfar, Matthew Blackman',
-      qualityAssurance: 'Katie Woessner',
+      leadDesign: 'Kathy Perkins, Carl Wieman',
+      softwareDevelopment: 'Matthew Blackman, Piet Goris, Ron LeMaster, Sam Reid',
+      team: 'Wendy Adams, Matthew Blackman, Danielle Harlow, Amy Rouinfar',
+      qualityAssurance: 'Jaron Droder, Nancy Salpepi, Katie Woessner',
       graphicArts: 'Mariah Hermsmeyer',
-      soundDesign: 'Piet Goris, Sam Reid, Matthew Blackman',
-      thanks: 'Piet Goris'
+      thanks: 'Jan Willems, University of Leuven, for supporting the conversion of this simulation from Java to HTML5.'
     }
   } );
 
