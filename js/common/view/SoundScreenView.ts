@@ -176,8 +176,8 @@ export default class SoundScreenView extends ScreenView {
       gauge.bottom = speakerCenter.y - boxSizeY / 2;
 
       const labelFontSize = 12;
-      const oneText = new Text( SoundWavesStrings.oneStringProperty, { fontSize: labelFontSize } );
-      const zeroText = new Text( SoundWavesStrings.zeroStringProperty, { fontSize: labelFontSize } );
+      const oneText = new Text( SoundWavesStrings.oneStringProperty, { fontSize: labelFontSize, maxWidth: 40 } );
+      const zeroText = new Text( SoundWavesStrings.zeroStringProperty, { fontSize: labelFontSize, maxWidth: 40 } );
 
       oneText.centerY = gauge.centerY + GAUGE_SPACING_Y;
       zeroText.centerY = gauge.centerY + GAUGE_SPACING_Y;
