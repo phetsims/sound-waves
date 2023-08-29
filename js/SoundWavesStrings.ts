@@ -23,6 +23,8 @@ type StringsType = {
     'clearWavesStringProperty': LocalizedStringProperty;
   };
   'atmStringProperty': LocalizedStringProperty;
+  'zeroStringProperty': LocalizedStringProperty;
+  'oneStringProperty': LocalizedStringProperty;
   'hzPatternStringProperty': LocalizedStringProperty;
   'audioControlPanel': {
     'titleStringProperty': LocalizedStringProperty;

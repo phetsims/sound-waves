@@ -167,15 +167,17 @@ export default class SoundScreenView extends ScreenView {
       // Pressure gauge.
       const gauge = new GaugeNode( model.pressureProperty, SoundWavesStrings.atmStringProperty, model.pressureProperty.range,
         {
-          titleFontSize: 28
+          labelTextOptions: {
+            fontSize: 28
+          }
         } );
       gauge.centerX = speakerCenter.x;
       gauge.scale( 0.4 );
       gauge.bottom = speakerCenter.y - boxSizeY / 2;
 
       const labelFontSize = 12;
-      const oneText = new Text( '1.0', { fontSize: labelFontSize } );
-      const zeroText = new Text( '0.0', { fontSize: labelFontSize } );
+      const oneText = new Text( SoundWavesStrings.oneStringProperty, { fontSize: labelFontSize } );
+      const zeroText = new Text( SoundWavesStrings.zeroStringProperty, { fontSize: labelFontSize } );
 
       oneText.centerY = gauge.centerY + GAUGE_SPACING_Y;
       zeroText.centerY = gauge.centerY + GAUGE_SPACING_Y;
