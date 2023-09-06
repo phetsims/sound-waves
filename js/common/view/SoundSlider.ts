@@ -59,6 +59,9 @@ export default class SoundSlider extends HSlider {
 
     const options = optionize<SoundSliderOptions, SelfOptions, HSliderOptions>()( {
 
+      // Reduce the touch area so that it doesn't overlap other UI components
+      thumbTouchAreaYDilation: 4,
+
       // Ticks are created for all sliders for sonification, but not shown for the Light Frequency slider
       showTicks: true,
       constrainValue: ( value: number ) => {
