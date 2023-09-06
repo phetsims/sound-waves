@@ -292,6 +292,7 @@ export default class SoundWavesModel implements TModel {
     this.interferenceAmplitudeFactorProperty.reset();
     this.timeProperty.reset();
     this.oscillatorProperty.reset();
+    this.isPulseFiringProperty.reset();
 
     this.phase = 0;
     this.stepIndex = 0;
