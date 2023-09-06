@@ -7,7 +7,7 @@
  */
 
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
-import { AlignGroup, Node } from '../../../../scenery/js/imports.js';
+import { AlignGroup, ManualConstraint, Node } from '../../../../scenery/js/imports.js';
 import SoundWavesConstants from '../SoundWavesConstants.js';
 import soundWaves from '../../soundWaves.js';
 import ReflectionModel from '../../reflection/ReflectionModel.js';
@@ -30,9 +30,6 @@ export default class ReflectionControlPanel extends SoundPanel {
     const wallPositionXControl = new PropertyControlSlider( SoundWavesStrings.reflectionControlPanel.positionSliderStringProperty, model.wallPositionXProperty );
     const wallAngleControl = new PropertyControlSlider( SoundWavesStrings.reflectionControlPanel.rotationSliderStringProperty, model.wallAngleProperty );
 
-    const centerX = wallPositionXControl.centerX;
-    wallAngleControl.centerX = centerX;
-
     // Vertical layout
     wallAngleControl.top = wallPositionXControl.bottom + options.yMargin;
 
@@ -46,6 +43,10 @@ export default class ReflectionControlPanel extends SoundPanel {
     const content = alignGroup.createBox( container );
 
     super( content, options );
+
+    ManualConstraint.create( this, [ wallPositionXControl, wallAngleControl ], ( wallPositionXControlProxy, wallAngleControlProxy ) => {
+      wallAngleControlProxy.centerX = wallPositionXControlProxy.centerX;
+    } );
   }
 }
 
