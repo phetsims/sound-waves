@@ -12,6 +12,7 @@ import Range from '../../../dot/js/Range.js';
 import SoundWavesConstants from '../common/SoundWavesConstants.js';
 import soundWaves from '../soundWaves.js';
 import SoundWavesModel from '../common/model/SoundWavesModel.js';
+import Multilink from '../../../axon/js/Multilink.js';
 
 export default class ReflectionModel extends SoundWavesModel {
 
@@ -40,6 +41,11 @@ export default class ReflectionModel extends SoundWavesModel {
 
     this.soundModeProperty = new Property<'CONTINUOUS' | 'PULSE'>( 'CONTINUOUS', {
       validValues: [ 'CONTINUOUS', 'PULSE' ]
+    } );
+
+    // Update the lattice if the wall position or angle are changed, so that the waves update if the sim is paused
+    Multilink.multilink( [ this.wallPositionXProperty, this.wallAngleProperty ], () => {
+      this.lattice.changedEmitter.emit();
     } );
   }
 

@@ -33,6 +33,11 @@ export default class TwoSourceModel extends SoundWavesModel {
       ( listenerPosition, speaker2Position, frequency, amplitude ) => {
         this.updateListenerSound();
       } );
+
+    // Update the lattice if speaker 2 position is changed, so that the waves update if the sim is paused
+    this.speaker2PositionProperty.link( () => {
+      this.lattice.changedEmitter.emit();
+    } );
   }
 
   private updateListenerSound(): void {
