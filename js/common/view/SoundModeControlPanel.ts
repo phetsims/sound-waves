@@ -33,10 +33,10 @@ export default class SoundModeControlPanel extends SoundPanel {
     const boxText = new Text( SoundWavesStrings.soundModeControlPanel.titleStringProperty, { fontSize: SoundWavesConstants.SOUND_WAVES_FONT_SIZE } );
 
     const radioButtons = new VerticalAquaRadioButtonGroup<'CONTINUOUS' | 'PULSE'>( model.soundModeProperty, [ {
-      createNode: () => new Text( SoundWavesStrings.soundModeControlPanel.continuousStringProperty, { maxWidth: SoundWavesConstants.CONTROL_PANEL_TEXT_MAX_WIDTH, fontSize: SoundWavesConstants.SOUND_WAVES_FONT_SIZE } ),
+      createNode: () => new Text( SoundWavesStrings.soundModeControlPanel.continuousStringProperty, { fontSize: SoundWavesConstants.SOUND_WAVES_FONT_SIZE } ),
       value: 'CONTINUOUS'
     }, {
-      createNode: () => new Text( SoundWavesStrings.soundModeControlPanel.pulseStringProperty, { maxWidth: SoundWavesConstants.CONTROL_PANEL_TEXT_MAX_WIDTH, fontSize: SoundWavesConstants.SOUND_WAVES_FONT_SIZE } ),
+      createNode: () => new Text( SoundWavesStrings.soundModeControlPanel.pulseStringProperty, { fontSize: SoundWavesConstants.SOUND_WAVES_FONT_SIZE } ),
       value: 'PULSE'
     } ], {
       spacing: options.yMargin
