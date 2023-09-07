@@ -20,8 +20,14 @@
   "atm": {
 	 "value": "ATM"
   },
-  "hz": {
-    "value": "Hz"
+  "zero": {
+    "value": "0.0"
+  },
+  "one": {
+    "value": "1.0"
+  },
+  "hzPattern": {
+    "value": "{{value}} Hz"
   },
   "screen.airPressure": {
   	"value": "Luister terwijl de luchtdruk in de speaker verandert"
@@ -61,5 +67,8 @@
   },
   "frequency": {
   	"value": "Frequentie"
+  },
+  "meters": {
+    "value": "m"
   }
 }
