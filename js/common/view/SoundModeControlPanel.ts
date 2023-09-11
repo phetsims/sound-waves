@@ -6,7 +6,7 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
-import { AlignGroup, Node, Text } from '../../../../scenery/js/imports.js';
+import { AlignGroup, Text, VBox } from '../../../../scenery/js/imports.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
 import VerticalAquaRadioButtonGroup from '../../../../sun/js/VerticalAquaRadioButtonGroup.js';
 import SoundWavesConstants from '../SoundWavesConstants.js';
@@ -42,23 +42,18 @@ export default class SoundModeControlPanel extends SoundPanel {
       spacing: options.yMargin
     } );
 
-    const container = new Node();
-    radioButtons.top = boxText.bottom + SoundWavesConstants.CONTROL_PANEL_SPACING;
-
     const firePulseButton = new RectangularPushButton( {
       content: new Text( SoundWavesStrings.soundModeControlPanel.firePulseStringProperty, { fontSize: SoundWavesConstants.SOUND_WAVES_FONT_SIZE } ),
       listener: () => model.startPulse()
     } );
 
-    firePulseButton.top = radioButtons.bottom + SoundWavesConstants.CONTROL_PANEL_SPACING;
-
-    container.children = [
-      boxText,
-      radioButtons,
-      firePulseButton
-    ];
-
-    firePulseButton.centerX = container.centerX;
+    const container = new VBox( {
+      children: [
+        boxText,
+        radioButtons,
+        firePulseButton
+      ], spacing: SoundWavesConstants.CONTROL_PANEL_SPACING
+    } );
 
     const updateEnabled = () => {
       firePulseButton.setEnabled( model.soundModeProperty.value !== 'CONTINUOUS' && !model.isPulseFiringProperty.value );
@@ -68,7 +63,7 @@ export default class SoundModeControlPanel extends SoundPanel {
     model.isPulseFiringProperty.link( updateEnabled );
 
     const content = alignGroup.createBox( container );
-    content.setXAlign( 'center' );
+    // content.setXAlign( 'center' );
 
     super( content, options );
   }
