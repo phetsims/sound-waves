@@ -3,10 +3,9 @@
 ## Waves
 
 All screens in this simulation contain speakers that will emit soundWaves waves that will propagate throughout the
-screen in
-a conical shape. When the waves propagate their intensity will decrease the further they get away from the source up
-until a certain distance, after which they fade out completely. The frequency and initial amplitude of the waves can be
-set using the sliders in the user interface.
+screen in a conical shape. When the waves propagate their intensity will decrease the further they get away from the
+source up until a certain distance, after which they fade out completely. The frequency and initial amplitude of the
+waves can be set using the sliders in the user interface.
 
 The wave areas in each screen represent an area with a width and height of 10 meter.
 
