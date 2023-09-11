@@ -1,103 +1,103 @@
 {
-  "comment": "# sound-waves 1.1.0-rc.0 Mon Sep 11 2023 08:18:27 GMT-0400 (Eastern Daylight Time)",
+  "comment": "# sound-waves 1.1.0-rc.1 Mon Sep 11 2023 08:19:38 GMT-0400 (Eastern Daylight Time)",
   "assert": {
     "sha": "341a1ea19c78e594bf5e6498ab8be75450da85c2",
-    "branch": "main"
+    "branch": "HEAD"
   },
   "axon": {
     "sha": "ae0a5ce8572e68750735176cb6c73c12e4017379",
-    "branch": "main"
+    "branch": "HEAD"
   },
   "brand": {
     "sha": "6665243e647f1b3cb4b6b3e8f28f6156389fbef4",
-    "branch": "main"
+    "branch": "HEAD"
   },
   "chipper": {
     "sha": "16c0e95ae29434a228d5023669151788eb34b3e6",
-    "branch": "main"
+    "branch": "HEAD"
   },
   "dot": {
     "sha": "bc029639caddca61baa6a21bd6fa82007be5dca5",
-    "branch": "main"
+    "branch": "HEAD"
   },
   "joist": {
     "sha": "04e14dbfd7b98207d5aa0e8ec61d5b2ed874c4b3",
-    "branch": "main"
+    "branch": "HEAD"
   },
   "kite": {
     "sha": "1ec2e9d0d0436a53345ccee3254b1f4186b1df2b",
-    "branch": "main"
+    "branch": "HEAD"
   },
   "perennial-alias": {
     "sha": "4d8ef43bc3fb037dbbfeea385030d44b9d61d2b8",
-    "branch": "main"
+    "branch": "HEAD"
   },
   "phet-core": {
     "sha": "46930c74e1a054e39de862e15028576e71d45018",
-    "branch": "main"
+    "branch": "HEAD"
   },
   "phet-io": {
     "sha": "ea551e2d2f4cc45dce6581d84a9d8b00f7d1c834",
-    "branch": "main"
+    "branch": "HEAD"
   },
   "phet-io-sim-specific": {
     "sha": "17345f300fc61a701527863e4e9cb931e4cb3675",
-    "branch": "main"
+    "branch": "HEAD"
   },
   "phet-io-wrappers": {
     "sha": "709d5c7826da7b7eb39ee0edd31c49f7485be59f",
-    "branch": "main"
+    "branch": "HEAD"
   },
   "phetcommon": {
     "sha": "ea7b12055443e4a5fd97b8d43692b1a44028ec1d",
-    "branch": "main"
+    "branch": "HEAD"
   },
   "phetmarks": {
     "sha": "2a961026c8446bfecf199ab93973fc3b99bbe330",
-    "branch": "main"
+    "branch": "HEAD"
   },
   "query-string-machine": {
     "sha": "ea4a07f631c122583b9a6f2dcaa0f7cfab907ef9",
-    "branch": "main"
+    "branch": "HEAD"
   },
   "scenery": {
     "sha": "c5eb5034b3e55fce7c1d026e9be650552e93f79f",
-    "branch": "main"
+    "branch": "HEAD"
   },
   "scenery-phet": {
     "sha": "eb84decfa52264e97ebebb95d9a2a91414a11316",
-    "branch": "main"
+    "branch": "HEAD"
   },
   "sherpa": {
     "sha": "648ba689a901c879a21ea4813ecb5bc917ad1209",
-    "branch": "main"
+    "branch": "HEAD"
   },
   "sound-waves": {
-    "sha": "95ec38574c3d33db882d78560a852e68e3125f3d",
+    "sha": "75c0682614784bc7441c23e4834668b7218f4951",
     "branch": "1.1"
   },
   "studio": {
     "sha": "f85e412625adbd7e2c1eb5abcde95d6de18b5a39",
-    "branch": "main"
+    "branch": "HEAD"
   },
   "sun": {
     "sha": "8f00e7ad6e2c0cd72ff848493fde0bc7a087cd8a",
-    "branch": "main"
+    "branch": "HEAD"
   },
   "tambo": {
     "sha": "bc37788523cf4a8e1de81a01f95fd9f5616030f5",
-    "branch": "main"
+    "branch": "HEAD"
   },
   "tandem": {
     "sha": "681e14c5d8634f445eef1f38b8979cad3d82a626",
-    "branch": "main"
+    "branch": "HEAD"
   },
   "twixt": {
     "sha": "01565e031c08e72c685d2887875dd866daa99cda",
-    "branch": "main"
+    "branch": "HEAD"
   },
   "utterance-queue": {
     "sha": "bab67ea6941f7862db5037d6f6e189a53c3401d1",
-    "branch": "main"
+    "branch": "HEAD"
   }
 }
