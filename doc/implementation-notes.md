@@ -1,7 +1,7 @@
 # Sound - implementation notes
 
-This document contains notes related to the implementation of Sound. The audience for this document is
-software developers who are familiar with JavaScript and PhET simulation development, as described in
+This document contains notes related to the implementation of Sound. The audience for this document is software
+developers who are familiar with JavaScript and PhET simulation development, as described in
 [PhET Development Overview](https://github.com/phetsims/phet-info/blob/main/doc/phet-development-overview.md).
 
 Before reading this document, see [model.md](https://github.com/phetsims/wave-interference/blob/main/doc/model.md),
@@ -33,9 +33,9 @@ pattern. The base classes for these are the SoundModel and SoundScreenView class
 
 ## SoundModel
 
-The SoundModel class contains the data for a screen.
-The base model is responsible for owning the waves lattice, the properties shared among all models (e.g.
-frequencyProperty & amplitudeProperty), generating the waves and advancing the timestep.
+The SoundModel class contains the data for a screen. The base model is responsible for owning the waves lattice, the
+properties shared among all models (e.g. frequencyProperty & amplitudeProperty), generating the waves and advancing the
+timestep.
 
 ### Lattice
 
@@ -47,10 +47,9 @@ resolution and to allow larger padding areas for reflection.
 ### TemporalMask
 
 This component is adapted from
-the [TemporalMask](https://github.com/phetsims/wave-interference/blob/main/js/common/model/TemporalMask.js) component
-in wave-interference. It is responsible for clearing waves from the screen that can't belong to a source.
-It is adapted so that it makes all waves that don't fall within the cone invisible, it also makes invisible all waves
-behind the wall.
+the [TemporalMask](https://github.com/phetsims/wave-interference/blob/main/js/common/model/TemporalMask.js) component in
+wave-interference. It is responsible for clearing waves from the screen that can't belong to a source. It is adapted so
+that it makes all waves that don't fall within the cone invisible, it also makes invisible all waves behind the wall.
 The ```matches``` function was modified so that it returns the distance from the original source, this is needed for the
 dampening.
 
@@ -106,7 +105,6 @@ this.latticeToViewTransform = ...;
 
 We run the physics on a finite discrete lattice, but must match up with the correct values (frequency, wavelength and
 wave speed) for each screen. The calibration value of the soundWaves scenes for the wave-interference simulation is used
-but
-adapted for the new screen size:
+but adapted for the new screen size:
 
 ```const correction = 2.4187847116091334 * SoundWavesConstants.WAVE_AREA_WIDTH / 500;```
