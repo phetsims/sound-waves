@@ -1,11 +1,29 @@
-﻿Sound
+Sound Waves
 =============
-"Sound" is a HTML5 conversion of the educational
-simulation [Sound](https://phet.colorado.edu/en/simulation/legacy/soundWaves) written in JAVA,
-by <a href="https://phet.colorado.edu/" target="_blank">PhET Interactive Simulations</a>
+"Sound Waves" is an educational simulation in HTML5, by <a href="https://phet.colorado.edu/" target="_blank">PhET
+Interactive Simulations</a>
 at the University of Colorado Boulder.
+For a description of this simulation, associated resources, and a link to the published version,
+<a href="https://phet.colorado.edu/en/simulation/sound-waves" target="_blank">visit the simulation's web page</a>.
 
-### Getting started
+### Try it!
+
+<a href="https://phet.colorado.edu/sims/html/sound-waves/latest/sound-waves_en.html" target="_blank">Click here to
+run "Sound Waves".</a>
+
+<a href="https://phet.colorado.edu/sims/html/sound-waves/latest/sound-waves_en.html" target="_blank">
+<img src="https://raw.githubusercontent.com/phetsims/sound-waves/main/assets/sound-waves-screenshot.png" alt="Screenshot" style="width: 400px;"/>
+</a>
+
+### Documentation
+
+The <a href="https://github.com/phetsims/phet-info/blob/main/doc/phet-development-overview.md" target="_blank">PhET
+Development Overview</a> is the most complete guide to PhET Simulation
+Development. This guide includes how to obtain simulation code and its dependencies, notes about architecture & design,
+how to test and build
+the sims, as well as other important information.
+
+### Quick Start
 
 (1) Clone the simulation and its dependencies:
 
@@ -18,86 +36,62 @@ git clone https://github.com/phetsims/chipper.git
 git clone https://github.com/phetsims/dot.git
 git clone https://github.com/phetsims/joist.git
 git clone https://github.com/phetsims/kite.git
+git clone https://github.com/phetsims/perennial.git perennial-alias
 git clone https://github.com/phetsims/phet-core.git
 git clone https://github.com/phetsims/phetcommon.git
 git clone https://github.com/phetsims/phetmarks.git
-git clone https://github.com/phetsims/perennial.git
 git clone https://github.com/phetsims/query-string-machine.git
 git clone https://github.com/phetsims/scenery.git
 git clone https://github.com/phetsims/scenery-phet.git
 git clone https://github.com/phetsims/sherpa.git
+git clone https://github.com/phetsims/sound-waves.git
 git clone https://github.com/phetsims/sun.git
 git clone https://github.com/phetsims/tambo.git
 git clone https://github.com/phetsims/tandem.git
+git clone https://github.com/phetsims/twixt.git
 git clone https://github.com/phetsims/utterance-queue.git
-git clone https://github.com/phetsims/wave-interference.git
 ```
 
-(2) Make sure node and npm are installed.
-
-(3) Rename the soundWaves project folder to ```soundWaves```
-
-(4) Run the following commands:
-
-In the soundWaves project folder:
+(2) Install dev dependencies:
 
 ```
+cd chipper
 npm install
-npm prune
-npm update
-npm install grunt-cli -g
+cd ../perennial-alias
+npm install
+cd ../sound-waves
+npm install
 ```
 
-In the chipper folder:
+(3) Change directory to chipper `cd ../chipper/`, then transpile the code to JavaScript by
+running `node js/scripts/transpile.js --watch`. This starts a file-watching process
+that will automatically transpile new or changed files.
 
-```
-npm update
-```
+(4) In a new terminal/command prompt, start an http-server
 
-### Building
+(5) Open in the browser: `http://localhost/sound-waves/sound-waves_en.html` (You will probably need to modify this
+URL based on your HTTP port and relative path.)
 
-To build the code, run
+#### Optional: Build the simulation into a single file
 
-```grunt build```
+(1) Change directory to the simulation directory: `cd ../sound-waves`
 
-in the soundWaves project folder.
+(2) Build the sim: `grunt --brands=adapted-from-phet`. It is safe to ignore warnings
+like `>> WARNING404: Skipping potentially non-public dependency`,
+which indicate that non-public PhET-iO code is not being included in the build.
 
-### Building the dutch version:
+(3) Open in the
+browser: `http://localhost/sound-waves/build/adapted-from-phet/sound-waves_en_adapted-from-phet.html` (You will
+probably need to modify this URL based on your HTTP port and relative path.)
 
-Copy the ```soundWaves-strings-nl.json``` file to ```/babel/soundWaves```
+### Get Involved
 
-Then run:
+Contact us at our Google
+Group: <a href="http://groups.google.com/forum/#!forum/developing-interactive-simulations-in-html5" target="_blank">
+Developing Interactive Simulations in HTML5</a>
 
-```grunt build --locales=nl```
-
-The built html file will be stored in the ```/build/adapted-from-phet folder```.
-
-### Development
-
-The <a href="https://github.com/phetsims/phet-info/blob/main/doc/phet-development-overview.md" target="_blank">PhET
-Development Overview</a> is the most complete guide to PhET Simulation
-Development. This guide includes how to obtain simulation code and its dependencies, notes about architecture & design,
-how to test and build
-the sims, as well as other important information.
-
-### Setting up for development
-
-(1) In the root folder for the project install http-server:
-
-```npm install http-server -g```
-
-(2) Prevent package.lock files from being created:
-
-```npm config set save false```
-
-(3) Start the server:
-
-```http-server -c-1```
-
-(4) Navigate to  ```http://localhost:8080/soundWaves/sound_en.html```
-
-This shòuld run the simulation, and should update when the code gets updated.
+Help us improve, create a <a href="http://github.com/phetsims/sound-waves/issues/new" target="_blank">New Issue</a>
 
 ### License
 
-See the <a href="https://github.com/phetsims/soundWaves/blob/main/LICENSE" target="_blank">LICENSE</a>
+See the <a href="https://github.com/phetsims/sound-waves/blob/main/LICENSE" target="_blank">LICENSE</a>
