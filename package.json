@@ -28,7 +28,8 @@
       "SOUND_WAVES/screen.twoSource",
       "SOUND_WAVES/screen.reflection",
       "SOUND_WAVES/screen.airPressure"
-    ]
+    ],
+    "published": true
   },
   "eslintConfig": {
     "extends": "../chipper/eslint/sim_eslintrc.js",
