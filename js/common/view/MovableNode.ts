@@ -30,10 +30,10 @@ export default class MovableNode extends Node {
       this.y = viewPosition.y;
     } );
 
-    // TODO: Upgraded from another listener type
+    // TODO: Upgraded from another listener type https://github.com/phetsims/tasks/issues/1129
     this.movableDragHandler = new DragListener( {
       positionProperty: positionProperty,
-      dragBoundsProperty: new Property( dragBounds ), // TODO
+      dragBoundsProperty: new Property( dragBounds ), // TODO https://github.com/phetsims/tasks/issues/1129
       transform: modelViewTransform,
       useParentOffset: true
     } );

@@ -15,7 +15,7 @@ import Multilink from '../../../axon/js/Multilink.js';
 
 export default class TwoSourceModel extends SoundWavesModel {
 
-  // TODO: This appears elsewhere
+  // TODO: This appears elsewhere https://github.com/phetsims/tasks/issues/1129
   public readonly listenerPositionProperty: Vector2Property;
   public readonly speaker2PositionProperty: Vector2Property;
 
