@@ -40,8 +40,8 @@ simLauncher.launch( () => {
 
     credits: {
       leadDesign: 'Kathy Perkins, Carl Wieman',
-      softwareDevelopment: 'Matthew Blackman, Piet Goris, Ron LeMaster, Sam Reid',
-      team: 'Wendy Adams, Matthew Blackman, Danielle Harlow, Amy Rouinfar',
+      softwareDevelopment: 'Piet Goris (KU Leuven), Matthew Blackman, Sam Reid',
+      team: 'Matthew Blackman, Ariel Paul, Amy Rouinfar',
       qualityAssurance: 'Jaron Droder, Nancy Salpepi, Katie Woessner',
       graphicArts: 'Mariah Hermsmeyer',
       thanks: 'Jan Willems, University of Leuven, for supporting the conversion of this simulation from Java to HTML5.'
