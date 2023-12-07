@@ -1,5 +1,5 @@
 {
-  "comment": "# sound-waves 1.1.1 Fri Sep 29 2023 11:12:02 GMT-0400 (Eastern Daylight Time)",
+  "comment": "# sound-waves 1.1.2-rc.1 Thu Dec 07 2023 15:27:55 GMT-0700 (Mountain Standard Time)",
   "assert": {
     "sha": "341a1ea19c78e594bf5e6498ab8be75450da85c2",
     "branch": "HEAD"
@@ -73,7 +73,7 @@
     "branch": "HEAD"
   },
   "sound-waves": {
-    "sha": "484308ef41c372f9cd26bd2a6036fa1b887b8957",
+    "sha": "ce79b3e4404331837678d1744ed8104f28001ef0",
     "branch": "1.1"
   },
   "studio": {
