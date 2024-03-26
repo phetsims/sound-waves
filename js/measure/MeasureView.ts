@@ -10,10 +10,6 @@ import Vector2 from '../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../phetcommon/js/view/ModelViewTransform2.js';
 import RulerNode from '../../../scenery-phet/js/RulerNode.js';
 import StopwatchNode from '../../../scenery-phet/js/StopwatchNode.js';
-import SoundClip from '../../../tambo/js/sound-generators/SoundClip.js';
-import soundManager from '../../../tambo/js/soundManager.js';
-import grab_mp3 from '../../../tambo/sounds/grab_mp3.js';
-import release_mp3 from '../../../tambo/sounds/release_mp3.js';
 import MovableNode from '../common/view/MovableNode.js';
 import soundWaves from '../soundWaves.js';
 import MeasureModel from '../measure/MeasureModel.js';
@@ -54,13 +50,6 @@ export default class MeasureView extends SoundScreenView {
       majorTickLabels[ i ] = ( i % 2 === 0 ) ? ( i / 2 ).toString() : '';
     }
 
-    const soundClipOptions = { initialOutputLevel: 0.4 };
-    const grabSound = new SoundClip( grab_mp3, soundClipOptions );
-    soundManager.addSoundGenerator( grabSound, { categoryName: 'user-interface' } );
-
-    const releaseSound = new SoundClip( release_mp3, soundClipOptions );
-    soundManager.addSoundGenerator( releaseSound, { categoryName: 'user-interface' } );
-
     // Ruler
     const rulerInsetsWidth = 60;
     const rulerNode = new RulerNode( rulerLength, 50, majorTickMarkWidth, majorTickLabels, SoundWavesStrings.metersStringProperty, {
@@ -83,14 +72,6 @@ export default class MeasureView extends SoundScreenView {
       dragBoundsProperty: this.visibleBoundsProperty,
       numberDisplayOptions: {
         numberFormatter: createFormatter( 'ms' )
-      },
-      dragListenerOptions: {
-        start: () => {
-          grabSound.play();
-        },
-        end: () => {
-          releaseSound.play();
-        }
       }
     } );
 
