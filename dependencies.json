@@ -41,7 +41,7 @@
     "branch": "HEAD"
   },
   "phet-io-sim-specific": {
-    "sha": "17345f300fc61a701527863e4e9cb931e4cb3675",
+    "sha": "0960c070b377f92b61fad4e122b4b72703a9d3d4",
     "branch": "HEAD"
   },
   "phet-io-wrappers": {
@@ -73,7 +73,7 @@
     "branch": "HEAD"
   },
   "sound-waves": {
-    "sha": "114cbc04a379582c1dc860d0db4cc2bb7fe245b3",
+    "sha": "10f7c1f87fb6ab0a033c26ed6131f96b7583e1dd",
     "branch": "1.1"
   },
   "studio": {
