@@ -13,7 +13,7 @@
     "branch": "HEAD"
   },
   "chipper": {
-    "sha": "7b448cd78b9c8453c7d12cca008ceebaeb658c48",
+    "sha": "cade895ca78fe6a730ed83d49ac683fc24ab6665",
     "branch": "HEAD"
   },
   "dot": {
@@ -73,7 +73,7 @@
     "branch": "HEAD"
   },
   "sound-waves": {
-    "sha": "e4f885cd5112610fefac4883c93e753a3c958bcb",
+    "sha": "b97e0512b49beec5ce7faf6ca2eedbf4e35479eb",
     "branch": "1.1"
   },
   "studio": {
