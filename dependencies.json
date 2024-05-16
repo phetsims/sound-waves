@@ -1,5 +1,5 @@
 {
-  "comment": "# sound-waves 1.1.5 Wed Apr 03 2024 11:44:45 GMT-0600 (Mountain Daylight Time)",
+  "comment": "# sound-waves 1.1.6-rc.1 Thu May 16 2024 10:16:45 GMT-0600 (Mountain Daylight Time)",
   "assert": {
     "sha": "341a1ea19c78e594bf5e6498ab8be75450da85c2",
     "branch": "HEAD"
@@ -73,7 +73,7 @@
     "branch": "HEAD"
   },
   "sound-waves": {
-    "sha": "0a80b5e9590b2622fb0c33f131d6f4d37263c97d",
+    "sha": "dba59daf3d0481229c28a1c1b27103c1f053359f",
     "branch": "1.1"
   },
   "studio": {
