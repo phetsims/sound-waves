@@ -10,15 +10,13 @@
 
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Utils from '../../../../dot/js/Utils.js';
-import merge from '../../../../phet-core/js/merge.js';
 import HSlider, { HSliderOptions } from '../../../../sun/js/HSlider.js';
-import generalBoundaryBoopSoundPlayer from '../../../../tambo/js/shared-sound-players/generalBoundaryBoopSoundPlayer.js';
-import generalSoftClickSoundPlayer from '../../../../tambo/js/shared-sound-players/generalSoftClickSoundPlayer.js';
 import soundWaves from '../../soundWaves.js';
 import SoundWavesConstants from '../SoundWavesConstants.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import { SceneryEvent } from '../../../../scenery/js/imports.js';
 import optionize from '../../../../phet-core/js/optionize.js';
+import sharedSoundPlayers from '../../../../tambo/js/sharedSoundPlayers.js';
 
 // constants
 const MIN_INTER_CLICK_TIME = ( 1 / 60 * 1000 ) * 2; // min time between clicks, in milliseconds, empirically determined
@@ -36,7 +34,7 @@ export default class SoundSlider extends HSlider {
 
   /**
    * @param {NumberProperty} property
-   * @param {Object} [options]
+   * @param {Object} [providedOptions]
    */
   constructor( property: NumberProperty, providedOptions?: SoundSliderOptions ) {
 
@@ -56,6 +54,10 @@ export default class SoundSlider extends HSlider {
 
     // Keep track of the last time a sound was played so that we don't play too often
     let timeOfLastClick = 0;
+
+    // for sound generation
+    const generalBoundaryBoopSoundPlayer = sharedSoundPlayers.get( 'generalBoundaryBoop' );
+    const generalSoftClickSoundPlayer = sharedSoundPlayers.get( 'generalSoftClick' );
 
     const options = optionize<SoundSliderOptions, SelfOptions, HSliderOptions>()( {
 
