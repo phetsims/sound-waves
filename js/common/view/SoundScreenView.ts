@@ -24,6 +24,7 @@ import SoundWavesStrings from '../../SoundWavesStrings.js';
 import SoundWavesModel from '../model/SoundWavesModel.js';
 import Tandem from '../../../../tandem/js/Tandem.js';
 import Property from '../../../../axon/js/Property.js';
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 
 // constants
 const WAVE_MARGIN = 8; // Additional margin shown around the wave lattice
@@ -130,17 +131,14 @@ export default class SoundScreenView extends ScreenView {
 
       const sineWavePlayer = new WaveGenerator(
         model.frequencyProperty,
-        soundAmplitudeProperty, {
-          enableControlProperties: [
-            model.isAudioEnabledProperty,
-            model.isRunningProperty
-          ]
-        } );
+        soundAmplitudeProperty,
+        {
+          enabledProperty: DerivedProperty.and( [ model.isAudioEnabledProperty, model.isRunningProperty ] ),
+          associatedViewNode: this // Suppress the tone when another screen is selected.
+        }
+      );
 
-      // Suppress the tone when another screen is selected
-      soundManager.addSoundGenerator( sineWavePlayer, {
-        associatedViewNode: this
-      } );
+      soundManager.addSoundGenerator( sineWavePlayer );
     }
 
     // Passes the bounds of the canvas to the model for use in its modelViewTranforms
