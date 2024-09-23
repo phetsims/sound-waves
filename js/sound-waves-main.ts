@@ -14,18 +14,18 @@ import pressureIcon_png from '../images/pressureIcon_png.js';
 import reflectionIcon_png from '../images/reflectionIcon_png.js';
 import singleSourceIcon_png from '../images/singleSourceIcon_png.js';
 import twoSourceIcon_png from '../images/twoSourceIcon_png.js';
-import MeasureModel from './measure/MeasureModel.js';
 import PressureModel from './air-pressure/PressureModel.js';
-import ReflectionModel from './reflection/ReflectionModel.js';
-import IntroModel from './intro/IntroModel.js';
-import TwoSourceModel from './two-sources/TwoSourceModel.js';
-import SoundWavesScreen from './common/SoundWavesScreen.js';
-import MeasureView from './measure/MeasureView.js';
 import PressureView from './air-pressure/PressureView.js';
-import ReflectionView from './reflection/ReflectionView.js';
+import SoundWavesScreen from './common/SoundWavesScreen.js';
+import IntroModel from './intro/IntroModel.js';
 import IntroView from './intro/IntroView.js';
-import TwoSourceView from './two-sources/TwoSourceView.js';
+import MeasureModel from './measure/MeasureModel.js';
+import MeasureView from './measure/MeasureView.js';
+import ReflectionModel from './reflection/ReflectionModel.js';
+import ReflectionView from './reflection/ReflectionView.js';
 import SoundWavesStrings from './SoundWavesStrings.js';
+import TwoSourceModel from './two-sources/TwoSourceModel.js';
+import TwoSourceView from './two-sources/TwoSourceView.js';
 
 // launch the sim - beware that scenery Image nodes created outside of simLauncher.launch() will have zero bounds
 // until the images are fully loaded, see https://github.com/phetsims/coulombs-law/issues/70
