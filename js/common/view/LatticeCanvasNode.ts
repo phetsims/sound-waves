@@ -1,4 +1,4 @@
-// Copyright 2022-2023, University of Colorado Boulder
+// Copyright 2022-2024, University of Colorado Boulder
 /**
  * Renders the main area of the lattice (doesn't include the damping regions) using 2d canvas.
  * Allows for wall reflection and an extra source. Also can dampen the waves to be within a certain area.
