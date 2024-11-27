@@ -6,16 +6,16 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
+import PhetioProperty from '../../../axon/js/PhetioProperty.js';
 import Dimension2 from '../../../dot/js/Dimension2.js';
 import Screen, { ScreenOptions } from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
-import SoundWavesColors from './SoundWavesColors.js';
-import soundWaves from '../soundWaves.js';
 import { Node } from '../../../scenery/js/imports.js';
-import SoundWavesModel from './model/SoundWavesModel.js';
-import SoundScreenView from './view/SoundScreenView.js';
 import Tandem from '../../../tandem/js/Tandem.js';
-import PhetioProperty from '../../../axon/js/PhetioProperty.js';
+import soundWaves from '../soundWaves.js';
+import SoundWavesModel from './model/SoundWavesModel.js';
+import SoundWavesColors from './SoundWavesColors.js';
+import SoundScreenView from './view/SoundScreenView.js';
 
 export default class SoundWavesScreen<T extends SoundWavesModel> extends Screen<T, SoundScreenView> {
   public constructor( title: PhetioProperty<string>, createModel: () => T, createView: ( model: T ) => SoundScreenView, iconImage: Node ) {

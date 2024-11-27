@@ -10,8 +10,8 @@
  */
 
 import Lattice from '../../../../scenery-phet/js/Lattice.js';
-import SoundWavesConstants from '../SoundWavesConstants.js';
 import soundWaves from '../../soundWaves.js';
+import SoundWavesConstants from '../SoundWavesConstants.js';
 
 type DeltaEntry = {
   isSourceOn: boolean;

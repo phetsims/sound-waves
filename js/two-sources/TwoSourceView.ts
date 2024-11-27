@@ -12,10 +12,10 @@ import { Image, Line, Node } from '../../../scenery/js/imports.js';
 import girl_png from '../../images/girl_png.js';
 import SoundWavesConstants from '../common/SoundWavesConstants.js';
 import MovableNode from '../common/view/MovableNode.js';
+import SoundScreenView from '../common/view/SoundScreenView.js';
 import SpeakerNode from '../common/view/SpeakerNode.js';
 import soundWaves from '../soundWaves.js';
 import TwoSourceModel from '../two-sources/TwoSourceModel.js';
-import SoundScreenView from '../common/view/SoundScreenView.js';
 
 export default class TwoSourceView extends SoundScreenView {
   private readonly listener: MovableNode;

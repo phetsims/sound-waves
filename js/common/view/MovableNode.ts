@@ -7,12 +7,12 @@
  */
 
 import Property from '../../../../axon/js/Property.js';
-import soundWaves from '../../soundWaves.js';
-import { Node, DragListener } from '../../../../scenery/js/imports.js';
+import TProperty from '../../../../axon/js/TProperty.js';
+import Bounds2 from '../../../../dot/js/Bounds2.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
-import Bounds2 from '../../../../dot/js/Bounds2.js';
-import TProperty from '../../../../axon/js/TProperty.js';
+import { DragListener, Node } from '../../../../scenery/js/imports.js';
+import soundWaves from '../../soundWaves.js';
 
 export default class MovableNode extends Node {
   private readonly movableDragHandler: DragListener;

@@ -6,19 +6,19 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
+import Bounds2 from '../../../dot/js/Bounds2.js';
 import Vector2 from '../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../phetcommon/js/view/ModelViewTransform2.js';
 import RulerNode from '../../../scenery-phet/js/RulerNode.js';
 import StopwatchNode from '../../../scenery-phet/js/StopwatchNode.js';
-import MovableNode from '../common/view/MovableNode.js';
-import soundWaves from '../soundWaves.js';
-import MeasureModel from '../measure/MeasureModel.js';
-import SoundScreenView from '../common/view/SoundScreenView.js';
-import SoundWavesConstants from '../common/SoundWavesConstants.js';
-import RectangularPushButton from '../../../sun/js/buttons/RectangularPushButton.js';
 import { Text } from '../../../scenery/js/imports.js';
+import RectangularPushButton from '../../../sun/js/buttons/RectangularPushButton.js';
+import SoundWavesConstants from '../common/SoundWavesConstants.js';
+import MovableNode from '../common/view/MovableNode.js';
+import SoundScreenView from '../common/view/SoundScreenView.js';
+import MeasureModel from '../measure/MeasureModel.js';
+import soundWaves from '../soundWaves.js';
 import SoundWavesStrings from '../SoundWavesStrings.js';
-import Bounds2 from '../../../dot/js/Bounds2.js';
 
 export default class MeasureView extends SoundScreenView {
   public constructor( model: MeasureModel ) {

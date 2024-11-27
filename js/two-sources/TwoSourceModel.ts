@@ -6,12 +6,12 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
+import Multilink from '../../../axon/js/Multilink.js';
 import Vector2 from '../../../dot/js/Vector2.js';
 import Vector2Property from '../../../dot/js/Vector2Property.js';
+import SoundWavesModel from '../common/model/SoundWavesModel.js';
 import SoundWavesConstants from '../common/SoundWavesConstants.js';
 import soundWaves from '../soundWaves.js';
-import SoundWavesModel from '../common/model/SoundWavesModel.js';
-import Multilink from '../../../axon/js/Multilink.js';
 
 export default class TwoSourceModel extends SoundWavesModel {
 

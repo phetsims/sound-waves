@@ -6,15 +6,15 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
+import optionize from '../../../../phet-core/js/optionize.js';
 import { AlignGroup, Text, VBox } from '../../../../scenery/js/imports.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
 import VerticalAquaRadioButtonGroup from '../../../../sun/js/VerticalAquaRadioButtonGroup.js';
-import SoundWavesConstants from '../SoundWavesConstants.js';
+import ReflectionModel from '../../reflection/ReflectionModel.js';
 import soundWaves from '../../soundWaves.js';
 import SoundWavesStrings from '../../SoundWavesStrings.js';
+import SoundWavesConstants from '../SoundWavesConstants.js';
 import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
-import ReflectionModel from '../../reflection/ReflectionModel.js';
-import optionize from '../../../../phet-core/js/optionize.js';
 
 type SelfOptions = {
   yMargin?: number;

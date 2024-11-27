@@ -10,10 +10,10 @@
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import Stopwatch from '../../../../scenery-phet/js/Stopwatch.js';
 import { AlignGroup, VBox } from '../../../../scenery/js/imports.js';
-import SoundWavesConstants from '../SoundWavesConstants.js';
-import soundWaves from '../../soundWaves.js';
 import SoundWavesModel from '../../common/model/SoundWavesModel.js';
+import soundWaves from '../../soundWaves.js';
 import SoundWavesStrings from '../../SoundWavesStrings.js';
+import SoundWavesConstants from '../SoundWavesConstants.js';
 import PropertyControlSlider from './PropertyControlSlider.js';
 import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
 

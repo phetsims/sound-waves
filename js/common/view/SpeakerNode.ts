@@ -7,8 +7,8 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
+import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
-import { Node, Image } from '../../../../scenery/js/imports.js';
 import speakerL10Image from '../../../../scenery-phet/images/speaker/speaker_L10_png.js';
 import speakerL1Image from '../../../../scenery-phet/images/speaker/speaker_L1_png.js';
 import speakerL2Image from '../../../../scenery-phet/images/speaker/speaker_L2_png.js';
@@ -30,9 +30,9 @@ import speakerR6Image from '../../../../scenery-phet/images/speaker/speaker_R6_p
 import speakerR7Image from '../../../../scenery-phet/images/speaker/speaker_R7_png.js';
 import speakerR8Image from '../../../../scenery-phet/images/speaker/speaker_R8_png.js';
 import speakerR9Image from '../../../../scenery-phet/images/speaker/speaker_R9_png.js';
-import SoundWavesConstants from '../SoundWavesConstants.js';
+import { Image, Node } from '../../../../scenery/js/imports.js';
 import soundWaves from '../../soundWaves.js';
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import SoundWavesConstants from '../SoundWavesConstants.js';
 
 // variables
 const speakers = [

@@ -11,9 +11,9 @@ import { Node, Rectangle } from '../../../scenery/js/imports.js';
 import SoundWavesConstants from '../common/SoundWavesConstants.js';
 import ReflectionControlPanel from '../common/view/ReflectionControlPanel.js';
 import SoundModeControlPanel from '../common/view/SoundModeControlPanel.js';
-import soundWaves from '../soundWaves.js';
 import SoundScreenView from '../common/view/SoundScreenView.js';
 import ReflectionModel from '../reflection/ReflectionModel.js';
+import soundWaves from '../soundWaves.js';
 
 export default class ReflectionView extends SoundScreenView {
 

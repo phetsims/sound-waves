@@ -10,10 +10,10 @@ import Property from '../../../../axon/js/Property.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
 import { AlignGroup, Node, Text } from '../../../../scenery/js/imports.js';
 import Checkbox from '../../../../sun/js/Checkbox.js';
-import SoundWavesConstants from '../SoundWavesConstants.js';
-import soundWaves from '../../soundWaves.js';
 import SoundWavesModel from '../../common/model/SoundWavesModel.js';
+import soundWaves from '../../soundWaves.js';
 import SoundWavesStrings from '../../SoundWavesStrings.js';
+import SoundWavesConstants from '../SoundWavesConstants.js';
 import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
 
 type SelfOptions = EmptySelfOptions;

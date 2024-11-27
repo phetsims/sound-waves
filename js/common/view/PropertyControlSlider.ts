@@ -7,14 +7,14 @@
  */
 
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import Utils from '../../../../dot/js/Utils.js';
 import optionize from '../../../../phet-core/js/optionize.js';
 import { NodeOptions, Text, VBox } from '../../../../scenery/js/imports.js';
 import SoundSlider from '../../common/view/SoundSlider.js';
 import soundWaves from '../../soundWaves.js';
-import PatternStringProperty from '../../../../axon/js/PatternStringProperty.js';
 import SoundWavesStrings from '../../SoundWavesStrings.js';
-import Utils from '../../../../dot/js/Utils.js';
 import SoundWavesConstants from '../SoundWavesConstants.js';
 
 type SelfOptions = {

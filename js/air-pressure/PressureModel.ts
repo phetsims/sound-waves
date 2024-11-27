@@ -11,9 +11,9 @@ import Property from '../../../axon/js/Property.js';
 import Range from '../../../dot/js/Range.js';
 import Vector2 from '../../../dot/js/Vector2.js';
 import Vector2Property from '../../../dot/js/Vector2Property.js';
+import SoundWavesModel from '../common/model/SoundWavesModel.js';
 import SoundWavesConstants from '../common/SoundWavesConstants.js';
 import soundWaves from '../soundWaves.js';
-import SoundWavesModel from '../common/model/SoundWavesModel.js';
 
 export default class PressureModel extends SoundWavesModel {
 

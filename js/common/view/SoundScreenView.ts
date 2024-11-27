@@ -1,4 +1,5 @@
 // Copyright 2022-2024, University of Colorado Boulder
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 /**
  * Base view for the screens.
  *
@@ -6,15 +7,16 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
+import Property from '../../../../axon/js/Property.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
 import ScreenView from '../../../../joist/js/ScreenView.js';
 import ResetAllButton from '../../../../scenery-phet/js/buttons/ResetAllButton.js';
 import GaugeNode from '../../../../scenery-phet/js/GaugeNode.js';
 import TimeControlNode from '../../../../scenery-phet/js/TimeControlNode.js';
-import { AlignGroup, Rectangle, Text, Color, VBox } from '../../../../scenery/js/imports.js';
-import soundManager from '../../../../tambo/js/soundManager.js';
+import { AlignGroup, Color, Rectangle, Text, VBox } from '../../../../scenery/js/imports.js';
 import WaveGenerator from '../../../../tambo/js/sound-generators/WaveGenerator.js';
-import SoundWavesConstants from '../SoundWavesConstants.js';
+import soundManager from '../../../../tambo/js/soundManager.js';
+import Tandem from '../../../../tandem/js/Tandem.js';
 import AudioControlPanel from '../../common/view/AudioControlPanel.js';
 import LatticeCanvasNode from '../../common/view/LatticeCanvasNode.js';
 import SoundControlPanel from '../../common/view/SoundControlPanel.js';
@@ -22,9 +24,7 @@ import SpeakerNode from '../../common/view/SpeakerNode.js';
 import soundWaves from '../../soundWaves.js';
 import SoundWavesStrings from '../../SoundWavesStrings.js';
 import SoundWavesModel from '../model/SoundWavesModel.js';
-import Tandem from '../../../../tandem/js/Tandem.js';
-import Property from '../../../../axon/js/Property.js';
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+import SoundWavesConstants from '../SoundWavesConstants.js';
 
 // constants
 const WAVE_MARGIN = 8; // Additional margin shown around the wave lattice

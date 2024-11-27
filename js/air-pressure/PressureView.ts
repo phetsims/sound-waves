@@ -10,9 +10,9 @@ import { Image } from '../../../scenery/js/imports.js';
 import girl_png from '../../images/girl_png.js';
 import SoundWavesConstants from '../common/SoundWavesConstants.js';
 import AirDensityControlPanel from '../common/view/AirDensityControlPanel.js';
+import SoundScreenView from '../common/view/SoundScreenView.js';
 import soundWaves from '../soundWaves.js';
 import PressureModel from './PressureModel.js';
-import SoundScreenView from '../common/view/SoundScreenView.js';
 
 export default class PressureView extends SoundScreenView {
   private readonly listener: Image;

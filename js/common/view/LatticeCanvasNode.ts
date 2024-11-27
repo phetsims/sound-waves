@@ -9,12 +9,12 @@
 
 import Utils from '../../../../dot/js/Utils.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
-import { CanvasNode, CanvasNodeOptions, Color } from '../../../../scenery/js/imports.js';
-import ImageDataRenderer from '../../../../scenery-phet/js/ImageDataRenderer.js';
-import SoundWavesConstants from '../SoundWavesConstants.js';
-import soundWaves from '../../soundWaves.js';
-import Lattice from '../../../../scenery-phet/js/Lattice.js';
 import optionize from '../../../../phet-core/js/optionize.js';
+import ImageDataRenderer from '../../../../scenery-phet/js/ImageDataRenderer.js';
+import Lattice from '../../../../scenery-phet/js/Lattice.js';
+import { CanvasNode, CanvasNodeOptions, Color } from '../../../../scenery/js/imports.js';
+import soundWaves from '../../soundWaves.js';
+import SoundWavesConstants from '../SoundWavesConstants.js';
 
 // constants
 const CUTOFF = 0.4;

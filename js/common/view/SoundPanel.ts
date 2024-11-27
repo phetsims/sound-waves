@@ -7,10 +7,10 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
-import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
-import { Node } from '../../../../scenery/js/imports.js';
-import soundWaves from '../../soundWaves.js';
 import optionize, { EmptySelfOptions } from '../../../../phet-core/js/optionize.js';
+import { Node } from '../../../../scenery/js/imports.js';
+import Panel, { PanelOptions } from '../../../../sun/js/Panel.js';
+import soundWaves from '../../soundWaves.js';
 
 type SelfOptions = EmptySelfOptions;
 export type SoundPanelOptions = PanelOptions & SelfOptions;

@@ -6,13 +6,13 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
+import Multilink from '../../../axon/js/Multilink.js';
 import NumberProperty from '../../../axon/js/NumberProperty.js';
 import Property from '../../../axon/js/Property.js';
 import Range from '../../../dot/js/Range.js';
+import SoundWavesModel from '../common/model/SoundWavesModel.js';
 import SoundWavesConstants from '../common/SoundWavesConstants.js';
 import soundWaves from '../soundWaves.js';
-import SoundWavesModel from '../common/model/SoundWavesModel.js';
-import Multilink from '../../../axon/js/Multilink.js';
 
 export default class ReflectionModel extends SoundWavesModel {
 
