@@ -30,7 +30,8 @@ import speakerR6Image from '../../../../scenery-phet/images/speaker/speaker_R6_p
 import speakerR7Image from '../../../../scenery-phet/images/speaker/speaker_R7_png.js';
 import speakerR8Image from '../../../../scenery-phet/images/speaker/speaker_R8_png.js';
 import speakerR9Image from '../../../../scenery-phet/images/speaker/speaker_R9_png.js';
-import { Image, Node } from '../../../../scenery/js/imports.js';
+import Image from '../../../../scenery/js/nodes/Image.js';
+import Node from '../../../../scenery/js/nodes/Node.js';
 import soundWaves from '../../soundWaves.js';
 import SoundWavesConstants from '../SoundWavesConstants.js';
 

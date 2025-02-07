@@ -8,7 +8,9 @@
 
 import Bounds2 from '../../../dot/js/Bounds2.js';
 import Vector2 from '../../../dot/js/Vector2.js';
-import { Image, Line, Node } from '../../../scenery/js/imports.js';
+import Image from '../../../scenery/js/nodes/Image.js';
+import Line from '../../../scenery/js/nodes/Line.js';
+import Node from '../../../scenery/js/nodes/Node.js';
 import girl_png from '../../images/girl_png.js';
 import SoundWavesConstants from '../common/SoundWavesConstants.js';
 import MovableNode from '../common/view/MovableNode.js';

@@ -10,7 +10,7 @@ import PhetioProperty from '../../../axon/js/PhetioProperty.js';
 import Dimension2 from '../../../dot/js/Dimension2.js';
 import Screen, { ScreenOptions } from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
-import { Node } from '../../../scenery/js/imports.js';
+import Node from '../../../scenery/js/nodes/Node.js';
 import Tandem from '../../../tandem/js/Tandem.js';
 import soundWaves from '../soundWaves.js';
 import SoundWavesModel from './model/SoundWavesModel.js';

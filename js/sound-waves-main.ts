@@ -8,7 +8,7 @@
 
 import Sim from '../../joist/js/Sim.js';
 import simLauncher from '../../joist/js/simLauncher.js';
-import { Image } from '../../scenery/js/imports.js';
+import Image from '../../scenery/js/nodes/Image.js';
 import measureIcon_png from '../images/measureIcon_png.js';
 import pressureIcon_png from '../images/pressureIcon_png.js';
 import reflectionIcon_png from '../images/reflectionIcon_png.js';

@@ -11,7 +11,7 @@ import Vector2 from '../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../phetcommon/js/view/ModelViewTransform2.js';
 import RulerNode from '../../../scenery-phet/js/RulerNode.js';
 import StopwatchNode from '../../../scenery-phet/js/StopwatchNode.js';
-import { Text } from '../../../scenery/js/imports.js';
+import Text from '../../../scenery/js/nodes/Text.js';
 import RectangularPushButton from '../../../sun/js/buttons/RectangularPushButton.js';
 import SoundWavesConstants from '../common/SoundWavesConstants.js';
 import MovableNode from '../common/view/MovableNode.js';

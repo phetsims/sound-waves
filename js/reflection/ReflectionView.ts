@@ -6,8 +6,9 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
-import { Shape } from '../../../kite/js/imports.js';
-import { Node, Rectangle } from '../../../scenery/js/imports.js';
+import Shape from '../../../kite/js/Shape.js';
+import Node from '../../../scenery/js/nodes/Node.js';
+import Rectangle from '../../../scenery/js/nodes/Rectangle.js';
 import SoundWavesConstants from '../common/SoundWavesConstants.js';
 import ReflectionControlPanel from '../common/view/ReflectionControlPanel.js';
 import SoundModeControlPanel from '../common/view/SoundModeControlPanel.js';

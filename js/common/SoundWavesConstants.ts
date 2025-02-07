@@ -11,7 +11,7 @@ import Dimension2 from '../../../dot/js/Dimension2.js';
 import Range from '../../../dot/js/Range.js';
 import Utils from '../../../dot/js/Utils.js';
 import Lattice from '../../../scenery-phet/js/Lattice.js';
-import { Node } from '../../../scenery/js/imports.js';
+import Node from '../../../scenery/js/nodes/Node.js';
 import soundWaves from '../soundWaves.js';
 
 const LATTICE_DIMENSION = 151;

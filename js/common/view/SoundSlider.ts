@@ -12,7 +12,7 @@ import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Dimension2 from '../../../../dot/js/Dimension2.js';
 import Utils from '../../../../dot/js/Utils.js';
 import optionize from '../../../../phet-core/js/optionize.js';
-import { SceneryEvent } from '../../../../scenery/js/imports.js';
+import SceneryEvent from '../../../../scenery/js/input/SceneryEvent.js';
 import HSlider, { HSliderOptions } from '../../../../sun/js/HSlider.js';
 import sharedSoundPlayers from '../../../../tambo/js/sharedSoundPlayers.js';
 import soundWaves from '../../soundWaves.js';
