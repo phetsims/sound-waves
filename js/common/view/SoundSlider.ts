@@ -1,4 +1,4 @@
-// Copyright 2022-2024, University of Colorado Boulder
+// Copyright 2022-2025, University of Colorado Boulder
 /* eslint-disable */
 /**
  * Slider abstraction for the frequency and amplitude sliders--but note that light frequency slider uses spectrum for
