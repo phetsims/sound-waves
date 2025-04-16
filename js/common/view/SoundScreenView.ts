@@ -1,11 +1,12 @@
 // Copyright 2022-2025, University of Colorado Boulder
-import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
+
 /**
  * Base view for the screens.
  *
  * @author Piet Goris (University of Leuven)
  * @author Sam Reid (PhET Interactive Simulations)
  */
+import DerivedProperty from '../../../../axon/js/DerivedProperty.js';
 import NumberProperty from '../../../../axon/js/NumberProperty.js';
 import Property from '../../../../axon/js/Property.js';
 import Vector2 from '../../../../dot/js/Vector2.js';
