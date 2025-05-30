@@ -6,7 +6,7 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
-import PhetioProperty from '../../../axon/js/PhetioProperty.js';
+import ReadOnlyProperty from '../../../axon/js/ReadOnlyProperty.js';
 import Dimension2 from '../../../dot/js/Dimension2.js';
 import Screen, { ScreenOptions } from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
@@ -18,7 +18,7 @@ import SoundWavesColors from './SoundWavesColors.js';
 import SoundScreenView from './view/SoundScreenView.js';
 
 export default class SoundWavesScreen<T extends SoundWavesModel> extends Screen<T, SoundScreenView> {
-  public constructor( title: PhetioProperty<string>, createModel: () => T, createView: ( model: T ) => SoundScreenView, iconImage: Node ) {
+  public constructor( title: ReadOnlyProperty<string>, createModel: () => T, createView: ( model: T ) => SoundScreenView, iconImage: Node ) {
 
     const options: ScreenOptions = {
       backgroundColorProperty: SoundWavesColors.SCREEN_VIEW_BACKGROUND,
