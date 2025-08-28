@@ -7,7 +7,7 @@
  * @author Sam Reid (PhET Interactive Simulations)
  */
 
-import TReadOnlyProperty from '../../../../axon/js/TReadOnlyProperty.js';
+import { TReadOnlyProperty } from '../../../../axon/js/TReadOnlyProperty.js';
 import Utils from '../../../../dot/js/Utils.js';
 import speakerL10Image from '../../../../scenery-phet/images/speaker/speaker_L10_png.js';
 import speakerL1Image from '../../../../scenery-phet/images/speaker/speaker_L1_png.js';
