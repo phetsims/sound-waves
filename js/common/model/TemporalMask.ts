@@ -64,7 +64,7 @@ export default class TemporalMask {
 
         // Find out when this delta is in effect
         const startTime = delta.numberOfSteps;
-        const endTime = this.deltas[ k + 1 ] ? this.deltas[ k + 1 ].numberOfSteps : numberOfSteps;
+        const endTime = ( this.deltas[ k + 1 ] !== undefined ) ? this.deltas[ k + 1 ].numberOfSteps : numberOfSteps;
 
         const theoreticalTime = numberOfSteps - distance / ( Lattice.WAVE_SPEED );
 
