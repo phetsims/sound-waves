@@ -49,7 +49,7 @@
     "branch": "HEAD"
   },
   "phetcommon": {
-    "sha": "6c661bcd23d27f81d279978896439a9bbcf70ced",
+    "sha": "899038237518a45f1775040e66f6a45a95378d6b",
     "branch": "HEAD"
   },
   "phetmarks": {
@@ -73,7 +73,7 @@
     "branch": "HEAD"
   },
   "sound-waves": {
-    "sha": "67df590404630af7306beb949bd2bb2e94ed38f3",
+    "sha": "ca75e89a7928c56e8015cd98ff2f002eaf301057",
     "branch": "1.1"
   },
   "studio": {
