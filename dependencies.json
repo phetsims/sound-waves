@@ -29,7 +29,7 @@
     "branch": "HEAD"
   },
   "perennial-alias": {
-    "sha": "4d8ef43bc3fb037dbbfeea385030d44b9d61d2b8",
+    "sha": "8990062657dbdbf21d771d0a18380139749bb8b7",
     "branch": "HEAD"
   },
   "phet-core": {
@@ -73,7 +73,7 @@
     "branch": "HEAD"
   },
   "sound-waves": {
-    "sha": "607107196343f96776cafd5aa380aae2b9361c62",
+    "sha": "a1f84da58422040dce62d4db856c0fe0cac00453",
     "branch": "1.1"
   },
   "studio": {
