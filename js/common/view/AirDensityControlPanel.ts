@@ -13,7 +13,6 @@ import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
 import PressureModel from '../../air-pressure/PressureModel.js';
-import soundWaves from '../../soundWaves.js';
 import SoundWavesStrings from '../../SoundWavesStrings.js';
 import SoundWavesConstants from '../SoundWavesConstants.js';
 import PropertyControlSlider from './PropertyControlSlider.js';
@@ -52,5 +51,3 @@ export default class AirDensityControlPanel extends SoundPanel {
     super( content, options );
   }
 }
-
-soundWaves.register( 'AirDensityControlPanel', AirDensityControlPanel );

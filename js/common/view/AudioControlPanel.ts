@@ -13,7 +13,6 @@ import Node from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import Checkbox from '../../../../sun/js/Checkbox.js';
 import SoundWavesModel from '../../common/model/SoundWavesModel.js';
-import soundWaves from '../../soundWaves.js';
 import SoundWavesStrings from '../../SoundWavesStrings.js';
 import SoundWavesConstants from '../SoundWavesConstants.js';
 import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
@@ -52,5 +51,3 @@ export default class AudioControlPanel extends SoundPanel {
     super( content, options );
   }
 }
-
-soundWaves.register( 'AudioControlPanel', AudioControlPanel );

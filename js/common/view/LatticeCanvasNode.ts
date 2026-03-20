@@ -14,7 +14,6 @@ import ImageDataRenderer from '../../../../scenery-phet/js/ImageDataRenderer.js'
 import Lattice from '../../../../scenery-phet/js/Lattice.js';
 import CanvasNode, { CanvasNodeOptions } from '../../../../scenery/js/nodes/CanvasNode.js';
 import Color from '../../../../scenery/js/util/Color.js';
-import soundWaves from '../../soundWaves.js';
 import SoundWavesConstants from '../SoundWavesConstants.js';
 
 // constants
@@ -212,5 +211,3 @@ export default class LatticeCanvasNode extends CanvasNode {
     context.restore();
   }
 }
-
-soundWaves.register( 'LatticeCanvasNode', LatticeCanvasNode );

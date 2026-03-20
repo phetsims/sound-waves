@@ -26,7 +26,6 @@ import AudioControlPanel from '../../common/view/AudioControlPanel.js';
 import LatticeCanvasNode from '../../common/view/LatticeCanvasNode.js';
 import SoundControlPanel from '../../common/view/SoundControlPanel.js';
 import SpeakerNode from '../../common/view/SpeakerNode.js';
-import soundWaves from '../../soundWaves.js';
 import SoundWavesStrings from '../../SoundWavesStrings.js';
 import SoundWavesModel from '../model/SoundWavesModel.js';
 import SoundWavesConstants from '../SoundWavesConstants.js';
@@ -231,5 +230,3 @@ export default class SoundScreenView extends ScreenView {
     this.addChild( resetAllButton );
   }
 }
-
-soundWaves.register( 'SoundScreenView', SoundScreenView );

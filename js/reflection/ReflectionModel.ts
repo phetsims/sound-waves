@@ -12,7 +12,6 @@ import Property from '../../../axon/js/Property.js';
 import Range from '../../../dot/js/Range.js';
 import SoundWavesModel from '../common/model/SoundWavesModel.js';
 import SoundWavesConstants from '../common/SoundWavesConstants.js';
-import soundWaves from '../soundWaves.js';
 
 export default class ReflectionModel extends SoundWavesModel {
 
@@ -57,5 +56,3 @@ export default class ReflectionModel extends SoundWavesModel {
     super.reset();
   }
 }
-
-soundWaves.register( 'ReflectionModel', ReflectionModel );

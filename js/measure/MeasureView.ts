@@ -17,7 +17,6 @@ import SoundWavesConstants from '../common/SoundWavesConstants.js';
 import MovableNode from '../common/view/MovableNode.js';
 import SoundScreenView from '../common/view/SoundScreenView.js';
 import MeasureModel from '../measure/MeasureModel.js';
-import soundWaves from '../soundWaves.js';
 import SoundWavesStrings from '../SoundWavesStrings.js';
 
 export default class MeasureView extends SoundScreenView {
@@ -78,5 +77,3 @@ export default class MeasureView extends SoundScreenView {
     this.addChild( stopwatchNode );
   }
 }
-
-soundWaves.register( 'MeasureView', MeasureView );

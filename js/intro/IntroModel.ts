@@ -11,7 +11,6 @@ import Vector2 from '../../../dot/js/Vector2.js';
 import Vector2Property from '../../../dot/js/Vector2Property.js';
 import SoundWavesModel from '../common/model/SoundWavesModel.js';
 import SoundWavesConstants from '../common/SoundWavesConstants.js';
-import soundWaves from '../soundWaves.js';
 
 export default class IntroModel extends SoundWavesModel {
 
@@ -37,5 +36,3 @@ export default class IntroModel extends SoundWavesModel {
     this.listenerPositionProperty.reset();
   }
 }
-
-soundWaves.register( 'IntroModel', IntroModel );

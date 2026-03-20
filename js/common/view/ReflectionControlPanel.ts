@@ -11,7 +11,6 @@ import AlignGroup from '../../../../scenery/js/layout/constraints/AlignGroup.js'
 import ManualConstraint from '../../../../scenery/js/layout/constraints/ManualConstraint.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
 import ReflectionModel from '../../reflection/ReflectionModel.js';
-import soundWaves from '../../soundWaves.js';
 import SoundWavesStrings from '../../SoundWavesStrings.js';
 import SoundWavesConstants from '../SoundWavesConstants.js';
 import PropertyControlSlider from './PropertyControlSlider.js';
@@ -51,5 +50,3 @@ export default class ReflectionControlPanel extends SoundPanel {
     } );
   }
 }
-
-soundWaves.register( 'ReflectionControlPanel', ReflectionControlPanel );

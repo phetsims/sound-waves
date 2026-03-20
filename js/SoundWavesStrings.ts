@@ -54,6 +54,4 @@ type StringsType = {
 
 const SoundWavesStrings = getStringModule( 'SOUND_WAVES' ) as StringsType;
 
-soundWaves.register( 'SoundWavesStrings', SoundWavesStrings );
-
 export default SoundWavesStrings;

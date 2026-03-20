@@ -13,7 +13,6 @@ import Vector2 from '../../../../dot/js/Vector2.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import DragListener from '../../../../scenery/js/listeners/DragListener.js';
 import Node from '../../../../scenery/js/nodes/Node.js';
-import soundWaves from '../../soundWaves.js';
 
 export default class MovableNode extends Node {
   private readonly movableDragHandler: DragListener;
@@ -44,5 +43,3 @@ export default class MovableNode extends Node {
   }
 
 }
-
-soundWaves.register( 'MovableNode', MovableNode );

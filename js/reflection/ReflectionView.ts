@@ -14,7 +14,6 @@ import ReflectionControlPanel from '../common/view/ReflectionControlPanel.js';
 import SoundModeControlPanel from '../common/view/SoundModeControlPanel.js';
 import SoundScreenView from '../common/view/SoundScreenView.js';
 import ReflectionModel from '../reflection/ReflectionModel.js';
-import soundWaves from '../soundWaves.js';
 
 export default class ReflectionView extends SoundScreenView {
 
@@ -76,5 +75,3 @@ export default class ReflectionView extends SoundScreenView {
     this.controlPanelContainer.addChild( this.soundModeControlPanel );
   }
 }
-
-soundWaves.register( 'ReflectionView', ReflectionView );

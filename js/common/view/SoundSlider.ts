@@ -144,5 +144,3 @@ export default class SoundSlider extends HSlider {
     } );
   }
 }
-
-soundWaves.register( 'SoundSlider', SoundSlider );

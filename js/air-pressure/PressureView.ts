@@ -11,7 +11,6 @@ import girl_png from '../../images/girl_png.js';
 import SoundWavesConstants from '../common/SoundWavesConstants.js';
 import AirDensityControlPanel from '../common/view/AirDensityControlPanel.js';
 import SoundScreenView from '../common/view/SoundScreenView.js';
-import soundWaves from '../soundWaves.js';
 import PressureModel from './PressureModel.js';
 
 export default class PressureView extends SoundScreenView {
@@ -38,5 +37,3 @@ export default class PressureView extends SoundScreenView {
     this.controlPanelContainer.addChild( this.pressureControlPanel );
   }
 }
-
-soundWaves.register( 'PressureView', PressureView );

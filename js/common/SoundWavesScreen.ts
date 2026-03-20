@@ -12,7 +12,6 @@ import Screen, { ScreenOptions } from '../../../joist/js/Screen.js';
 import ScreenIcon from '../../../joist/js/ScreenIcon.js';
 import Node from '../../../scenery/js/nodes/Node.js';
 import Tandem from '../../../tandem/js/Tandem.js';
-import soundWaves from '../soundWaves.js';
 import SoundWavesModel from './model/SoundWavesModel.js';
 import SoundWavesColors from './SoundWavesColors.js';
 import SoundScreenView from './view/SoundScreenView.js';
@@ -40,5 +39,3 @@ export default class SoundWavesScreen<T extends SoundWavesModel> extends Screen<
     );
   }
 }
-
-soundWaves.register( 'SoundWavesScreen', SoundWavesScreen );

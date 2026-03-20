@@ -12,7 +12,6 @@ import Stopwatch from '../../../../scenery-phet/js/Stopwatch.js';
 import AlignGroup from '../../../../scenery/js/layout/constraints/AlignGroup.js';
 import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import SoundWavesModel from '../../common/model/SoundWavesModel.js';
-import soundWaves from '../../soundWaves.js';
 import SoundWavesStrings from '../../SoundWavesStrings.js';
 import SoundWavesConstants from '../SoundWavesConstants.js';
 import PropertyControlSlider from './PropertyControlSlider.js';
@@ -54,5 +53,3 @@ export default class SoundControlPanel extends SoundPanel {
     super( content, options );
   }
 }
-
-soundWaves.register( 'SoundControlPanel', SoundControlPanel );

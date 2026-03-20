@@ -11,7 +11,6 @@ import Vector2 from '../../../dot/js/Vector2.js';
 import Vector2Property from '../../../dot/js/Vector2Property.js';
 import Stopwatch from '../../../scenery-phet/js/Stopwatch.js';
 import SoundWavesModel from '../common/model/SoundWavesModel.js';
-import soundWaves from '../soundWaves.js';
 
 export default class MeasureModel extends SoundWavesModel {
   public readonly stopwatch: Stopwatch;
@@ -43,5 +42,3 @@ export default class MeasureModel extends SoundWavesModel {
     this.rulerPositionProperty.reset();
   }
 }
-
-soundWaves.register( 'MeasureModel', MeasureModel );

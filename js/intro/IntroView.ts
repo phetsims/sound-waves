@@ -13,7 +13,6 @@ import girl_png from '../../images/girl_png.js';
 import SoundWavesConstants from '../common/SoundWavesConstants.js';
 import MovableNode from '../common/view/MovableNode.js';
 import SoundScreenView from '../common/view/SoundScreenView.js';
-import soundWaves from '../soundWaves.js';
 import IntroModel from './IntroModel.js';
 
 export default class IntroView extends SoundScreenView {
@@ -28,5 +27,3 @@ export default class IntroView extends SoundScreenView {
     this.addChild( new MovableNode( model.listenerPositionProperty, bounds, model.modelViewTransform!, child ) );
   }
 }
-
-soundWaves.register( 'IntroView', IntroView );

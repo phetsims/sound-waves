@@ -81,5 +81,3 @@ export default class SpeakerNode extends Node {
     } );
   }
 }
-
-soundWaves.register( 'SpeakerNode', SpeakerNode );

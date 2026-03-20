@@ -16,7 +16,6 @@ import SoundWavesConstants from '../common/SoundWavesConstants.js';
 import MovableNode from '../common/view/MovableNode.js';
 import SoundScreenView from '../common/view/SoundScreenView.js';
 import SpeakerNode from '../common/view/SpeakerNode.js';
-import soundWaves from '../soundWaves.js';
 import TwoSourceModel from '../two-sources/TwoSourceModel.js';
 
 export default class TwoSourceView extends SoundScreenView {
@@ -55,5 +54,3 @@ export default class TwoSourceView extends SoundScreenView {
     } );
   }
 }
-
-soundWaves.register( 'TwoSourceView', TwoSourceView );

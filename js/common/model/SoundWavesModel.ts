@@ -19,7 +19,6 @@ import optionize from '../../../../phet-core/js/optionize.js';
 import ModelViewTransform2 from '../../../../phetcommon/js/view/ModelViewTransform2.js';
 import Lattice from '../../../../scenery-phet/js/Lattice.js';
 import TemporalMask from '../../common/model/TemporalMask.js';
-import soundWaves from '../../soundWaves.js';
 import SoundWavesConstants from '../SoundWavesConstants.js';
 
 // This simulation uses EventTimer, which provides exactly the same model behavior on very slow and very fast
@@ -374,5 +373,3 @@ export default class SoundWavesModel implements TModel {
     }
   }
 }
-
-soundWaves.register( 'SoundWavesModel', SoundWavesModel );

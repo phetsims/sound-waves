@@ -12,7 +12,6 @@ import Range from '../../../dot/js/Range.js';
 import Utils from '../../../dot/js/Utils.js';
 import Lattice from '../../../scenery-phet/js/Lattice.js';
 import Node from '../../../scenery/js/nodes/Node.js';
-import soundWaves from '../soundWaves.js';
 
 const LATTICE_DIMENSION = 151;
 const LATTICE_PADDING = 20;
@@ -74,5 +73,4 @@ const SoundWavesConstants = {
   }
 };
 
-soundWaves.register( 'SoundWavesConstants', SoundWavesConstants );
 export default SoundWavesConstants;

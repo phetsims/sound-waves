@@ -15,7 +15,6 @@ import VBox from '../../../../scenery/js/layout/nodes/VBox.js';
 import { NodeOptions } from '../../../../scenery/js/nodes/Node.js';
 import Text from '../../../../scenery/js/nodes/Text.js';
 import SoundSlider from '../../common/view/SoundSlider.js';
-import soundWaves from '../../soundWaves.js';
 import SoundWavesStrings from '../../SoundWavesStrings.js';
 import SoundWavesConstants from '../SoundWavesConstants.js';
 
@@ -49,5 +48,3 @@ export default class PropertyControlSlider extends VBox {
     } );
   }
 }
-
-soundWaves.register( 'PropertyControlSlider', PropertyControlSlider );

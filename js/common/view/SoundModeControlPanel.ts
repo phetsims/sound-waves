@@ -13,7 +13,6 @@ import Text from '../../../../scenery/js/nodes/Text.js';
 import RectangularPushButton from '../../../../sun/js/buttons/RectangularPushButton.js';
 import VerticalAquaRadioButtonGroup from '../../../../sun/js/VerticalAquaRadioButtonGroup.js';
 import ReflectionModel from '../../reflection/ReflectionModel.js';
-import soundWaves from '../../soundWaves.js';
 import SoundWavesStrings from '../../SoundWavesStrings.js';
 import SoundWavesConstants from '../SoundWavesConstants.js';
 import SoundPanel, { SoundPanelOptions } from './SoundPanel.js';
@@ -70,5 +69,3 @@ export default class SoundModeControlPanel extends SoundPanel {
     super( content, options );
   }
 }
-
-soundWaves.register( 'SoundModeControlPanel', SoundModeControlPanel );
