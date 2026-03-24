@@ -61,7 +61,7 @@
     "branch": "HEAD"
   },
   "scenery": {
-    "sha": "e7d41648f552de6e8d367bf14d0f968103af4b4c",
+    "sha": "1eb5253db94e8101f868c03f1af793dba17bb424",
     "branch": "HEAD"
   },
   "scenery-phet": {
@@ -73,7 +73,7 @@
     "branch": "HEAD"
   },
   "sound-waves": {
-    "sha": "a66b9127afe489b0379f15e603371b30061f30b4",
+    "sha": "d71e7eacdf54ada7bc2c5899be4d9bd3f271e0cd",
     "branch": "1.1"
   },
   "studio": {
