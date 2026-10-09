@@ -1,93 +1,24 @@
-Sound Waves
-=============
-"Sound Waves" is an educational simulation in HTML5, by <a href="https://phet.colorado.edu/" target="_blank">PhET
-Interactive Simulations</a>
-at the University of Colorado Boulder. For a description of this simulation, associated resources, and a link to the
-published version,
-<a href="https://phet.colorado.edu/en/simulation/sound-waves" target="_blank">visit the simulation's web page</a>.
+# ⚠️ This Repository Is No Longer Maintained
 
-### Try it!
+This repository is **out of date and no longer actively maintained.**
 
-<a href="https://phet.colorado.edu/sims/html/sound-waves/latest/sound-waves_en.html" target="_blank">Click here to run "
-Sound Waves".</a>
+As part of our ongoing effort to better sustain the PhET project, we have restructured our library and consolidated our individual repositories into a single **monorepo**.
 
-<a href="https://phet.colorado.edu/sims/html/sound-waves/latest/sound-waves_en.html" target="_blank">
-<img src="https://raw.githubusercontent.com/phetsims/sound-waves/main/assets/sound-waves-screenshot.png" alt="Screenshot" style="width: 400px;"/>
-</a>
+## Current status
 
-### Documentation
+As part of this restructuring, we are currently reviewing what to make publicly available. The monorepo is **not publicly available at this time**, and we appreciate your patience while we work through this to keep the PhET project sustainable.
 
-The <a href="https://github.com/phetsims/phet-info/blob/main/doc/phet-development-overview.md" target="_blank">PhET
-Development Overview</a> is the most complete guide to PhET Simulation Development. This guide includes how to obtain
-simulation code and its dependencies, notes about architecture & design, how to test and build the sims, as well as
-other important information.
+In the meantime, please note that the code here is outdated. Issues and pull requests opened against this repository may not receive a response.
 
-### Quick Start
+## Why the change?
 
-(1) Clone the simulation and its dependencies:
+Moving to a monorepo allows us to:
 
-```
-git clone https://github.com/phetsims/assert.git
-git clone https://github.com/phetsims/axon.git
-git clone https://github.com/phetsims/babel.git
-git clone https://github.com/phetsims/brand.git
-git clone https://github.com/phetsims/chipper.git
-git clone https://github.com/phetsims/dot.git
-git clone https://github.com/phetsims/joist.git
-git clone https://github.com/phetsims/kite.git
-git clone https://github.com/phetsims/perennial.git perennial-alias
-git clone https://github.com/phetsims/phet-core.git
-git clone https://github.com/phetsims/phetcommon.git
-git clone https://github.com/phetsims/phetmarks.git
-git clone https://github.com/phetsims/query-string-machine.git
-git clone https://github.com/phetsims/scenery.git
-git clone https://github.com/phetsims/scenery-phet.git
-git clone https://github.com/phetsims/sherpa.git
-git clone https://github.com/phetsims/sound-waves.git
-git clone https://github.com/phetsims/sun.git
-git clone https://github.com/phetsims/tambo.git
-git clone https://github.com/phetsims/tandem.git
-git clone https://github.com/phetsims/twixt.git
-git clone https://github.com/phetsims/utterance-queue.git
-```
+- Coordinate changes across the library more easily
+- Simplify dependency management and versioning
+- Reduce maintenance overhead so we can focus on the project itself
+- Provide a more consistent experience for contributors and users
 
-(2) Install dev dependencies:
+## Thank you
 
-```
-cd chipper
-npm install
-cd ../perennial-alias
-npm install
-cd ../sound-waves
-npm install
-```
-
-(3) Transpile the TypeScript code to JavaScript by running `grunt output-js-project --live`. This starts a file-watching process that will automatically transpile
-new or changed files.
-
-(4) In a new terminal/command prompt, start an http-server
-
-(5) Open in the browser: `http://localhost/sound-waves/sound-waves_en.html` (You will probably need to modify this URL
-based on your HTTP port and relative path.)
-
-#### Optional: Build the simulation into a single file
-
-(1) Change directory to the simulation directory: `cd ../sound-waves`
-
-(2) Build the sim: `grunt --brands=adapted-from-phet`. It is safe to ignore warnings
-like `>> WARNING404: Skipping potentially non-public dependency`, which indicate that non-public PhET-iO code is not
-being included in the build.
-
-(3) Open in the browser: `http://localhost/sound-waves/build/adapted-from-phet/sound-waves_en_adapted-from-phet.html` (
-You will probably need to modify this URL based on your HTTP port and relative path.)
-
-### Get Involved
-
-This simulation was created using SceneryStack. Join the <a href="https://github.com/scenerystack" target="_blank">
-SceneryStack community</a> for resources and discussion around interactives like Sound Waves!
-
-Help us improve, create a <a href="http://github.com/phetsims/sound-waves/issues/new" target="_blank">New Issue</a>
-
-### License
-
-See the <a href="https://github.com/phetsims/sound-waves/blob/main/LICENSE" target="_blank">LICENSE</a>
+Thank you for your patience while we restructure our library to better sustain the PhET project. We appreciate your continued interest and support. You can access all of our free sims on our website: https://phet.colorado.edu/
